@@ -149,81 +149,94 @@ def safe_median(series):
 
 
 # ============================================================
-# DOWNLOAD USAspending TRANSACTIONS
+# DOWNLOAD USAspending TRANSACTIONS - FIXED
 # ============================================================
 
 END = date.today()
 START = END - timedelta(days=DAYS_BACK)
 
-payload = {
-    "filters": {
-        "award_amounts": [{"lower_bound": MIN_AWARD}],
-        "award_type_codes": ["A", "B", "C", "D"],
-        "time_period": [{
-            "start_date": str(START),
-            "end_date": str(END)
-        }]
-    },
-    "fields": [
-        "Award ID",
-        "Recipient Name",
-        "Action Date",
-        "Transaction Amount",
-        "Award Amount",
-        "Awarding Agency",
-        "Awarding Sub Agency",
-        "Funding Agency",
-        "Funding Sub Agency",
-        "Award Type",
-        "Contract Award Type",
-        "Action Type",
-        "Mod",
-        "Description"
-    ],
-    "sort": "Transaction Amount",
-    "order": "desc",
-    "limit": 100,
-    "page": 1
-}
+# Build a flat list of all keywords to search
+ALL_KEYWORDS = []
+for kw_list in MASTER.values():
+    ALL_KEYWORDS.extend(kw_list)
+# de-dupe
+ALL_KEYWORDS = list(dict.fromkeys(ALL_KEYWORDS))
+
+USA_API = "https://api.usaspending.gov/api/v2/search/spending_by_transaction/"
 
 session = requests.Session()
-session.headers.update({
-    "User-Agent": "RECON-Event-Study/4.0"
-})
+session.headers.update({"User-Agent": "RECON-Event-Study/4.0"})
 
 all_rows = []
-page = 1
 
-print(f"Downloading USAspending transactions {START} -> {END}...")
+# Chunk into 30-day windows to avoid 400
+window_days = 30
+curr_start = START
 
-while True:
-    payload["page"] = page
+while curr_start <= END:
+    curr_end = min(curr_start + timedelta(days=window_days-1), END)
+    print(f"Downloading {curr_start} -> {curr_end}...")
 
-    response = session.post(
-        USA_API,
-        json=payload,
-        timeout=60
-    )
-    response.raise_for_status()
+    for keyword in ALL_KEYWORDS:
+        payload = {
+            "filters": {
+                "award_type_codes": ["A", "B", "C", "D"],
+                "time_period": [{
+                    "start_date": str(curr_start),
+                    "end_date": str(curr_end)
+                }],
+                "recipient_search_text": [keyword]
+            },
+            "fields": [
+                "Award ID",
+                "Recipient Name",
+                "Action Date",
+                "Transaction Amount",
+                "Award Amount",
+                "Awarding Agency",
+                "Awarding Sub Agency",
+                "Funding Agency",
+                "Funding Sub Agency",
+                "Award Type",
+                "Contract Award Type",
+                "Action Type",
+                "Mod",
+                "Description"
+            ],
+            "sort": "Action Date",
+            "order": "desc",
+            "limit": 100,
+            "page": 1
+        }
 
-    page_data = response.json()
-    batch = page_data.get("results", [])
+        page = 1
+        while True:
+            payload["page"] = page
+            try:
+                response = session.post(USA_API, json=payload, timeout=60)
+                response.raise_for_status()
+                page_data = response.json()
+                batch = page_data.get("results", [])
+                if not batch:
+                    break
 
-    if not batch:
-        break
+                # Client-side amount filter since award_amounts filter invalid here
+                filtered = [r for r in batch if as_float(r.get("Transaction Amount") or r.get("Award Amount")) and as_float(r.get("Transaction Amount") or r.get("Award Amount")) >= MIN_AWARD]
+                all_rows.extend(filtered)
+                print(f" {keyword} page {page}: {len(batch)} ({len(filtered)} >=${MIN_AWARD/1e6}M)")
 
-    all_rows.extend(batch)
+                if not page_data.get("page_metadata", {}).get("hasNext", False):
+                    break
+                page += 1
+                time.sleep(0.25)
+            except Exception as e:
+                print(f" WARN {keyword} failed: {e}")
+                break
 
-    print(f"  page {page}: {len(batch)} transactions")
-
-    if not page_data.get("page_metadata", {}).get("hasNext", False):
-        break
-
-    page += 1
-    time.sleep(0.25)
+    curr_start = curr_end + timedelta(days=1)
+    time.sleep(0.5)
 
 print(f"Transactions downloaded: {len(all_rows)}")
-
 
 # ============================================================
 # EXTRACT PUBLIC-COMPANY INITIAL AWARD EVENTS
