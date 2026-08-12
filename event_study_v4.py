@@ -1,23 +1,11 @@
-# RECON EVENT STUDY V4.1 - FIXED
-# Historical award -> stock-response dataset
-#
-# PURPOSE
-# Collect real USAspending transaction events for known public contractors,
-# pair each event with historical market prices, and produce CSV/JSON files
-# for the Event Study Lab.
-
+# RECON EVENT STUDY V4.2 - FIXED
 import json
 import time
 from datetime import date, timedelta
 from pathlib import Path
-
 import pandas as pd
 import requests
 import yfinance as yf
-
-# ============================================================
-# SETTINGS
-# ============================================================
 
 DAYS_BACK = 365
 MIN_AWARD = 1_000_000
@@ -47,10 +35,6 @@ MASTER = {
     "LHX": ["L3HARRIS", "L3 HARRIS"],
     "NOC": ["NORTHROP GRUMMAN"],
 }
-
-# ============================================================
-# HELPERS
-# ============================================================
 
 def as_float(value):
     try:
@@ -108,10 +92,6 @@ def safe_median(series):
     s = pd.to_numeric(series, errors="coerce").dropna()
     return None if s.empty else float(s.median())
 
-# ============================================================
-# DOWNLOAD USAspending AWARDS - FIXED
-# ============================================================
-
 END = date.today()
 START = END - timedelta(days=DAYS_BACK)
 
@@ -121,7 +101,7 @@ for kw_list in MASTER.values():
 ALL_KEYWORDS = list(dict.fromkeys(ALL_KEYWORDS))
 
 session = requests.Session()
-session.headers.update({"User-Agent": "RECON-Event-Study/4.1"})
+session.headers.update({"User-Agent": "RECON-Event-Study/4.2"})
 
 all_rows = []
 window_days = 90
@@ -132,7 +112,6 @@ print(f"Downloading USAspending awards {START} -> {END}...")
 while curr_start <= END:
     curr_end = min(curr_start + timedelta(days=window_days-1), END)
     print(f"\n=== Window {curr_start} -> {curr_end} ===")
-
     for keyword in ALL_KEYWORDS:
         payload = {
             "filters": {
@@ -144,25 +123,20 @@ while curr_start <= END:
             "fields": [
                 "Award ID",
                 "Recipient Name",
-                "Action Date",
-                "Transaction Amount",
+                "Award Date",
                 "Award Amount",
                 "Awarding Agency",
                 "Awarding Sub Agency",
                 "Funding Agency",
                 "Funding Sub Agency",
                 "Award Type",
-                "Contract Award Type",
-                "Action Type",
-                "Mod",
                 "Description"
             ],
-            "sort": "Action Date",
+            "sort": "Award Date",
             "order": "desc",
             "limit": 100,
             "page": 1
         }
-
         page = 1
         while True:
             payload["page"] = page
@@ -185,15 +159,10 @@ while curr_start <= END:
                 print(f" WARN {keyword} error: {e}")
                 break
         time.sleep(0.3)
-
     curr_start = curr_end + timedelta(days=1)
     time.sleep(0.5)
 
 print(f"\nTransactions downloaded: {len(all_rows)}")
-
-# ============================================================
-# EXTRACT PUBLIC-COMPANY INITIAL AWARD EVENTS
-# ============================================================
 
 candidates = []
 for row in all_rows:
@@ -201,12 +170,9 @@ for row in all_rows:
     ticker = master_lookup(name)
     if not ticker:
         continue
-    action_date = row.get("Action Date")
-    amount = as_float(row.get("Transaction Amount") if row.get("Transaction Amount") not in (None, "") else row.get("Award Amount"))
+    action_date = row.get("Award Date") or row.get("Action Date") or row.get("Start Date")
+    amount = as_float(row.get("Award Amount") or row.get("Transaction Amount"))
     if not action_date or amount is None or amount < MIN_AWARD:
-        continue
-    mod = str(row.get("Mod") or "").strip().upper()
-    if mod not in ("", "0", "0000", "BASE"):
         continue
     candidates.append({
         "award_id": row.get("Award ID"),
@@ -245,10 +211,6 @@ events = pd.DataFrame(selected)
 events = events.sort_values("award_amount", ascending=False).head(MAX_EVENTS)
 print(f"Clean event candidates selected: {len(events)}")
 
-# ============================================================
-# MARKET DATA
-# ============================================================
-
 earliest = events["award_date"].min().date()
 latest = events["award_date"].max().date()
 spy_start = earliest - timedelta(days=180)
@@ -260,10 +222,6 @@ if spy.empty:
     raise RuntimeError("Could not download SPY history.")
 spy.index = pd.to_datetime(spy.index).tz_localize(None)
 spy_close = spy["Close"].dropna()
-
-# ============================================================
-# EVENT RECORDS
-# ============================================================
 
 records = []
 for number, (_, event) in enumerate(events.iterrows(), start=1):
@@ -306,7 +264,6 @@ for number, (_, event) in enumerate(events.iterrows(), start=1):
         event_to_peak = pct(event_price, peak_price)
         event_to_valley = pct(event_price, valley_price)
         valley_to_peak = pct(valley_price, peak_price)
-
         spy_event_candidates = spy_close[spy_close.index >= pd.Timestamp(award_date)]
         if spy_event_candidates.empty:
             continue
@@ -329,7 +286,6 @@ for number, (_, event) in enumerate(events.iterrows(), start=1):
             spy_event_to_peak = None
         market_relative_pre = None if pre_move is None or spy_pre_move is None else pre_move - spy_pre_move
         market_relative_peak = None if event_to_peak is None or spy_event_to_peak is None else event_to_peak - spy_event_to_peak
-
         prior_awards = events[(events["ticker"] == ticker) & (events["award_date"] < event["award_date"]) & (events["award_date"] >= event["award_date"] - pd.Timedelta(days=HISTORY_DAYS))]
         prior_count = len(prior_awards)
         if prior_count:
@@ -340,7 +296,6 @@ for number, (_, event) in enumerate(events.iterrows(), start=1):
             prior_total = 0.0
             prior_mean = None
             days_since_prior = None
-
         record = {
             "award_id": event["award_id"],
             "ticker": ticker,
@@ -393,10 +348,6 @@ for number, (_, event) in enumerate(events.iterrows(), start=1):
         print(f" ERROR {ticker}: {exc}")
     time.sleep(0.25)
 
-# ============================================================
-# SAVE
-# ============================================================
-
 if not records:
     raise RuntimeError("No usable historical market events were produced.")
 output = pd.DataFrame(records)
@@ -404,12 +355,8 @@ output = output.sort_values(["award_date", "ticker"])
 output.to_csv(OUTPUT_CSV, index=False)
 OUTPUT_JSON.write_text(json.dumps(output.to_dict("records"), indent=2, default=str))
 
-# ============================================================
-# SUMMARY
-# ============================================================
-
 summary = {
-    "version": "4.1",
+    "version": "4.2",
     "run_date": str(date.today()),
     "requested_events": MAX_EVENTS,
     "events": int(len(output)),
@@ -435,7 +382,7 @@ summary = {
 }
 SUMMARY_JSON.write_text(json.dumps(summary, indent=2))
 print("\n" + "="*60)
-print(" RECON EVENT STUDY V4.1 COMPLETE")
+print(" RECON EVENT STUDY V4.2 COMPLETE")
 print("="*60)
 print(f"Events: {summary['events']} Tickers: {summary['tickers']}")
 print(f"Date: {summary['date_min']} -> {summary['date_max']}")
