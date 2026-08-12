@@ -1,5 +1,29 @@
 {
-  "version": "4.4",
-  "events": 0,
-  "note": "no ticker match"
+  "date_range": {
+    "start": "2026-05-14",
+    "end": "2026-08-12"
+  },
+  "transactions_downloaded": 10000,
+  "master_events": 100,
+  "usable_events": 98,
+  "tickers": [
+    "BAH",
+    "LDOS",
+    "LHX",
+    "LMT",
+    "NOC",
+    "PLTR",
+    "RTX",
+    "SAIC"
+  ],
+  "average_event_to_peak_pct": 13.11,
+  "median_event_to_peak_pct": 10.54,
+  "average_valley_to_peak_pct": 24.76,
+  "median_valley_to_peak_pct": 23.54,
+  "average_award_to_peak_days": 15.33,
+  "median_award_to_peak_days": 15.5,
+  "peak_10pct_rate": 53.06,
+  "peak_20pct_rate": 25.51,
+  "peak_50pct_rate": 0.0,
+  "peak_100pct_rate": 0.0
 }
