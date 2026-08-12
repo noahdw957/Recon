@@ -20,8 +20,14 @@ jobs:
         run: pip install pandas requests yfinance
 
       - name: Run historical event study
-        run: python Recon/event_study_v4.py
-
+        run: |
+          echo "Finding script..."
+          find . -name "event_study*.py" -o -name "event*.py" | head -20
+          ls -R | head -100
+          SCRIPT=$(find . -name "event_study_v4.py" | head -1)
+          echo "Found: $SCRIPT"
+          python "$SCRIPT"
+          
       - name: Show generated files
         run: |
           pwd
