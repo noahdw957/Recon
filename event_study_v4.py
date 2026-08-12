@@ -1,389 +1,120 @@
-# RECON EVENT STUDY V4.2 - FIXED
-import json
-import time
+# RECON EVENT STUDY V4.3 - NO SORT (FINAL)
+import json, time
 from datetime import date, timedelta
 from pathlib import Path
-import pandas as pd
-import requests
-import yfinance as yf
-
-DAYS_BACK = 365
-MIN_AWARD = 1_000_000
-MAX_EVENTS = 100
-EVENT_SPACING_DAYS = 14
-PRE_TRADING_DAYS = 20
-POST_TRADING_DAYS = 60
-HISTORY_DAYS = 365
-
-USA_API = "https://api.usaspending.gov/api/v2/search/spending_by_award/"
-
-OUTPUT_JSON = Path("event_study_v4.json")
-OUTPUT_CSV = Path("event_study_v4.csv")
-SUMMARY_JSON = Path("event_study_summary.json")
-
-MASTER = {
-    "PLTR": ["PALANTIR"],
-    "RCAT": ["RED CAT"],
-    "AVAV": ["AEROVIRONMENT"],
-    "WWD": ["WOODWARD"],
-    "AEVA": ["AEVA"],
-    "LMT": ["LOCKHEED MARTIN"],
-    "RTX": ["RAYTHEON", "RAYTHEON TECHNOLOGIES", "RTX"],
-    "BAH": ["BOOZ ALLEN"],
-    "SAIC": ["SCIENCE APPLICATIONS INTERNATIONAL", "SAIC"],
-    "LDOS": ["LEIDOS"],
-    "LHX": ["L3HARRIS", "L3 HARRIS"],
-    "NOC": ["NORTHROP GRUMMAN"],
-}
-
-def as_float(value):
-    try:
-        if value in (None, ""):
-            return None
-        return float(value)
-    except Exception:
-        return None
-
+import pandas as pd, requests, yfinance as yf
+DAYS_BACK=365; MIN_AWARD=1_000_000; MAX_EVENTS=100; EVENT_SPACING_DAYS=14; PRE_TRADING_DAYS=20; POST_TRADING_DAYS=60; HISTORY_DAYS=365
+USA_API="https://api.usaspending.gov/api/v2/search/spending_by_award/"
+OUTPUT_JSON=Path("event_study_v4.json"); OUTPUT_CSV=Path("event_study_v4.csv"); SUMMARY_JSON=Path("event_study_summary.json")
+MASTER={"PLTR":["PALANTIR"],"RCAT":["RED CAT"],"AVAV":["AEROVIRONMENT"],"WWD":["WOODWARD"],"AEVA":["AEVA"],"LMT":["LOCKHEED MARTIN"],"RTX":["RAYTHEON","RTX"],"BAH":["BOOZ ALLEN"],"SAIC":["SCIENCE APPLICATIONS","SAIC"],"LDOS":["LEIDOS"],"LHX":["L3HARRIS","L3 HARRIS"],"NOC":["NORTHROP GRUMMAN"]}
+def as_float(v):
+    try: return None if v in (None,"") else float(v)
+    except: return None
 def master_lookup(name):
-    upper = (name or "").upper()
-    for ticker, keywords in MASTER.items():
-        if any(keyword in upper for keyword in keywords):
-            return ticker
+    u=(name or "").upper()
+    for t,kws in MASTER.items():
+        if any(k in u for k in kws): return t
     return None
-
-def normalize_dict_value(value):
-    if isinstance(value, dict):
-        return value.get("name") or value.get("toptier_name")
-    return value
-
-def pct(start, end):
-    if start in (None, 0) or end is None:
-        return None
-    return (end / start - 1.0) * 100.0
-
-def first_hit(price_by_offset, baseline, target_pct):
-    if baseline in (None, 0):
-        return None
-    target = baseline * (1.0 + target_pct / 100.0)
-    for day in sorted(price_by_offset):
-        if day <= 0:
-            continue
-        price = price_by_offset[day]
-        if price >= target:
-            return int(day)
+def normalize_dict_value(v):
+    return v.get("name") or v.get("toptier_name") if isinstance(v,dict) else v
+def pct(s,e): return None if s in (None,0) or e is None else (e/s-1)*100
+def first_hit(pb,base,tgt):
+    if base in (None,0): return None
+    tar=base*(1+tgt/100)
+    for d in sorted(pb):
+        if d>0 and pb[d]>=tar: return int(d)
     return None
-
-def first_drawdown(price_by_offset, baseline, target_pct):
-    if baseline in (None, 0):
-        return None
-    target = baseline * (1.0 - abs(target_pct) / 100.0)
-    for day in sorted(price_by_offset):
-        if day <= 0:
-            continue
-        if price_by_offset[day] <= target:
-            return int(day)
+def first_drawdown(pb,base,tgt):
+    if base in (None,0): return None
+    tar=base*(1-abs(tgt)/100)
+    for d in sorted(pb):
+        if d>0 and pb[d]<=tar: return int(d)
     return None
-
-def safe_mean(series):
-    s = pd.to_numeric(series, errors="coerce").dropna()
-    return None if s.empty else float(s.mean())
-
-def safe_median(series):
-    s = pd.to_numeric(series, errors="coerce").dropna()
-    return None if s.empty else float(s.median())
-
-END = date.today()
-START = END - timedelta(days=DAYS_BACK)
-
-ALL_KEYWORDS = []
-for kw_list in MASTER.values():
-    ALL_KEYWORDS.extend(kw_list)
-ALL_KEYWORDS = list(dict.fromkeys(ALL_KEYWORDS))
-
-session = requests.Session()
-session.headers.update({"User-Agent": "RECON-Event-Study/4.2"})
-
-all_rows = []
-window_days = 90
-curr_start = START
-
-print(f"Downloading USAspending awards {START} -> {END}...")
-
-while curr_start <= END:
-    curr_end = min(curr_start + timedelta(days=window_days-1), END)
-    print(f"\n=== Window {curr_start} -> {curr_end} ===")
+def safe_mean(s): s=pd.to_numeric(s,errors="coerce").dropna(); return None if s.empty else float(s.mean())
+def safe_median(s): s=pd.to_numeric(s,errors="coerce").dropna(); return None if s.empty else float(s.median())
+END=date.today(); START=END-timedelta(days=DAYS_BACK)
+ALL_KEYWORDS=list(dict.fromkeys([k for lst in MASTER.values() for k in lst]))
+session=requests.Session(); session.headers.update({"User-Agent":"RECON-4.3"})
+all_rows=[]; window_days=90; curr_start=START
+print(f"Downloading {START} -> {END}")
+while curr_start<=END:
+    curr_end=min(curr_start+timedelta(days=window_days-1),END)
+    print(f"\n=== Window {curr_start}->{curr_end} ===")
     for keyword in ALL_KEYWORDS:
-        payload = {
-            "filters": {
-                "award_type_codes": ["A", "B", "C", "D"],
-                "time_period": [{"start_date": str(curr_start), "end_date": str(curr_end)}],
-                "recipient_search_text": [keyword],
-                "award_amounts": [{"lower_bound": MIN_AWARD}]
-            },
-            "fields": [
-                "Award ID",
-                "Recipient Name",
-                "Award Date",
-                "Award Amount",
-                "Awarding Agency",
-                "Awarding Sub Agency",
-                "Funding Agency",
-                "Funding Sub Agency",
-                "Award Type",
-                "Description"
-            ],
-            "sort": "Award Date",
-            "order": "desc",
-            "limit": 100,
-            "page": 1
-        }
-        page = 1
+        payload={"filters":{"award_type_codes":["A","B","C","D"],"time_period":[{"start_date":str(curr_start),"end_date":str(curr_end)}],"recipient_search_text":[keyword],"award_amounts":[{"lower_bound":MIN_AWARD}]},"fields":["Award ID","Recipient Name","Award Date","Award Amount","Awarding Agency","Awarding Sub Agency","Funding Agency","Funding Sub Agency","Award Type","Description"],"limit":100,"page":1}
+        page=1
         while True:
-            payload["page"] = page
+            payload["page"]=page
             try:
-                response = session.post(USA_API, json=payload, timeout=60)
-                if response.status_code!= 200:
-                    print(f" FAIL {keyword} {response.status_code}: {response.text[:300]}")
-                    break
-                page_data = response.json()
-                batch = page_data.get("results", [])
-                if not batch:
-                    break
-                all_rows.extend(batch)
-                print(f" {keyword} page {page}: {len(batch)}")
-                if not page_data.get("page_metadata", {}).get("hasNext", False):
-                    break
-                page += 1
-                time.sleep(0.3)
-            except Exception as e:
-                print(f" WARN {keyword} error: {e}")
-                break
+                r=session.post(USA_API,json=payload,timeout=60)
+                if r.status_code!=200:
+                    print(f" FAIL {keyword} {r.status_code}: {r.text[:300]}"); break
+                jd=r.json(); batch=jd.get("results",[])
+                if not batch: break
+                all_rows.extend(batch); print(f" {keyword} p{page}: {len(batch)}")
+                if not jd.get("page_metadata",{}).get("hasNext",False): break
+                page+=1; time.sleep(0.3)
+            except Exception as e: print(f" WARN {e}"); break
         time.sleep(0.3)
-    curr_start = curr_end + timedelta(days=1)
-    time.sleep(0.5)
-
-print(f"\nTransactions downloaded: {len(all_rows)}")
-
-candidates = []
+    curr_start=curr_end+timedelta(days=1); time.sleep(0.5)
+print(f"\nTransactions: {len(all_rows)}")
+cands=[]
 for row in all_rows:
-    name = row.get("Recipient Name")
-    ticker = master_lookup(name)
-    if not ticker:
-        continue
-    action_date = row.get("Award Date") or row.get("Action Date") or row.get("Start Date")
-    amount = as_float(row.get("Award Amount") or row.get("Transaction Amount"))
-    if not action_date or amount is None or amount < MIN_AWARD:
-        continue
-    candidates.append({
-        "award_id": row.get("Award ID"),
-        "ticker": ticker,
-        "company": name,
-        "award_date": str(action_date)[:10],
-        "award_amount": amount,
-        "agency": normalize_dict_value(row.get("Awarding Agency")),
-        "subagency": normalize_dict_value(row.get("Awarding Sub Agency")),
-        "funding_agency": normalize_dict_value(row.get("Funding Agency")),
-        "funding_subagency": normalize_dict_value(row.get("Funding Sub Agency")),
-        "award_type": row.get("Award Type"),
-        "contract_award_type": row.get("Contract Award Type"),
-        "action_type": row.get("Action Type"),
-        "description": row.get("Description"),
-    })
-
-events = pd.DataFrame(candidates)
-if events.empty:
-    raise RuntimeError("No matching public-company award events were found.")
-events["award_date"] = pd.to_datetime(events["award_date"], errors="coerce")
-events = events.dropna(subset=["award_date"])
-if "award_id" in events.columns:
-    events = events.drop_duplicates(subset=["award_id"], keep="first")
-events = events.sort_values(["ticker", "award_date", "award_amount"], ascending=[True, True, False])
-
-selected = []
-for ticker, group in events.groupby("ticker"):
-    chosen = []
-    for _, event in group.sort_values("award_amount", ascending=False).iterrows():
-        if all(abs((event.award_date - prior.award_date).days) > EVENT_SPACING_DAYS for prior in chosen):
-            chosen.append(event)
-    selected.extend(chosen)
-
-events = pd.DataFrame(selected)
-events = events.sort_values("award_amount", ascending=False).head(MAX_EVENTS)
-print(f"Clean event candidates selected: {len(events)}")
-
-earliest = events["award_date"].min().date()
-latest = events["award_date"].max().date()
-spy_start = earliest - timedelta(days=180)
-spy_end = latest + timedelta(days=POST_TRADING_DAYS + 10)
-
-print("Downloading SPY benchmark...")
-spy = yf.Ticker("SPY").history(start=str(spy_start), end=str(spy_end), interval="1d", auto_adjust=True, actions=False)
-if spy.empty:
-    raise RuntimeError("Could not download SPY history.")
-spy.index = pd.to_datetime(spy.index).tz_localize(None)
-spy_close = spy["Close"].dropna()
-
-records = []
-for number, (_, event) in enumerate(events.iterrows(), start=1):
-    ticker = event["ticker"]
-    award_date = event["award_date"].date()
-    print(f"[{number}/{len(events)}] {ticker} {award_date} ${event['award_amount']/1e6:.1f}M")
+    t=master_lookup(row.get("Recipient Name"))
+    if not t: continue
+    ad=row.get("Award Date") or row.get("Action Date")
+    amt=as_float(row.get("Award Amount") or row.get("Transaction Amount"))
+    if not ad or amt is None or amt<MIN_AWARD: continue
+    cands.append({"award_id":row.get("Award ID"),"ticker":t,"company":row.get("Recipient Name"),"award_date":str(ad)[:10],"award_amount":amt,"agency":normalize_dict_value(row.get("Awarding Agency")),"subagency":normalize_dict_value(row.get("Awarding Sub Agency")),"funding_agency":normalize_dict_value(row.get("Funding Agency")),"funding_subagency":normalize_dict_value(row.get("Funding Sub Agency")),"award_type":row.get("Award Type"),"description":row.get("Description")})
+events=pd.DataFrame(cands)
+if events.empty: raise RuntimeError("No matching public-company award events were found.")
+events["award_date"]=pd.to_datetime(events["award_date"],errors="coerce"); events=events.dropna(subset=["award_date"])
+if "award_id" in events.columns: events=events.drop_duplicates(subset=["award_id"])
+events=events.sort_values(["ticker","award_date","award_amount"],ascending=[True,True,False])
+sel=[]
+for ticker,grp in events.groupby("ticker"):
+    chosen=[]
+    for _,ev in grp.sort_values("award_amount",ascending=False).iterrows():
+        if all(abs((ev.award_date-pr.award_date).days)>EVENT_SPACING_DAYS for pr in chosen): chosen.append(ev)
+    sel.extend(chosen)
+events=pd.DataFrame(sel).sort_values("award_amount",ascending=False).head(MAX_EVENTS)
+print(f"Selected {len(events)}")
+earliest=events["award_date"].min().date(); latest=events["award_date"].max().date()
+spy_start=earliest-timedelta(days=180); spy_end=latest+timedelta(days=POST_TRADING_DAYS+10)
+print("Downloading SPY...")
+spy=yf.Ticker("SPY").history(start=str(spy_start),end=str(spy_end),interval="1d",auto_adjust=True,actions=False)
+if spy.empty: raise RuntimeError("SPY failed")
+spy.index=pd.to_datetime(spy.index).tz_localize(None); spy_close=spy["Close"].dropna()
+records=[]
+for num,(_,ev) in enumerate(events.iterrows(),1):
+    ticker=ev["ticker"]; award_date=ev["award_date"].date()
+    print(f"[{num}/{len(events)}] {ticker} {award_date}")
     try:
-        stock = yf.Ticker(ticker)
-        history = stock.history(start=str(award_date - timedelta(days=60)), end=str(award_date + timedelta(days=POST_TRADING_DAYS + 20)), interval="1d", auto_adjust=True, actions=False)
-        if history.empty:
-            print(" SKIP: no market history")
-            continue
-        history.index = pd.to_datetime(history.index).tz_localize(None)
-        closes = history["Close"].dropna()
-        event_candidates = closes[closes.index >= pd.Timestamp(award_date)]
-        prior = closes[closes.index < pd.Timestamp(award_date)]
-        if event_candidates.empty or len(prior) < PRE_TRADING_DAYS:
-            print(" SKIP: insufficient price history")
-            continue
-        event_trading_date = event_candidates.index[0]
-        event_price = float(event_candidates.iloc[0])
-        dates = list(closes.index)
-        event_position = dates.index(event_trading_date)
-        lo = max(0, event_position - PRE_TRADING_DAYS)
-        hi = min(len(dates) - 1, event_position + POST_TRADING_DAYS)
-        price_by_offset = {i - event_position: float(closes.iloc[i]) for i in range(lo, hi + 1)}
-        post = {day: price for day, price in price_by_offset.items() if 0 <= day <= POST_TRADING_DAYS}
-        pre = {day: price for day, price in price_by_offset.items() if -10 <= day <= -1}
-        if not post:
-            continue
-        post_after_day_zero = {day: price for day, price in post.items() if day > 0}
-        if not post_after_day_zero:
-            continue
-        peak_day, peak_price = max(post_after_day_zero.items(), key=lambda item: item[1])
-        pre_peak = {day: price for day, price in post.items() if day <= peak_day}
-        valley_day, valley_price = min(pre_peak.items(), key=lambda item: item[1])
-        pre10 = pre.get(-10)
-        pre1 = pre.get(-1)
-        pre_move = pct(pre10, pre1)
-        event_to_peak = pct(event_price, peak_price)
-        event_to_valley = pct(event_price, valley_price)
-        valley_to_peak = pct(valley_price, peak_price)
-        spy_event_candidates = spy_close[spy_close.index >= pd.Timestamp(award_date)]
-        if spy_event_candidates.empty:
-            continue
-        spy_event_date = spy_event_candidates.index[0]
-        spy_event_price = float(spy_event_candidates.iloc[0])
-        spy_dates = list(spy_close.index)
-        spy_event_position = spy_dates.index(spy_event_date)
-        spy_pre10_pos = spy_event_position - 10
-        spy_pre1_pos = spy_event_position - 1
-        spy_peak_pos = min(len(spy_dates) - 1, spy_event_position + POST_TRADING_DAYS)
-        if spy_pre10_pos >= 0 and spy_pre1_pos >= 0:
-            spy_pre_move = pct(float(spy_close.iloc[spy_pre10_pos]), float(spy_close.iloc[spy_pre1_pos]))
-        else:
-            spy_pre_move = None
-        spy_post_window = spy_close.iloc[spy_event_position:spy_peak_pos + 1]
-        if not spy_post_window.empty:
-            spy_peak_price = float(spy_post_window.max())
-            spy_event_to_peak = pct(spy_event_price, spy_peak_price)
-        else:
-            spy_event_to_peak = None
-        market_relative_pre = None if pre_move is None or spy_pre_move is None else pre_move - spy_pre_move
-        market_relative_peak = None if event_to_peak is None or spy_event_to_peak is None else event_to_peak - spy_event_to_peak
-        prior_awards = events[(events["ticker"] == ticker) & (events["award_date"] < event["award_date"]) & (events["award_date"] >= event["award_date"] - pd.Timedelta(days=HISTORY_DAYS))]
-        prior_count = len(prior_awards)
-        if prior_count:
-            prior_total = float(prior_awards["award_amount"].sum())
-            prior_mean = float(prior_awards["award_amount"].mean())
-            days_since_prior = int((event["award_date"] - prior_awards["award_date"].max()).days)
-        else:
-            prior_total = 0.0
-            prior_mean = None
-            days_since_prior = None
-        record = {
-            "award_id": event["award_id"],
-            "ticker": ticker,
-            "company": event["company"],
-            "award_date": str(award_date),
-            "event_trading_date": str(event_trading_date.date()),
-            "award_amount": round(float(event["award_amount"]), 2),
-            "award_m": round(float(event["award_amount"]) / 1e6, 3),
-            "agency": event["agency"],
-            "subagency": event["subagency"],
-            "funding_agency": event["funding_agency"],
-            "funding_subagency": event["funding_subagency"],
-            "award_type": event["award_type"],
-            "contract_award_type": event["contract_award_type"],
-            "action_type": event["action_type"],
-            "description": event["description"],
-            "event_price": round(event_price, 4),
-            "pre_move_10_to_1_pct": None if pre_move is None else round(pre_move, 4),
-            "spy_pre_move_10_to_1_pct": None if spy_pre_move is None else round(spy_pre_move, 4),
-            "market_relative_pre_pct": None if market_relative_pre is None else round(market_relative_pre, 4),
-            "event_to_peak_pct": round(event_to_peak, 4),
-            "peak_day": int(peak_day),
-            "peak_price": round(peak_price, 4),
-            "event_to_valley_pct": round(event_to_valley, 4),
-            "valley_day": int(valley_day),
-            "valley_price": round(valley_price, 4),
-            "valley_to_peak_pct": round(valley_to_peak, 4),
-            "valley_to_peak_days": int(peak_day - valley_day),
-            "market_relative_peak_pct": None if market_relative_peak is None else round(market_relative_peak, 4),
-            "hit_10_day": first_hit(post, event_price, 10),
-            "hit_15_day": first_hit(post, event_price, 15),
-            "hit_20_day": first_hit(post, event_price, 20),
-            "hit_50_day": first_hit(post, event_price, 50),
-            "hit_100_day": first_hit(post, event_price, 100),
-            "drawdown_5_day": first_drawdown(post, event_price, 5),
-            "drawdown_10_day": first_drawdown(post, event_price, 10),
-            "positive_1d": post.get(1, event_price) > event_price,
-            "positive_5d": post.get(5, event_price) > event_price,
-            "positive_10d": post.get(10, event_price) > event_price,
-            "positive_30d": post.get(30, event_price) > event_price,
-            "leaked_5pct": pre_move is not None and pre_move >= 5,
-            "prior_awards_365d": prior_count,
-            "prior_award_total_365d": round(prior_total, 2),
-            "prior_award_mean_365d": None if prior_mean is None else round(prior_mean, 2),
-            "days_since_prior_award": days_since_prior,
-        }
-        records.append(record)
-        print(f" peak {event_to_peak:+.1f}% day {peak_day}; valley {event_to_valley:+.1f}% day {valley_day}; V->P {valley_to_peak:+.1f}%")
-    except Exception as exc:
-        print(f" ERROR {ticker}: {exc}")
-    time.sleep(0.25)
-
-if not records:
-    raise RuntimeError("No usable historical market events were produced.")
-output = pd.DataFrame(records)
-output = output.sort_values(["award_date", "ticker"])
-output.to_csv(OUTPUT_CSV, index=False)
-OUTPUT_JSON.write_text(json.dumps(output.to_dict("records"), indent=2, default=str))
-
-summary = {
-    "version": "4.2",
-    "run_date": str(date.today()),
-    "requested_events": MAX_EVENTS,
-    "events": int(len(output)),
-    "tickers": int(output["ticker"].nunique()),
-    "date_min": str(output["award_date"].min()),
-    "date_max": str(output["award_date"].max()),
-    "event_to_peak_mean_pct": safe_mean(output["event_to_peak_pct"]),
-    "event_to_peak_median_pct": safe_median(output["event_to_peak_pct"]),
-    "event_to_valley_mean_pct": safe_mean(output["event_to_valley_pct"]),
-    "event_to_valley_median_pct": safe_median(output["event_to_valley_pct"]),
-    "valley_to_peak_mean_pct": safe_mean(output["valley_to_peak_pct"]),
-    "valley_to_peak_median_pct": safe_median(output["valley_to_peak_pct"]),
-    "peak_day_mean": safe_mean(output["peak_day"]),
-    "peak_day_median": safe_median(output["peak_day"]),
-    "valley_day_mean": safe_mean(output["valley_day"]),
-    "valley_day_median": safe_median(output["valley_day"]),
-    "leak_rate_5pct": round(float(output["leaked_5pct"].mean() * 100), 3),
-    "hit_10_count": int(output["hit_10_day"].notna().sum()),
-    "hit_15_count": int(output["hit_15_day"].notna().sum()),
-    "hit_20_count": int(output["hit_20_day"].notna().sum()),
-    "hit_50_count": int(output["hit_50_day"].notna().sum()),
-    "hit_100_count": int(output["hit_100_day"].notna().sum()),
-}
-SUMMARY_JSON.write_text(json.dumps(summary, indent=2))
-print("\n" + "="*60)
-print(" RECON EVENT STUDY V4.2 COMPLETE")
-print("="*60)
-print(f"Events: {summary['events']} Tickers: {summary['tickers']}")
-print(f"Date: {summary['date_min']} -> {summary['date_max']}")
-print(f"Saved: {OUTPUT_CSV}")
+        stock=yf.Ticker(ticker); hist=stock.history(start=str(award_date-timedelta(days=60)),end=str(award_date+timedelta(days=POST_TRADING_DAYS+20)),interval="1d",auto_adjust=True,actions=False)
+        if hist.empty: continue
+        hist.index=pd.to_datetime(hist.index).tz_localize(None); closes=hist["Close"].dropna()
+        ev_cands=closes[closes.index>=pd.Timestamp(award_date)]; prior=closes[closes.index<pd.Timestamp(award_date)]
+        if ev_cands.empty or len(prior)<PRE_TRADING_DAYS: continue
+        ev_td=ev_cands.index[0]; ev_price=float(ev_cands.iloc[0])
+        dates=list(closes.index); ev_pos=dates.index(ev_td); lo=max(0,ev_pos-PRE_TRADING_DAYS); hi=min(len(dates)-1,ev_pos+POST_TRADING_DAYS)
+        pbo={i-ev_pos:float(closes.iloc[i]) for i in range(lo,hi+1)}
+        post={d:p for d,p in pbo.items() if 0<=d<=POST_TRADING_DAYS}; pre={d:p for d,p in pbo.items() if -10<=d<=-1}
+        if not post: continue
+        post_after={d:p for d,p in post.items() if d>0}
+        if not post_after: continue
+        peak_day,peak_price=max(post_after.items(),key=lambda x:x[1]); pre_peak={d:p for d,p in post.items() if d<=peak_day}
+        valley_day,valley_price=min(pre_peak.items(),key=lambda x:x[1])
+        pre10=pre.get(-10); pre1=pre.get(-1); pre_move=pct(pre10,pre1); ev_to_peak=pct(ev_price,peak_price); ev_to_valley=pct(ev_price,valley_price); valley_to_peak=pct(valley_price,peak_price)
+        spy_cands=spy_close[spy_close.index>=pd.Timestamp(award_date)]
+        if spy_cands.empty: continue
+        spy_td=spy_cands.index[0]; spy_price=float(spy_cands.iloc[0]); spy_dates=list(spy_close.index); spy_pos=spy_dates.index(spy_td)
+        spy_pre10_pos=spy_pos-10; spy_pre1_pos=spy_pos-1; spy_peak_pos=min(len(spy_dates)-1,spy_pos+POST_TRADING_DAYS)
+        spy_pre_move=pct(float(spy_close.iloc[spy_pre10_pos]),float(spy_close.iloc[spy_pre1_pos])) if spy_pre10_pos>=0 and spy_pre1_pos>=0 else None
+        spy_window=spy_close.iloc[spy_pos:spy_peak_pos+1]; spy_to_peak=pct(spy_price,float(spy_window.max())) if not spy_window.empty else None
+        records.append({"award_id":ev["award_id"],"ticker":ticker,"company":ev["company"],"award_date":str(award_date),"event_trading_date":str(ev_td.date()),"award_amount":round(float(ev["award_amount"]),2),"award_m":round(float(ev["award_amount"])/1e6,3),"agency":ev["agency"],"subagency":ev["subagency"],"funding_agency":ev["funding_agency"],"funding_subagency":ev["funding_subagency"],"award_type":ev["award_type"],"description":ev["description"],"event_price":round(ev_price,4),"pre_move_10_to_1_pct":None if pre_move is None else round(pre_move,4),"market_relative_pre_pct":None if pre_move is None or spy_pre_move is None else round(pre_move-spy_pre_move,4),"event_to_peak_pct":round(ev_to_peak,4),"peak_day":int(peak_day),"peak_price":round(peak_price,4),"event_to_valley_pct":round(ev_to_valley,4),"valley_day":int(valley_day),"valley_price":round(valley_price,4),"valley_to_peak_pct":round(valley_to_peak,4),"valley_to_peak_days":int(peak_day-valley_day),"market_relative_peak_pct":None if ev_to_peak is None or spy_to_peak is None else round(ev_to_peak-spy_to_peak,4),"hit_10_day":first_hit(post,ev_price,10),"hit_20_day":first_hit(post,ev_price,20),"hit_50_day":first_hit(post,ev_price,50),"hit_100_day":first_hit(post,ev_price,100),"positive_10d":post.get(10,ev_price)>ev_price,"leaked_5pct":pre_move is not None and pre_move>=5})
+    except Exception as ex: print(f" ERROR {ex}")
+    time.sleep(0.2)
+if not records: raise RuntimeError("No usable historical market events were produced.")
+out=pd.DataFrame(records); out=out.sort_values(["award_date","ticker"]); out.to_csv(OUTPUT_CSV,index=False); OUTPUT_JSON.write_text(json.dumps(out.to_dict("records"),indent=2,default=str))
+summary={"version":"4.3","events":int(len(out)),"tickers":int(out["ticker"].nunique()),"date_min":str(out["award_date"].min()),"date_max":str(out["award_date"].max()),"event_to_peak_mean_pct":safe_mean(out["event_to_peak_pct"]),"valley_to_peak_mean_pct":safe_mean(out["valley_to_peak_pct"])}
+SUMMARY_JSON.write_text(json.dumps(summary,indent=2)); print(f"\nCOMPLETE {summary}")
