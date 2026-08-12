@@ -1,51 +1,39 @@
 name: RECON Historical Event Study
 on:
   workflow_dispatch:
-
 jobs:
   event-study:
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Python
-        uses: actions/setup-python@v5
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-
-      - name: Install deps
-        run: pip install pandas requests yfinance
-
+      - run: pip install pandas requests yfinance
       - name: Run historical event study
         run: |
-          echo "Finding script..."
-          find. -type f -name "*.py" | grep -i event | head -20
-          SCRIPT=$(find. -name "event_study_v4.py" | head -1)
-          if [ -z "$SCRIPT" ]; then
-            echo "event_study_v4.py not found, trying any event_study..."
-            SCRIPT=$(find. -name "event_study*.py" | head -1)
+          ls -R
+          if [ -f "Recon/event_study_v4.py" ]; then
+            python Recon/event_study_v4.py
+          elif [ -f "event_study_v4.py" ]; then
+            python event_study_v4.py
+          else
+            SCRIPT=$(find. -name "event_study_v4.py" | head -1)
+            echo "Found $SCRIPT"
+            python "$SCRIPT"
           fi
-          echo "Running: $SCRIPT"
-          python "$SCRIPT"
-          echo "Done, listing results:"
-          ls -lh *.csv *.json 2>&1 || true
-          ls -lh Recon/*.csv Recon/*.json 2>&1 || true
-
-      - name: Upload results
-        uses: actions/upload-artifact@v4
+          ls -lh
+      - uses: actions/upload-artifact@v4
         with:
           name: event-study-results
           path: |
             *.csv
             *.json
-            Recon/*.csv
-            Recon/*.json
+            **/*.csv
+            **/*.json
           if-no-files-found: warn
-
-      - name: Commit results
-        uses: stefanzweifel/git-auto-commit-action@v5
+      - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Update event study results [auto]"
