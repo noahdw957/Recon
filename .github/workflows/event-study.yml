@@ -43,7 +43,6 @@ jobs:
             *.json
             Recon/*.csv
             Recon/*.json
-
           - name: Commit results
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
