@@ -1,4 +1,4 @@
-# RECON Event Study V7.0
+# RECON Event Study V7.1
 #
 # PURPOSE
 # -------
