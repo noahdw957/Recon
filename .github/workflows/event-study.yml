@@ -1,7 +1,9 @@
 name: event-study
-on: workflow_dispatch:
+on:
+  workflow_dispatch:
+
 jobs:
-  build:
+  run:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -10,15 +12,10 @@ jobs:
           python-version: '3.11'
       - run: pip install yfinance pandas requests
       - run: python Recon/event_study_v7.py
-      - name: Show generated files
-        run: |
-          echo "Listing files..."
-          ls -R
-      - name: Commit results
-        run: |
+      - run: ls -R
+      - run: |
           git config user.name "bot"
           git config user.email "bot@bot.com"
           git add .
           git commit -m "update" || true
           git push || true
-          
