@@ -1,34 +1,24 @@
 name: event-study
-on:
-  workflow_dispatch:
-
+on: workflow_dispatch:
 jobs:
-  run:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-          
-      - name: Install deps
-        run: pip install yfinance pandas requests numpy
-
-      - name: Run historical event study
-        run: python Recon/event_study_v7.py
-
+      - run: pip install yfinance pandas requests
+      - run: python Recon/event_study_v7.py
       - name: Show generated files
         run: |
-          ls -lh
-          ls -lh *.csv *.json || true
-          ls -lh Recon/ || true
-
+          echo "Listing files..."
+          ls -R
       - name: Commit results
         run: |
-          git config user.name "github-actions"
-          git config user.email "actions@github.com"
-          git add -A
-          git commit -m "event study results" || echo "no changes"
-          git push
+          git config user.name "bot"
+          git config user.email "bot@bot.com"
+          git add .
+          git commit -m "update" || true
+          git push || true
           
