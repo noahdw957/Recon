@@ -11,7 +11,8 @@ jobs:
         with:
           python-version: '3.11'
       - run: pip install yfinance pandas requests
-      - run: python Recon/event_study_v7.py
+      - run: python event_study_v7.py
+Il python Recon/ event_study_v7.py
       - run: ls -R
       - run: |
           git config user.name "bot"
