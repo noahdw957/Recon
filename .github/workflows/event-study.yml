@@ -23,7 +23,7 @@ jobs:
 
       - name: Run historical event study
         run: |
-          python event_study_v5.py
+          python event_study_v7.py
 
       - name: Show generated files
         run: |
@@ -32,10 +32,13 @@ jobs:
           echo "=========================================="
           echo ""
           ls -lh \
-            event_study_events.csv \
-            event_study_results.json \
-            event_study_summary.json
 
+           event_study_v7.csv
+           event_study_v7.json \
+           event_study_v7_summary.json \
+           event_study_v7_controls.csv \
+           event_study_v7_residuals.csv
+            
       - name: Commit results
         run: |
           git config user.name "recon-bot"
