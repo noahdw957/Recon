@@ -64,4 +64,4 @@ jobs:
           git config user.email "bot@recon.com"
           git add buy_tickers.txt ReconData/ 2>/dev/null || true
           git commit -m "RECON daily scan" || true
-          git push || true
+          git push
