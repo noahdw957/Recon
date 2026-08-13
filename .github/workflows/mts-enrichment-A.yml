@@ -1,0 +1,43 @@
+name: mts-enrichment-A
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'mts_enrich_A_v1.py'
+      - 'trajectory_unique_ticker_day_A.csv'
+      - 'master_zero_purged.csv'
+      - '.github/workflows/mts-enrichment-A.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install
+        run: pip install yfinance pandas numpy requests
+
+      - name: Run MTS award-time enrichment
+        run: python mts_enrich_A_v1.py || python Recon/mts_enrich_A_v1.py
+
+      - name: Show result files
+        run: |
+          ls -lh mts_award_time_enriched_A.csv mts_award_time_features_A.csv mts_enrichment_summary_A.json 2>/dev/null || true
+          ls -lh market_cache/ 2>/dev/null || true
+
+      - name: Commit results and market cache
+        run: |
+          git config user.name "recon-bot"
+          git config user.email "bot@recon.com"
+          git add mts_award_time_enriched_A.csv mts_award_time_features_A.csv mts_enrichment_summary_A.json market_cache/ Recon/ 2>/dev/null || true
+          git commit -m "MTS award-time enrichment A" || true
+          git push || true
