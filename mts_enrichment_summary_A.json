@@ -1,0 +1,22 @@
+{
+  "version": "RECON MTS Award-Time Enrichment A V1.0",
+  "sample_A_unique_events": 912,
+  "enriched_events": 912,
+  "saved_award_history_rows": 19131,
+  "saved_award_history_start": "2025-08-12",
+  "saved_award_history_end": "2026-08-10",
+  "usa_spending_calls": 0,
+  "market_tickers_downloaded_or_cached": 29,
+  "benchmark_market": "SPY",
+  "benchmark_sector": "ITA",
+  "predictor_columns": 90,
+  "events_with_30d_award_history": 751,
+  "events_with_90d_award_history": 552,
+  "events_with_180d_award_history": 250,
+  "notes": [
+    "All predictor variables use only information available on or before the award date.",
+    "Historical award factors use the saved master_zero_purged.csv and do not query USAspending.",
+    "Early Sample-A events have less historical award coverage; coverage flags are included.",
+    "Prior award stock-response factors use only sufficiently old prior awards to avoid look-ahead leakage."
+  ]
+}
