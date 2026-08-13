@@ -1,0 +1,35 @@
+name: mts-hierarchical-screen-A
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'mts_hierarchical_screen_A_v1.py'
+      - 'mts_award_time_features_A.csv'
+      - '.github/workflows/mts-hierarchical-screen-A.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install
+        run: pip install pandas numpy scipy scikit-learn
+      - name: Run hierarchical MTS screen
+        run: python mts_hierarchical_screen_A_v1.py || python Recon/mts_hierarchical_screen_A_v1.py
+      - name: Show outputs
+        run: ls -lh mts_*_A.csv mts_hierarchical_summary_A.json 2>/dev/null || true
+      - name: Commit results
+        run: |
+          git config user.name "recon-bot"
+          git config user.email "bot@recon.com"
+          git add mts_family_L8_results_A.csv mts_family_variable_effects_A.csv mts_L16_combined_results_A.csv mts_L16_variable_effects_A.csv mts_final_scores_A.csv mts_signal_thresholds_A.csv mts_hierarchical_summary_A.json 2>/dev/null || true
+          git commit -m "MTS hierarchical screen A" || true
+          git push || true
