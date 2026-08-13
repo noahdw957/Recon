@@ -1,0 +1,60 @@
+{
+  "version": "RECON Sample-B Blind Validation Non-LMT V1.0",
+  "sample_B_raw_non_LMT_rows": 1593,
+  "sample_B_unique_non_LMT_ticker_days_before_overlap_removal": 1023,
+  "sample_A_overlap_ticker_days_removed": 433,
+  "sample_B_nonoverlap_candidate_ticker_days": 590,
+  "mature_90d_validation_events": 350,
+  "frozen_model_version": "RECON MTS Frozen A v1.0",
+  "frozen_features": [
+    "prior_response_count_60d",
+    "pre_volatility_market_20d",
+    "relative_strength_spy_120d",
+    "prior_abs_award_max",
+    "prior_signed_award_mean",
+    "prior_abs_award_median",
+    "prior_response_mean_20d",
+    "transaction_amount_abs_sum",
+    "prior_transactions_30d",
+    "relative_strength_spy_60d",
+    "prior_award_days_30d"
+  ],
+  "frozen_buy_threshold": 2.1954452583448045,
+  "contingency": {
+    "TP": 14,
+    "FP": 9,
+    "FN": 85,
+    "TN": 242
+  },
+  "actual_ge20_base_rate": 0.28285714285714286,
+  "predicted_buy_count": 23,
+  "precision_ppv": 0.6086956521739131,
+  "sensitivity": 0.1414141414141414,
+  "specificity": 0.9641434262948207,
+  "npv": 0.7400611620795107,
+  "false_positive_rate": 0.035856573705179286,
+  "relative_risk": 2.1519543258673695,
+  "odds_ratio": 4.428758169934641,
+  "auc": 0.6502474948690088,
+  "chi_square": 12.884872362081198,
+  "chi_square_p": 0.00033124873356386923,
+  "chi_square_dof": 1,
+  "chi_square_expected_counts": [
+    [
+      6.505714285714285,
+      16.494285714285713
+    ],
+    [
+      92.49428571428571,
+      234.50571428571428
+    ]
+  ],
+  "fisher_exact_p": 0.0010971578047953687,
+  "notes": [
+    "LMT excluded before validation.",
+    "Ticker is not a predictor.",
+    "Any B ticker/date also present in Sample A was excluded.",
+    "Only B events with a complete 90-trading-day future were evaluated.",
+    "The Sample-A model and threshold were fixed before reading Sample-B outcomes."
+  ]
+}
