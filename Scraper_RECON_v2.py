@@ -957,7 +957,10 @@ new_buys = sorted(set(new_buys))
 
 BUY_FILE.write_text(
     "".join(f"{ticker}\n" for ticker in new_buys)
+    if new_buys
+    else "NO BUYS\n"
 )
+
 
 # ============================================================
 # INTERNAL AUDIT LOG
@@ -1011,3 +1014,4 @@ print(f"Events scored   : {len(events)}")
 print(f"New BUY tickers : {len(new_buys)}")
 print(f"Output          : {BUY_FILE}")
 print("=" * 60)
+
