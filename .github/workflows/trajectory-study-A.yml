@@ -1,0 +1,35 @@
+name: trajectory-study-A
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'trajectory_enrich_v1.py'
+      - 'random_10pct_sample_A_zero_purged.csv'
+      - 'Recon/random_10pct_sample_A_zero_purged.csv'
+      - '.github/workflows/trajectory-study-A.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install
+        run: pip install yfinance pandas numpy requests
+      - name: Run trajectory enrichment
+        run: python trajectory_enrich_v1.py || python Recon/trajectory_enrich_v1.py
+      - name: Show files
+        run: ls -lh *.csv *.json 2>/dev/null || true
+      - name: Commit results
+        run: |
+          git config user.name "bot"
+          git config user.email "bot@bot.com"
+          git add trajectory_events_A.csv trajectory_matrix_A.csv trajectory_parameters_A.csv trajectory_summary_A.json Recon/ 2>/dev/null || true
+          git commit -m "trajectory study A" || true
+          git push || true
