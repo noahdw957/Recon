@@ -1,0 +1,158 @@
+{
+  "version": "RECON MTS Hierarchical Screen A V1.0",
+  "events": 912,
+  "family_survivors": {
+    "prior_scale": [
+      "prior_abs_award_mean",
+      "prior_signed_award_mean",
+      "prior_abs_award_max",
+      "prior_abs_award_median"
+    ],
+    "prior_response_60d": [
+      "prior_response_count_60d",
+      "prior_response_median_60d",
+      "prior_hit_rate_20pct_within_60d",
+      "prior_max_gain_mean_60d"
+    ],
+    "prior_response_20d": [
+      "prior_response_median_20d",
+      "prior_response_mean_20d",
+      "prior_max_gain_mean_20d",
+      "prior_response_count_20d"
+    ],
+    "market_volatility": [
+      "pre_volatility_market_20d",
+      "pre_volatility_market_60d"
+    ],
+    "award_30d": [
+      "prior_signed_dollars_30d",
+      "prior_positive_dollars_30d",
+      "prior_award_days_30d",
+      "prior_transactions_30d"
+    ],
+    "market_momentum": [
+      "pre_return_20d",
+      "pre_return_5d",
+      "pre_return_120d",
+      "pre_return_60d"
+    ],
+    "rel_strength_ita": [
+      "relative_strength_ita_5d",
+      "relative_strength_ita_120d",
+      "relative_strength_ita_20d",
+      "relative_strength_ita_60d"
+    ],
+    "rel_strength_spy": [
+      "relative_strength_spy_120d",
+      "relative_strength_spy_60d",
+      "relative_strength_spy_20d"
+    ],
+    "award_size": [
+      "transaction_amount_abs_sum",
+      "current_agency_count",
+      "same_day_award_count"
+    ],
+    "market_position": [
+      "volume_20d_to_60d_ratio",
+      "distance_from_52w_high_pct"
+    ]
+  },
+  "l16_candidates": [
+    "prior_signed_dollars_30d",
+    "prior_positive_dollars_30d",
+    "prior_abs_award_mean",
+    "prior_signed_award_mean",
+    "prior_abs_award_max",
+    "prior_abs_award_median",
+    "prior_response_median_20d",
+    "prior_award_days_30d",
+    "pre_volatility_market_20d",
+    "prior_response_count_60d",
+    "prior_transactions_30d",
+    "prior_response_mean_20d",
+    "transaction_amount_abs_sum",
+    "relative_strength_spy_120d",
+    "relative_strength_spy_60d"
+  ],
+  "final_variables": [
+    "prior_response_count_60d",
+    "pre_volatility_market_20d",
+    "relative_strength_spy_120d",
+    "prior_abs_award_max",
+    "prior_signed_award_mean",
+    "prior_abs_award_median",
+    "prior_response_mean_20d",
+    "transaction_amount_abs_sum",
+    "prior_transactions_30d",
+    "relative_strength_spy_60d",
+    "prior_award_days_30d"
+  ],
+  "final_auc20": 0.7112864108981141,
+  "final_auc50": 0.8026133009202987,
+  "final_rho_peak": 0.28891355633911975,
+  "final_sn_db": 2.142076799164641,
+  "base_ge20_rate": 0.24780701754385964,
+  "base_ge50_rate": 0.02850877192982456,
+  "thresholds": [
+    {
+      "top_fraction": 0.2,
+      "score_threshold": 1.7986208889584534,
+      "n_signals": 183,
+      "hit_rate_ge20": 0.47540983606557374,
+      "hit_rate_ge50": 0.09289617486338798,
+      "median_peak_pct": 18.78230202478772,
+      "mean_peak_pct": 27.751979647608042,
+      "enrichment_ge20": 1.9184680110256782,
+      "enrichment_ge50": 3.2585119798234556
+    },
+    {
+      "top_fraction": 0.1,
+      "score_threshold": 3.282512651132092,
+      "n_signals": 92,
+      "hit_rate_ge20": 0.7065217391304348,
+      "hit_rate_ge50": 0.14130434782608695,
+      "median_peak_pct": 31.34115650396905,
+      "mean_peak_pct": 37.138319693402885,
+      "enrichment_ge20": 2.8510965756060025,
+      "enrichment_ge50": 4.956521739130435
+    },
+    {
+      "top_fraction": 0.05,
+      "score_threshold": 4.285233892749571,
+      "n_signals": 46,
+      "hit_rate_ge20": 0.9347826086956522,
+      "hit_rate_ge50": 0.2608695652173913,
+      "median_peak_pct": 42.922849477485784,
+      "mean_peak_pct": 53.4704372890552,
+      "enrichment_ge20": 3.772220084647942,
+      "enrichment_ge50": 9.150501672240804
+    },
+    {
+      "top_fraction": 0.02,
+      "score_threshold": 5.235350921209034,
+      "n_signals": 19,
+      "hit_rate_ge20": 0.9473684210526315,
+      "hit_rate_ge50": 0.21052631578947367,
+      "median_peak_pct": 41.10197562362687,
+      "mean_peak_pct": 61.460366888595814,
+      "enrichment_ge20": 3.823008849557522,
+      "enrichment_ge50": 7.384615384615385
+    },
+    {
+      "top_fraction": 0.01,
+      "score_threshold": 7.056854416975873,
+      "n_signals": 10,
+      "hit_rate_ge20": 0.9,
+      "hit_rate_ge50": 0.1,
+      "median_peak_pct": 35.312431556584755,
+      "mean_peak_pct": 49.19166923096161,
+      "enrichment_ge20": 3.6318584070796462,
+      "enrichment_ge50": 3.507692307692308
+    }
+  ],
+  "notes": [
+    "Ticker used only as leave-group-out CV key, never as predictor.",
+    "Sample B not used.",
+    "Thresholds are Sample-A exploratory and must be frozen before validation."
+  ]
+}
