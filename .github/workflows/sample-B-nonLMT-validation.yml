@@ -1,0 +1,43 @@
+name: sample-B-nonLMT-validation
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'sample_B_nonLMT_validate_v1.py'
+      - 'sample_B_nonLMT_raw.csv'
+      - 'mts_frozen_model_A.json'
+      - '.github/workflows/sample-B-nonLMT-validation.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install
+        run: pip install pandas numpy scipy scikit-learn yfinance
+
+      - name: Run blind Sample-B validation
+        run: python sample_B_nonLMT_validate_v1.py
+
+      - name: Show outputs
+        run: |
+          ls -lh sample_B_nonLMT_validation_events.csv sample_B_nonLMT_contingency.csv sample_B_nonLMT_validation_summary.json 2>/dev/null || true
+
+      - name: Commit results
+        run: |
+          git config user.name "recon-bot"
+          git config user.email "bot@recon.com"
+          git add sample_B_nonLMT_validation_events.csv sample_B_nonLMT_contingency.csv sample_B_nonLMT_validation_summary.json market_cache/ Recon/ 2>/dev/null || true
+          git commit -m "Blind Sample B non-LMT validation" || true
+          git push || true
