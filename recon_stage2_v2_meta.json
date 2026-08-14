@@ -1,0 +1,42 @@
+{
+  "version": "RECON Stage2 V2.0",
+  "training_population": "Sample A only, LMT excluded",
+  "training_rows": 789,
+  "base_features": [
+    "prior_response_count_60d",
+    "pre_volatility_market_20d",
+    "relative_strength_spy_120d",
+    "prior_abs_award_max",
+    "prior_signed_award_mean",
+    "prior_abs_award_median",
+    "prior_response_mean_20d",
+    "transaction_amount_abs_sum",
+    "prior_transactions_30d",
+    "relative_strength_spy_60d",
+    "prior_award_days_30d"
+  ],
+  "added_scale_features": [
+    "log_market_cap_preaward",
+    "award_to_market_cap",
+    "award_to_adv60"
+  ],
+  "uses_MD_as_input": false,
+  "target": "peak_pct / peak_gain_90d regression",
+  "xgboost": {
+    "max_depth": 4,
+    "n_estimators": 100,
+    "learning_rate": 0.05,
+    "random_state": 20260813
+  },
+  "grouped_ticker_cv": {
+    "folds": 5,
+    "mae": 11.25413125379356,
+    "spearman_rho": 0.2430653808560619
+  },
+  "leakage_rules": [
+    "Price and ADV use dates strictly before award_date.",
+    "Shares outstanding use latest shares observation dated <= award_date.",
+    "Sample B outcomes are diagnostic only and are never used for fit/tuning.",
+    "Stage 1 MTS threshold/model remain unchanged."
+  ]
+}
