@@ -1,0 +1,89 @@
+{
+  "version": "RECON MTS12 B Diagnostic v1.0",
+  "factor12": "log10(market_cap_before)",
+  "A_top5_threshold_12D": 1.8617724166334635,
+  "B_rows": 350,
+  "B_market_cap_coverage": 1.0,
+  "old_11_buy": {
+    "n": 23,
+    "hit_ge7p5": 0.8695652173913043,
+    "hit_ge10": 0.8260869565217391,
+    "hit_ge15": 0.6956521739130435,
+    "hit_ge20": 0.6086956521739131,
+    "median_peak": 23.66065374496007,
+    "mean_peak": 44.44432442803732
+  },
+  "new_12_buy": {
+    "n": 37,
+    "hit_ge7p5": 0.8918918918918919,
+    "hit_ge10": 0.8648648648648649,
+    "hit_ge15": 0.7567567567567568,
+    "hit_ge20": 0.6216216216216216,
+    "median_peak": 23.78208523446093,
+    "mean_peak": 41.290891623815334
+  },
+  "old_buy_rejected_by_12": {
+    "n": 0
+  },
+  "new_12_added_vs_old": {
+    "n": 14,
+    "hit_ge7p5": 0.9285714285714286,
+    "hit_ge10": 0.9285714285714286,
+    "hit_ge15": 0.8571428571428571,
+    "hit_ge20": 0.6428571428571429,
+    "median_peak": 33.168077887513476,
+    "mean_peak": 36.110252016879215
+  },
+  "known_failure_rows": [
+    {
+      "ticker": "AVAV",
+      "award_date": "2026-01-26",
+      "peak_pct": 2.279708458179264,
+      "old_MD": 3.0283643760940726,
+      "new_MD12": 2.8174357589024988,
+      "old_buy": 1,
+      "new_buy12": 1,
+      "log10_market_cap_before": 10.186578823867931
+    },
+    {
+      "ticker": "BA",
+      "award_date": "2025-08-12",
+      "peak_pct": 2.0506445380442884,
+      "old_MD": 2.7077599298902646,
+      "new_MD12": 2.464889109385064,
+      "old_buy": 1,
+      "new_buy12": 1,
+      "log10_market_cap_before": 11.232644139424483
+    },
+    {
+      "ticker": "KTOS",
+      "award_date": "2025-09-16",
+      "peak_pct": 71.2115308882564,
+      "old_MD": 2.8922445066138733,
+      "new_MD12": 2.726887705654353,
+      "old_buy": 1,
+      "new_buy12": 1,
+      "log10_market_cap_before": 10.083194169632382
+    },
+    {
+      "ticker": "KTOS",
+      "award_date": "2025-11-21",
+      "peak_pct": 89.06566730498753,
+      "old_MD": 2.309937434925927,
+      "new_MD12": 2.3622407653348274,
+      "old_buy": 1,
+      "new_buy12": 1,
+      "log10_market_cap_before": 10.055556739418323
+    },
+    {
+      "ticker": "KTOS",
+      "award_date": "2026-01-29",
+      "peak_pct": 0.0,
+      "old_MD": 2.3011866198896547,
+      "new_MD12": 2.379396094726201,
+      "old_buy": 1,
+      "new_buy12": 1,
+      "log10_market_cap_before": 10.279285451873069
+    }
+  ]
+}
