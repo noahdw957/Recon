@@ -1,0 +1,188 @@
+{
+  "version": "RECON Factor-12 L16 Screen V1.0",
+  "sample": "A only",
+  "rows_before_project_exclusions": 912,
+  "rows_screened": 789,
+  "rules": {
+    "LMT_excluded": true,
+    "zero_dollar_excluded": true,
+    "B_C_not_read": true,
+    "market_cap_point_in_time": true,
+    "revenue_filed_on_or_before_award": true
+  },
+  "frozen_11": [
+    "prior_response_count_60d",
+    "pre_volatility_market_20d",
+    "relative_strength_spy_120d",
+    "prior_abs_award_max",
+    "prior_signed_award_mean",
+    "prior_abs_award_median",
+    "prior_response_mean_20d",
+    "transaction_amount_abs_sum",
+    "prior_transactions_30d",
+    "relative_strength_spy_60d",
+    "prior_award_days_30d"
+  ],
+  "challengers": [
+    "award_to_market_cap",
+    "log10_award_to_market_cap",
+    "log10_market_cap_before",
+    "award_to_ltm_revenue"
+  ],
+  "coverage": {
+    "market_cap_rows": 789,
+    "market_cap_pct": 1.0,
+    "ltm_revenue_rows": 785,
+    "ltm_revenue_pct": 0.9949302915082383
+  },
+  "ranked_effects": [
+    {
+      "rank_SN_effect": 1,
+      "variable": "log10_market_cap_before",
+      "kind": "scale_challenger",
+      "SN_effect_dB": 0.9409846587058646,
+      "AUC20_effect": 0.013305092220545323,
+      "relative_SN_contribution_pct": 28.300829912023502
+    },
+    {
+      "rank_SN_effect": 2,
+      "variable": "prior_abs_award_max",
+      "kind": "existing_11",
+      "SN_effect_dB": 0.7769389058974918,
+      "AUC20_effect": 0.02836810795977973,
+      "relative_SN_contribution_pct": 19.293358072640025
+    },
+    {
+      "rank_SN_effect": 3,
+      "variable": "prior_response_count_60d",
+      "kind": "existing_11",
+      "SN_effect_dB": 0.7071018758942653,
+      "AUC20_effect": 0.010818273584350835,
+      "relative_SN_contribution_pct": 15.980783357961043
+    },
+    {
+      "rank_SN_effect": 4,
+      "variable": "prior_abs_award_median",
+      "kind": "existing_11",
+      "SN_effect_dB": 0.44998919881277955,
+      "AUC20_effect": 0.020549942178404113,
+      "relative_SN_contribution_pct": 6.471996356983695
+    },
+    {
+      "rank_SN_effect": 5,
+      "variable": "pre_volatility_market_20d",
+      "kind": "existing_11",
+      "SN_effect_dB": 0.29633277692305127,
+      "AUC20_effect": -0.010690870068013947,
+      "relative_SN_contribution_pct": 2.80668366387216
+    },
+    {
+      "rank_SN_effect": 6,
+      "variable": "prior_transactions_30d",
+      "kind": "existing_11",
+      "SN_effect_dB": 0.16817473701363028,
+      "AUC20_effect": -0.010377261412414907,
+      "relative_SN_contribution_pct": 0.903973292681583
+    },
+    {
+      "rank_SN_effect": 7,
+      "variable": "prior_response_mean_20d",
+      "kind": "existing_11",
+      "SN_effect_dB": 0.16473146149304885,
+      "AUC20_effect": -0.0034607205158861953,
+      "relative_SN_contribution_pct": 0.8673356315191412
+    },
+    {
+      "rank_SN_effect": 8,
+      "variable": "relative_strength_spy_60d",
+      "kind": "existing_11",
+      "SN_effect_dB": 0.09937260971516992,
+      "AUC20_effect": -0.012060457868637187,
+      "relative_SN_contribution_pct": 0.3156221515454413
+    },
+    {
+      "rank_SN_effect": 9,
+      "variable": "log10_award_to_market_cap",
+      "kind": "scale_challenger",
+      "SN_effect_dB": -0.016529393523170066,
+      "AUC20_effect": -0.006969217350398793,
+      "relative_SN_contribution_pct": 0.008732687592421852
+    },
+    {
+      "rank_SN_effect": 10,
+      "variable": "prior_signed_award_mean",
+      "kind": "existing_11",
+      "SN_effect_dB": -0.05565252915396912,
+      "AUC20_effect": -0.008799417863933012,
+      "relative_SN_contribution_pct": 0.0989928657664083
+    },
+    {
+      "rank_SN_effect": 11,
+      "variable": "prior_award_days_30d",
+      "kind": "existing_11",
+      "SN_effect_dB": -0.10879603727809894,
+      "AUC20_effect": 0.010744771555695087,
+      "relative_SN_contribution_pct": 0.37832081762689307
+    },
+    {
+      "rank_SN_effect": 12,
+      "variable": "relative_strength_spy_120d",
+      "kind": "existing_11",
+      "SN_effect_dB": -0.1647773307475775,
+      "AUC20_effect": -0.006187645779023421,
+      "relative_SN_contribution_pct": 0.8678187156536401
+    },
+    {
+      "rank_SN_effect": 13,
+      "variable": "transaction_amount_abs_sum",
+      "kind": "existing_11",
+      "SN_effect_dB": -0.20578114988423368,
+      "AUC20_effect": -0.004168790058605598,
+      "relative_SN_contribution_pct": 1.3534594996130098
+    },
+    {
+      "rank_SN_effect": 14,
+      "variable": "award_to_market_cap",
+      "kind": "scale_challenger",
+      "SN_effect_dB": -0.4916086123427698,
+      "AUC20_effect": 0.006996168094239419,
+      "relative_SN_contribution_pct": 7.724547540640986
+    },
+    {
+      "rank_SN_effect": 15,
+      "variable": "award_to_ltm_revenue",
+      "kind": "scale_challenger",
+      "SN_effect_dB": -0.6765013774642206,
+      "AUC20_effect": 0.004234941884395993,
+      "relative_SN_contribution_pct": 14.627545433880046
+    }
+  ],
+  "full_15": {
+    "sn_db": 0.30377469054944894,
+    "auc20": 0.6339892981046278,
+    "auc50": 0.7857826384142174,
+    "rho_peak": 0.1488380560297758
+  },
+  "positive_SN_effect_factors": [
+    "log10_market_cap_before",
+    "prior_abs_award_max",
+    "prior_response_count_60d",
+    "prior_abs_award_median",
+    "pre_volatility_market_20d",
+    "prior_transactions_30d",
+    "prior_response_mean_20d",
+    "relative_strength_spy_60d"
+  ],
+  "positive_effect_model": {
+    "sn_db": 0.5639696875645246,
+    "auc20": 0.6248554460103098,
+    "auc50": 0.8470266575529732,
+    "rho_peak": 0.19719128984296527
+  },
+  "notes": [
+    "Existing 11 use transforms stored in frozen model.",
+    "Four challengers are tested exactly as defined.",
+    "ln ratio omitted because it is linearly equivalent to log10 ratio after standardization.",
+    "Sample B and C are not loaded."
+  ]
+}
