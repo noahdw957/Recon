@@ -19,7 +19,7 @@ jobs:
           python-version: '3.11'
 
       - name: Install
-        run: pip install pandas numpy xgboost yfinance
+        run: pip install pandas numpy scikit-learn xgboost yfinance
 
       - name: Run sealed Sample C blind validation
         run: python sample_C_blind_validate_v2.py
