@@ -1,0 +1,61 @@
+{
+  "version": "RECON Sample-C Blind Validation V2.0",
+  "sample_C_raw_rows": 1593,
+  "sample_C_unique_nonLMT_ticker_days": 987,
+  "mature_90d_validation_events": 616,
+  "stage1_threshold": 2.1954452583448045,
+  "stage1_candidate_count": 137,
+  "stage1_candidate_rate": 0.2224025974025974,
+  "stage2_model": "recon_stage2_v2.ubj frozen before C",
+  "hit_rates_within_90_trading_days": {
+    "5.0": {
+      "hits": 127,
+      "candidates": 137,
+      "rate": 0.927007299270073
+    },
+    "7.5": {
+      "hits": 125,
+      "candidates": 137,
+      "rate": 0.9124087591240876
+    },
+    "10.0": {
+      "hits": 121,
+      "candidates": 137,
+      "rate": 0.8832116788321168
+    },
+    "12.5": {
+      "hits": 113,
+      "candidates": 137,
+      "rate": 0.8248175182481752
+    },
+    "15.0": {
+      "hits": 105,
+      "candidates": 137,
+      "rate": 0.7664233576642335
+    },
+    "20.0": {
+      "hits": 87,
+      "candidates": 137,
+      "rate": 0.635036496350365
+    },
+    "25.0": {
+      "hits": 73,
+      "candidates": 137,
+      "rate": 0.5328467153284672
+    },
+    "30.0": {
+      "hits": 62,
+      "candidates": 137,
+      "rate": 0.45255474452554745
+    }
+  },
+  "mean_peak_pct_stage1_candidates": 48.25105007536664,
+  "median_peak_pct_stage1_candidates": 27.64623498249701,
+  "notes": [
+    "LMT excluded.",
+    "No Sample-C outcome used for fitting or tuning.",
+    "Stage 1 MTS model and threshold unchanged.",
+    "Stage 2 V2 model loaded from frozen UBJ.",
+    "No new Stage-2 cutoff was selected using Sample C."
+  ]
+}
