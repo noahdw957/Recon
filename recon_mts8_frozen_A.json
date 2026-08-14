@@ -1,0 +1,157 @@
+{
+  "version": "RECON MTS8 Frozen A v1.0",
+  "source": "L16 positive-S/N factor set",
+  "features": [
+    "log10_market_cap_before",
+    "prior_abs_award_max",
+    "prior_response_count_60d",
+    "prior_abs_award_median",
+    "pre_volatility_market_20d",
+    "prior_transactions_30d",
+    "prior_response_mean_20d",
+    "relative_strength_spy_60d"
+  ],
+  "transforms": {
+    "log10_market_cap_before": "identity",
+    "prior_abs_award_max": "signed_log1p",
+    "prior_response_count_60d": "signed_log1p",
+    "prior_abs_award_median": "signed_log1p",
+    "pre_volatility_market_20d": "identity",
+    "prior_transactions_30d": "signed_log1p",
+    "prior_response_mean_20d": "identity",
+    "relative_strength_spy_60d": "identity"
+  },
+  "training_rows": 789,
+  "reference_rule": "Sample A events with peak_pct < 10",
+  "reference_rows": 399,
+  "impute_median": {
+    "log10_market_cap_before": 10.387166780894209,
+    "prior_abs_award_max": 19.354947011752447,
+    "prior_response_count_60d": 3.8066624897703196,
+    "prior_abs_award_median": 16.5322049303338,
+    "pre_volatility_market_20d": 1.7723420418674862,
+    "prior_transactions_30d": 5.081404364984463,
+    "prior_response_mean_20d": 1.6978185498132592,
+    "relative_strength_spy_60d": 1.2132923469633017
+  },
+  "reference_mean": {
+    "log10_market_cap_before": 10.625932783789732,
+    "prior_abs_award_max": 19.597688495171166,
+    "prior_response_count_60d": 2.8273422161532253,
+    "prior_abs_award_median": 16.43449652376031,
+    "pre_volatility_market_20d": 2.0606291855998076,
+    "prior_transactions_30d": 4.816073803489573,
+    "prior_response_mean_20d": 1.5856468078041708,
+    "relative_strength_spy_60d": 2.623598721446692
+  },
+  "reference_sd": {
+    "log10_market_cap_before": 0.5075506908228757,
+    "prior_abs_award_max": 1.1421831854022761,
+    "prior_response_count_60d": 1.7908841319714495,
+    "prior_abs_award_median": 0.8870167161218723,
+    "pre_volatility_market_20d": 0.9329534950263905,
+    "prior_transactions_30d": 0.8947557839646054,
+    "prior_response_mean_20d": 3.6466090494704537,
+    "relative_strength_spy_60d": 14.497162681485262
+  },
+  "ledoit_location": [
+    1.4157430449355379e-15,
+    -1.852041216016301e-15,
+    -2.582172849253497e-16,
+    4.2739412677299257e-16,
+    2.1369706338649628e-16,
+    -8.369801649304438e-16,
+    0.0,
+    0.0
+  ],
+  "ledoit_precision": [
+    [
+      1.3645365383259997,
+      -0.22781606925537587,
+      -0.1941617811955688,
+      -0.14214749490850936,
+      0.5222065122730927,
+      0.5139608642967577,
+      -0.09165909344720857,
+      0.00383148854896469
+    ],
+    [
+      -0.2278160692553758,
+      2.0313987808103744,
+      -1.0915143272279055,
+      -0.7193305131079974,
+      0.18296647956313716,
+      -0.3480886663213099,
+      -0.45511269833560697,
+      -0.428948772113004
+    ],
+    [
+      -0.1941617811955688,
+      -1.0915143272279053,
+      2.0670033326118795,
+      0.9841109258500413,
+      -0.6384630971339568,
+      -0.3720028859835498,
+      0.4754692167074765,
+      -0.03879130902542111
+    ],
+    [
+      -0.14214749490850945,
+      -0.7193305131079973,
+      0.9841109258500413,
+      2.4903466156162994,
+      0.4404266227619259,
+      -1.0586823469589997,
+      0.5406123699566322,
+      0.20321680409501314
+    ],
+    [
+      0.5222065122730926,
+      0.18296647956313716,
+      -0.6384630971339567,
+      0.4404266227619259,
+      1.7011577710366264,
+      0.08817408779677154,
+      -0.051184231435713656,
+      0.2769988573502869
+    ],
+    [
+      0.5139608642967577,
+      -0.34808866632130997,
+      -0.37200288598354975,
+      -1.0586823469589997,
+      0.08817408779677154,
+      2.149424755772864,
+      0.5799187649486904,
+      -0.21476810539826852
+    ],
+    [
+      -0.0916590934472086,
+      -0.4551126983356072,
+      0.4754692167074764,
+      0.5406123699566322,
+      -0.051184231435713684,
+      0.5799187649486904,
+      1.9264870857705523,
+      -0.7459026671392245
+    ],
+    [
+      0.0038314885489645883,
+      -0.428948772113004,
+      -0.03879130902542111,
+      0.20321680409501303,
+      0.27699885735028684,
+      -0.21476810539826852,
+      -0.7459026671392245,
+      1.5929890942937865
+    ]
+  ],
+  "dimension_normalization": 8,
+  "buy_rule": "MTS8_score >= Sample-A top-5% threshold",
+  "top5_threshold": 1.8757843004962427,
+  "notes": [
+    "Factor set comes directly from positive S/N effects in the 15-column L16.",
+    "Sample B outcomes are not used to fit the model or choose the threshold.",
+    "No Stage 2 / XGBoost."
+  ]
+}
