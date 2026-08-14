@@ -1,0 +1,40 @@
+name: recon-v2-train-freeze
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  train:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install
+        run: pip install pandas numpy scipy scikit-learn xgboost yfinance
+
+      - name: Train and freeze RECON Stage 2 V2
+        run: python recon_v2_train_freeze.py
+
+      - name: Show diagnostic
+        run: |
+          echo "=== V2 B DIAGNOSTIC ==="
+          cat recon_stage2_v2_B_diagnostic.csv || true
+          echo "=== V2 META ==="
+          cat recon_stage2_v2_meta.json
+
+      - name: Commit frozen V2 outputs
+        run: |
+          git config user.name "recon-bot"
+          git config user.email "bot@recon.com"
+          git add recon_stage2_v2.ubj recon_stage2_v2_meta.json recon_stage2_v2_A_cv_predictions.csv recon_stage2_v2_B_diagnostic.csv scale_cache_v2/ 2>/dev/null || true
+          git commit -m "Freeze RECON Stage2 V2" || echo "Nothing new to commit"
+          git push
