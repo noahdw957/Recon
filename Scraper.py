@@ -1,27 +1,46 @@
-
-import requests
 import json
 import time
-from datetime import date, timedelta
+from datetime import date, timedelta, datetime, timezone
 from pathlib import Path
+
+import numpy as np
+import pandas as pd
+import requests
 import yfinance as yf
 
 # ============================================================
-# RECON V1.0
-# Federal Contract -> Public Company -> Revenue -> Signal
+# RECON LIVE BUY SCANNER V3.0 - MD11 DETECTOR + MD8 SCALE VETO
+#
+# USER-FACING OUTPUT:
+#     buy_tickers.txt
+#
+# Everything else is stored under ReconData/ for analysis.
+#
+# BUY MODEL:
+#     BUY only when BOTH frozen spaces pass:
+#       MD11 detector >= threshold from mts_frozen_model_A.json
+#       MD8 scale veto >= 1.9463204147913817
+#     MD8 frozen parameters are embedded in this file.
+#
+# IMPORTANT:
+#     This is a sandbox scanner. It generates experimental BUY
+#     signals; it does not contain a validated SELL model yet.
 # ============================================================
 
-MIN_AWARD = 1_000_000
-AUTO_DISCOVER_MIN = 10_000_000
-MAX_AUTO_LOOKUPS = 25
-DAYS = 7
+LOOKBACK_DAYS = 7
+MAX_PAGES = 100
+PAGE_SIZE = 100
+MIN_POSITIVE_TRANSACTION = 1.0
 
-END = date.today()
-START = END - timedelta(days=DAYS)
+AUTO_DISCOVER_MIN = 1_000_000
+MAX_AUTO_LOOKUPS = 30
+
+TODAY = date.today()
+START = TODAY - timedelta(days=LOOKBACK_DAYS)
 
 USA_API = (
     "https://api.usaspending.gov/api/v2/"
-    "search/spending_by_award/"
+    "search/spending_by_transaction/"
 )
 
 YAHOO_SEARCH_API = (
@@ -29,1131 +48,1223 @@ YAHOO_SEARCH_API = (
 )
 
 # ============================================================
-# MASTER
+# REQUIRED EXISTING FILES
+# ============================================================
+
+MODEL_FILE = Path("mts_frozen_model_A.json")
+MASTER_HISTORY_FILE = Path("master_zero_purged.csv")
+
+# ============================================================
+# CLEAN OUTPUT / STATE AREA
+# ============================================================
+
+DATA_DIR = Path("ReconData")
+DATA_DIR.mkdir(parents=True, exist_ok=True)
+
+BUY_FILE = Path("buy_tickers.txt")
+
+SCAN_LOG = DATA_DIR / "recon_scan_log.csv"
+LIVE_HISTORY = DATA_DIR / "live_history.csv"
+SEEN_FILE = DATA_DIR / "seen_events.json"
+TICKER_CACHE_FILE = DATA_DIR / "ticker_cache.json"
+UNKNOWN_FILE = DATA_DIR / "unknown_companies.json"
+SHARES_CACHE_DIR = DATA_DIR / "shares_cache"
+SHARES_CACHE_DIR.mkdir(parents=True, exist_ok=True)
+
+# ============================================================
+# FALLBACK PUBLIC-COMPANY MAP
 #
-# Known / manually verified public companies.
-#
-# Revenue is a bootstrap/fallback value.
-# Yahoo revenue is allowed to replace it.
+# The large master_zero_purged.csv is also used to bootstrap
+# recipient -> ticker mappings automatically, so this list is
+# only a fallback for familiar names.
 # ============================================================
 
 MASTER = {
-    "PLTR": {
-        "keywords": ["PALANTIR"],
-        "revenue": 6_160_000_000
-    },
-    "RCAT": {
-        "keywords": ["RED CAT"],
-        "revenue": 71_540_000
-    },
-    "AVAV": {
-        "keywords": ["AEROVIRONMENT"],
-        "revenue": 1_980_000_000
-    },
-    "WWD": {
-        "keywords": ["WOODWARD"],
-        "revenue": 4_190_000_000
-    },
-    "AEVA": {
-        "keywords": ["AEVA TECHNOLOGIES", "AEVA"],
-        "revenue": 20_970_000
-    },
-    "LMT": {
-        "keywords": ["LOCKHEED MARTIN"],
-        "revenue": 75_110_000_000
-    },
-    "RTX": {
-        "keywords": ["RAYTHEON", "RAYTHEON TECHNOLOGIES"],
-        "revenue": 90_370_000_000
-    },
-    "BAH": {
-        "keywords": ["BOOZ ALLEN"],
-        "revenue": 11_220_000_000
-    },
-    "SAIC": {
-        "keywords": ["SCIENCE APPLICATIONS INTERNATIONAL"],
-        "revenue": 7_290_000_000
-    },
-    "LDOS": {
-        "keywords": ["LEIDOS"],
-        "revenue": 17_330_000_000
-    },
-    "LHX": {
-        "keywords": ["L3HARRIS", "L3 HARRIS"],
-        "revenue": 22_930_000_000
-    },
-    "NOC": {
-        "keywords": ["NORTHROP GRUMMAN"],
-        "revenue": 42_370_000_000
-    },
+    "PLTR": ["PALANTIR"],
+    "RCAT": ["RED CAT"],
+    "AVAV": ["AEROVIRONMENT"],
+    "WWD": ["WOODWARD"],
+    "AEVA": ["AEVA TECHNOLOGIES", "AEVA"],
+    "LMT": ["LOCKHEED MARTIN"],
+    "RTX": ["RAYTHEON", "RTX CORPORATION"],
+    "BAH": ["BOOZ ALLEN"],
+    "SAIC": ["SCIENCE APPLICATIONS INTERNATIONAL", "SAIC"],
+    "LDOS": ["LEIDOS"],
+    "LHX": ["L3HARRIS", "L3 HARRIS"],
+    "NOC": ["NORTHROP GRUMMAN"],
+    "HII": ["HUNTINGTON INGALLS"],
+    "CACI": ["CACI"],
+    "BA": ["BOEING"],
+    "GD": ["GENERAL DYNAMICS"],
+    "ACN": ["ACCENTURE FEDERAL"],
+    "HON": ["HONEYWELL"],
+    "TXT": ["TEXTRON", "BELL TEXTRON"],
+    "KTOS": ["KRATOS"],
+    "MRCY": ["MERCURY SYSTEMS"],
+    "PSN": ["PARSONS"],
+    "ETN": ["EATON"],
+    "CAT": ["CATERPILLAR"],
+    "IBM": ["INTERNATIONAL BUSINESS MACHINES"],
 }
 
 # ============================================================
-# FILES
-# ============================================================
-
-CACHE_TICKER = Path("ticker_cache.json")
-CACHE_REVENUE = Path("revenue_cache.json")
-UNKNOWN_FILE = Path("unknown_companies.json")
-RECON_FILE = Path("recon.json")
-
-# ============================================================
-# JSON LOADER
+# BASIC HELPERS
 # ============================================================
 
 def load_json(path, default):
     try:
         if path.exists():
             return json.loads(path.read_text())
-    except Exception as e:
-        print(f"Cache read error {path}: {e}")
-
+    except Exception as exc:
+        print(f"Could not read {path}: {exc}")
     return default
 
 
-ticker_cache = load_json(CACHE_TICKER, {})
-revenue_cache = load_json(CACHE_REVENUE, {})
+def normalize_name(name):
+    return " ".join(str(name).upper().replace(",", " ").split())
 
-# ============================================================
-# MASTER BOOTSTRAP
-# ============================================================
 
-for ticker, info in MASTER.items():
+def sector_group(ticker, company=""):
+    t = str(ticker).upper().strip()
+    c = str(company).upper()
 
-    for keyword in info["keywords"]:
-        ticker_cache[keyword] = ticker
+    aero = {
+        "AVAV", "BA", "KTOS", "LHX", "LMT", "NOC", "GD", "HII",
+        "RTX", "TXT", "RKLB", "SATL", "RDW", "BKSY", "PLTR",
+        "LDOS", "SAIC", "BAH", "VSEC", "WWD",
+    }
+    industrial = {"GE", "CAT", "ETN", "HON"}
+    tech = {"IBM", "ACN"}
 
-# ============================================================
-# HTTP SESSION
-# ============================================================
+    if t in aero:
+        return "AERO_DEFENSE"
+    if t in industrial:
+        return "INDUSTRIAL"
+    if t in tech:
+        return "TECH_SERVICES"
+
+    defense_words = [
+        "AEROSPACE", "AEROVIRONMENT", "BOEING", "KRATOS", "DEFENSE",
+        "DEFENCE", "DYNAMICS", "INGALLS", "RAYTHEON", "LOCKHEED",
+        "NORTHROP", "LEIDOS", "BOOZ ALLEN", "ROCKET LAB", "SATELLITE",
+        "SPACE", "VSE", "WOODWARD",
+    ]
+    if any(word in c for word in defense_words):
+        return "AERO_DEFENSE"
+
+    return "OTHER"
+
+
+def signed_log1p_scalar(value):
+    try:
+        value = float(value)
+    except Exception:
+        return np.nan
+    if not np.isfinite(value):
+        return np.nan
+    return float(np.sign(value) * np.log1p(abs(value)))
+
 
 session = requests.Session()
+session.headers.update({"User-Agent": "RECON-Live/2.0"})
 
-session.headers.update({
-    "User-Agent": "RECON/1.0"
-})
+if not MODEL_FILE.exists():
+    raise FileNotFoundError(
+        f"Missing {MODEL_FILE}. Upload the frozen Sample-A model."
+    )
+
+if not MASTER_HISTORY_FILE.exists():
+    raise FileNotFoundError(
+        f"Missing {MASTER_HISTORY_FILE}. Upload the saved nonzero award master."
+    )
+
+model = json.loads(MODEL_FILE.read_text())
+
+# Frozen corrected scale-aware MTS8 deployment model. Embedded here so the
+# daily scanner remains a single Python file. The only external model file
+# required is the original frozen 11-factor model above.
+MODEL8 = {'features': ['prior_response_count_60d_adj', 'log10_market_cap_before', 'prior_abs_award_max', 'relative_strength_spy_120d', 'prior_abs_award_median_adj', 'prior_response_count_60d', 'prior_abs_award_median', 'relative_strength_spy_60d'], 'threshold': 1.9463204147913817, 'A_sector_count_centers': {'AERO_DEFENSE': 1.6989700043360187, 'INDUSTRIAL': 1.4621397262132765, 'OTHER': 1.6483333918242467, 'TECH_SERVICES': 1.6433396112263248}, 'A_sector_median_award_centers': {'AERO_DEFENSE': 7.276858522781777, 'INDUSTRIAL': 6.379214783094319, 'OTHER': 7.050908632424625, 'TECH_SERVICES': 6.864458778006966}, 'impute_median': {'prior_response_count_60d_adj': 0.0492180226701817, 'log10_market_cap_before': 10.387166780894209, 'prior_abs_award_max': 19.354947011752447, 'relative_strength_spy_120d': 1.843991900460896, 'prior_abs_award_median_adj': -0.0066639210311842, 'prior_response_count_60d': 3.80666248977032, 'prior_abs_award_median': 16.5322049303338, 'relative_strength_spy_60d': 1.2132923469633017}, 'reference_mean': {'prior_response_count_60d_adj': 0.0013767411374706754, 'log10_market_cap_before': 10.625932783789732, 'prior_abs_award_max': 19.597688495171163, 'relative_strength_spy_120d': 1.2359990062272446, 'prior_abs_award_median_adj': -0.04354096940216947, 'prior_response_count_60d': 2.8273422161532253, 'prior_abs_award_median': 16.43449652376031, 'relative_strength_spy_60d': 2.623598721446692}, 'reference_sd': {'prior_response_count_60d_adj': 0.2411181730720844, 'log10_market_cap_before': 0.5075506908228757, 'prior_abs_award_max': 1.1421831854022753, 'relative_strength_spy_120d': 21.180105648166858, 'prior_abs_award_median_adj': 0.314659542161833, 'prior_response_count_60d': 1.7908841319714495, 'prior_abs_award_median': 0.8870167161218723, 'relative_strength_spy_60d': 14.497162681485262}, 'lw_location': [0.0, 1.4157430449355379e-15, 1.3177985575500604e-15, -3.5616177231082714e-17, -7.123235446216543e-17, -2.49313240617579e-16, 3.9177794954190986e-16, 0.0], 'lw_precision': [[1.1245235410715015, 0.11352024832397757, 0.1240456298401465, -0.03193144952522353, -0.3991441548956096, -0.36490679685676564, 0.013769655800668537, -0.05708349556794794], [0.11352024832397757, 1.3770061528784387, -0.3114930412901252, -0.22521682050650216, -1.1568724382658144, -0.014832737514160942, 0.9161846426492161, -0.0939101841889188], [0.12404562984014653, -0.3114930412901252, 1.9965791456133024, -0.3451494320242806, 0.2943141182659422, -1.0929572591554757, -1.1431114831222657, -0.398446057654768], [-0.031931449525223615, -0.22521682050650216, -0.3451494320242807, 2.205304783545063, 0.6514570223600256, 0.6839549226950875, 0.07099452031580906, -1.2606775178443608], [-0.3991441548956096, -1.1568724382658147, 0.2943141182659423, 0.6514570223600256, 4.367772214507019, 0.531126542035879, -3.263049460696854, 0.06272408648398381], [-0.36490679685676564, -0.014832737514160936, -1.0929572591554757, 0.6839549226950875, 0.5311265420358788, 1.93893598117823, 0.5661053548215131, -0.10750370278020249], [0.013769655800668522, 0.9161846426492162, -1.1431114831222657, 0.07099452031580904, -3.263049460696854, 0.5661053548215131, 4.088226221596494, -0.033279115184692745], [-0.05708349556794795, -0.09391018418891882, -0.3984460576547681, -1.2606775178443608, 0.06272408648398387, -0.10750370278020249, -0.033279115184692704, 2.0325863172680054]], 'version': 'RECON Scale-Aware MTS8 Frozen A - Corrected Deployment v1.0', 'notes': ['Sector centers are frozen Sample-A medians in log10(raw) space.', 'For stored signed_log1p A fields, reconstruction used raw=expm1(stored), then log10(raw).', 'Deployment rule is intersection with frozen MD11 threshold 2.1954452583448045.']}
+MODEL_VERSION = "RECON_11x8_INTERSECTION_v1"
+MD8_THRESHOLD = float(MODEL8["threshold"])
+
+seen = load_json(SEEN_FILE, {})
+ticker_cache = load_json(TICKER_CACHE_FILE, {})
+unknown_previous = load_json(UNKNOWN_FILE, {})
+
+# ============================================================
+# LOAD / CLEAN SAVED HISTORICAL AWARD DATABASE
+# ============================================================
+
+master_history = pd.read_csv(MASTER_HISTORY_FILE)
+
+required_history = {
+    "ticker",
+    "company",
+    "award_id",
+    "award_date",
+    "transaction_amount",
+}
+
+missing = required_history - set(master_history.columns)
+if missing:
+    raise ValueError(
+        f"{MASTER_HISTORY_FILE} missing required columns: {sorted(missing)}"
+    )
+
+master_history["award_date"] = pd.to_datetime(
+    master_history["award_date"], errors="coerce"
+)
+master_history["transaction_amount"] = pd.to_numeric(
+    master_history["transaction_amount"], errors="coerce"
+)
+
+master_history = master_history[
+    master_history["ticker"].notna()
+    & master_history["award_date"].notna()
+    & master_history["transaction_amount"].notna()
+    & (master_history["transaction_amount"] != 0)
+].copy()
+
+# ============================================================
+# BOOTSTRAP RECIPIENT -> TICKER CACHE FROM SAVED MASTER
+# ============================================================
+
+for _, row in master_history[["company", "ticker"]].dropna().drop_duplicates().iterrows():
+    ticker_cache[normalize_name(row["company"])] = str(row["ticker"]).upper()
+
+for ticker, keywords in MASTER.items():
+    for keyword in keywords:
+        ticker_cache[normalize_name(keyword)] = ticker
+
+# ============================================================
+# TICKER MATCHING
+# ============================================================
 
 lookups_used = 0
 
-# ============================================================
-# MASTER LOOKUP
-# ============================================================
 
 def master_lookup(name):
+    upper = normalize_name(name)
 
-    upper = name.upper()
+    # Exact historic recipient mapping first.
+    if upper in ticker_cache:
+        return ticker_cache[upper]
 
-    for ticker, info in MASTER.items():
-
-        for keyword in info["keywords"]:
-
-            if keyword in upper:
+    # Then fallback keywords.
+    for ticker, keywords in MASTER.items():
+        for keyword in keywords:
+            if normalize_name(keyword) in upper:
                 return ticker
 
     return None
 
 
-# ============================================================
-# PRIVATE ENTITY FILTER
-#
-# Do NOT reject LLCs automatically.
-#
-# Public companies frequently receive awards through
-# subsidiaries and contracting entities.
-# ============================================================
-
-def is_obvious_private_entity(name):
-
-    upper = name.upper().strip()
-
-    # Known public companies always pass.
-    if master_lookup(name):
-        return False
-
-    padded = f" {upper} "
-
-    if " JOINT VENTURE " in padded:
-        return True
-
-    if " CONSORTIUM " in padded:
-        return True
-
-    return False
-
-
-# ============================================================
-# TICKER DISCOVERY
-# ============================================================
-
-def find_ticker(name):
-
+def find_ticker(name, transaction_amount):
     global lookups_used
 
-    # --------------------------------------------------------
-    # Cached successful result
-    # --------------------------------------------------------
-
-    cached = ticker_cache.get(name)
-
+    cached = master_lookup(name)
     if cached:
         return cached
 
-    # --------------------------------------------------------
-    # Master
-    # --------------------------------------------------------
-
-    ticker = master_lookup(name)
-
-    if ticker:
-
-        ticker_cache[name] = ticker
-
-        return ticker
-
-    # --------------------------------------------------------
-    # Yahoo lookup limit
-    # --------------------------------------------------------
+    # Avoid wasting Yahoo calls on tiny unknown transactions.
+    if abs(float(transaction_amount or 0)) < AUTO_DISCOVER_MIN:
+        return None
 
     if lookups_used >= MAX_AUTO_LOOKUPS:
         return None
 
     lookups_used += 1
 
-    print(
-        f" Yahoo {lookups_used}/"
-        f"{MAX_AUTO_LOOKUPS}: {name}"
-    )
-
     try:
-
         response = session.get(
             YAHOO_SEARCH_API,
             params={
                 "q": name,
-                "quotesCount": 5,
-                "newsCount": 0
+                "quotesCount": 8,
+                "newsCount": 0,
             },
-            timeout=10
+            timeout=15,
         )
 
         if response.status_code == 429:
-
-            print(" Yahoo 429 - backing off")
-
-            lookups_used -= 1
-
-            time.sleep(10)
-
+            print("Yahoo search rate limited; skipping auto-discovery.")
+            time.sleep(5)
             return None
 
         response.raise_for_status()
-
         data = response.json()
 
-        company_upper = name.upper()
-
-        # ----------------------------------------------------
-        # Examine Yahoo quotes
-        # ----------------------------------------------------
+        company_upper = normalize_name(name)
+        company_tokens = [
+            token
+            for token in company_upper.split()
+            if len(token) >= 4
+            and token not in {
+                "CORPORATION", "CORP", "INC", "INCORPORATED",
+                "COMPANY", "LLC", "LIMITED", "FEDERAL", "SERVICES"
+            }
+        ]
 
         for quote in data.get("quotes", []):
-
             if quote.get("quoteType") != "EQUITY":
                 continue
 
             symbol = quote.get("symbol")
-
-            if not symbol:
+            if not symbol or "." in symbol:
                 continue
 
-            # Skip foreign exchange suffixes.
-            if "." in symbol:
-                continue
-
-            exchange = quote.get("exchange", "")
-
-            allowed = {
-                "",
-                "NMS",
-                "NYQ",
-                "ASE",
-                "NGM",
-                "NCM",
-                "NasdaqGS",
-                "NasdaqCM",
-                "NasdaqGM",
-                "NYSE",
-                "NYSEArca",
-                "TXSE"
-            }
-
-            if exchange not in allowed:
-                continue
-
-            # ------------------------------------------------
-            # Confidence check.
-            #
-            # Yahoo can return unrelated companies for vague
-            # searches. Require some name overlap unless the
-            # Yahoo result is an unusually strong exact match.
-            # ------------------------------------------------
-
-            yahoo_name = (
+            yahoo_name = normalize_name(
                 quote.get("longname")
                 or quote.get("shortname")
                 or ""
-            ).upper()
-
-            tokens = [
-                token
-                for token in company_upper.replace(",", " ").split()
-                if len(token) >= 4
-            ]
-
-            if tokens:
-
-                overlap = sum(
-                    1
-                    for token in tokens
-                    if token in yahoo_name
-                )
-
-                if overlap == 0:
-                    continue
-
-            ticker_cache[name] = symbol
-
-            print(
-                f" FOUND: {name} -> {symbol}"
             )
 
-            return symbol
+            overlap = sum(
+                token in yahoo_name
+                for token in company_tokens
+            )
 
-    except Exception as e:
+            # Require at least one meaningful overlapping company token.
+            if company_tokens and overlap == 0:
+                continue
 
-        print(
-            f" Yahoo error {name}: {e}"
-        )
+            ticker_cache[company_upper] = symbol.upper()
+            print(f"Discovered {name} -> {symbol.upper()}")
+            return symbol.upper()
 
-    # Do NOT cache failures.
-    # Temporary Yahoo failures should be retried later.
+    except Exception as exc:
+        print(f"Yahoo ticker search error for {name}: {exc}")
 
     return None
 
-
 # ============================================================
-# REVENUE LOOKUP
+# DOWNLOAD RECENT POSITIVE TRANSACTIONS
 #
-# Priority:
-#
-# 1. Yahoo financial statement
-# 2. Yahoo info
-# 3. Existing cache
-# 4. MASTER fallback
-#
-# This intentionally allows monthly Yahoo refreshes.
-# ============================================================
-
-def get_revenue(ticker):
-
-    print(
-        f" Revenue fetch {ticker}..."
-    )
-
-    # --------------------------------------------------------
-    # Yahoo financial data
-    # --------------------------------------------------------
-
-    try:
-
-        stock = yf.Ticker(ticker)
-
-        # ----------------------------------------------------
-        # Financial statements
-        # ----------------------------------------------------
-
-        try:
-
-            financials = stock.financials
-
-            if (
-                financials is not None
-                and not financials.empty
-                and "Total Revenue" in financials.index
-            ):
-
-                values = []
-
-                for value in financials.loc[
-                    "Total Revenue"
-                ]:
-
-                    try:
-
-                        value = float(value)
-
-                        if value > 0:
-                            values.append(value)
-
-                    except Exception:
-                        continue
-
-                if values:
-
-                    # Yahoo normally places the most recent
-                    # annual period first.
-                    revenue = values[0]
-
-                    revenue_cache[ticker] = revenue
-
-                    return revenue
-
-        except Exception as e:
-
-            print(
-                f"  Financials unavailable "
-                f"for {ticker}: {e}"
-            )
-
-        # ----------------------------------------------------
-        # Yahoo info fallback
-        # ----------------------------------------------------
-
-        try:
-
-            info = stock.info
-
-            revenue = info.get(
-                "totalRevenue"
-            )
-
-            if revenue:
-
-                revenue = float(revenue)
-
-                if revenue > 0:
-
-                    revenue_cache[ticker] = revenue
-
-                    return revenue
-
-        except Exception as e:
-
-            print(
-                f"  Yahoo info unavailable "
-                f"for {ticker}: {e}"
-            )
-
-    except Exception as e:
-
-        print(
-            f"  Revenue error "
-            f"{ticker}: {e}"
-        )
-
-    # --------------------------------------------------------
-    # Existing cache
-    #
-    # Used if Yahoo is temporarily unavailable.
-    # --------------------------------------------------------
-
-    cached = revenue_cache.get(ticker)
-
-    if cached:
-
-        try:
-
-            cached = float(cached)
-
-            if cached > 0:
-
-                print(
-                    f"  Using cached revenue "
-                    f"for {ticker}"
-                )
-
-                return cached
-
-        except Exception:
-            pass
-
-    # --------------------------------------------------------
-    # MASTER fallback
-    # --------------------------------------------------------
-
-    if ticker in MASTER:
-
-        revenue = float(
-            MASTER[ticker]["revenue"]
-        )
-
-        revenue_cache[ticker] = revenue
-
-        print(
-            f"  Using MASTER fallback "
-            f"for {ticker}"
-        )
-
-        return revenue
-
-    return None
-
-
-# ============================================================
-# USAspending DOWNLOAD
+# The BUY scanner is looking for newly awarded money. Negative
+# modifications remain represented in the historical database
+# and therefore still influence historical factors.
 # ============================================================
 
 payload = {
-
     "filters": {
-
         "award_amounts": [
-            {
-                "lower_bound": MIN_AWARD
-            }
+            {"lower_bound": MIN_POSITIVE_TRANSACTION}
         ],
-
-        "award_type_codes": [
-            "A",
-            "B",
-            "C",
-            "D"
-        ],
-
+        "award_type_codes": ["A", "B", "C", "D"],
         "time_period": [
             {
                 "start_date": str(START),
-                "end_date": str(END)
+                "end_date": str(TODAY),
             }
-        ]
+        ],
     },
-
     "fields": [
-        "Recipient Name",
-        "Award Amount",
-        "Awarding Agency",
         "Award ID",
-        "Last Modified Date",
-        "Start Date",
-        "End Date"
+        "Recipient Name",
+        "Action Date",
+        "Transaction Amount",
+        "Awarding Agency",
+        "Awarding Sub Agency",
+        "Award Type",
     ],
-
-    "sort": "Award Amount",
-
+    "sort": "Transaction Amount",
     "order": "desc",
-
-    "limit": 100,
-
-    "page": 1
+    "limit": PAGE_SIZE,
+    "page": 1,
 }
-
-
-# ============================================================
-# DOWNLOAD ALL AVAILABLE PAGES
-# ============================================================
-
-print(
-    f"Downloading USAspending "
-    f"{START} -> {END}..."
-)
 
 all_rows = []
 
-page = 1
-
-while True:
-
+for page in range(1, MAX_PAGES + 1):
     payload["page"] = page
 
-    try:
-
-        response = session.post(
-            USA_API,
-            json=payload,
-            timeout=60
-        )
-
-        response.raise_for_status()
-
-        page_data = response.json()
-
-    except Exception as e:
-
-        print(
-            f"USAspending error on "
-            f"page {page}: {e}"
-        )
-
-        raise
-
-    rows = page_data.get(
-        "results",
-        []
+    response = session.post(
+        USA_API,
+        json=payload,
+        timeout=90,
     )
+    response.raise_for_status()
+
+    page_data = response.json()
+    rows = page_data.get("results", [])
 
     if not rows:
         break
 
     all_rows.extend(rows)
 
-    print(
-        f"  Page {page}: "
-        f"{len(rows)} awards"
-    )
-
-    page_metadata = page_data.get(
-        "page_metadata",
-        {}
-    )
-
-    has_next = page_metadata.get(
-        "hasNext",
-        False
-    )
-
-    if not has_next:
+    if not page_data.get("page_metadata", {}).get("hasNext", False):
         break
 
-    page += 1
-
-    time.sleep(0.25)
-
+    time.sleep(0.20)
 
 print(
-    f"Total award records downloaded: "
-    f"{len(all_rows)}"
+    f"Downloaded {len(all_rows):,} recent transaction records "
+    f"({START} through {TODAY})."
 )
 
-
 # ============================================================
-# AGGREGATE BY RECIPIENT
+# IDENTIFY PUBLIC-COMPANY TRANSACTIONS
 # ============================================================
 
-companies = {}
-
-seen_awards = set()
+recent_rows = []
+unknown = {}
 
 for row in all_rows:
-
-    name = row.get(
-        "Recipient Name"
-    )
-
+    name = row.get("Recipient Name")
     if not name:
         continue
 
-    if is_obvious_private_entity(name):
-        continue
-
-    award = row.get(
-        "Award Amount",
-        0
-    ) or 0
-
     try:
-        award = float(award)
+        amount = float(row.get("Transaction Amount") or 0)
     except Exception:
         continue
 
-    award_id = row.get(
-        "Award ID"
-    )
-
-    # --------------------------------------------------------
-    # Deduplicate
-    # --------------------------------------------------------
-
-    if award_id:
-
-        if award_id in seen_awards:
-            continue
-
-        seen_awards.add(
-            award_id
-        )
-
-    # --------------------------------------------------------
-    # Initialize
-    # --------------------------------------------------------
-
-    if name not in companies:
-
-        companies[name] = {
-
-            "total": 0,
-
-            "count": 0,
-
-            "largest": 0,
-
-            "agencies": set(),
-
-            "award_ids": [],
-
-            "dates": [],
-
-            "start_dates": [],
-
-            "end_dates": []
-
-        }
-
-    company = companies[name]
-
-    company["total"] += award
-
-    company["count"] += 1
-
-    company["largest"] = max(
-        company["largest"],
-        award
-    )
-
-    # --------------------------------------------------------
-    # Agency
-    # --------------------------------------------------------
-
-    agency = row.get(
-        "Awarding Agency"
-    )
-
-    if isinstance(
-        agency,
-        dict
-    ):
-
-        agency = (
-            agency.get(
-                "toptier_name"
-            )
-            or agency.get(
-                "name"
-            )
-        )
-
-    if agency:
-
-        company[
-            "agencies"
-        ].add(
-            agency
-        )
-
-    # --------------------------------------------------------
-    # Award ID
-    # --------------------------------------------------------
-
-    if award_id:
-
-        company[
-            "award_ids"
-        ].append(
-            award_id
-        )
-
-    # --------------------------------------------------------
-    # Dates
-    # --------------------------------------------------------
-
-    modified = row.get(
-        "Last Modified Date"
-    )
-
-    if modified:
-
-        company[
-            "dates"
-        ].append(
-            modified
-        )
-
-    start_date = row.get(
-        "Start Date"
-    )
-
-    if start_date:
-
-        company[
-            "start_dates"
-        ].append(
-            start_date
-        )
-
-    end_date = row.get(
-        "End Date"
-    )
-
-    if end_date:
-
-        company[
-            "end_dates"
-        ].append(
-            end_date
-        )
-
-
-# ============================================================
-# SORT COMPANIES BY TOTAL AWARDS
-# ============================================================
-
-sorted_companies = sorted(
-    companies.items(),
-    key=lambda x: x[1]["total"],
-    reverse=True
-)
-
-
-# ============================================================
-# PROCESS COMPANIES
-# ============================================================
-
-output = []
-
-unknown = []
-
-for company, stats in sorted_companies:
-
-    ticker = master_lookup(
-        company
-    )
-
-    # --------------------------------------------------------
-    # Master match
-    # --------------------------------------------------------
-
-    if ticker:
-
-        ticker_cache[
-            company
-        ] = ticker
-
-    # --------------------------------------------------------
-    # Cached match
-    # --------------------------------------------------------
-
-    else:
-
-        ticker = ticker_cache.get(
-            company
-        )
-
-    # --------------------------------------------------------
-    # Automatic Yahoo discovery
-    #
-    # Only meaningful awards consume Yahoo requests.
-    # --------------------------------------------------------
-
-    if (
-        not ticker
-        and stats["total"]
-        >= AUTO_DISCOVER_MIN
-        and lookups_used
-        < MAX_AUTO_LOOKUPS
-    ):
-
-        ticker = find_ticker(
-            company
-        )
-
-        if ticker:
-
-            time.sleep(
-                1.2
-            )
-
-    # --------------------------------------------------------
-    # No ticker
-    # --------------------------------------------------------
+    ticker = find_ticker(name, amount)
 
     if not ticker:
-
-        unknown.append({
-
-            "company": company,
-
-            "award_raw": stats[
-                "total"
-            ],
-
-            "award": (
-                f"${stats['total']/1e6:,.1f}M"
-            ),
-
-            "award_count": stats[
-                "count"
-            ],
-
-            "largest_award": (
-                f"${stats['largest']/1e6:,.1f}M"
-            ),
-
-            "agencies": sorted(
-                list(
-                    stats["agencies"]
-                )
-            )[:3]
-
+        norm = normalize_name(name)
+        old = unknown.get(norm, {
+            "company": name,
+            "largest_transaction": 0.0,
+            "seen_count": 0,
         })
-
+        old["largest_transaction"] = max(
+            old["largest_transaction"],
+            abs(amount),
+        )
+        old["seen_count"] += 1
+        unknown[norm] = old
         continue
 
-    # --------------------------------------------------------
-    # Revenue
-    # --------------------------------------------------------
+    agency = row.get("Awarding Agency")
+    if isinstance(agency, dict):
+        agency = agency.get("toptier_name") or agency.get("name")
 
-    revenue = get_revenue(
-        ticker
-    )
+    subagency = row.get("Awarding Sub Agency")
+    if isinstance(subagency, dict):
+        subagency = subagency.get("name") or subagency.get("toptier_name")
 
-    if not revenue:
-
-        unknown.append({
-
-            "company": company,
-
-            "ticker": ticker,
-
-            "reason": "No revenue available",
-
-            "award_raw": stats[
-                "total"
-            ],
-
-            "award": (
-                f"${stats['total']/1e6:,.1f}M"
-            )
-
-        })
-
+    action_date = str(row.get("Action Date") or "")[:10]
+    if not action_date:
         continue
 
-    # --------------------------------------------------------
-    # CONTRACT / REVENUE RATIO
-    # --------------------------------------------------------
-
-    ratio = (
-        stats["total"]
-        / revenue
-        * 100
-    )
-
-    # --------------------------------------------------------
-    # SIGNAL
-    # --------------------------------------------------------
-
-    if ratio >= 50:
-
-        signal = "BUY"
-
-    elif ratio >= 10:
-
-        signal = "WATCH"
-
-    else:
-
-        signal = "SELL"
-
-    # --------------------------------------------------------
-    # OUTPUT
-    # --------------------------------------------------------
-
-    output.append({
-
+    recent_rows.append({
         "ticker": ticker,
-
-        "company": company,
-
-        "award": (
-            f"${stats['total']/1e6:,.1f}M"
-        ),
-
-        "award_raw": stats[
-            "total"
-        ],
-
-        "revenue_m": round(
-            revenue / 1e6,
-            1
-        ),
-
-        "ratio": round(
-            ratio,
-            2
-        ),
-
-        "signal": signal,
-
-        "award_count": stats[
-            "count"
-        ],
-
-        "largest_award": (
-            f"${stats['largest']/1e6:,.1f}M"
-        ),
-
-        "agencies": sorted(
-            list(
-                stats["agencies"]
-            )
-        )[:3],
-
-        "award_ids": stats[
-            "award_ids"
-        ][:10],
-
-        "last_modified": sorted(
-            stats["dates"],
-            reverse=True
-        )[:5],
-
-        "start_dates": sorted(
-            stats["start_dates"],
-            reverse=True
-        )[:5],
-
-        "end_dates": sorted(
-            stats["end_dates"],
-            reverse=True
-        )[:5]
-
+        "company": name,
+        "award_id": row.get("Award ID"),
+        "award_date": action_date,
+        "transaction_amount": amount,
+        "agency": agency,
+        "subagency": subagency,
+        "award_type": row.get("Award Type"),
     })
 
-    time.sleep(
-        0.3
+recent = pd.DataFrame(recent_rows)
+
+if recent.empty:
+    BUY_FILE.write_text("")
+    print("No matched public-company transactions. NO BUYS.")
+    TICKER_CACHE_FILE.write_text(json.dumps(ticker_cache, indent=2, sort_keys=True))
+    UNKNOWN_FILE.write_text(json.dumps(unknown, indent=2))
+    raise SystemExit(0)
+
+recent["award_date"] = pd.to_datetime(recent["award_date"], errors="coerce")
+recent = recent.dropna(subset=["award_date"]).copy()
+
+# Deduplicate exact transaction records returned across API pages/runs.
+recent["_key"] = (
+    recent["ticker"].astype(str)
+    + "|"
+    + recent["award_date"].dt.strftime("%Y-%m-%d")
+    + "|"
+    + recent["award_id"].astype(str)
+    + "|"
+    + recent["transaction_amount"].round(2).astype(str)
+)
+
+recent = recent.drop_duplicates("_key").drop(columns="_key")
+
+# ============================================================
+# COMBINE SAVED MASTER + PREVIOUS LIVE HISTORY + CURRENT RECENT
+# ============================================================
+
+history_parts = [
+    master_history[
+        [
+            "ticker",
+            "company",
+            "award_id",
+            "award_date",
+            "transaction_amount",
+        ]
+    ].copy()
+]
+
+if LIVE_HISTORY.exists():
+    try:
+        live_old = pd.read_csv(LIVE_HISTORY)
+        live_old["award_date"] = pd.to_datetime(
+            live_old["award_date"], errors="coerce"
+        )
+        live_old["transaction_amount"] = pd.to_numeric(
+            live_old["transaction_amount"], errors="coerce"
+        )
+        history_parts.append(
+            live_old[
+                [
+                    "ticker",
+                    "company",
+                    "award_id",
+                    "award_date",
+                    "transaction_amount",
+                ]
+            ].copy()
+        )
+    except Exception as exc:
+        print(f"Could not load prior live history: {exc}")
+
+history_parts.append(
+    recent[
+        [
+            "ticker",
+            "company",
+            "award_id",
+            "award_date",
+            "transaction_amount",
+        ]
+    ].copy()
+)
+
+history_tx = pd.concat(history_parts, ignore_index=True)
+
+history_tx = history_tx.dropna(
+    subset=["ticker", "award_date", "transaction_amount"]
+)
+
+history_tx["_dedupe"] = (
+    history_tx["ticker"].astype(str)
+    + "|"
+    + history_tx["award_date"].dt.strftime("%Y-%m-%d")
+    + "|"
+    + history_tx["award_id"].astype(str)
+    + "|"
+    + history_tx["transaction_amount"].round(2).astype(str)
+)
+
+history_tx = (
+    history_tx
+    .drop_duplicates("_dedupe")
+    .drop(columns="_dedupe")
+    .sort_values(["ticker", "award_date"])
+    .reset_index(drop=True)
+)
+
+# Persist accumulated post-master live additions, not just this 7-day scan.
+live_cols = [
+    "ticker", "company", "award_id", "award_date", "transaction_amount"
+]
+live_parts = []
+if LIVE_HISTORY.exists():
+    try:
+        old_live = pd.read_csv(LIVE_HISTORY)
+        old_live["award_date"] = pd.to_datetime(old_live["award_date"], errors="coerce")
+        old_live["transaction_amount"] = pd.to_numeric(old_live["transaction_amount"], errors="coerce")
+        live_parts.append(old_live[live_cols])
+    except Exception as exc:
+        print(f"Could not preserve prior live history: {exc}")
+live_parts.append(recent[live_cols])
+live_persist = pd.concat(live_parts, ignore_index=True).dropna(
+    subset=["ticker", "award_date", "transaction_amount"]
+)
+live_persist["_dedupe"] = (
+    live_persist["ticker"].astype(str) + "|"
+    + live_persist["award_date"].dt.strftime("%Y-%m-%d") + "|"
+    + live_persist["award_id"].astype(str) + "|"
+    + live_persist["transaction_amount"].round(2).astype(str)
+)
+live_persist = live_persist.drop_duplicates("_dedupe").drop(columns="_dedupe")
+live_persist.to_csv(LIVE_HISTORY, index=False)
+
+# ============================================================
+# CURRENT EVENTS = ONE TICKER / AWARD DATE
+# ============================================================
+
+# Production rule follows the validated non-LMT universe.
+recent = recent[recent["ticker"].astype(str).str.upper() != "LMT"].copy()
+
+events = (
+    recent.groupby(["ticker", "award_date"], as_index=False)
+    .agg(
+        company=("company", "first"),
+        same_day_award_count=("award_id", "count"),
+        transaction_amount_sum=("transaction_amount", "sum"),
+        transaction_amount_abs_sum=(
+            "transaction_amount",
+            lambda s: pd.to_numeric(s, errors="coerce").abs().sum()
+        ),
     )
+)
+
+# ============================================================
+# MARKET DATA HELPERS
+# ============================================================
+
+def normalize_yf(data):
+    if data is None or len(data) == 0:
+        return pd.DataFrame(columns=["Date", "Close", "Volume"])
+
+    d = data.copy()
+
+    if isinstance(d.columns, pd.MultiIndex):
+        if "Close" in d.columns.get_level_values(0):
+            close = d["Close"]
+            if isinstance(close, pd.DataFrame):
+                close = close.iloc[:, 0]
+        else:
+            close = d.xs("Close", axis=1, level=-1)
+            if isinstance(close, pd.DataFrame):
+                close = close.iloc[:, 0]
+
+        if "Volume" in d.columns.get_level_values(0):
+            volume = d["Volume"]
+            if isinstance(volume, pd.DataFrame):
+                volume = volume.iloc[:, 0]
+        else:
+            try:
+                volume = d.xs("Volume", axis=1, level=-1)
+                if isinstance(volume, pd.DataFrame):
+                    volume = volume.iloc[:, 0]
+            except Exception:
+                volume = np.nan
+
+        out = pd.DataFrame({"Close": close, "Volume": volume})
+
+    else:
+        out = pd.DataFrame({
+            "Close": d["Close"] if "Close" in d.columns else np.nan,
+            "Volume": d["Volume"] if "Volume" in d.columns else np.nan,
+        })
+
+    out = out.dropna(subset=["Close"]).copy()
+    out.index = pd.to_datetime(out.index)
+
+    if getattr(out.index, "tz", None) is not None:
+        out.index = out.index.tz_localize(None)
+
+    out = out.reset_index()
+    out = out.rename(columns={out.columns[0]: "Date"})
+    out["Date"] = pd.to_datetime(out["Date"])
+
+    return out[["Date", "Close", "Volume"]]
+
+
+def download_market(ticker, start_date, end_date):
+    try:
+        data = yf.download(
+            ticker,
+            start=str(pd.Timestamp(start_date).date()),
+            end=str((pd.Timestamp(end_date) + pd.Timedelta(days=1)).date()),
+            auto_adjust=True,
+            progress=False,
+            threads=False,
+        )
+        return normalize_yf(data)
+    except Exception as exc:
+        print(f"Market data error {ticker}: {exc}")
+        return pd.DataFrame(columns=["Date", "Close", "Volume"])
+
+
+def download_shares(ticker, start_date, end_date):
+    cache_file = SHARES_CACHE_DIR / f"{ticker}.csv"
+
+    # A recent cache is enough for a daily scanner, but always include the
+    # requested range when a refresh is needed.
+    if cache_file.exists():
+        try:
+            cached = pd.read_csv(cache_file, parse_dates=["Date"])
+            if len(cached):
+                lo = cached["Date"].min()
+                hi = cached["Date"].max()
+                if lo <= pd.Timestamp(start_date) and hi >= pd.Timestamp(end_date) - pd.Timedelta(days=7):
+                    return cached
+        except Exception:
+            pass
+
+    try:
+        raw = yf.Ticker(ticker).get_shares_full(
+            start=str((pd.Timestamp(start_date) - pd.Timedelta(days=60)).date()),
+            end=str((pd.Timestamp(end_date) + pd.Timedelta(days=2)).date()),
+        )
+        if raw is None or not len(raw):
+            return pd.DataFrame(columns=["Date", "Shares"])
+
+        idx = pd.to_datetime(raw.index)
+        if getattr(idx, "tz", None) is not None:
+            idx = idx.tz_localize(None)
+
+        out = pd.DataFrame({
+            "Date": idx,
+            "Shares": pd.to_numeric(raw.values, errors="coerce"),
+        }).dropna().sort_values("Date")
+
+        out.to_csv(cache_file, index=False)
+        return out
+    except Exception as exc:
+        print(f"Shares data error {ticker}: {exc}")
+        return pd.DataFrame(columns=["Date", "Shares"])
+
+
+def close_strictly_before(market, event_date):
+    if market.empty:
+        return np.nan
+    d = pd.Timestamp(event_date)
+    prior = market[market["Date"] < d]
+    if not len(prior):
+        return np.nan
+    return float(prior.iloc[-1]["Close"])
+
+
+def shares_on_or_before(shares, event_date):
+    if shares.empty:
+        return np.nan
+    d = pd.Timestamp(event_date)
+    prior = shares[shares["Date"] <= d]
+    if not len(prior):
+        return np.nan
+    value = pd.to_numeric(prior.iloc[-1]["Shares"], errors="coerce")
+    return float(value) if pd.notna(value) and value > 0 else np.nan
+
+
+def idx_on_or_before(market, event_date):
+    if market.empty:
+        return None
+
+    dates = market["Date"].values
+    i = np.searchsorted(
+        dates,
+        np.datetime64(pd.Timestamp(event_date)),
+        side="right",
+    ) - 1
+
+    return int(i) if i >= 0 else None
+
+
+def trailing_return(market, event_date, sessions):
+    i = idx_on_or_before(market, event_date)
+
+    if i is None or i - sessions < 0:
+        return np.nan
+
+    p1 = float(market.iloc[i]["Close"])
+    p0 = float(market.iloc[i - sessions]["Close"])
+
+    return (p1 / p0 - 1.0) * 100.0 if p0 else np.nan
+
+
+def trailing_volatility(market, event_date, sessions):
+    i = idx_on_or_before(market, event_date)
+
+    if i is None or i - sessions < 1:
+        return np.nan
+
+    close = market.iloc[i - sessions:i + 1]["Close"].astype(float)
+    ret = close.pct_change().dropna()
+
+    if len(ret) < max(5, sessions // 2):
+        return np.nan
+
+    return float(ret.std(ddof=1) * 100.0)
+
+
+def forward_return(market, event_date, sessions):
+    if market.empty:
+        return np.nan
+
+    dates = market["Date"].values
+
+    i = np.searchsorted(
+        dates,
+        np.datetime64(pd.Timestamp(event_date)),
+        side="left",
+    )
+
+    if i >= len(market) or i + sessions >= len(market):
+        return np.nan
+
+    p0 = float(market.iloc[i]["Close"])
+    p1 = float(market.iloc[i + sessions]["Close"])
+
+    return (p1 / p0 - 1.0) * 100.0 if p0 else np.nan
+
+# ============================================================
+# HISTORICAL AWARD EVENTS
+# ============================================================
+
+history_events = (
+    history_tx.groupby(["ticker", "award_date"], as_index=False)
+    .agg(
+        award_count=("award_id", "count"),
+        signed_amount=("transaction_amount", "sum"),
+        abs_amount=(
+            "transaction_amount",
+            lambda s: pd.to_numeric(s, errors="coerce").abs().sum()
+        ),
+    )
+    .sort_values(["ticker", "award_date"])
+)
+
+# ============================================================
+# DOWNLOAD MARKET HISTORY ONLY FOR CURRENT CANDIDATE TICKERS
+# ============================================================
+
+candidate_tickers = sorted(events["ticker"].astype(str).unique())
+
+market_start = min(
+    history_events["award_date"].min(),
+    events["award_date"].min() - pd.Timedelta(days=430),
+)
+
+market_end = pd.Timestamp(TODAY) + pd.Timedelta(days=2)
+
+market = {
+    "SPY": download_market("SPY", market_start, market_end)
+}
+
+for ticker in candidate_tickers:
+    market[ticker] = download_market(
+        ticker,
+        market_start,
+        market_end,
+    )
+    time.sleep(0.15)
+
+# Historical shares outstanding are needed only by the MD8 scale veto.
+shares_history = {}
+for ticker in candidate_tickers:
+    shares_history[ticker] = download_shares(ticker, market_start, market_end)
+    time.sleep(0.10)
+
+# ============================================================
+# CALCULATE PRIOR STOCK RESPONSES FOR EACH CURRENT TICKER
+# ============================================================
+
+history_response = {}
+
+for ticker in candidate_tickers:
+    hist = history_events[
+        history_events["ticker"] == ticker
+    ].copy()
+
+    mkt = market.get(ticker, pd.DataFrame())
+
+    rows = []
+
+    for _, row in hist.iterrows():
+        rows.append({
+            "award_date": row["award_date"],
+            "return_20d": forward_return(
+                mkt, row["award_date"], 20
+            ),
+            "return_60d": forward_return(
+                mkt, row["award_date"], 60
+            ),
+        })
+
+    history_response[ticker] = pd.DataFrame(rows)
+
+# ============================================================
+# FROZEN MTS SCORE
+# ============================================================
+
+FEATURES = model["features"]
+THRESHOLD = float(model["top5_threshold"])
+
+mu = np.array(
+    [model["reference_mean"][c] for c in FEATURES],
+    dtype=float,
+)
+
+sd = np.array(
+    [model["reference_sd"][c] for c in FEATURES],
+    dtype=float,
+)
+
+location = np.array(model["lw_location"], dtype=float)
+precision = np.array(model["lw_precision"], dtype=float)
+dimension = float(model["dimension_normalization"])
+
+
+def frozen_score(feature_values):
+    # Frozen 11-factor detector score.
+    transformed = []
+
+    for c in FEATURES:
+        value = feature_values.get(c, np.nan)
+
+        try:
+            value = float(value)
+        except Exception:
+            value = np.nan
+
+        # Transform observed raw values first. The frozen imputation medians
+        # are already stored in transformed space, so missing values must NOT
+        # be transformed a second time.
+        if np.isfinite(value):
+            if model["transforms"][c] == "signed_log1p":
+                value = float(np.sign(value) * np.log1p(abs(value)))
+        else:
+            value = float(model["impute_median"][c])
+
+        transformed.append(value)
+
+    z = (np.array(transformed, dtype=float) - mu) / sd
+    diff = z - location
+
+    md2 = float(diff @ precision @ diff)
+
+    return float(
+        np.sqrt(max(md2 / dimension, 1e-12))
+    )
+
+# ============================================================
+# FROZEN SCALE-AWARE MTS8 VETO
+# ============================================================
+
+FEATURES8 = MODEL8["features"]
+MU8 = np.array([MODEL8["reference_mean"][c] for c in FEATURES8], dtype=float)
+SD8 = np.array([MODEL8["reference_sd"][c] for c in FEATURES8], dtype=float)
+LOC8 = np.array(MODEL8["lw_location"], dtype=float)
+PREC8 = np.array(MODEL8["lw_precision"], dtype=float)
+MED8 = MODEL8["impute_median"]
+COUNT_CENTERS8 = MODEL8["A_sector_count_centers"]
+AWARD_CENTERS8 = MODEL8["A_sector_median_award_centers"]
+
+
+def frozen_scale8_score(feature_values, ticker, company, market_cap_before):
+    sector = sector_group(ticker, company)
+
+    raw_count = feature_values.get("prior_response_count_60d", np.nan)
+    raw_median = feature_values.get("prior_abs_award_median", np.nan)
+
+    try:
+        raw_count = float(raw_count)
+    except Exception:
+        raw_count = np.nan
+    try:
+        raw_median = float(raw_median)
+    except Exception:
+        raw_median = np.nan
+
+    count_adj = (
+        np.log10(raw_count) - COUNT_CENTERS8[sector]
+        if np.isfinite(raw_count) and raw_count > 0
+        else np.nan
+    )
+    median_adj = (
+        np.log10(raw_median) - AWARD_CENTERS8[sector]
+        if np.isfinite(raw_median) and raw_median > 0
+        else np.nan
+    )
+    log_mcap = (
+        np.log10(float(market_cap_before))
+        if pd.notna(market_cap_before) and float(market_cap_before) > 0
+        else np.nan
+    )
+
+    vals = {
+        "prior_response_count_60d_adj": count_adj,
+        "log10_market_cap_before": log_mcap,
+        "prior_abs_award_max": signed_log1p_scalar(feature_values.get("prior_abs_award_max")),
+        "relative_strength_spy_120d": feature_values.get("relative_strength_spy_120d", np.nan),
+        "prior_abs_award_median_adj": median_adj,
+        "prior_response_count_60d": signed_log1p_scalar(raw_count),
+        "prior_abs_award_median": signed_log1p_scalar(raw_median),
+        "relative_strength_spy_60d": feature_values.get("relative_strength_spy_60d", np.nan),
+    }
+
+    transformed = []
+    for c in FEATURES8:
+        try:
+            value = float(vals.get(c, np.nan))
+        except Exception:
+            value = np.nan
+        if not np.isfinite(value):
+            value = float(MED8[c])
+        transformed.append(value)
+
+    z = (np.array(transformed, dtype=float) - MU8) / SD8
+    diff = z - LOC8
+    md2 = float(diff @ PREC8 @ diff)
+    score = float(np.sqrt(max(md2 / 8.0, 1e-12)))
+
+    return score, sector, count_adj, median_adj, log_mcap
 
 
 # ============================================================
-# SORT
+# SCORE CURRENT EVENTS
 # ============================================================
 
-output.sort(
-    key=lambda x: x["ratio"],
-    reverse=True
-)
+scan_rows = []
+new_buys = []
 
-unknown.sort(
-    key=lambda x: x.get(
-        "award_raw",
-        0
-    ),
-    reverse=True
+for _, ev in events.sort_values("award_date").iterrows():
+    ticker = str(ev["ticker"])
+    d = pd.Timestamp(ev["award_date"])
+
+    prior = history_events[
+        (history_events["ticker"] == ticker)
+        & (history_events["award_date"] < d)
+    ].copy()
+
+    if len(prior):
+        prior_abs_award_max = float(prior["abs_amount"].max())
+        prior_signed_award_mean = float(prior["signed_amount"].mean())
+        prior_abs_award_median = float(prior["abs_amount"].median())
+    else:
+        prior_abs_award_max = np.nan
+        prior_signed_award_mean = np.nan
+        prior_abs_award_median = np.nan
+
+    w30 = prior[
+        prior["award_date"] >= d - pd.Timedelta(days=30)
+    ]
+
+    prior_transactions_30d = (
+        int(w30["award_count"].sum())
+        if len(w30)
+        else 0
+    )
+
+    prior_award_days_30d = int(len(w30))
+
+    stock = market.get(ticker, pd.DataFrame())
+    spy = market.get("SPY", pd.DataFrame())
+
+    pre_volatility_market_20d = trailing_volatility(
+        stock, d, 20
+    )
+
+    stock60 = trailing_return(stock, d, 60)
+    spy60 = trailing_return(spy, d, 60)
+
+    stock120 = trailing_return(stock, d, 120)
+    spy120 = trailing_return(spy, d, 120)
+
+    relative_strength_spy_60d = (
+        stock60 - spy60
+        if pd.notna(stock60) and pd.notna(spy60)
+        else np.nan
+    )
+
+    relative_strength_spy_120d = (
+        stock120 - spy120
+        if pd.notna(stock120) and pd.notna(spy120)
+        else np.nan
+    )
+
+    resp = history_response.get(
+        ticker,
+        pd.DataFrame(columns=["award_date", "return_20d", "return_60d"])
+    )
+
+    # Same no-look-ahead maturity rules as Sample A/B.
+    matured20 = resp[
+        resp["award_date"] <= d - pd.Timedelta(days=35)
+    ]
+
+    vals20 = pd.to_numeric(
+        matured20["return_20d"],
+        errors="coerce",
+    ).dropna()
+
+    prior_response_mean_20d = (
+        float(vals20.mean())
+        if len(vals20)
+        else np.nan
+    )
+
+    matured60 = resp[
+        resp["award_date"] <= d - pd.Timedelta(days=99)
+    ]
+
+    vals60 = pd.to_numeric(
+        matured60["return_60d"],
+        errors="coerce",
+    ).dropna()
+
+    prior_response_count_60d = int(len(vals60))
+
+    feature_values = {
+        "prior_response_count_60d": prior_response_count_60d,
+        "pre_volatility_market_20d": pre_volatility_market_20d,
+        "relative_strength_spy_120d": relative_strength_spy_120d,
+        "prior_abs_award_max": prior_abs_award_max,
+        "prior_signed_award_mean": prior_signed_award_mean,
+        "prior_abs_award_median": prior_abs_award_median,
+        "prior_response_mean_20d": prior_response_mean_20d,
+        "transaction_amount_abs_sum": float(
+            ev["transaction_amount_abs_sum"]
+        ),
+        "prior_transactions_30d": prior_transactions_30d,
+        "relative_strength_spy_60d": relative_strength_spy_60d,
+        "prior_award_days_30d": prior_award_days_30d,
+    }
+
+    md11_score = frozen_score(feature_values)
+    detector_pass = md11_score >= THRESHOLD
+
+    # Point-in-time scale: prior trading-day close x shares outstanding known
+    # on or before the award date. This matches the validation definition.
+    prior_close = close_strictly_before(stock, d)
+    shares = shares_on_or_before(
+        shares_history.get(ticker, pd.DataFrame()), d
+    )
+    market_cap_before = (
+        prior_close * shares
+        if pd.notna(prior_close) and pd.notna(shares)
+        and prior_close > 0 and shares > 0
+        else np.nan
+    )
+
+    md8_score, sector, count_adj, median_adj, log_mcap = frozen_scale8_score(
+        feature_values, ticker, ev["company"], market_cap_before
+    )
+    scale_data_complete = int(pd.notna(market_cap_before) and market_cap_before > 0)
+    scale_veto_pass = (md8_score >= MD8_THRESHOLD) and bool(scale_data_complete)
+
+    # FINAL FROZEN BUY RULE: detector AND scale-aware veto.
+    buy = detector_pass and scale_veto_pass
+
+    # Fingerprint changes if the same ticker/day receives additional
+    # transactions later, allowing a materially changed event to rescore.
+    # Model version is included so the first 11x8 production run is not
+    # suppressed by fingerprints created by the previous MD11-only scanner.
+    fingerprint = (
+        f"{ticker}|{d.date()}|"
+        f"{float(ev['transaction_amount_abs_sum']):.2f}|"
+        f"{int(ev['same_day_award_count'])}|{MODEL_VERSION}"
+    )
+
+    previously_seen = fingerprint in seen
+
+    # Current market price is logged for future sandbox analysis only.
+    current_price = np.nan
+    if not stock.empty:
+        i = idx_on_or_before(stock, pd.Timestamp(TODAY))
+        if i is not None:
+            current_price = float(stock.iloc[i]["Close"])
+
+    row = {
+        "scan_utc": datetime.now(timezone.utc).isoformat(),
+        "ticker": ticker,
+        "company": ev["company"],
+        "award_date": str(d.date()),
+        "transaction_amount_abs_sum": float(
+            ev["transaction_amount_abs_sum"]
+        ),
+        "same_day_award_count": int(ev["same_day_award_count"]),
+        "md11_score": md11_score,
+        "md11_threshold": THRESHOLD,
+        "md11_detector_pass": int(detector_pass),
+        "md8_score": md8_score,
+        "md8_threshold": MD8_THRESHOLD,
+        "md8_scale_veto_pass": int(scale_veto_pass),
+        "market_cap_before": market_cap_before,
+        "log10_market_cap_before": log_mcap,
+        "sector_group": sector,
+        "prior_response_count_60d_adj": count_adj,
+        "prior_abs_award_median_adj": median_adj,
+        "scale_data_complete": scale_data_complete,
+        "model_version": MODEL_VERSION,
+        "signal": "BUY" if buy else "PASS",
+        "previously_seen": int(previously_seen),
+        "current_price_for_log": current_price,
+        **feature_values,
+    }
+
+    scan_rows.append(row)
+
+    if buy and not previously_seen:
+        new_buys.append(ticker)
+
+    seen[fingerprint] = {
+        "first_seen_utc": seen.get(
+            fingerprint,
+            {}
+        ).get(
+            "first_seen_utc",
+            datetime.now(timezone.utc).isoformat(),
+        ),
+        "last_md11_score": md11_score,
+        "last_md8_score": md8_score,
+        "model_version": MODEL_VERSION,
+        "signal": "BUY" if buy else "PASS",
+    }
+
+# ============================================================
+# USER-FACING OUTPUT: TICKERS ONLY
+# ============================================================
+
+new_buys = sorted(set(new_buys))
+
+BUY_FILE.write_text(
+    "".join(f"{ticker}\n" for ticker in new_buys)
+    if new_buys
+    else "NO BUYS\n"
 )
 
 
 # ============================================================
-# SAVE
+# INTERNAL AUDIT LOG
 # ============================================================
 
-CACHE_TICKER.write_text(
-    json.dumps(
-        ticker_cache,
-        indent=2,
-        sort_keys=True
-    )
+scan_df = pd.DataFrame(scan_rows)
+
+if SCAN_LOG.exists():
+    try:
+        old_log = pd.read_csv(SCAN_LOG)
+        scan_df = pd.concat(
+            [old_log, scan_df],
+            ignore_index=True,
+        )
+    except Exception as exc:
+        print(f"Could not append prior scan log: {exc}")
+
+scan_df.to_csv(SCAN_LOG, index=False)
+
+SEEN_FILE.write_text(
+    json.dumps(seen, indent=2, sort_keys=True)
 )
 
-CACHE_REVENUE.write_text(
-    json.dumps(
-        revenue_cache,
-        indent=2,
-        sort_keys=True
-    )
-)
-
-RECON_FILE.write_text(
-    json.dumps(
-        output,
-        indent=2
-    )
+TICKER_CACHE_FILE.write_text(
+    json.dumps(ticker_cache, indent=2, sort_keys=True)
 )
 
 UNKNOWN_FILE.write_text(
-    json.dumps(
-        unknown,
-        indent=2
-    )
+    json.dumps(unknown, indent=2)
 )
 
-
 # ============================================================
-# SUMMARY
+# SIMPLE CONSOLE OUTPUT
 # ============================================================
 
 print()
+print("=" * 60)
+print("RECON LIVE BUY SCANNER - MD11 DETECTOR + MD8 SCALE VETO")
+print("=" * 60)
 
-print(
-    "=========================================="
-)
+if new_buys:
+    print("BUY:")
+    for ticker in new_buys:
+        print(ticker)
+else:
+    print("NO BUYS")
 
-print(
-    " RECON V1.0 COMPLETE"
-)
-
-print(
-    "=========================================="
-)
-
-print(
-    f"Date range       : "
-    f"{START} -> {END}"
-)
-
-print(
-    f"Award records    : "
-    f"{len(all_rows)}"
-)
-
-print(
-    f"Recipients       : "
-    f"{len(companies)}"
-)
-
-print(
-    f"Recommendations  : "
-    f"{len(output)}"
-)
-
-print(
-    f"Unknown companies: "
-    f"{len(unknown)}"
-)
-
-print(
-    f"Yahoo lookups    : "
-    f"{lookups_used}"
-)
-
-print(
-    f"Ticker cache     : "
-    f"{len(ticker_cache)}"
-)
-
-print(
-    f"Revenue cache    : "
-    f"{len(revenue_cache)}"
-)
-
-print(
-    "=========================================="
-)
-
-print()
-
-print(
-    "TOP RECOMMENDATIONS"
-)
-
-print(
-    "------------------------------------------"
-)
-
-for item in output[:20]:
-
-    print(
-        f"{item['signal']:6} "
-        f"{item['ticker']:6} "
-        f"{item['ratio']:8.2f}% "
-        f"{item['award']:>12}  "
-        f"{item['company'][:40]}"
-    )
+print("=" * 60)
+print(f"MD11 threshold  : {THRESHOLD:.6f}")
+print(f"MD8 threshold   : {MD8_THRESHOLD:.6f}")
+print(f"Events scored   : {len(events)}")
+print(f"New BUY tickers : {len(new_buys)}")
+print(f"Output          : {BUY_FILE}")
+print("=" * 60)
