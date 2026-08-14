@@ -1,0 +1,30 @@
+name: recon-factor12-l16
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  screen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install
+        run: pip install pandas numpy scipy scikit-learn yfinance requests
+      - name: Run 15-factor L16 screen on Sample A only
+        run: python recon_factor12_L16.py
+      - name: Show factor effects
+        run: |
+          cat recon_L16_15factor_effects_A.csv
+          echo
+          cat recon_L16_15factor_summary.json
+      - name: Commit results
+        run: |
+          git config user.name "recon-bot"
+          git config user.email "bot@recon.com"
+          git add recon_L16_15factor_input_A.csv recon_L16_15factor_runs_A.csv recon_L16_15factor_effects_A.csv recon_L16_15factor_summary.json recon_scale_point_in_time_A.csv factor12_cache/ 2>/dev/null || true
+          git commit -m "RECON Factor-12 L16 scale screen" || echo "Nothing new to commit"
+          git push
