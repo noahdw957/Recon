@@ -1,0 +1,36 @@
+name: b8a
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install
+        run: pip install pandas numpy scikit-learn yfinance
+
+      - name: Run b8a
+        run: python b8a.py
+
+      - name: Show summary
+        run: cat b8a_B_summary.json
+
+      - name: Commit outputs
+        run: |
+          git config user.name "recon-bot"
+          git config user.email "bot@recon.com"
+          git add b8a_frozen_A.json b8a_A_thresholds.csv b8a_B_results.csv b8a_B_summary.json b8a_market_cache/ 2>/dev/null || true
+          git commit -m "b8a corrected B results" || echo "Nothing new to commit"
+          git push
