@@ -1,0 +1,124 @@
+{
+  "version": "RECON New Scale-Aware Gang-of-8 B Test v1.1",
+  "features": [
+    "prior_response_count_60d_adj",
+    "log10_market_cap_before",
+    "prior_abs_award_max",
+    "relative_strength_spy_120d",
+    "prior_abs_award_median_adj",
+    "prior_response_count_60d",
+    "prior_abs_award_median",
+    "relative_strength_spy_60d"
+  ],
+  "A_rows": 789,
+  "A_top5_threshold": 1.9463204147913817,
+  "B_rows": 350,
+  "B_market_cap_coverage": 1.0,
+  "new_scaleaware8": {
+    "n": 344,
+    "ge7p5": 208,
+    "ge10": 177,
+    "ge15": 129,
+    "ge20": 97,
+    "rate_ge7p5": 0.6046511627906976,
+    "rate_ge10": 0.5145348837209303,
+    "rate_ge15": 0.375,
+    "rate_ge20": 0.2819767441860465,
+    "median_peak": 10.57536912318129,
+    "mean_peak": 16.79501596787953
+  },
+  "old11_if_present": {
+    "n": 23,
+    "ge7p5": 20,
+    "ge10": 19,
+    "ge15": 16,
+    "ge20": 14,
+    "rate_ge7p5": 0.8695652173913043,
+    "rate_ge10": 0.8260869565217391,
+    "rate_ge15": 0.6956521739130435,
+    "rate_ge20": 0.6086956521739131,
+    "median_peak": 23.66065374496007,
+    "mean_peak": 44.44432442803732
+  },
+  "old11_kept": {
+    "n": 17,
+    "ge7p5": 15,
+    "ge10": 14,
+    "ge15": 14,
+    "ge20": 12,
+    "rate_ge7p5": 0.8823529411764706,
+    "rate_ge10": 0.8235294117647058,
+    "rate_ge15": 0.8235294117647058,
+    "rate_ge20": 0.7058823529411765,
+    "median_peak": 26.05256261037812,
+    "mean_peak": 54.718498451082574
+  },
+  "old11_rejected": {
+    "n": 6,
+    "ge7p5": 5,
+    "ge10": 5,
+    "ge15": 2,
+    "ge20": 2,
+    "rate_ge7p5": 0.8333333333333334,
+    "rate_ge10": 0.8333333333333334,
+    "rate_ge15": 0.3333333333333333,
+    "rate_ge20": 0.3333333333333333,
+    "median_peak": 12.6020647833049,
+    "mean_peak": 15.334164696075762
+  },
+  "new_added_vs_old11": {
+    "n": 327,
+    "ge7p5": 193,
+    "ge10": 163,
+    "ge15": 115,
+    "ge20": 85,
+    "rate_ge7p5": 0.5902140672782875,
+    "rate_ge10": 0.4984709480122324,
+    "rate_ge15": 0.3516819571865443,
+    "rate_ge20": 0.2599388379204893,
+    "median_peak": 9.957267793221236,
+    "mean_peak": 14.823458774563166
+  },
+  "union_old11_or_new8": {
+    "n": 350,
+    "ge7p5": 213,
+    "ge10": 182,
+    "ge15": 131,
+    "ge20": 99,
+    "rate_ge7p5": 0.6085714285714285,
+    "rate_ge10": 0.52,
+    "rate_ge15": 0.3742857142857143,
+    "rate_ge20": 0.28285714285714286,
+    "median_peak": 10.773743495622302,
+    "mean_peak": 16.76997280322004
+  },
+  "known_failures": [
+    {
+      "ticker": "AVAV",
+      "award_date": "2026-01-26",
+      "peak_pct": 2.279708458179264,
+      "new_MD": 13.49572349949705,
+      "new_buy": 1,
+      "old11_buy": 1,
+      "log10_market_cap_before": 10.186578823867931
+    },
+    {
+      "ticker": "BA",
+      "award_date": "2025-08-12",
+      "peak_pct": 2.0506445380442884,
+      "new_MD": 0.8447624621874468,
+      "new_buy": 0,
+      "old11_buy": 1,
+      "log10_market_cap_before": 11.232644139424483
+    },
+    {
+      "ticker": "KTOS",
+      "award_date": "2026-01-29",
+      "peak_pct": 0.0,
+      "new_MD": 13.163005639902075,
+      "new_buy": 1,
+      "old11_buy": 1,
+      "log10_market_cap_before": 10.279285451873069
+    }
+  ]
+}
