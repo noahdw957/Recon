@@ -1,0 +1,42 @@
+name: recon-mts8-B-diagnostic
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install
+        run: pip install pandas numpy scikit-learn yfinance
+
+      - name: Run L16-selected 8-factor A freeze and B diagnostic
+        run: python recon_mts8_B_diagnostic.py
+
+      - name: Show summary
+        run: |
+          echo "===== RECON MTS8 B SUMMARY ====="
+          cat recon_mts8_B_summary.json
+
+      - name: Commit outputs
+        run: |
+          git config user.name "recon-bot"
+          git config user.email "bot@recon.com"
+          git add recon_mts8_frozen_A.json \
+                  recon_mts8_A_thresholds.csv \
+                  recon_mts8_B_diagnostic.csv \
+                  recon_mts8_B_summary.json \
+                  mts8_market_cache/ 2>/dev/null || true
+          git commit -m "RECON L16-selected 8-factor B diagnostic" || echo "Nothing new to commit"
+          git push
