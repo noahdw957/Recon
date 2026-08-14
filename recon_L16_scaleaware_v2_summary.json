@@ -1,0 +1,186 @@
+{
+  "version": "RECON L16 Scale-Aware Screen V2.0",
+  "sample": "A only",
+  "rows_screened": 789,
+  "factor_roster": {
+    "gang8": [
+      "log10_market_cap_before",
+      "prior_abs_award_max",
+      "prior_response_count_60d",
+      "prior_abs_award_median",
+      "pre_volatility_market_20d",
+      "prior_transactions_30d",
+      "prior_response_mean_20d",
+      "relative_strength_spy_60d"
+    ],
+    "engineered": [
+      "prior_abs_award_max_adj",
+      "prior_abs_award_median_adj",
+      "prior_response_count_60d_adj",
+      "log10_mcap_x_prior_abs_award_max_adj"
+    ],
+    "resurrected": [
+      "relative_strength_spy_120d",
+      "prior_signed_award_mean",
+      "transaction_amount_abs_sum"
+    ]
+  },
+  "sector_groups": {
+    "AERO_DEFENSE": 558,
+    "OTHER": 99,
+    "TECH_SERVICES": 88,
+    "INDUSTRIAL": 44
+  },
+  "ranked_effects": [
+    {
+      "rank_SN_effect": 1,
+      "variable": "prior_response_count_60d_adj",
+      "kind": "engineered",
+      "SN_effect_dB": 0.7970149003367435,
+      "AUC20_effect": 0.029868774378172813,
+      "relative_SN_contribution_pct": 23.510985281008697
+    },
+    {
+      "rank_SN_effect": 2,
+      "variable": "log10_market_cap_before",
+      "kind": "gang8",
+      "SN_effect_dB": 0.7233745789531028,
+      "AUC20_effect": 0.011684372488680594,
+      "relative_SN_contribution_pct": 19.3670927938436
+    },
+    {
+      "rank_SN_effect": 3,
+      "variable": "prior_abs_award_max",
+      "kind": "gang8",
+      "SN_effect_dB": 0.6945891913113342,
+      "AUC20_effect": 0.034153942648817104,
+      "relative_SN_contribution_pct": 17.856403452472552
+    },
+    {
+      "rank_SN_effect": 4,
+      "variable": "relative_strength_spy_120d",
+      "kind": "resurrected",
+      "SN_effect_dB": 0.5160019241818756,
+      "AUC20_effect": 0.01202493188812015,
+      "relative_SN_contribution_pct": 9.854636069613633
+    },
+    {
+      "rank_SN_effect": 5,
+      "variable": "prior_abs_award_median_adj",
+      "kind": "engineered",
+      "SN_effect_dB": 0.51263660709403,
+      "AUC20_effect": 0.03194888178913746,
+      "relative_SN_contribution_pct": 9.726513179319415
+    },
+    {
+      "rank_SN_effect": 6,
+      "variable": "prior_response_count_60d",
+      "kind": "gang8",
+      "SN_effect_dB": 0.3977817097949575,
+      "AUC20_effect": 0.018270154256257443,
+      "relative_SN_contribution_pct": 5.8563573421572155
+    },
+    {
+      "rank_SN_effect": 7,
+      "variable": "prior_abs_award_median",
+      "kind": "gang8",
+      "SN_effect_dB": 0.2800096643338904,
+      "AUC20_effect": 0.015344773515748922,
+      "relative_SN_contribution_pct": 2.901910341320631
+    },
+    {
+      "rank_SN_effect": 8,
+      "variable": "relative_strength_spy_60d",
+      "kind": "gang8",
+      "SN_effect_dB": 0.16390186275674712,
+      "AUC20_effect": -0.010216781983182655,
+      "relative_SN_contribution_pct": 0.9942731852584877
+    },
+    {
+      "rank_SN_effect": 9,
+      "variable": "log10_mcap_x_prior_abs_award_max_adj",
+      "kind": "engineered",
+      "SN_effect_dB": 0.015790953652815687,
+      "AUC20_effect": -0.005887512495344915,
+      "relative_SN_contribution_pct": 0.009229000424400922
+    },
+    {
+      "rank_SN_effect": 10,
+      "variable": "transaction_amount_abs_sum",
+      "kind": "resurrected",
+      "SN_effect_dB": -0.10137840400887321,
+      "AUC20_effect": -0.0025725710029597115,
+      "relative_SN_contribution_pct": 0.38038978686454666
+    },
+    {
+      "rank_SN_effect": 11,
+      "variable": "prior_signed_award_mean",
+      "kind": "resurrected",
+      "SN_effect_dB": -0.1028401014852266,
+      "AUC20_effect": -0.017010819498618157,
+      "relative_SN_contribution_pct": 0.39143796171884554
+    },
+    {
+      "rank_SN_effect": 12,
+      "variable": "prior_response_mean_20d",
+      "kind": "gang8",
+      "SN_effect_dB": -0.20869562604025316,
+      "AUC20_effect": -0.0204090632901468,
+      "relative_SN_contribution_pct": 1.6119985327647623
+    },
+    {
+      "rank_SN_effect": 13,
+      "variable": "prior_transactions_30d",
+      "kind": "gang8",
+      "SN_effect_dB": -0.21719922773259714,
+      "AUC20_effect": -0.018201552362845264,
+      "relative_SN_contribution_pct": 1.7460412584220841
+    },
+    {
+      "rank_SN_effect": 14,
+      "variable": "prior_abs_award_max_adj",
+      "kind": "engineered",
+      "SN_effect_dB": -0.26405969166331866,
+      "AUC20_effect": -0.00478498206550515,
+      "relative_SN_contribution_pct": 2.580727632185401
+    },
+    {
+      "rank_SN_effect": 15,
+      "variable": "pre_volatility_market_20d",
+      "kind": "gang8",
+      "SN_effect_dB": -0.29459073023448445,
+      "AUC20_effect": -0.02100197965463846,
+      "relative_SN_contribution_pct": 3.212004182625727
+    }
+  ],
+  "positive_SN_effect_factors": [
+    "prior_response_count_60d_adj",
+    "log10_market_cap_before",
+    "prior_abs_award_max",
+    "relative_strength_spy_120d",
+    "prior_abs_award_median_adj",
+    "prior_response_count_60d",
+    "prior_abs_award_median",
+    "relative_strength_spy_60d",
+    "log10_mcap_x_prior_abs_award_max_adj"
+  ],
+  "positive_effect_model": {
+    "sn_db": 2.4354609866699026,
+    "auc20": 0.7338246535604382,
+    "auc50": 0.8574846206425154,
+    "rho_peak": 0.27863101960273956
+  },
+  "full_15": {
+    "sn_db": 2.095057442920437,
+    "auc20": 0.672592563554754,
+    "auc50": 0.7872863978127136,
+    "rho_peak": 0.22937414139089107
+  },
+  "notes": [
+    "No Sample B or C data are read.",
+    "All 15 L16 columns are occupied.",
+    "Sector-adjusted variables are centered against sector-group medians within Sample A.",
+    "Interaction factor is log10_market_cap_before * prior_abs_award_max_adj.",
+    "Resurrected factors chosen by original accepted-11 L16 S/N strengths."
+  ]
+}
