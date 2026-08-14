@@ -1,0 +1,45 @@
+name: recon-sample-c-blind-v2
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install
+        run: pip install pandas numpy xgboost yfinance
+
+      - name: Run sealed Sample C blind validation
+        run: python sample_C_blind_validate_v2.py
+
+      - name: Show Sample C answer
+        run: |
+          echo "===== SAMPLE C SUMMARY ====="
+          cat sample_C_v2_summary.json
+          echo
+          echo "===== STAGE-1 CANDIDATES ====="
+          cat sample_C_v2_stage1_candidates.csv
+
+      - name: Commit Sample C results
+        run: |
+          git config user.name "recon-bot"
+          git config user.email "bot@recon.com"
+          git add sample_C_v2_validation_events.csv \
+                  sample_C_v2_stage1_candidates.csv \
+                  sample_C_v2_summary.json \
+                  market_cache_C/ \
+                  scale_cache_C/ 2>/dev/null || true
+          git commit -m "Blind Sample C RECON V2 validation" || echo "Nothing new to commit"
+          git push
