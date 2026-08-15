@@ -9,7 +9,7 @@ import requests
 import yfinance as yf
 
 # ============================================================
-# RECON LIVE BUY SCANNER V3.5 - RESILIENT INCREMENTAL MD11 + MD8
+# RECON LIVE BUY SCANNER V3.6 - RESILIENT INCREMENTAL MD11 + MD8
 #
 # USER-FACING OUTPUT:
 #     buy_tickers.txt
@@ -49,7 +49,13 @@ TODAY = date.today()
 # Normal operation rescans only one overlap day plus today. If a prior run
 # failed, catch up only the missing dates. A seven-day cap is retained as a
 # recovery guardrail, not as the normal daily lookback.
-_acq_state = load_json(ACQ_STATE_FILE, {})
+try:
+    if ACQ_STATE_FILE.exists():
+        _acq_state = json.loads(ACQ_STATE_FILE.read_text())
+    else:
+        _acq_state = {}
+except Exception:
+    _acq_state = {}
 _last_success = _acq_state.get("last_successful_scan_date")
 
 if _last_success:
