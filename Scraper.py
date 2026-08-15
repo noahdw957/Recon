@@ -9,7 +9,7 @@ import requests
 import yfinance as yf
 
 # ============================================================
-# RECON LIVE BUY SCANNER V3.1 - MD11 DETECTOR + MD8 SCALE VETO
+# RECON LIVE BUY SCANNER V3.2 - RECIPIENT-SCOPED MD11 + MD8
 #
 # USER-FACING OUTPUT:
 #     buy_tickers.txt
@@ -186,7 +186,7 @@ model = json.loads(MODEL_FILE.read_text())
 # daily scanner remains a single Python file. The only external model file
 # required is the original frozen 11-factor model above.
 MODEL8 = {'features': ['prior_response_count_60d_adj', 'log10_market_cap_before', 'prior_abs_award_max', 'relative_strength_spy_120d', 'prior_abs_award_median_adj', 'prior_response_count_60d', 'prior_abs_award_median', 'relative_strength_spy_60d'], 'threshold': 1.9463204147913817, 'A_sector_count_centers': {'AERO_DEFENSE': 1.6989700043360187, 'INDUSTRIAL': 1.4621397262132765, 'OTHER': 1.6483333918242467, 'TECH_SERVICES': 1.6433396112263248}, 'A_sector_median_award_centers': {'AERO_DEFENSE': 7.276858522781777, 'INDUSTRIAL': 6.379214783094319, 'OTHER': 7.050908632424625, 'TECH_SERVICES': 6.864458778006966}, 'impute_median': {'prior_response_count_60d_adj': 0.0492180226701817, 'log10_market_cap_before': 10.387166780894209, 'prior_abs_award_max': 19.354947011752447, 'relative_strength_spy_120d': 1.843991900460896, 'prior_abs_award_median_adj': -0.0066639210311842, 'prior_response_count_60d': 3.80666248977032, 'prior_abs_award_median': 16.5322049303338, 'relative_strength_spy_60d': 1.2132923469633017}, 'reference_mean': {'prior_response_count_60d_adj': 0.0013767411374706754, 'log10_market_cap_before': 10.625932783789732, 'prior_abs_award_max': 19.597688495171163, 'relative_strength_spy_120d': 1.2359990062272446, 'prior_abs_award_median_adj': -0.04354096940216947, 'prior_response_count_60d': 2.8273422161532253, 'prior_abs_award_median': 16.43449652376031, 'relative_strength_spy_60d': 2.623598721446692}, 'reference_sd': {'prior_response_count_60d_adj': 0.2411181730720844, 'log10_market_cap_before': 0.5075506908228757, 'prior_abs_award_max': 1.1421831854022753, 'relative_strength_spy_120d': 21.180105648166858, 'prior_abs_award_median_adj': 0.314659542161833, 'prior_response_count_60d': 1.7908841319714495, 'prior_abs_award_median': 0.8870167161218723, 'relative_strength_spy_60d': 14.497162681485262}, 'lw_location': [0.0, 1.4157430449355379e-15, 1.3177985575500604e-15, -3.5616177231082714e-17, -7.123235446216543e-17, -2.49313240617579e-16, 3.9177794954190986e-16, 0.0], 'lw_precision': [[1.1245235410715015, 0.11352024832397757, 0.1240456298401465, -0.03193144952522353, -0.3991441548956096, -0.36490679685676564, 0.013769655800668537, -0.05708349556794794], [0.11352024832397757, 1.3770061528784387, -0.3114930412901252, -0.22521682050650216, -1.1568724382658144, -0.014832737514160942, 0.9161846426492161, -0.0939101841889188], [0.12404562984014653, -0.3114930412901252, 1.9965791456133024, -0.3451494320242806, 0.2943141182659422, -1.0929572591554757, -1.1431114831222657, -0.398446057654768], [-0.031931449525223615, -0.22521682050650216, -0.3451494320242807, 2.205304783545063, 0.6514570223600256, 0.6839549226950875, 0.07099452031580906, -1.2606775178443608], [-0.3991441548956096, -1.1568724382658147, 0.2943141182659423, 0.6514570223600256, 4.367772214507019, 0.531126542035879, -3.263049460696854, 0.06272408648398381], [-0.36490679685676564, -0.014832737514160936, -1.0929572591554757, 0.6839549226950875, 0.5311265420358788, 1.93893598117823, 0.5661053548215131, -0.10750370278020249], [0.013769655800668522, 0.9161846426492162, -1.1431114831222657, 0.07099452031580904, -3.263049460696854, 0.5661053548215131, 4.088226221596494, -0.033279115184692745], [-0.05708349556794795, -0.09391018418891882, -0.3984460576547681, -1.2606775178443608, 0.06272408648398387, -0.10750370278020249, -0.033279115184692704, 2.0325863172680054]], 'version': 'RECON Scale-Aware MTS8 Frozen A - Corrected Deployment v1.0', 'notes': ['Sector centers are frozen Sample-A medians in log10(raw) space.', 'For stored signed_log1p A fields, reconstruction used raw=expm1(stored), then log10(raw).', 'Deployment rule is intersection with frozen MD11 threshold 2.1954452583448045.']}
-MODEL_VERSION = "RECON_11x8_INTERSECTION_v1"
+MODEL_VERSION = "RECON_11x8_INTERSECTION_RECIPIENT_V2"
 MD8_THRESHOLD = float(MODEL8["threshold"])
 
 seen = load_json(SEEN_FILE, {})
@@ -340,85 +340,116 @@ def find_ticker(name, transaction_amount):
     return None
 
 # ============================================================
-# DOWNLOAD RECENT NONZERO TRANSACTIONS
+# DOWNLOAD RECENT NONZERO TRANSACTIONS -- RECIPIENT SCOPED
 #
-# Historical C included positive and negative non-zero contract
-# modifications. Live acquisition therefore queries BOTH signs.
-# To avoid the broad-query 10,000-row ceiling, query each
-# calendar day separately and fail closed if a day/sign stream
-# reaches MAX_PAGES with hasNext still true.
+# IMPORTANT:
+# The historical event-study abandoned the broad federal firehose because
+# the USAspending transaction search can exceed a practical 10,000-row
+# result ceiling. Live V3.2 uses the same solution: query by recipient.
+#
+# Recipient aliases are learned from master_zero_purged.csv and grouped by
+# ticker. Each ticker is queried twice over the live lookback: positive and
+# negative non-zero transactions. LMT is omitted because the production
+# universe is non-LMT.
 # ============================================================
 
 BASE_FIELDS = [
-    "Award ID",
-    "Recipient Name",
-    "Action Date",
-    "Transaction Amount",
-    "Awarding Agency",
-    "Awarding Sub Agency",
-    "Award Type",
+    'Award ID',
+    'Recipient Name',
+    'Action Date',
+    'Transaction Amount',
+    'Awarding Agency',
+    'Awarding Sub Agency',
+    'Award Type',
 ]
 
-def fetch_day_sign(day, sign):
-    if sign == "positive":
-        amount_filter = {"lower_bound": MIN_NONZERO_TRANSACTION}
-        order = "desc"
+recipient_aliases = {}
+for ticker, g in master_history.groupby('ticker'):
+    ticker = str(ticker).upper()
+    if ticker == 'LMT':
+        continue
+
+    aliases = sorted({
+        str(x).strip()
+        for x in g['company'].dropna().astype(str)
+        if str(x).strip()
+    })
+
+    aliases.extend(MASTER.get(ticker, []))
+    aliases = list(dict.fromkeys(a for a in aliases if a))
+
+    if aliases:
+        recipient_aliases[ticker] = aliases
+
+
+def fetch_ticker_sign(ticker, aliases, sign):
+    if sign == 'positive':
+        amount_filter = {'lower_bound': MIN_NONZERO_TRANSACTION}
+        order = 'desc'
     else:
-        amount_filter = {"upper_bound": -MIN_NONZERO_TRANSACTION}
-        order = "asc"
+        amount_filter = {'upper_bound': -MIN_NONZERO_TRANSACTION}
+        order = 'asc'
 
     payload = {
-        "filters": {
-            "award_amounts": [amount_filter],
-            "award_type_codes": ["A", "B", "C", "D"],
-            "time_period": [{
-                "start_date": str(day),
-                "end_date": str(day),
+        'filters': {
+            'recipient_search_text': aliases,
+            'award_amounts': [amount_filter],
+            'award_type_codes': ['A', 'B', 'C', 'D'],
+            'time_period': [{
+                'start_date': str(START),
+                'end_date': str(TODAY),
             }],
         },
-        "fields": BASE_FIELDS,
-        "sort": "Transaction Amount",
-        "order": order,
-        "limit": PAGE_SIZE,
-        "page": 1,
+        'fields': BASE_FIELDS,
+        'sort': 'Transaction Amount',
+        'order': order,
+        'limit': PAGE_SIZE,
+        'page': 1,
     }
 
     rows_out = []
-    exhausted = False
 
     for page in range(1, MAX_PAGES + 1):
-        payload["page"] = page
-        response = session.post(
-            USA_API,
-            json=payload,
-            timeout=90,
-        )
-        response.raise_for_status()
+        payload['page'] = page
 
-        page_data = response.json()
-        rows = page_data.get("results", [])
+        for attempt in range(4):
+            try:
+                response = session.post(
+                    USA_API,
+                    json=payload,
+                    timeout=90,
+                )
+                response.raise_for_status()
+                page_data = response.json()
+                break
+            except Exception:
+                if attempt == 3:
+                    raise
+                time.sleep(2 ** attempt)
+
+        rows = page_data.get('results', [])
         if not rows:
             break
 
-        rows_out.extend(rows)
+        for row in rows:
+            row = dict(row)
+            row['_query_ticker'] = ticker
+            rows_out.append(row)
+
         has_next = bool(
-            page_data.get("page_metadata", {}).get("hasNext", False)
+            page_data.get('page_metadata', {}).get('hasNext', False)
         )
 
         if not has_next:
             break
 
         if page == MAX_PAGES:
-            exhausted = True
-            break
+            raise RuntimeError(
+                f'SCAN INCOMPLETE: recipient-scoped query for {ticker} '
+                f'({sign}) exceeded {MAX_PAGES * PAGE_SIZE:,} rows.'
+            )
 
-        time.sleep(0.15)
-
-    if exhausted:
-        raise RuntimeError(
-            f"SCAN INCOMPLETE: {day} {sign} stream exceeded "
-            f"{MAX_PAGES * PAGE_SIZE:,} rows. Refusing to issue NO BUYS."
-        )
+        time.sleep(0.12)
 
     return rows_out
 
@@ -426,21 +457,31 @@ def fetch_day_sign(day, sign):
 all_rows = []
 downloaded_positive = 0
 downloaded_negative = 0
+recipient_queries = 0
 
-day = START
-while day <= TODAY:
-    pos = fetch_day_sign(day, "positive")
-    neg = fetch_day_sign(day, "negative")
+for n, ticker in enumerate(sorted(recipient_aliases), 1):
+    aliases = recipient_aliases[ticker]
+
+    pos = fetch_ticker_sign(ticker, aliases, 'positive')
+    recipient_queries += 1
+    neg = fetch_ticker_sign(ticker, aliases, 'negative')
+    recipient_queries += 1
+
     downloaded_positive += len(pos)
     downloaded_negative += len(neg)
     all_rows.extend(pos)
     all_rows.extend(neg)
-    day += timedelta(days=1)
+
+    print(
+        f'[{n}/{len(recipient_aliases)}] {ticker}: '
+        f'+{len(pos)} / -{len(neg)}'
+    )
 
 print(
-    f"Downloaded {len(all_rows):,} recent nonzero transaction records "
-    f"({downloaded_positive:,} positive, {downloaded_negative:,} negative; "
-    f"{START} through {TODAY})."
+    f'Recipient-scoped download: {len(all_rows):,} nonzero rows '
+    f'({downloaded_positive:,} positive, {downloaded_negative:,} negative) '
+    f'from {len(recipient_aliases):,} tickers / {recipient_queries:,} queries '
+    f'({START} through {TODAY}).'
 )
 
 # ============================================================
@@ -460,7 +501,26 @@ for row in all_rows:
     except Exception:
         continue
 
-    ticker = find_ticker(name, amount)
+    query_ticker = str(row.get('_query_ticker') or '').upper().strip()
+    mapped_ticker = master_lookup(name)
+
+    if mapped_ticker and query_ticker and mapped_ticker != query_ticker:
+        norm = normalize_name(name)
+        old = unknown.get(norm, {
+            'company': name,
+            'largest_transaction': 0.0,
+            'seen_count': 0,
+            'reason': 'recipient_query_cross_match',
+        })
+        old['largest_transaction'] = max(
+            old['largest_transaction'],
+            abs(amount),
+        )
+        old['seen_count'] += 1
+        unknown[norm] = old
+        continue
+
+    ticker = mapped_ticker or query_ticker
 
     if not ticker:
         norm = normalize_name(name)
@@ -512,6 +572,8 @@ if recent.empty:
         "downloaded_rows_total": int(len(all_rows)),
         "downloaded_positive": int(downloaded_positive),
         "downloaded_negative": int(downloaded_negative),
+        "recipient_universe_tickers": int(len(recipient_aliases)),
+        "recipient_queries": int(recipient_queries),
         "matched_public_company_transactions": 0,
         "ticker_day_events": 0,
         "md11_passes": 0,
@@ -1347,6 +1409,8 @@ diag = {
     "downloaded_rows_total": int(len(all_rows)),
     "downloaded_positive": int(downloaded_positive),
     "downloaded_negative": int(downloaded_negative),
+    "recipient_universe_tickers": int(len(recipient_aliases)),
+    "recipient_queries": int(recipient_queries),
     "matched_public_company_transactions": int(len(recent)),
     "ticker_day_events": int(len(events)),
     "events_scored": int(len(today_scan)),
