@@ -1,0 +1,38 @@
+name: c67-preaward-audit
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install
+        run: pip install pandas numpy yfinance
+      - name: Run C67 pre-award audit
+        run: python c67_preaward_audit.py
+      - name: Show answer
+        run: |
+          echo "===== C67 PRE-AWARD REPORT ====="
+          cat C67_preaward_report.txt
+          echo
+          echo "===== SUMMARY ====="
+          cat C67_preaward_summary.csv
+      - name: Commit results
+        run: |
+          git config user.name "recon-bot"
+          git config user.email "bot@recon.com"
+          git add C67_preaward_audit.csv \
+                  C67_preaward_summary.csv \
+                  C67_preaward_report.txt \
+                  C67_pre10_quartiles.csv \
+                  c67_market_cache/ 2>/dev/null || true
+          git commit -m "C67 pre-award trajectory audit" || true
+          git push || true
