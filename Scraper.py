@@ -9,7 +9,7 @@ import requests
 import yfinance as yf
 
 # ============================================================
-# RECON LIVE BUY SCANNER V3.6 - RESILIENT INCREMENTAL MD11 + MD8
+# RECON LIVE BUY SCANNER V3.7 - RESILIENT INCREMENTAL MD11 + MD8
 #
 # USER-FACING OUTPUT:
 #     buy_tickers.txt
@@ -45,56 +45,6 @@ HTTP_503_DELAYED_RETRIES = 3
 
 TODAY = date.today()
 
-# Incremental acquisition watermark.
-# Normal operation rescans only one overlap day plus today. If a prior run
-# failed, catch up only the missing dates. A seven-day cap is retained as a
-# recovery guardrail, not as the normal daily lookback.
-try:
-    if ACQ_STATE_FILE.exists():
-        _acq_state = json.loads(ACQ_STATE_FILE.read_text())
-    else:
-        _acq_state = {}
-except Exception:
-    _acq_state = {}
-_last_success = _acq_state.get("last_successful_scan_date")
-
-if _last_success:
-    try:
-        _last_success_date = date.fromisoformat(str(_last_success))
-    except Exception:
-        _last_success_date = None
-else:
-    _last_success_date = None
-
-# If no explicit acquisition watermark exists yet, use the newest locally
-# persisted live award date as a bootstrap hint. This prevents the first V3.4
-# run from needlessly re-querying a full week when the prior successful
-# scanner already captured recent transactions.
-if _last_success_date is None and LIVE_HISTORY.exists():
-    try:
-        _lh = pd.read_csv(LIVE_HISTORY, usecols=["award_date"])
-        _lh["award_date"] = pd.to_datetime(_lh["award_date"], errors="coerce")
-        if _lh["award_date"].notna().any():
-            _last_success_date = _lh["award_date"].max().date()
-    except Exception:
-        _last_success_date = None
-
-if _last_success_date is None:
-    START = TODAY - timedelta(days=1)
-    WATERMARK_SOURCE = "bootstrap_yesterday"
-else:
-    # Re-fetch one overlap day to catch late postings/revisions.
-    START = _last_success_date - timedelta(days=1)
-    WATERMARK_SOURCE = "acquisition_state_or_live_history"
-
-# Never ask for more than the recovery cap automatically.
-_recovery_floor = TODAY - timedelta(days=LOOKBACK_DAYS)
-if START < _recovery_floor:
-    START = _recovery_floor
-    WATERMARK_SOURCE += "_capped_7d"
-
-if START > TODAY:
-    START = TODAY
 
 USA_API = (
     "https://api.usaspending.gov/api/v2/"
@@ -171,6 +121,59 @@ MASTER = {
 # ============================================================
 # BASIC HELPERS
 # ============================================================
+
+
+# Incremental acquisition watermark.
+# Normal operation rescans only one overlap day plus today. If a prior run
+# failed, catch up only the missing dates. A seven-day cap is retained as a
+# recovery guardrail, not as the normal daily lookback.
+try:
+    if ACQ_STATE_FILE.exists():
+        _acq_state = json.loads(ACQ_STATE_FILE.read_text())
+    else:
+        _acq_state = {}
+except Exception:
+    _acq_state = {}
+_last_success = _acq_state.get("last_successful_scan_date")
+
+if _last_success:
+    try:
+        _last_success_date = date.fromisoformat(str(_last_success))
+    except Exception:
+        _last_success_date = None
+else:
+    _last_success_date = None
+
+# If no explicit acquisition watermark exists yet, use the newest locally
+# persisted live award date as a bootstrap hint. This prevents the first V3.4
+# run from needlessly re-querying a full week when the prior successful
+# scanner already captured recent transactions.
+if _last_success_date is None and LIVE_HISTORY.exists():
+    try:
+        _lh = pd.read_csv(LIVE_HISTORY, usecols=["award_date"])
+        _lh["award_date"] = pd.to_datetime(_lh["award_date"], errors="coerce")
+        if _lh["award_date"].notna().any():
+            _last_success_date = _lh["award_date"].max().date()
+    except Exception:
+        _last_success_date = None
+
+if _last_success_date is None:
+    START = TODAY - timedelta(days=1)
+    WATERMARK_SOURCE = "bootstrap_yesterday"
+else:
+    # Re-fetch one overlap day to catch late postings/revisions.
+    START = _last_success_date - timedelta(days=1)
+    WATERMARK_SOURCE = "acquisition_state_or_live_history"
+
+# Never ask for more than the recovery cap automatically.
+_recovery_floor = TODAY - timedelta(days=LOOKBACK_DAYS)
+if START < _recovery_floor:
+    START = _recovery_floor
+    WATERMARK_SOURCE += "_capped_7d"
+
+if START > TODAY:
+    START = TODAY
+
 
 def load_json(path, default):
     try:
