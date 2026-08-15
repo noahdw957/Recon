@@ -9,7 +9,7 @@ import requests
 import yfinance as yf
 
 # ============================================================
-# RECON LIVE BUY SCANNER V3.2 - RECIPIENT-SCOPED MD11 + MD8
+# RECON LIVE BUY SCANNER V3.5 - RESILIENT INCREMENTAL MD11 + MD8
 #
 # USER-FACING OUTPUT:
 #     buy_tickers.txt
@@ -35,8 +35,60 @@ MIN_NONZERO_TRANSACTION = 1.0
 AUTO_DISCOVER_MIN = 1_000_000
 MAX_AUTO_LOOKUPS = 30
 
+# USAspending resilience policy.
+# On HTTP 503, wait ten minutes and retry. After three delayed retries
+# (four total attempts including the initial request), fail CLOSED but exit
+# cleanly so GitHub can commit the system-failure consumer message and
+# diagnostics.
+HTTP_503_WAIT_SECONDS = 600
+HTTP_503_DELAYED_RETRIES = 3
+
 TODAY = date.today()
-START = TODAY - timedelta(days=LOOKBACK_DAYS)
+
+# Incremental acquisition watermark.
+# Normal operation rescans only one overlap day plus today. If a prior run
+# failed, catch up only the missing dates. A seven-day cap is retained as a
+# recovery guardrail, not as the normal daily lookback.
+_acq_state = load_json(ACQ_STATE_FILE, {})
+_last_success = _acq_state.get("last_successful_scan_date")
+
+if _last_success:
+    try:
+        _last_success_date = date.fromisoformat(str(_last_success))
+    except Exception:
+        _last_success_date = None
+else:
+    _last_success_date = None
+
+# If no explicit acquisition watermark exists yet, use the newest locally
+# persisted live award date as a bootstrap hint. This prevents the first V3.4
+# run from needlessly re-querying a full week when the prior successful
+# scanner already captured recent transactions.
+if _last_success_date is None and LIVE_HISTORY.exists():
+    try:
+        _lh = pd.read_csv(LIVE_HISTORY, usecols=["award_date"])
+        _lh["award_date"] = pd.to_datetime(_lh["award_date"], errors="coerce")
+        if _lh["award_date"].notna().any():
+            _last_success_date = _lh["award_date"].max().date()
+    except Exception:
+        _last_success_date = None
+
+if _last_success_date is None:
+    START = TODAY - timedelta(days=1)
+    WATERMARK_SOURCE = "bootstrap_yesterday"
+else:
+    # Re-fetch one overlap day to catch late postings/revisions.
+    START = _last_success_date - timedelta(days=1)
+    WATERMARK_SOURCE = "acquisition_state_or_live_history"
+
+# Never ask for more than the recovery cap automatically.
+_recovery_floor = TODAY - timedelta(days=LOOKBACK_DAYS)
+if START < _recovery_floor:
+    START = _recovery_floor
+    WATERMARK_SOURCE += "_capped_7d"
+
+if START > TODAY:
+    START = TODAY
 
 USA_API = (
     "https://api.usaspending.gov/api/v2/"
@@ -70,6 +122,7 @@ LIVE_HISTORY = DATA_DIR / "live_history.csv"
 SEEN_FILE = DATA_DIR / "seen_events.json"
 TICKER_CACHE_FILE = DATA_DIR / "ticker_cache.json"
 UNKNOWN_FILE = DATA_DIR / "unknown_companies.json"
+ACQ_STATE_FILE = DATA_DIR / "acquisition_state.json"
 SHARES_CACHE_DIR = DATA_DIR / "shares_cache"
 SHARES_CACHE_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -186,7 +239,7 @@ model = json.loads(MODEL_FILE.read_text())
 # daily scanner remains a single Python file. The only external model file
 # required is the original frozen 11-factor model above.
 MODEL8 = {'features': ['prior_response_count_60d_adj', 'log10_market_cap_before', 'prior_abs_award_max', 'relative_strength_spy_120d', 'prior_abs_award_median_adj', 'prior_response_count_60d', 'prior_abs_award_median', 'relative_strength_spy_60d'], 'threshold': 1.9463204147913817, 'A_sector_count_centers': {'AERO_DEFENSE': 1.6989700043360187, 'INDUSTRIAL': 1.4621397262132765, 'OTHER': 1.6483333918242467, 'TECH_SERVICES': 1.6433396112263248}, 'A_sector_median_award_centers': {'AERO_DEFENSE': 7.276858522781777, 'INDUSTRIAL': 6.379214783094319, 'OTHER': 7.050908632424625, 'TECH_SERVICES': 6.864458778006966}, 'impute_median': {'prior_response_count_60d_adj': 0.0492180226701817, 'log10_market_cap_before': 10.387166780894209, 'prior_abs_award_max': 19.354947011752447, 'relative_strength_spy_120d': 1.843991900460896, 'prior_abs_award_median_adj': -0.0066639210311842, 'prior_response_count_60d': 3.80666248977032, 'prior_abs_award_median': 16.5322049303338, 'relative_strength_spy_60d': 1.2132923469633017}, 'reference_mean': {'prior_response_count_60d_adj': 0.0013767411374706754, 'log10_market_cap_before': 10.625932783789732, 'prior_abs_award_max': 19.597688495171163, 'relative_strength_spy_120d': 1.2359990062272446, 'prior_abs_award_median_adj': -0.04354096940216947, 'prior_response_count_60d': 2.8273422161532253, 'prior_abs_award_median': 16.43449652376031, 'relative_strength_spy_60d': 2.623598721446692}, 'reference_sd': {'prior_response_count_60d_adj': 0.2411181730720844, 'log10_market_cap_before': 0.5075506908228757, 'prior_abs_award_max': 1.1421831854022753, 'relative_strength_spy_120d': 21.180105648166858, 'prior_abs_award_median_adj': 0.314659542161833, 'prior_response_count_60d': 1.7908841319714495, 'prior_abs_award_median': 0.8870167161218723, 'relative_strength_spy_60d': 14.497162681485262}, 'lw_location': [0.0, 1.4157430449355379e-15, 1.3177985575500604e-15, -3.5616177231082714e-17, -7.123235446216543e-17, -2.49313240617579e-16, 3.9177794954190986e-16, 0.0], 'lw_precision': [[1.1245235410715015, 0.11352024832397757, 0.1240456298401465, -0.03193144952522353, -0.3991441548956096, -0.36490679685676564, 0.013769655800668537, -0.05708349556794794], [0.11352024832397757, 1.3770061528784387, -0.3114930412901252, -0.22521682050650216, -1.1568724382658144, -0.014832737514160942, 0.9161846426492161, -0.0939101841889188], [0.12404562984014653, -0.3114930412901252, 1.9965791456133024, -0.3451494320242806, 0.2943141182659422, -1.0929572591554757, -1.1431114831222657, -0.398446057654768], [-0.031931449525223615, -0.22521682050650216, -0.3451494320242807, 2.205304783545063, 0.6514570223600256, 0.6839549226950875, 0.07099452031580906, -1.2606775178443608], [-0.3991441548956096, -1.1568724382658147, 0.2943141182659423, 0.6514570223600256, 4.367772214507019, 0.531126542035879, -3.263049460696854, 0.06272408648398381], [-0.36490679685676564, -0.014832737514160936, -1.0929572591554757, 0.6839549226950875, 0.5311265420358788, 1.93893598117823, 0.5661053548215131, -0.10750370278020249], [0.013769655800668522, 0.9161846426492162, -1.1431114831222657, 0.07099452031580904, -3.263049460696854, 0.5661053548215131, 4.088226221596494, -0.033279115184692745], [-0.05708349556794795, -0.09391018418891882, -0.3984460576547681, -1.2606775178443608, 0.06272408648398387, -0.10750370278020249, -0.033279115184692704, 2.0325863172680054]], 'version': 'RECON Scale-Aware MTS8 Frozen A - Corrected Deployment v1.0', 'notes': ['Sector centers are frozen Sample-A medians in log10(raw) space.', 'For stored signed_log1p A fields, reconstruction used raw=expm1(stored), then log10(raw).', 'Deployment rule is intersection with frozen MD11 threshold 2.1954452583448045.']}
-MODEL_VERSION = "RECON_11x8_INTERSECTION_RECIPIENT_V2"
+MODEL_VERSION = "RECON_11x8_INTERSECTION_INCREMENTAL_V5"
 MD8_THRESHOLD = float(MODEL8["threshold"])
 
 seen = load_json(SEEN_FILE, {})
@@ -364,25 +417,46 @@ BASE_FIELDS = [
 ]
 
 recipient_aliases = {}
-for ticker, g in master_history.groupby('ticker'):
+for ticker, g in master_history.groupby("ticker"):
     ticker = str(ticker).upper()
-    if ticker == 'LMT':
+    if ticker == "LMT":
         continue
 
-    aliases = sorted({
-        str(x).strip()
-        for x in g['company'].dropna().astype(str)
-        if str(x).strip()
-    })
+    aliases = []
 
-    aliases.extend(MASTER.get(ticker, []))
-    aliases = list(dict.fromkeys(a for a in aliases if a))
+    # Prefer the compact curated keywords used successfully in historical
+    # acquisition. Broad curated terms capture subsidiaries while minimizing
+    # API calls.
+    if ticker in MASTER and MASTER[ticker]:
+        aliases.extend(MASTER[ticker])
+    else:
+        # For tickers without a curated keyword, use up to three most-common
+        # exact historical recipient names.
+        vc = (
+            g["company"]
+            .dropna()
+            .astype(str)
+            .str.strip()
+            .replace("", np.nan)
+            .dropna()
+            .value_counts()
+        )
+        aliases.extend(vc.head(3).index.tolist())
 
-    if aliases:
-        recipient_aliases[ticker] = aliases
+    seen_norm = set()
+    cleaned = []
+    for alias in aliases:
+        n = normalize_name(alias)
+        if not n or n in seen_norm:
+            continue
+        seen_norm.add(n)
+        cleaned.append(alias)
+
+    if cleaned:
+        recipient_aliases[ticker] = cleaned
 
 
-def fetch_ticker_sign(ticker, aliases, sign):
+def fetch_alias_sign(ticker, alias, sign):
     if sign == 'positive':
         amount_filter = {'lower_bound': MIN_NONZERO_TRANSACTION}
         order = 'desc'
@@ -392,7 +466,7 @@ def fetch_ticker_sign(ticker, aliases, sign):
 
     payload = {
         'filters': {
-            'recipient_search_text': aliases,
+            'recipient_search_text': [alias],
             'award_amounts': [amount_filter],
             'award_type_codes': ['A', 'B', 'C', 'D'],
             'time_period': [{
@@ -411,21 +485,69 @@ def fetch_ticker_sign(ticker, aliases, sign):
 
     for page in range(1, MAX_PAGES + 1):
         payload['page'] = page
+        page_data = None
 
-        for attempt in range(4):
+        # Explicit 503 recovery policy. A 503 means the upstream service
+        # is unavailable; do not hammer it. Wait ten minutes, then retry,
+        # up to three delayed retries. Other transient HTTP failures retain
+        # a short backoff. Persistent failure is raised to the top-level
+        # acquisition guard, which writes SYSTEM FAILURE and exits cleanly.
+        page_data = None
+        last_exc = None
+        delayed_503_retries = 0
+        short_retry = 0
+
+        while True:
             try:
                 response = session.post(
                     USA_API,
                     json=payload,
                     timeout=90,
                 )
+
+                if response.status_code == 503:
+                    if delayed_503_retries >= HTTP_503_DELAYED_RETRIES:
+                        raise RuntimeError(
+                            f'USAspending HTTP 503 persisted after '
+                            f'{HTTP_503_DELAYED_RETRIES} delayed retries'
+                        )
+
+                    delayed_503_retries += 1
+                    print(
+                        f'USAspending 503 for {ticker} / {alias!r} / '
+                        f'{sign} / page {page}. '
+                        f'Waiting {HTTP_503_WAIT_SECONDS // 60} minutes '
+                        f'before retry {delayed_503_retries}/'
+                        f'{HTTP_503_DELAYED_RETRIES}...'
+                    )
+                    time.sleep(HTTP_503_WAIT_SECONDS)
+                    continue
+
                 response.raise_for_status()
                 page_data = response.json()
+                last_exc = None
                 break
-            except Exception:
-                if attempt == 3:
-                    raise
-                time.sleep(2 ** attempt)
+
+            except RuntimeError:
+                raise
+            except Exception as exc:
+                last_exc = exc
+                short_retry += 1
+                if short_retry > 3:
+                    break
+                wait_s = [5, 15, 30][short_retry - 1]
+                print(
+                    f'USAspending request error for {ticker} / {alias!r} / '
+                    f'{sign} / page {page}: {exc}. '
+                    f'Retrying in {wait_s}s...'
+                )
+                time.sleep(wait_s)
+
+        if page_data is None:
+            raise RuntimeError(
+                f'USAspending failed after retries for {ticker} / {alias!r} '
+                f'/ {sign} / page {page}: {last_exc}'
+            )
 
         rows = page_data.get('results', [])
         if not rows:
@@ -434,22 +556,22 @@ def fetch_ticker_sign(ticker, aliases, sign):
         for row in rows:
             row = dict(row)
             row['_query_ticker'] = ticker
+            row['_query_alias'] = alias
             rows_out.append(row)
 
         has_next = bool(
             page_data.get('page_metadata', {}).get('hasNext', False)
         )
-
         if not has_next:
             break
 
         if page == MAX_PAGES:
             raise RuntimeError(
-                f'SCAN INCOMPLETE: recipient-scoped query for {ticker} '
+                f'SCAN INCOMPLETE: recipient query {ticker}/{alias!r} '
                 f'({sign}) exceeded {MAX_PAGES * PAGE_SIZE:,} rows.'
             )
 
-        time.sleep(0.12)
+        time.sleep(0.20)
 
     return rows_out
 
@@ -458,31 +580,97 @@ all_rows = []
 downloaded_positive = 0
 downloaded_negative = 0
 recipient_queries = 0
+alias_queries_failed = 0
+SYSTEM_FAILURE = None
 
-for n, ticker in enumerate(sorted(recipient_aliases), 1):
-    aliases = recipient_aliases[ticker]
+try:
+    for n, ticker in enumerate(sorted(recipient_aliases), 1):
+        pos_n = 0
+        neg_n = 0
 
-    pos = fetch_ticker_sign(ticker, aliases, 'positive')
-    recipient_queries += 1
-    neg = fetch_ticker_sign(ticker, aliases, 'negative')
-    recipient_queries += 1
+        for alias in recipient_aliases[ticker]:
+            pos = fetch_alias_sign(ticker, alias, 'positive')
+            recipient_queries += 1
+            neg = fetch_alias_sign(ticker, alias, 'negative')
+            recipient_queries += 1
 
-    downloaded_positive += len(pos)
-    downloaded_negative += len(neg)
-    all_rows.extend(pos)
-    all_rows.extend(neg)
+            pos_n += len(pos)
+            neg_n += len(neg)
+            downloaded_positive += len(pos)
+            downloaded_negative += len(neg)
+            all_rows.extend(pos)
+            all_rows.extend(neg)
+
+        print(
+            f'[{n}/{len(recipient_aliases)}] {ticker}: '
+            f'+{pos_n} / -{neg_n} across {len(recipient_aliases[ticker])} aliases'
+        )
+
+    # Alias overlap can return the same transaction more than once.
+    raw_unique = {}
+    for row in all_rows:
+        key = (
+            str(row.get('Award ID')),
+            str(row.get('Action Date'))[:10],
+            str(row.get('Recipient Name')),
+            str(row.get('Transaction Amount')),
+        )
+        raw_unique[key] = row
+    all_rows = list(raw_unique.values())
 
     print(
-        f'[{n}/{len(recipient_aliases)}] {ticker}: '
-        f'+{len(pos)} / -{len(neg)}'
+        f'Recipient-scoped download: {len(all_rows):,} unique nonzero rows '
+        f'({downloaded_positive:,} positive responses, '
+        f'{downloaded_negative:,} negative responses before alias dedupe) '
+        f'from {len(recipient_aliases):,} tickers / {recipient_queries:,} queries '
+        f'({START} through {TODAY}).'
     )
 
-print(
-    f'Recipient-scoped download: {len(all_rows):,} nonzero rows '
-    f'({downloaded_positive:,} positive, {downloaded_negative:,} negative) '
-    f'from {len(recipient_aliases):,} tickers / {recipient_queries:,} queries '
-    f'({START} through {TODAY}).'
-)
+except Exception as exc:
+    SYSTEM_FAILURE = str(exc)
+    now_utc = datetime.now(timezone.utc).isoformat()
+
+    # Consumer output: unmistakably not a trading signal.
+    BUY_FILE.write_text(
+        "SYSTEM FAILURE - NO SIGNAL GENERATED\\n"
+        "USAspending acquisition incomplete\\n"
+    )
+
+    diag = {
+        "scan_utc": now_utc,
+        "scan_start": str(START),
+        "scan_end": str(TODAY),
+        "watermark_source": WATERMARK_SOURCE,
+        "downloaded_rows_partial": int(len(all_rows)),
+        "downloaded_positive_partial": int(downloaded_positive),
+        "downloaded_negative_partial": int(downloaded_negative),
+        "recipient_universe_tickers": int(len(recipient_aliases)),
+        "recipient_queries_completed": int(recipient_queries),
+        "status": "SYSTEM_FAILURE_USASPENDING",
+        "error": SYSTEM_FAILURE,
+        "watermark_advanced": 0,
+    }
+
+    DIAG_LATEST.write_text(json.dumps(diag, indent=2))
+    pd.DataFrame([diag]).to_csv(
+        DAILY_DIAG,
+        mode="a",
+        header=not DAILY_DIAG.exists(),
+        index=False,
+    )
+
+    print("SYSTEM FAILURE - NO SIGNAL GENERATED")
+    print(SYSTEM_FAILURE)
+    print("Acquisition watermark NOT advanced; next run will catch up.")
+
+    # Preserve caches/unknowns if already available, but do not modify seen
+    # signal state or acquisition watermark.
+    TICKER_CACHE_FILE.write_text(
+        json.dumps(ticker_cache, indent=2, sort_keys=True)
+    )
+    UNKNOWN_FILE.write_text(json.dumps({}, indent=2))
+
+    raise SystemExit(0)
 
 # ============================================================
 # IDENTIFY PUBLIC-COMPANY TRANSACTIONS
@@ -569,11 +757,13 @@ if recent.empty:
         "scan_utc": now_utc,
         "scan_start": str(START),
         "scan_end": str(TODAY),
+        "watermark_source": WATERMARK_SOURCE,
         "downloaded_rows_total": int(len(all_rows)),
         "downloaded_positive": int(downloaded_positive),
         "downloaded_negative": int(downloaded_negative),
         "recipient_universe_tickers": int(len(recipient_aliases)),
         "recipient_queries": int(recipient_queries),
+        "recipient_aliases": int(sum(len(v) for v in recipient_aliases.values())),
         "matched_public_company_transactions": 0,
         "ticker_day_events": 0,
         "md11_passes": 0,
@@ -1406,11 +1596,13 @@ diag = {
     "scan_utc": datetime.now(timezone.utc).isoformat(),
     "scan_start": str(START),
     "scan_end": str(TODAY),
+    "watermark_source": WATERMARK_SOURCE,
     "downloaded_rows_total": int(len(all_rows)),
     "downloaded_positive": int(downloaded_positive),
     "downloaded_negative": int(downloaded_negative),
     "recipient_universe_tickers": int(len(recipient_aliases)),
     "recipient_queries": int(recipient_queries),
+    "recipient_aliases": int(sum(len(v) for v in recipient_aliases.values())),
     "matched_public_company_transactions": int(len(recent)),
     "ticker_day_events": int(len(events)),
     "events_scored": int(len(today_scan)),
@@ -1442,6 +1634,17 @@ print(
     f"AND={diag['intersection_passes']:,} "
     f"new_BUYs={diag['new_buy_tickers']:,}"
 )
+
+# Advance acquisition watermark only after the complete scan, scoring and
+# diagnostics have all succeeded. Failed runs therefore do not move the
+# watermark and will automatically catch up next time.
+ACQ_STATE_FILE.write_text(json.dumps({
+    "last_successful_scan_date": str(TODAY),
+    "last_fetch_start": str(START),
+    "last_success_utc": datetime.now(timezone.utc).isoformat(),
+    "watermark_source": WATERMARK_SOURCE,
+    "model_version": MODEL_VERSION,
+}, indent=2))
 
 SEEN_FILE.write_text(
     json.dumps(seen, indent=2, sort_keys=True)
