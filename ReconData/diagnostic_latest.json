@@ -1,0 +1,22 @@
+{
+  "scan_utc": "2026-08-15T13:49:29.300053+00:00",
+  "scan_start": "2026-08-12",
+  "scan_end": "2026-08-15",
+  "watermark_source": "acquisition_state_or_live_history",
+  "downloaded_rows_total": 105,
+  "downloaded_positive": 108,
+  "downloaded_negative": 0,
+  "recipient_universe_tickers": 32,
+  "recipient_queries": 92,
+  "recipient_aliases": 46,
+  "matched_public_company_transactions": 105,
+  "ticker_day_events": 30,
+  "events_scored": 30,
+  "md11_passes": 12,
+  "md8_passes_all_events": 5,
+  "intersection_passes": 4,
+  "new_buy_tickers": 3,
+  "scale_data_missing": 0,
+  "unknown_recipient_names": 0,
+  "status": "OK"
+}

@@ -1,0 +1,7 @@
+{
+  "last_successful_scan_date": "2026-08-15",
+  "last_fetch_start": "2026-08-12",
+  "last_success_utc": "2026-08-15T13:49:29.301213+00:00",
+  "watermark_source": "acquisition_state_or_live_history",
+  "model_version": "RECON_11x8_INTERSECTION_INCREMENTAL_V5"
+}

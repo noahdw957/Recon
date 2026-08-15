@@ -20,6 +20,13 @@
     "model_version": "RECON_11x8_INTERSECTION_v1",
     "signal": "PASS"
   },
+  "ACN|2026-08-12|57312854.54|7|RECON_11x8_INTERSECTION_INCREMENTAL_V5": {
+    "first_seen_utc": "2026-08-15T13:49:29.145769+00:00",
+    "last_md11_score": 1.155410638674066,
+    "last_md8_score": 1.3628777765228286,
+    "model_version": "RECON_11x8_INTERSECTION_INCREMENTAL_V5",
+    "signal": "PASS"
+  },
   "ACN|2026-08-12|57312854.54|7|RECON_11x8_INTERSECTION_v1": {
     "first_seen_utc": "2026-08-15T12:54:54.649816+00:00",
     "last_md11_score": 1.05888107921198,
@@ -32,6 +39,13 @@
     "last_md11_score": 0.8230919904373619,
     "last_md8_score": 1.217978925159746,
     "model_version": "RECON_11x8_INTERSECTION_v1",
+    "signal": "PASS"
+  },
+  "ACN|2026-08-13|1557382.00|4|RECON_11x8_INTERSECTION_INCREMENTAL_V5": {
+    "first_seen_utc": "2026-08-15T13:49:29.235216+00:00",
+    "last_md11_score": 0.9188480514995736,
+    "last_md8_score": 1.2676772041686863,
+    "model_version": "RECON_11x8_INTERSECTION_INCREMENTAL_V5",
     "signal": "PASS"
   },
   "BAH|2026-08-10|1137106.67|1|RECON_11x8_INTERSECTION_v1": {
@@ -62,11 +76,32 @@
     "model_version": "RECON_11x8_INTERSECTION_v1",
     "signal": "PASS"
   },
+  "BAH|2026-08-12|4553141.53|9|RECON_11x8_INTERSECTION_INCREMENTAL_V5": {
+    "first_seen_utc": "2026-08-15T13:49:29.200623+00:00",
+    "last_md11_score": 1.181138371745461,
+    "last_md8_score": 1.1152183155957076,
+    "model_version": "RECON_11x8_INTERSECTION_INCREMENTAL_V5",
+    "signal": "PASS"
+  },
   "BAH|2026-08-13|4451087.70|2|RECON_11x8_INTERSECTION_v1": {
     "first_seen_utc": "2026-08-15T12:54:54.738760+00:00",
     "last_md11_score": 1.1592550953073364,
     "last_md8_score": 1.090923000741895,
     "model_version": "RECON_11x8_INTERSECTION_v1",
+    "signal": "PASS"
+  },
+  "BAH|2026-08-13|4961139.81|6|RECON_11x8_INTERSECTION_INCREMENTAL_V5": {
+    "first_seen_utc": "2026-08-15T13:49:29.254866+00:00",
+    "last_md11_score": 1.1378694388143342,
+    "last_md8_score": 1.1204986103592947,
+    "model_version": "RECON_11x8_INTERSECTION_INCREMENTAL_V5",
+    "signal": "PASS"
+  },
+  "BA|2026-08-13|19195.67|2|RECON_11x8_INTERSECTION_INCREMENTAL_V5": {
+    "first_seen_utc": "2026-08-15T13:49:29.245072+00:00",
+    "last_md11_score": 2.2441400382719374,
+    "last_md8_score": 1.29840542767498,
+    "model_version": "RECON_11x8_INTERSECTION_INCREMENTAL_V5",
     "signal": "PASS"
   },
   "CACI|2026-08-10|1439855.26|3|RECON_11x8_INTERSECTION_v1": {
@@ -90,11 +125,25 @@
     "model_version": "RECON_11x8_INTERSECTION_v1",
     "signal": "PASS"
   },
+  "CACI|2026-08-12|4923441.00|2|RECON_11x8_INTERSECTION_INCREMENTAL_V5": {
+    "first_seen_utc": "2026-08-15T13:49:29.210600+00:00",
+    "last_md11_score": 1.8956566710850689,
+    "last_md8_score": 1.4174492620612296,
+    "model_version": "RECON_11x8_INTERSECTION_INCREMENTAL_V5",
+    "signal": "PASS"
+  },
   "CACI|2026-08-12|4923441.00|2|RECON_11x8_INTERSECTION_v1": {
     "first_seen_utc": "2026-08-15T12:54:54.672522+00:00",
     "last_md11_score": 1.9907268543312115,
     "last_md8_score": 1.5627883830454121,
     "model_version": "RECON_11x8_INTERSECTION_v1",
+    "signal": "PASS"
+  },
+  "CACI|2026-08-13|1196821.60|7|RECON_11x8_INTERSECTION_INCREMENTAL_V5": {
+    "first_seen_utc": "2026-08-15T13:49:29.264681+00:00",
+    "last_md11_score": 1.9693513614413707,
+    "last_md8_score": 1.562869745536826,
+    "model_version": "RECON_11x8_INTERSECTION_INCREMENTAL_V5",
     "signal": "PASS"
   },
   "CACI|2026-08-13|1196821.60|7|RECON_11x8_INTERSECTION_v1": {
@@ -118,11 +167,25 @@
     "model_version": "RECON_11x8_INTERSECTION_v1",
     "signal": "PASS"
   },
+  "CAT|2026-08-12|400243.00|2|RECON_11x8_INTERSECTION_INCREMENTAL_V5": {
+    "first_seen_utc": "2026-08-15T13:49:29.205645+00:00",
+    "last_md11_score": 1.8885337482445457,
+    "last_md8_score": 1.5600061365618976,
+    "model_version": "RECON_11x8_INTERSECTION_INCREMENTAL_V5",
+    "signal": "PASS"
+  },
   "CAT|2026-08-12|400243.00|2|RECON_11x8_INTERSECTION_v1": {
     "first_seen_utc": "2026-08-15T00:38:14.401510+00:00",
     "last_md11_score": 1.875423423495774,
     "last_md8_score": 1.5419330247424299,
     "model_version": "RECON_11x8_INTERSECTION_v1",
+    "signal": "PASS"
+  },
+  "CAT|2026-08-13|358127.00|2|RECON_11x8_INTERSECTION_INCREMENTAL_V5": {
+    "first_seen_utc": "2026-08-15T13:49:29.279416+00:00",
+    "last_md11_score": 1.7531891115990785,
+    "last_md8_score": 1.5457810506241283,
+    "model_version": "RECON_11x8_INTERSECTION_INCREMENTAL_V5",
     "signal": "PASS"
   },
   "CAT|2026-08-13|358127.00|2|RECON_11x8_INTERSECTION_v1": {
@@ -174,6 +237,13 @@
     "model_version": "RECON_11x8_INTERSECTION_v1",
     "signal": "PASS"
   },
+  "ETN|2026-08-12|857153.43|1|RECON_11x8_INTERSECTION_INCREMENTAL_V5": {
+    "first_seen_utc": "2026-08-15T13:49:29.215486+00:00",
+    "last_md11_score": 1.9823237117346282,
+    "last_md8_score": 1.7262705787980708,
+    "model_version": "RECON_11x8_INTERSECTION_INCREMENTAL_V5",
+    "signal": "PASS"
+  },
   "ETN|2026-08-12|857153.43|1|RECON_11x8_INTERSECTION_v1": {
     "first_seen_utc": "2026-08-15T00:38:14.406538+00:00",
     "last_md11_score": 1.9900082279875209,
@@ -223,11 +293,25 @@
     "model_version": "RECON_11x8_INTERSECTION_v1",
     "signal": "PASS"
   },
+  "GD|2026-08-12|1847775.04|12|RECON_11x8_INTERSECTION_INCREMENTAL_V5": {
+    "first_seen_utc": "2026-08-15T13:49:29.190664+00:00",
+    "last_md11_score": 0.9116312615860137,
+    "last_md8_score": 1.064779489094395,
+    "model_version": "RECON_11x8_INTERSECTION_INCREMENTAL_V5",
+    "signal": "PASS"
+  },
   "GD|2026-08-13|3879084.56|1|RECON_11x8_INTERSECTION_v1": {
     "first_seen_utc": "2026-08-15T12:54:54.748513+00:00",
     "last_md11_score": 0.8916918507798777,
     "last_md8_score": 1.0561360452811281,
     "model_version": "RECON_11x8_INTERSECTION_v1",
+    "signal": "PASS"
+  },
+  "GD|2026-08-13|3879084.56|3|RECON_11x8_INTERSECTION_INCREMENTAL_V5": {
+    "first_seen_utc": "2026-08-15T13:49:29.249991+00:00",
+    "last_md11_score": 0.9055043709146422,
+    "last_md8_score": 1.0823950103495998,
+    "model_version": "RECON_11x8_INTERSECTION_INCREMENTAL_V5",
     "signal": "PASS"
   },
   "GEO|2026-08-11|22256910.00|1|RECON_11x8_INTERSECTION_v1": {
@@ -244,6 +328,27 @@
     "model_version": "RECON_11x8_INTERSECTION_v1",
     "signal": "PASS"
   },
+  "GE|2026-08-12|0.00|1|RECON_11x8_INTERSECTION_INCREMENTAL_V5": {
+    "first_seen_utc": "2026-08-15T13:49:29.185744+00:00",
+    "last_md11_score": 2.5873131609550883,
+    "last_md8_score": 1.7990799571433849,
+    "model_version": "RECON_11x8_INTERSECTION_INCREMENTAL_V5",
+    "signal": "PASS"
+  },
+  "GE|2026-08-13|2928267.02|1|RECON_11x8_INTERSECTION_INCREMENTAL_V5": {
+    "first_seen_utc": "2026-08-15T13:49:29.274516+00:00",
+    "last_md11_score": 1.8668444747731845,
+    "last_md8_score": 1.8507883012744244,
+    "model_version": "RECON_11x8_INTERSECTION_INCREMENTAL_V5",
+    "signal": "PASS"
+  },
+  "HII|2026-08-12|16583827.00|1|RECON_11x8_INTERSECTION_INCREMENTAL_V5": {
+    "first_seen_utc": "2026-08-15T13:49:29.195619+00:00",
+    "last_md11_score": 3.1860701756146907,
+    "last_md8_score": 1.7590093292720015,
+    "model_version": "RECON_11x8_INTERSECTION_INCREMENTAL_V5",
+    "signal": "PASS"
+  },
   "HON|2026-08-10|7901.98|1|RECON_11x8_INTERSECTION_v1": {
     "first_seen_utc": "2026-08-15T00:38:14.234566+00:00",
     "last_md11_score": 2.1568126912100896,
@@ -251,11 +356,25 @@
     "model_version": "RECON_11x8_INTERSECTION_v1",
     "signal": "PASS"
   },
+  "HON|2026-08-13|103620.00|1|RECON_11x8_INTERSECTION_INCREMENTAL_V5": {
+    "first_seen_utc": "2026-08-15T13:49:29.269623+00:00",
+    "last_md11_score": 1.9068292424894553,
+    "last_md8_score": 1.8739562360948059,
+    "model_version": "RECON_11x8_INTERSECTION_INCREMENTAL_V5",
+    "signal": "PASS"
+  },
   "IBM|2026-08-11|155000.00|1|RECON_11x8_INTERSECTION_v1": {
     "first_seen_utc": "2026-08-15T00:38:14.296826+00:00",
     "last_md11_score": 1.1750832994358211,
     "last_md8_score": 1.465003417951215,
     "model_version": "RECON_11x8_INTERSECTION_v1",
+    "signal": "PASS"
+  },
+  "IBM|2026-08-12|1420062.23|3|RECON_11x8_INTERSECTION_INCREMENTAL_V5": {
+    "first_seen_utc": "2026-08-15T13:49:29.175743+00:00",
+    "last_md11_score": 1.1634023113082839,
+    "last_md8_score": 1.4701593446486492,
+    "model_version": "RECON_11x8_INTERSECTION_INCREMENTAL_V5",
     "signal": "PASS"
   },
   "KTOS|2026-08-10|3451875.00|1|RECON_11x8_INTERSECTION_v1": {
@@ -279,11 +398,25 @@
     "model_version": "RECON_11x8_INTERSECTION_v1",
     "signal": "PASS"
   },
+  "LDOS|2026-08-12|863499.52|5|RECON_11x8_INTERSECTION_INCREMENTAL_V5": {
+    "first_seen_utc": "2026-08-15T13:49:29.170788+00:00",
+    "last_md11_score": 1.3507182631359944,
+    "last_md8_score": 1.2098874370305508,
+    "model_version": "RECON_11x8_INTERSECTION_INCREMENTAL_V5",
+    "signal": "PASS"
+  },
   "LDOS|2026-08-13|11647512.45|2|RECON_11x8_INTERSECTION_v1": {
     "first_seen_utc": "2026-08-15T12:54:54.701707+00:00",
     "last_md11_score": 1.3583889648604777,
     "last_md8_score": 1.2152111027893175,
     "model_version": "RECON_11x8_INTERSECTION_v1",
+    "signal": "PASS"
+  },
+  "LDOS|2026-08-13|12983126.16|5|RECON_11x8_INTERSECTION_INCREMENTAL_V5": {
+    "first_seen_utc": "2026-08-15T13:49:29.259763+00:00",
+    "last_md11_score": 1.3719382647829084,
+    "last_md8_score": 1.2576345012634318,
+    "model_version": "RECON_11x8_INTERSECTION_INCREMENTAL_V5",
     "signal": "PASS"
   },
   "LHX|2026-08-10|265629.00|1|RECON_11x8_INTERSECTION_v1": {
@@ -321,12 +454,33 @@
     "model_version": "RECON_11x8_INTERSECTION_v1",
     "signal": "PASS"
   },
+  "NOC|2026-08-12|0.00|1|RECON_11x8_INTERSECTION_INCREMENTAL_V5": {
+    "first_seen_utc": "2026-08-15T13:49:29.165793+00:00",
+    "last_md11_score": 2.697015743044399,
+    "last_md8_score": 1.290251148374469,
+    "model_version": "RECON_11x8_INTERSECTION_INCREMENTAL_V5",
+    "signal": "PASS"
+  },
+  "ONDS|2026-08-12|271058.72|1|RECON_11x8_INTERSECTION_INCREMENTAL_V5": {
+    "first_seen_utc": "2026-08-15T13:49:29.160817+00:00",
+    "last_md11_score": 2.9355281930513093,
+    "last_md8_score": 2.1117122377266697,
+    "model_version": "RECON_11x8_INTERSECTION_INCREMENTAL_V5",
+    "signal": "BUY"
+  },
   "ONDS|2026-08-12|271058.72|1|RECON_11x8_INTERSECTION_v1": {
     "first_seen_utc": "2026-08-15T00:38:14.376568+00:00",
     "last_md11_score": 2.9457126364186097,
     "last_md8_score": 2.1454360200324256,
     "model_version": "RECON_11x8_INTERSECTION_v1",
     "signal": "BUY"
+  },
+  "PLTR|2026-08-13|500000.00|1|RECON_11x8_INTERSECTION_INCREMENTAL_V5": {
+    "first_seen_utc": "2026-08-15T13:49:29.284327+00:00",
+    "last_md11_score": 2.946016315381331,
+    "last_md8_score": 1.3707255983905071,
+    "model_version": "RECON_11x8_INTERSECTION_INCREMENTAL_V5",
+    "signal": "PASS"
   },
   "PLTR|2026-08-13|500000.00|1|RECON_11x8_INTERSECTION_v1": {
     "first_seen_utc": "2026-08-15T12:54:54.772789+00:00",
@@ -342,11 +496,25 @@
     "model_version": "RECON_11x8_INTERSECTION_v1",
     "signal": "PASS"
   },
+  "PSN|2026-08-12|4281556.30|17|RECON_11x8_INTERSECTION_INCREMENTAL_V5": {
+    "first_seen_utc": "2026-08-15T13:49:29.155863+00:00",
+    "last_md11_score": 2.6293626799488083,
+    "last_md8_score": 1.3646860612652862,
+    "model_version": "RECON_11x8_INTERSECTION_INCREMENTAL_V5",
+    "signal": "PASS"
+  },
   "PSN|2026-08-13|410137.00|2|RECON_11x8_INTERSECTION_v1": {
     "first_seen_utc": "2026-08-15T12:54:54.762920+00:00",
     "last_md11_score": 2.602444835920441,
     "last_md8_score": 1.393264664280425,
     "model_version": "RECON_11x8_INTERSECTION_v1",
+    "signal": "PASS"
+  },
+  "PSN|2026-08-13|430137.00|4|RECON_11x8_INTERSECTION_INCREMENTAL_V5": {
+    "first_seen_utc": "2026-08-15T13:49:29.240158+00:00",
+    "last_md11_score": 2.485792555356945,
+    "last_md8_score": 1.3660929980687802,
+    "model_version": "RECON_11x8_INTERSECTION_INCREMENTAL_V5",
     "signal": "PASS"
   },
   "RTX|2026-08-12|1000000.00|1|RECON_11x8_INTERSECTION_v1": {
@@ -391,11 +559,25 @@
     "model_version": "RECON_11x8_INTERSECTION_v1",
     "signal": "PASS"
   },
+  "SATL|2026-08-12|15309.21|1|RECON_11x8_INTERSECTION_INCREMENTAL_V5": {
+    "first_seen_utc": "2026-08-15T13:49:29.150840+00:00",
+    "last_md11_score": 3.347217711939861,
+    "last_md8_score": 3.1782841911407558,
+    "model_version": "RECON_11x8_INTERSECTION_INCREMENTAL_V5",
+    "signal": "BUY"
+  },
   "SATL|2026-08-12|15309.21|1|RECON_11x8_INTERSECTION_v1": {
     "first_seen_utc": "2026-08-15T00:38:14.386434+00:00",
     "last_md11_score": 3.4234000400302285,
     "last_md8_score": 3.3271559866863414,
     "model_version": "RECON_11x8_INTERSECTION_v1",
+    "signal": "BUY"
+  },
+  "SATL|2026-08-13|47714.32|2|RECON_11x8_INTERSECTION_INCREMENTAL_V5": {
+    "first_seen_utc": "2026-08-15T13:49:29.230298+00:00",
+    "last_md11_score": 3.4177247752795776,
+    "last_md8_score": 3.3248675667898735,
+    "model_version": "RECON_11x8_INTERSECTION_INCREMENTAL_V5",
     "signal": "BUY"
   },
   "SATL|2026-08-13|47714.32|2|RECON_11x8_INTERSECTION_v1": {
@@ -417,6 +599,13 @@
     "last_md11_score": 2.443821299229841,
     "last_md8_score": 1.6162542829405382,
     "model_version": "RECON_11x8_INTERSECTION_v1",
+    "signal": "PASS"
+  },
+  "TXT|2026-08-13|83750.00|1|RECON_11x8_INTERSECTION_INCREMENTAL_V5": {
+    "first_seen_utc": "2026-08-15T13:49:29.225385+00:00",
+    "last_md11_score": 2.1349890741507034,
+    "last_md8_score": 1.6075707635392007,
+    "model_version": "RECON_11x8_INTERSECTION_INCREMENTAL_V5",
     "signal": "PASS"
   },
   "TXT|2026-08-13|83750.00|1|RECON_11x8_INTERSECTION_v1": {
@@ -454,12 +643,33 @@
     "model_version": "RECON_11x8_INTERSECTION_v1",
     "signal": "PASS"
   },
+  "VSEC|2026-08-13|1584.00|1|RECON_11x8_INTERSECTION_INCREMENTAL_V5": {
+    "first_seen_utc": "2026-08-15T13:49:29.220453+00:00",
+    "last_md11_score": 2.6996137269058713,
+    "last_md8_score": 2.5051882715024223,
+    "model_version": "RECON_11x8_INTERSECTION_INCREMENTAL_V5",
+    "signal": "BUY"
+  },
   "VSEC|2026-08-13|1584.00|1|RECON_11x8_INTERSECTION_v1": {
     "first_seen_utc": "2026-08-15T12:54:54.758021+00:00",
     "last_md11_score": 2.6343134572662184,
     "last_md8_score": 2.4399036329665544,
     "model_version": "RECON_11x8_INTERSECTION_v1",
     "signal": "BUY"
+  },
+  "WWD|2026-08-12|0.00|1|RECON_11x8_INTERSECTION_INCREMENTAL_V5": {
+    "first_seen_utc": "2026-08-15T13:49:29.180777+00:00",
+    "last_md11_score": 2.7397238058729934,
+    "last_md8_score": 1.921425661903349,
+    "model_version": "RECON_11x8_INTERSECTION_INCREMENTAL_V5",
+    "signal": "PASS"
+  },
+  "WWD|2026-08-13|47850.00|1|RECON_11x8_INTERSECTION_INCREMENTAL_V5": {
+    "first_seen_utc": "2026-08-15T13:49:29.289215+00:00",
+    "last_md11_score": 2.012199561774352,
+    "last_md8_score": 2.0313502717891536,
+    "model_version": "RECON_11x8_INTERSECTION_INCREMENTAL_V5",
+    "signal": "PASS"
   },
   "WWD|2026-08-13|47850.00|1|RECON_11x8_INTERSECTION_v1": {
     "first_seen_utc": "2026-08-15T12:54:54.787222+00:00",
