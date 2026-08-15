@@ -1,2 +1,3 @@
 scan_utc,scan_start,scan_end,watermark_source,downloaded_rows_total,downloaded_positive,downloaded_negative,recipient_universe_tickers,recipient_queries,recipient_aliases,matched_public_company_transactions,ticker_day_events,events_scored,md11_passes,md8_passes_all_events,intersection_passes,new_buy_tickers,scale_data_missing,unknown_recipient_names,status
 2026-08-15T13:49:29.300053+00:00,2026-08-12,2026-08-15,acquisition_state_or_live_history,105,108,0,32,92,46,105,30,30,12,5,4,3,0,0,OK
+2026-08-15T23:16:44.213250+00:00,2026-08-14,2026-08-15,acquisition_state_or_live_history,0,0,0,32,92,46,0,0,0,0,0,0,0,NO_MATCHED_PUBLIC_COMPANY_TRANSACTIONS
