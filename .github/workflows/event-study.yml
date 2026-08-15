@@ -1,28 +1,66 @@
-name: event-study
+name: RECON daily buy scanner
+
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '15 13 * * 1-5'
   push:
     paths:
+      - 'Scraper.py'
+      - 'mts_frozen_model_A.json'
+      - 'master_zero_purged.csv'
       - '.github/workflows/event-study.yml'
+
+permissions:
+  contents: write
 
 jobs:
   run:
     runs-on: ubuntu-latest
+    timeout-minutes: 120
+
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+
       - name: Install
-        run: pip install yfinance pandas requests
-      - name: Run
-        run: python event_study_v7.py || python Recon/event_study_v7.py || python ./event_study_v7.py
-      - name: Show files
-        run: ls -R
+        run: pip install yfinance pandas numpy requests scikit-learn
+
+      - name: Run RECON scanner
+        run: python Scraper.py
+
+      - name: Print BUY file
+        run: |
+          echo "=============================="
+          echo "RECON BUY TICKERS"
+          echo "=============================="
+          if [ -f buy_tickers.txt ]; then
+            cat buy_tickers.txt
+          else
+            echo "ERROR: buy_tickers.txt was not created"
+            exit 1
+          fi
+          echo "=============================="
+
+      - name: Add BUY file to job summary
+        run: |
+          echo "## RECON BUY TICKERS" >> "$GITHUB_STEP_SUMMARY"
+          if [ -f buy_tickers.txt ]; then
+            echo '```' >> "$GITHUB_STEP_SUMMARY"
+            cat buy_tickers.txt >> "$GITHUB_STEP_SUMMARY"
+            echo '```' >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "**ERROR: buy_tickers.txt missing**" >> "$GITHUB_STEP_SUMMARY"
+            exit 1
+          fi
+
       - name: Commit results
         run: |
-          git config user.name "bot"
-          git config user.email "bot@bot.com"
-          git add .
-          git commit -m "update" || true
+          git config user.name "recon-bot"
+          git config user.email "bot@recon.com"
+          git add buy_tickers.txt ReconData/ 2>/dev/null || true
+          git commit -m "RECON daily scan" || true
           git push || true
