@@ -1,5 +1,5 @@
 {
-  "scan_utc": "2026-08-15T23:16:44.213250+00:00",
+  "scan_utc": "2026-08-15T23:43:22.715167+00:00",
   "scan_start": "2026-08-14",
   "scan_end": "2026-08-15",
   "watermark_source": "acquisition_state_or_live_history",
@@ -15,6 +15,7 @@
   "md8_passes_all_events": 0,
   "intersection_passes": 0,
   "new_buy_tickers": 0,
+  "active_buy_tickers": 8,
   "scale_data_missing": 0,
   "status": "NO_MATCHED_PUBLIC_COMPANY_TRANSACTIONS"
 }
