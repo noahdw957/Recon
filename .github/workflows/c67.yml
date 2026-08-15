@@ -1,0 +1,41 @@
+name: c67-trajectory
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install
+        run: pip install pandas numpy yfinance
+
+      - name: Run C67 pre-event trajectory study
+        run: python c67.py
+
+      - name: Show answer
+        run: |
+          echo "===== C67 SUMMARY ====="
+          cat c67_summary.txt
+          echo
+          echo "===== GROUP TABLE ====="
+          cat c67_summary.csv
+
+      - name: Commit results
+        run: |
+          git config user.name "recon-bot"
+          git config user.email "bot@recon.com"
+          git add c67_trajectories.csv c67_summary.csv c67_summary.txt market_cache_C67/ 2>/dev/null || true
+          git commit -m "C67 pre-event trajectory study" || echo "Nothing new to commit"
+          git push || true
