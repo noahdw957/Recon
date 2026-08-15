@@ -9,7 +9,7 @@ import requests
 import yfinance as yf
 
 # ============================================================
-# RECON LIVE BUY SCANNER V3.0 - MD11 DETECTOR + MD8 SCALE VETO
+# RECON LIVE BUY SCANNER V3.1 - MD11 DETECTOR + MD8 SCALE VETO
 #
 # USER-FACING OUTPUT:
 #     buy_tickers.txt
@@ -30,7 +30,7 @@ import yfinance as yf
 LOOKBACK_DAYS = 7
 MAX_PAGES = 100
 PAGE_SIZE = 100
-MIN_POSITIVE_TRANSACTION = 1.0
+MIN_NONZERO_TRANSACTION = 1.0
 
 AUTO_DISCOVER_MIN = 1_000_000
 MAX_AUTO_LOOKUPS = 30
@@ -64,6 +64,8 @@ DATA_DIR.mkdir(parents=True, exist_ok=True)
 BUY_FILE = Path("buy_tickers.txt")
 
 SCAN_LOG = DATA_DIR / "recon_scan_log.csv"
+DAILY_DIAG = DATA_DIR / "daily_diagnostics.csv"
+DIAG_LATEST = DATA_DIR / "diagnostic_latest.json"
 LIVE_HISTORY = DATA_DIR / "live_history.csv"
 SEEN_FILE = DATA_DIR / "seen_events.json"
 TICKER_CACHE_FILE = DATA_DIR / "ticker_cache.json"
@@ -338,69 +340,107 @@ def find_ticker(name, transaction_amount):
     return None
 
 # ============================================================
-# DOWNLOAD RECENT POSITIVE TRANSACTIONS
+# DOWNLOAD RECENT NONZERO TRANSACTIONS
 #
-# The BUY scanner is looking for newly awarded money. Negative
-# modifications remain represented in the historical database
-# and therefore still influence historical factors.
+# Historical C included positive and negative non-zero contract
+# modifications. Live acquisition therefore queries BOTH signs.
+# To avoid the broad-query 10,000-row ceiling, query each
+# calendar day separately and fail closed if a day/sign stream
+# reaches MAX_PAGES with hasNext still true.
 # ============================================================
 
-payload = {
-    "filters": {
-        "award_amounts": [
-            {"lower_bound": MIN_POSITIVE_TRANSACTION}
-        ],
-        "award_type_codes": ["A", "B", "C", "D"],
-        "time_period": [
-            {
-                "start_date": str(START),
-                "end_date": str(TODAY),
-            }
-        ],
-    },
-    "fields": [
-        "Award ID",
-        "Recipient Name",
-        "Action Date",
-        "Transaction Amount",
-        "Awarding Agency",
-        "Awarding Sub Agency",
-        "Award Type",
-    ],
-    "sort": "Transaction Amount",
-    "order": "desc",
-    "limit": PAGE_SIZE,
-    "page": 1,
-}
+BASE_FIELDS = [
+    "Award ID",
+    "Recipient Name",
+    "Action Date",
+    "Transaction Amount",
+    "Awarding Agency",
+    "Awarding Sub Agency",
+    "Award Type",
+]
+
+def fetch_day_sign(day, sign):
+    if sign == "positive":
+        amount_filter = {"lower_bound": MIN_NONZERO_TRANSACTION}
+        order = "desc"
+    else:
+        amount_filter = {"upper_bound": -MIN_NONZERO_TRANSACTION}
+        order = "asc"
+
+    payload = {
+        "filters": {
+            "award_amounts": [amount_filter],
+            "award_type_codes": ["A", "B", "C", "D"],
+            "time_period": [{
+                "start_date": str(day),
+                "end_date": str(day),
+            }],
+        },
+        "fields": BASE_FIELDS,
+        "sort": "Transaction Amount",
+        "order": order,
+        "limit": PAGE_SIZE,
+        "page": 1,
+    }
+
+    rows_out = []
+    exhausted = False
+
+    for page in range(1, MAX_PAGES + 1):
+        payload["page"] = page
+        response = session.post(
+            USA_API,
+            json=payload,
+            timeout=90,
+        )
+        response.raise_for_status()
+
+        page_data = response.json()
+        rows = page_data.get("results", [])
+        if not rows:
+            break
+
+        rows_out.extend(rows)
+        has_next = bool(
+            page_data.get("page_metadata", {}).get("hasNext", False)
+        )
+
+        if not has_next:
+            break
+
+        if page == MAX_PAGES:
+            exhausted = True
+            break
+
+        time.sleep(0.15)
+
+    if exhausted:
+        raise RuntimeError(
+            f"SCAN INCOMPLETE: {day} {sign} stream exceeded "
+            f"{MAX_PAGES * PAGE_SIZE:,} rows. Refusing to issue NO BUYS."
+        )
+
+    return rows_out
+
 
 all_rows = []
+downloaded_positive = 0
+downloaded_negative = 0
 
-for page in range(1, MAX_PAGES + 1):
-    payload["page"] = page
-
-    response = session.post(
-        USA_API,
-        json=payload,
-        timeout=90,
-    )
-    response.raise_for_status()
-
-    page_data = response.json()
-    rows = page_data.get("results", [])
-
-    if not rows:
-        break
-
-    all_rows.extend(rows)
-
-    if not page_data.get("page_metadata", {}).get("hasNext", False):
-        break
-
-    time.sleep(0.20)
+day = START
+while day <= TODAY:
+    pos = fetch_day_sign(day, "positive")
+    neg = fetch_day_sign(day, "negative")
+    downloaded_positive += len(pos)
+    downloaded_negative += len(neg)
+    all_rows.extend(pos)
+    all_rows.extend(neg)
+    day += timedelta(days=1)
 
 print(
-    f"Downloaded {len(all_rows):,} recent transaction records "
-    f"({START} through {TODAY})."
+    f"Downloaded {len(all_rows):,} recent nonzero transaction records "
+    f"({downloaded_positive:,} positive, {downloaded_negative:,} negative; "
+    f"{START} through {TODAY})."
 )
 
 # ============================================================
@@ -463,7 +503,31 @@ for row in all_rows:
 recent = pd.DataFrame(recent_rows)
 
 if recent.empty:
-    BUY_FILE.write_text("")
+    BUY_FILE.write_text("NO BUYS\n")
+    now_utc = datetime.now(timezone.utc).isoformat()
+    diag = {
+        "scan_utc": now_utc,
+        "scan_start": str(START),
+        "scan_end": str(TODAY),
+        "downloaded_rows_total": int(len(all_rows)),
+        "downloaded_positive": int(downloaded_positive),
+        "downloaded_negative": int(downloaded_negative),
+        "matched_public_company_transactions": 0,
+        "ticker_day_events": 0,
+        "md11_passes": 0,
+        "md8_passes_all_events": 0,
+        "intersection_passes": 0,
+        "new_buy_tickers": 0,
+        "scale_data_missing": 0,
+        "status": "NO_MATCHED_PUBLIC_COMPANY_TRANSACTIONS",
+    }
+    DIAG_LATEST.write_text(json.dumps(diag, indent=2))
+    pd.DataFrame([diag]).to_csv(
+        DAILY_DIAG,
+        mode="a",
+        header=not DAILY_DIAG.exists(),
+        index=False,
+    )
     print("No matched public-company transactions. NO BUYS.")
     TICKER_CACHE_FILE.write_text(json.dumps(ticker_cache, indent=2, sort_keys=True))
     UNKNOWN_FILE.write_text(json.dumps(unknown, indent=2))
@@ -750,8 +814,20 @@ def idx_on_or_before(market, event_date):
     return int(i) if i >= 0 else None
 
 
+def idx_strictly_before(market, event_date):
+    if market.empty:
+        return None
+    dates = market["Date"].values
+    i = np.searchsorted(
+        dates,
+        np.datetime64(pd.Timestamp(event_date)),
+        side="left",
+    ) - 1
+    return int(i) if i >= 0 else None
+
+
 def trailing_return(market, event_date, sessions):
-    i = idx_on_or_before(market, event_date)
+    i = idx_strictly_before(market, event_date)
 
     if i is None or i - sessions < 0:
         return np.nan
@@ -763,7 +839,7 @@ def trailing_return(market, event_date, sessions):
 
 
 def trailing_volatility(market, event_date, sessions):
-    i = idx_on_or_before(market, event_date)
+    i = idx_strictly_before(market, event_date)
 
     if i is None or i - sessions < 1:
         return np.nan
@@ -1232,6 +1308,76 @@ if SCAN_LOG.exists():
         print(f"Could not append prior scan log: {exc}")
 
 scan_df.to_csv(SCAN_LOG, index=False)
+
+# ============================================================
+# DAILY DIAGNOSTIC FUNNEL - INTERNAL ONLY
+# ============================================================
+
+today_scan = pd.DataFrame(scan_rows)
+
+md11_passes = int(
+    pd.to_numeric(
+        today_scan.get("md11_detector_pass", pd.Series(dtype=float)),
+        errors="coerce",
+    ).fillna(0).sum()
+)
+
+md8_passes_all = int(
+    pd.to_numeric(
+        today_scan.get("md8_scale_veto_pass", pd.Series(dtype=float)),
+        errors="coerce",
+    ).fillna(0).sum()
+)
+
+intersection_passes = int(
+    (today_scan.get("signal", pd.Series(dtype=str)) == "BUY").sum()
+)
+
+scale_missing = int(
+    (pd.to_numeric(
+        today_scan.get("scale_data_complete", pd.Series(dtype=float)),
+        errors="coerce",
+    ).fillna(0) == 0).sum()
+)
+
+diag = {
+    "scan_utc": datetime.now(timezone.utc).isoformat(),
+    "scan_start": str(START),
+    "scan_end": str(TODAY),
+    "downloaded_rows_total": int(len(all_rows)),
+    "downloaded_positive": int(downloaded_positive),
+    "downloaded_negative": int(downloaded_negative),
+    "matched_public_company_transactions": int(len(recent)),
+    "ticker_day_events": int(len(events)),
+    "events_scored": int(len(today_scan)),
+    "md11_passes": md11_passes,
+    "md8_passes_all_events": md8_passes_all,
+    "intersection_passes": intersection_passes,
+    "new_buy_tickers": int(len(new_buys)),
+    "scale_data_missing": scale_missing,
+    "unknown_recipient_names": int(len(unknown)),
+    "status": "OK",
+}
+
+DIAG_LATEST.write_text(json.dumps(diag, indent=2))
+
+pd.DataFrame([diag]).to_csv(
+    DAILY_DIAG,
+    mode="a",
+    header=not DAILY_DIAG.exists(),
+    index=False,
+)
+
+print(
+    "DIAGNOSTIC FUNNEL: "
+    f"downloaded={diag['downloaded_rows_total']:,} "
+    f"matched={diag['matched_public_company_transactions']:,} "
+    f"events={diag['ticker_day_events']:,} "
+    f"MD11={diag['md11_passes']:,} "
+    f"MD8={diag['md8_passes_all_events']:,} "
+    f"AND={diag['intersection_passes']:,} "
+    f"new_BUYs={diag['new_buy_tickers']:,}"
+)
 
 SEEN_FILE.write_text(
     json.dumps(seen, indent=2, sort_keys=True)
