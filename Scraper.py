@@ -340,36 +340,48 @@ def save_daily_buy_state(state):
     DAILY_BUY_STATE_FILE.write_text(json.dumps(state, indent=2, sort_keys=True))
 
 
-def current_buy_projection_map(state):
-    """Collapse retained BUY events to one displayed line per ticker."""
-    out = {}
+def current_buy_rows(state):
+    """Return retained BUY events for today as one ledger row per ticker/award date."""
+    rows = []
     for ev in state.get("events", {}).values():
         ticker = str(ev.get("ticker", "")).upper().strip()
+        award_date = str(ev.get("award_date", ""))[:10]
         if not ticker:
             continue
-        proj = ev.get("projected_peak_pct_90d")
-        # If a ticker has more than one active event today, display the largest
-        # projected peak; the event-level state remains preserved internally.
-        if ticker not in out:
-            out[ticker] = proj
-        elif proj is not None and (out[ticker] is None or float(proj) > float(out[ticker])):
-            out[ticker] = proj
-    return out
+        rows.append({
+            "ticker": ticker,
+            "award_date": award_date,
+            "projected_peak_pct_90d": ev.get("projected_peak_pct_90d"),
+        })
+    rows.sort(key=lambda r: (r["award_date"], r["ticker"]))
+    return rows
 
 
-def format_consumer_buy_line(ticker, projection=None):
-    # Projection is deliberately hidden from the trading-facing file because
-    # clean-D out-of-sample R^2 was only about 0.20.  It remains in audit logs.
-    return f"{ticker} BUY\n"
+def format_consumer_buy_line(ticker, award_date):
+    return f"{ticker} | {award_date} |  |  | \n"
 
 
 def write_current_buy_file(state):
-    projection_map = current_buy_projection_map(state)
-    tickers = sorted(projection_map)
-    BUY_FILE.write_text(
-        "".join(format_consumer_buy_line(t, projection_map[t]) for t in tickers)
-        if tickers else "NO BUYS\n"
-    )
+    rows = current_buy_rows(state)
+    header_date = pd.Timestamp(TODAY).strftime("%d%b%y").upper()
+    lines = [
+        f"## RECON BUY TICKERS {header_date}\n\n",
+        "Ticker | Award Date | Sell Price | Sell Date | %Gain\n",
+        "--- | --- | --- | --- | ---\n",
+    ]
+    if rows:
+        lines.extend(format_consumer_buy_line(r["ticker"], r["award_date"]) for r in rows)
+    BUY_FILE.write_text("".join(lines))
+
+    tickers = sorted({r["ticker"] for r in rows})
+    projection_map = {}
+    for r in rows:
+        t = r["ticker"]
+        p = r.get("projected_peak_pct_90d")
+        if t not in projection_map:
+            projection_map[t] = p
+        elif p is not None and (projection_map[t] is None or float(p) > float(projection_map[t])):
+            projection_map[t] = p
     return tickers, projection_map
 
 
@@ -919,7 +931,9 @@ if recent.empty:
     if active_buys:
         print(f"No new matched transactions; carrying forward {len(active_buys)} BUY(s) found earlier today.")
         for ticker in active_buys:
-            print(format_consumer_buy_line(ticker, active_buy_projections[ticker]).strip())
+            matching = [r for r in current_buy_rows(DAILY_BUY_STATE) if r["ticker"] == ticker]
+            award_date = matching[-1]["award_date"] if matching else ""
+            print(format_consumer_buy_line(ticker, award_date).strip())
     else:
         print("No matched public-company transactions. NO BUYS.")
     TICKER_CACHE_FILE.write_text(json.dumps(ticker_cache, indent=2, sort_keys=True))
@@ -1797,7 +1811,9 @@ save_daily_buy_state(DAILY_BUY_STATE)
 active_buys, active_buy_projections = write_current_buy_file(DAILY_BUY_STATE)
 
 def format_buy_line(ticker):
-    return format_consumer_buy_line(ticker, active_buy_projections.get(ticker))
+    matching = [r for r in current_buy_rows(DAILY_BUY_STATE) if r["ticker"] == ticker]
+    award_date = matching[-1]["award_date"] if matching else ""
+    return format_consumer_buy_line(ticker, award_date)
 
 
 # ============================================================
