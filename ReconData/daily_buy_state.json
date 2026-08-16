@@ -1,82 +1,18 @@
 {
-  "date": "2026-08-15",
+  "date": "2026-08-16",
   "events": {
-    "CXW|2026-08-10": {
-      "award_date": "2026-08-10",
-      "last_seen_utc": "2026-08-15T12:54:54.539923+00:00",
-      "projected_peak_pct_90d": 47.523804365257135,
-      "ticker": "CXW"
+    "DE|2026-08-14": {
+      "award_date": "2026-08-14",
+      "fingerprint": "DE|2026-08-14|514070.03|3|RECON_11x8_INTERSECTION_INCREMENTAL_V5",
+      "last_seen_utc": "2026-08-16T17:19:32.392134+00:00",
+      "projected_peak_pct_90d": 24.46722359330284,
+      "ticker": "DE"
     },
-    "CXW|2026-08-11": {
-      "award_date": "2026-08-11",
-      "last_seen_utc": "2026-08-15T12:54:54.607462+00:00",
-      "projected_peak_pct_90d": 45.1296517309133,
-      "ticker": "CXW"
-    },
-    "CXW|2026-08-13": {
-      "award_date": "2026-08-13",
-      "last_seen_utc": "2026-08-15T12:54:54.724480+00:00",
-      "projected_peak_pct_90d": 45.938063692531486,
-      "ticker": "CXW"
-    },
-    "GEO|2026-08-11": {
-      "award_date": "2026-08-11",
-      "last_seen_utc": "2026-08-15T12:54:54.578905+00:00",
-      "projected_peak_pct_90d": 50.41051265851404,
-      "ticker": "GEO"
-    },
-    "KTOS|2026-08-10": {
-      "award_date": "2026-08-10",
-      "last_seen_utc": "2026-08-15T12:54:54.525636+00:00",
-      "projected_peak_pct_90d": 57.05038719956677,
-      "ticker": "KTOS"
-    },
-    "LHX|2026-08-11": {
-      "award_date": "2026-08-11",
-      "last_seen_utc": "2026-08-15T12:54:54.597919+00:00",
-      "projected_peak_pct_90d": 39.68308919777474,
-      "ticker": "LHX"
-    },
-    "LHX|2026-08-12": {
-      "award_date": "2026-08-12",
-      "last_seen_utc": "2026-08-15T12:54:54.644934+00:00",
-      "projected_peak_pct_90d": 41.156936786933116,
-      "ticker": "LHX"
-    },
-    "LHX|2026-08-13": {
-      "award_date": "2026-08-13",
-      "last_seen_utc": "2026-08-15T12:54:54.777433+00:00",
-      "projected_peak_pct_90d": 52.514220624470894,
-      "ticker": "LHX"
-    },
-    "ONDS|2026-08-12": {
-      "award_date": "2026-08-12",
-      "last_seen_utc": "2026-08-15T13:49:29.160795+00:00",
-      "projected_peak_pct_90d": 73.17908188810587,
-      "ticker": "ONDS"
-    },
-    "RTX|2026-08-13": {
-      "award_date": "2026-08-13",
-      "last_seen_utc": "2026-08-15T12:54:54.753133+00:00",
-      "projected_peak_pct_90d": 20.62923010631841,
-      "ticker": "RTX"
-    },
-    "SATL|2026-08-12": {
-      "award_date": "2026-08-12",
-      "last_seen_utc": "2026-08-15T13:49:29.150813+00:00",
-      "projected_peak_pct_90d": 91.57080309393218,
-      "ticker": "SATL"
-    },
-    "SATL|2026-08-13": {
-      "award_date": "2026-08-13",
-      "last_seen_utc": "2026-08-15T13:49:29.230276+00:00",
-      "projected_peak_pct_90d": 89.32768805645827,
-      "ticker": "SATL"
-    },
-    "VSEC|2026-08-13": {
-      "award_date": "2026-08-13",
-      "last_seen_utc": "2026-08-15T13:49:29.220431+00:00",
-      "projected_peak_pct_90d": 52.99994455856441,
+    "VSEC|2026-08-14": {
+      "award_date": "2026-08-14",
+      "fingerprint": "VSEC|2026-08-14|5800.00|1|RECON_11x8_INTERSECTION_INCREMENTAL_V5",
+      "last_seen_utc": "2026-08-16T17:19:32.415185+00:00",
+      "projected_peak_pct_90d": 51.579452566219295,
       "ticker": "VSEC"
     }
   }

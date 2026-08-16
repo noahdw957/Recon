@@ -1,7 +1,8 @@
 {
-  "last_successful_scan_date": "2026-08-15",
-  "last_fetch_start": "2026-08-12",
-  "last_success_utc": "2026-08-15T13:49:29.301213+00:00",
+  "last_successful_scan_date": "2026-08-16",
+  "last_fetch_start": "2026-08-14",
+  "last_success_utc": "2026-08-16T17:19:32.426225+00:00",
   "watermark_source": "acquisition_state_or_live_history",
-  "model_version": "RECON_11x8_INTERSECTION_INCREMENTAL_V5"
+  "model_version": "RECON_11x8_INTERSECTION_INCREMENTAL_V5",
+  "scanner_version": "RECON_LIVE_V3.9_SAME_DAY_BUY_PERSISTENCE"
 }
