@@ -3,3 +3,4 @@ scan_utc,scan_start,scan_end,watermark_source,downloaded_rows_total,downloaded_p
 2026-08-15T23:16:44.213250+00:00,2026-08-14,2026-08-15,acquisition_state_or_live_history,0,0,0,32,92,46,0,0,0,0,0,0,0,NO_MATCHED_PUBLIC_COMPANY_TRANSACTIONS
 2026-08-15T23:43:22.715167+00:00,2026-08-14,2026-08-15,acquisition_state_or_live_history,0,0,0,32,92,46,0,0,0,0,0,0,8,0,NO_MATCHED_PUBLIC_COMPANY_TRANSACTIONS
 2026-08-16T17:19:32.425210+00:00,2026-08-14,2026-08-16,acquisition_state_or_live_history,21,21,0,32,92,46,21,12,12,4,2,2,2,2,0,12,0,OK
+2026-08-16T19:51:57.615768+00:00,2026-08-15,2026-08-16,acquisition_state_or_live_history,0,0,0,32,92,46,0,0,0,0,0,0,2,0,NO_MATCHED_PUBLIC_COMPANY_TRANSACTIONS
