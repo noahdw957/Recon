@@ -1,7 +1,7 @@
 {
-  "scan_utc": "2026-08-16T22:04:06.796798+00:00",
+  "scan_utc": "2026-08-17T14:14:15.478324+00:00",
   "scan_start": "2026-08-15",
-  "scan_end": "2026-08-16",
+  "scan_end": "2026-08-17",
   "watermark_source": "acquisition_state_or_live_history",
   "downloaded_rows_total": 0,
   "downloaded_positive": 0,
@@ -15,7 +15,7 @@
   "md11_passes": 0,
   "intersection_passes": 0,
   "new_buy_tickers": 0,
-  "active_buy_tickers": 2,
+  "active_buy_tickers": 0,
   "market_cap_missing": 0,
   "status": "NO_MATCHED_PUBLIC_COMPANY_TRANSACTIONS"
 }

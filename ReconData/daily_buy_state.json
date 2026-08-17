@@ -1,19 +1,4 @@
 {
-  "date": "2026-08-16",
-  "events": {
-    "DE|2026-08-14": {
-      "award_date": "2026-08-14",
-      "fingerprint": "DE|2026-08-14|514070.03|3|RECON_11x8_INTERSECTION_INCREMENTAL_V5",
-      "last_seen_utc": "2026-08-16T17:19:32.392134+00:00",
-      "projected_peak_pct_90d": 24.46722359330284,
-      "ticker": "DE"
-    },
-    "VSEC|2026-08-14": {
-      "award_date": "2026-08-14",
-      "fingerprint": "VSEC|2026-08-14|5800.00|1|RECON_11x8_INTERSECTION_INCREMENTAL_V5",
-      "last_seen_utc": "2026-08-16T17:19:32.415185+00:00",
-      "projected_peak_pct_90d": 51.579452566219295,
-      "ticker": "VSEC"
-    }
-  }
+  "date": "2026-08-17",
+  "events": {}
 }

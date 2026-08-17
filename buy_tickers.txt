@@ -1,6 +1,4 @@
-## RECON BUY TICKERS 16AUG26
+## RECON BUY TICKERS 17AUG26
 
 Ticker | Award Date | Sell Price | Sell Date | %Gain
 --- | --- | --- | --- | ---
-DE | 2026-08-14 |  |  | 
-VSEC | 2026-08-14 |  |  | 
