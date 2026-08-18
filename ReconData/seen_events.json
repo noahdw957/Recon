@@ -189,6 +189,15 @@
     "scanner_version": "RECON_LIVE_V3.9_SAME_DAY_BUY_PERSISTENCE",
     "signal": "PASS"
   },
+  "CACI|2026-08-16|2429.30|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1": {
+    "first_seen_utc": "2026-08-18T15:03:18.636523+00:00",
+    "last_md11_score": 2.002430255001054,
+    "last_md14_score": 1.8637392610609957,
+    "last_projected_peak_pct_90d": 53.480900535003784,
+    "model_version": "RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
+    "scanner_version": "RECON_LIVE_V4.1_MD14_MD11_TABBED_LEDGER",
+    "signal": "PASS"
+  },
   "CAT|2026-08-10|154990.00|1|RECON_11x8_INTERSECTION_v1": {
     "first_seen_utc": "2026-08-15T00:38:14.265346+00:00",
     "last_md11_score": 2.563906950433075,
