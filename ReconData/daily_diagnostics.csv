@@ -1,0 +1,2 @@
+scan_utc,scan_start,scan_end,watermark_source,downloaded_rows_total,downloaded_positive,downloaded_negative,recipient_universe_tickers,recipient_queries,recipient_aliases,matched_public_company_transactions,ticker_day_events,md14_passes,md11_passes,intersection_passes,new_buy_tickers,active_buy_tickers,market_cap_missing,status
+2026-08-18T21:12:55.145140+00:00,2026-08-17,2026-08-18,acquisition_state_or_live_history,0,0,0,32,92,46,0,0,0,0,0,0,0,0,NO_MATCHED_PUBLIC_COMPANY_TRANSACTIONS
