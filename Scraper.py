@@ -9,7 +9,7 @@ import requests
 import yfinance as yf
 
 # ============================================================
-# RECON LIVE BUY SCANNER V4.3 - MD14 + MD11 + AWARD/IDV WATCH
+# RECON LIVE BUY SCANNER V4.4 - MD14 + MD11 + SPLIT CONTRACT/IDV WATCH
 #
 # USER-FACING OUTPUT:
 #     buy_tickers.txt
@@ -64,11 +64,17 @@ USA_AWARD_API = (
     "https://api.usaspending.gov/api/v2/"
     "search/spending_by_award/"
 )
-PROCUREMENT_AWARD_TYPE_CODES = [
-    "A", "B", "C", "D",
+CONTRACT_AWARD_TYPE_CODES = ["A", "B", "C", "D"]
+IDV_AWARD_TYPE_CODES = [
     "IDV_A", "IDV_B", "IDV_B_A", "IDV_B_B", "IDV_B_C",
     "IDV_C", "IDV_D", "IDV_E",
 ]
+# USAspending spending_by_award rejects mixed award-type groups.
+# Query contracts and IDVs separately, then merge only in the shadow-watch layer.
+AWARD_WATCH_GROUPS = (
+    ("contracts", CONTRACT_AWARD_TYPE_CODES),
+    ("idvs", IDV_AWARD_TYPE_CODES),
+)
 AWARD_WATCH_MIN_DISPLAY_VALUE = 50_000_000.0
 # V4.3: treat HTTP 422 validation failures like 400 and step down award-watch fields.
 
@@ -277,7 +283,7 @@ model = json.loads(MODEL_FILE.read_text())
 model14 = json.loads(MD14_MODEL_FILE.read_text())
 
 MODEL_VERSION = "RECON_MD14_PRIMARY_MD11_SECONDARY_V1"
-SCANNER_VERSION = "RECON_LIVE_V4.3_MD14_MD11_AWARD_WATCH_422FIX"
+SCANNER_VERSION = "RECON_LIVE_V4.4_MD14_MD11_SPLIT_CONTRACT_IDV_WATCH"
 MD14_THRESHOLD = float(model14["threshold"])
 
 # Informational 90-trading-day peak projection.
@@ -952,12 +958,12 @@ AWARD_WATCH_FIELDS_MIN = [
 ]
 
 
-def fetch_award_watch(ticker, alias, date_type):
+def fetch_award_watch(ticker, alias, date_type, award_group, award_type_codes):
     fields = list(AWARD_WATCH_FIELDS_RICH)
     payload = {
         "filters": {
             "recipient_search_text": [alias],
-            "award_type_codes": PROCUREMENT_AWARD_TYPE_CODES,
+            "award_type_codes": list(award_type_codes),
             "time_period": [{
                 "start_date": str(START),
                 "end_date": str(TODAY),
@@ -995,7 +1001,7 @@ def fetch_award_watch(ticker, alias, date_type):
                     # Step down the field set before declaring the shadow watch dead.
                     print(
                         f"USAspending award-watch validation {response.status_code} for "
-                        f"{ticker} / {alias!r} / {date_type} / page {page}; "
+                        f"{ticker} / {alias!r} / {award_group} / {date_type} / page {page}; "
                         f"falling back from field mode {field_mode}. "
                         f"Body: {response.text[:500]}"
                     )
@@ -1010,7 +1016,7 @@ def fetch_award_watch(ticker, alias, date_type):
                     raise RuntimeError(
                         f"USAspending award-watch validation {response.status_code} after "
                         f"minimal-field fallback for {ticker} / {alias!r} / "
-                        f"{date_type} / page {page}: {response.text[:1500]}"
+                        f"{award_group} / {date_type} / page {page}: {response.text[:1500]}"
                     )
 
                 if response.status_code == 503:
@@ -1051,7 +1057,7 @@ def fetch_award_watch(ticker, alias, date_type):
         if page_data is None:
             raise RuntimeError(
                 f"USAspending award-watch failed after retries for {ticker} / "
-                f"{alias!r} / {date_type} / page {page}: {last_exc}"
+                f"{alias!r} / {award_group} / {date_type} / page {page}: {last_exc}"
             )
 
         rows = page_data.get("results", [])
@@ -1063,6 +1069,7 @@ def fetch_award_watch(ticker, alias, date_type):
             row["_query_ticker"] = ticker
             row["_query_alias"] = alias
             row["_date_type"] = date_type
+            row["_award_group"] = award_group
             rows_out.append(row)
 
         meta = page_data.get("page_metadata", {}) or {}
@@ -1107,9 +1114,14 @@ try:
     # whose ceiling/terms were revised or formally posted later.
     for ticker in sorted(recipient_aliases):
         for alias in recipient_aliases[ticker]:
-            for date_type in ("action_date", "last_modified_date"):
-                award_watch_rows_raw.extend(fetch_award_watch(ticker, alias, date_type))
-                award_watch_queries += 1
+            for award_group, award_type_codes in AWARD_WATCH_GROUPS:
+                for date_type in ("action_date", "last_modified_date"):
+                    award_watch_rows_raw.extend(
+                        fetch_award_watch(
+                            ticker, alias, date_type, award_group, award_type_codes
+                        )
+                    )
+                    award_watch_queries += 1
 except Exception as exc:
     # Do not destroy a valid BUY scan because the supplemental watch failed,
     # but make the loss of coverage impossible to miss.
@@ -2371,7 +2383,7 @@ UNKNOWN_FILE.write_text(
 
 print()
 print("=" * 60)
-print("RECON LIVE BUY SCANNER V4.2 - MD14 + MD11 + AWARD/IDV WATCH")
+print("RECON LIVE BUY SCANNER V4.4 - MD14 + MD11 + SPLIT CONTRACT/IDV WATCH")
 print("=" * 60)
 
 if active_buys:
