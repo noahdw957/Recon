@@ -9,7 +9,7 @@ import requests
 import yfinance as yf
 
 # ============================================================
-# RECON LIVE BUY SCANNER V4.4 - MD14 + MD11 + SPLIT CONTRACT/IDV WATCH
+# RECON LIVE BUY SCANNER V4.5 - MD14 + MD11 + RESILIENT CONTRACT/IDV WATCH
 #
 # USER-FACING OUTPUT:
 #     buy_tickers.txt
@@ -76,7 +76,13 @@ AWARD_WATCH_GROUPS = (
     ("idvs", IDV_AWARD_TYPE_CODES),
 )
 AWARD_WATCH_MIN_DISPLAY_VALUE = 50_000_000.0
+# Supplemental award search is deliberately throttled. It must never
+# jeopardize the production BUY transaction scan.
+AWARD_WATCH_QUERY_DELAY_SECONDS = 1.0
 # V4.3: treat HTTP 422 validation failures like 400 and step down award-watch fields.
+# V4.4: split contract and IDV award-type groups.
+# V4.5: make the supplemental watch fail-soft per query, throttle calls, and
+#       keep its diagnostics separate so it cannot corrupt the legacy BUY CSV.
 
 YAHOO_SEARCH_API = (
     "https://query2.finance.yahoo.com/v1/finance/search"
@@ -109,6 +115,8 @@ UNKNOWN_FILE = DATA_DIR / "unknown_companies.json"
 ACQ_STATE_FILE = DATA_DIR / "acquisition_state.json"
 DAILY_BUY_STATE_FILE = DATA_DIR / "daily_buy_state.json"
 AWARD_WATCH_LOG = DATA_DIR / "award_watch.csv"
+AWARD_WATCH_DIAG = DATA_DIR / "award_watch_diagnostics.csv"
+AWARD_WATCH_FAILURE_LOG = DATA_DIR / "award_watch_failures.csv"
 AWARD_WATCH_SEEN_FILE = DATA_DIR / "seen_award_watch.json"
 DAILY_AWARD_WATCH_STATE_FILE = DATA_DIR / "daily_award_watch_state.json"
 SHARES_CACHE_DIR = DATA_DIR / "shares_cache"
@@ -214,6 +222,27 @@ def load_json(path, default):
     except Exception as exc:
         print(f"Could not read {path}: {exc}")
     return default
+
+
+def append_diag_row_schema_safe(path, row):
+    """Append without changing an existing CSV header.
+
+    daily_diagnostics.csv predates the award-watch fields. Older versions
+    appended wider rows under the old header, making the CSV ambiguous.
+    From V4.5 onward, an existing header is honored exactly. Rich award-watch
+    diagnostics are written separately.
+    """
+    try:
+        if path.exists() and path.stat().st_size > 0:
+            cols = list(pd.read_csv(path, nrows=0).columns)
+            pd.DataFrame(
+                [{c: row.get(c, np.nan) for c in cols}],
+                columns=cols,
+            ).to_csv(path, mode="a", header=False, index=False)
+        else:
+            pd.DataFrame([row]).to_csv(path, index=False)
+    except Exception as exc:
+        print(f"Could not append diagnostics safely to {path}: {exc}")
 
 
 def normalize_name(name):
@@ -910,12 +939,7 @@ except Exception as exc:
     }
 
     DIAG_LATEST.write_text(json.dumps(diag, indent=2))
-    pd.DataFrame([diag]).to_csv(
-        DAILY_DIAG,
-        mode="a",
-        header=not DAILY_DIAG.exists(),
-        index=False,
-    )
+    append_diag_row_schema_safe(DAILY_DIAG, diag)
 
     print("SYSTEM FAILURE - NO SIGNAL GENERATED")
     print(SYSTEM_FAILURE)
@@ -1104,30 +1128,78 @@ def _looks_like_framework(award_type):
 
 
 award_watch_rows_raw = []
-award_watch_queries = 0
+award_watch_queries = 0            # successful base queries
+award_watch_queries_attempted = 0
+award_watch_failures = []
 award_watch_status = "OK"
 award_watch_error = None
 
-try:
-    # Two date lenses close an important gap: action_date catches a fresh
-    # transaction/change, while last_modified_date catches an old framework
-    # whose ceiling/terms were revised or formally posted later.
-    for ticker in sorted(recipient_aliases):
-        for alias in recipient_aliases[ticker]:
-            for award_group, award_type_codes in AWARD_WATCH_GROUPS:
-                for date_type in ("action_date", "last_modified_date"):
-                    award_watch_rows_raw.extend(
-                        fetch_award_watch(
-                            ticker, alias, date_type, award_group, award_type_codes
-                        )
+# Two date lenses close an important gap: action_date catches a fresh
+# transaction/change, while last_modified_date catches an old framework
+# whose ceiling/terms were revised or formally posted later.
+#
+# V4.5 FAIL-SOFT RULE:
+# One supplemental recipient/group/date-lens failure must NOT abort the rest
+# of the watch. The production BUY transaction scan is independent.
+for ticker in sorted(recipient_aliases):
+    for alias in recipient_aliases[ticker]:
+        for award_group, award_type_codes in AWARD_WATCH_GROUPS:
+            for date_type in ("action_date", "last_modified_date"):
+                award_watch_queries_attempted += 1
+                try:
+                    rows = fetch_award_watch(
+                        ticker, alias, date_type, award_group, award_type_codes
                     )
+                    award_watch_rows_raw.extend(rows)
                     award_watch_queries += 1
-except Exception as exc:
-    # Do not destroy a valid BUY scan because the supplemental watch failed,
-    # but make the loss of coverage impossible to miss.
-    award_watch_status = "FAILED"
-    award_watch_error = str(exc)
-    print(f"WARNING: award/framework watch failed: {award_watch_error}")
+                except Exception as exc:
+                    failure = {
+                        "ticker": ticker,
+                        "alias": alias,
+                        "award_group": award_group,
+                        "date_type": date_type,
+                        "error": str(exc),
+                    }
+                    award_watch_failures.append(failure)
+                    print(
+                        "AWARD WATCH QUERY WARNING - continuing: "
+                        f"{ticker} / {alias!r} / {award_group} / {date_type}: {exc}"
+                    )
+                finally:
+                    # Slow the shadow endpoint down. Coverage matters more than
+                    # speed here, and this should not behave like a firehose.
+                    time.sleep(AWARD_WATCH_QUERY_DELAY_SECONDS)
+
+if award_watch_failures:
+    award_watch_status = "PARTIAL" if award_watch_queries > 0 else "FAILED"
+
+    # Persist every failed base query for audit/retry diagnosis.
+    _fail_df = pd.DataFrame([
+        {
+            "scan_utc": datetime.now(timezone.utc).isoformat(),
+            "scan_start": str(START),
+            "scan_end": str(TODAY),
+            **f,
+        }
+        for f in award_watch_failures
+    ])
+    if AWARD_WATCH_FAILURE_LOG.exists():
+        _fail_df.to_csv(
+            AWARD_WATCH_FAILURE_LOG, mode="a", header=False, index=False
+        )
+    else:
+        _fail_df.to_csv(AWARD_WATCH_FAILURE_LOG, index=False)
+
+    sample = award_watch_failures[:3]
+    award_watch_error = (
+        f"{len(award_watch_failures)} of {award_watch_queries_attempted} "
+        f"award-watch base queries failed. First failures: "
+        + " | ".join(
+            f"{f['ticker']}/{f['award_group']}/{f['date_type']}: {f['error']}"
+            for f in sample
+        )
+    )
+    print(f"WARNING: award/framework watch {award_watch_status}: {award_watch_error}")
 
 # Alias/date-lens overlap can return the same award repeatedly.
 award_watch_unique = {}
@@ -1238,6 +1310,23 @@ if award_watch_records:
 save_daily_award_watch_state(DAILY_AWARD_WATCH_STATE)
 AWARD_WATCH_SEEN_FILE.write_text(json.dumps(award_watch_seen, indent=2, sort_keys=True))
 
+# Supplemental coverage gets its own stable CSV; do not widen the long-lived
+# daily_diagnostics.csv header.
+_awdiag = {
+    "scan_utc": datetime.now(timezone.utc).isoformat(),
+    "scan_start": str(START),
+    "scan_end": str(TODAY),
+    "award_watch_status": award_watch_status,
+    "award_watch_queries_attempted": int(award_watch_queries_attempted),
+    "award_watch_queries_succeeded": int(award_watch_queries),
+    "award_watch_queries_failed": int(len(award_watch_failures)),
+    "award_watch_rows": int(len(award_watch_records)),
+    "new_award_watch_alerts": int(new_award_watch_alerts),
+    "active_award_watch_alerts": int(len(current_award_watch_rows(DAILY_AWARD_WATCH_STATE))),
+    "error_summary": award_watch_error,
+}
+append_diag_row_schema_safe(AWARD_WATCH_DIAG, _awdiag)
+
 
 # ============================================================
 # IDENTIFY PUBLIC-COMPANY TRANSACTIONS
@@ -1345,18 +1434,15 @@ if recent.empty:
         "award_watch_status": award_watch_status,
         "award_watch_error": award_watch_error,
         "award_watch_queries": int(award_watch_queries),
+        "award_watch_queries_attempted": int(award_watch_queries_attempted),
+        "award_watch_queries_failed": int(len(award_watch_failures)),
         "award_watch_rows": int(len(award_watch_records)),
         "new_award_watch_alerts": int(new_award_watch_alerts),
         "active_award_watch_alerts": int(len(current_award_watch_rows(DAILY_AWARD_WATCH_STATE))),
         "status": "NO_MATCHED_PUBLIC_COMPANY_TRANSACTIONS",
     }
     DIAG_LATEST.write_text(json.dumps(diag, indent=2))
-    pd.DataFrame([diag]).to_csv(
-        DAILY_DIAG,
-        mode="a",
-        header=not DAILY_DIAG.exists(),
-        index=False,
-    )
+    append_diag_row_schema_safe(DAILY_DIAG, diag)
     if active_buys:
         print(f"No new matched transactions; carrying forward {len(active_buys)} BUY(s) found earlier today.")
         for ticker in active_buys:
@@ -2322,20 +2408,17 @@ diag = {
     "award_watch_status": award_watch_status,
     "award_watch_error": award_watch_error,
     "award_watch_queries": int(award_watch_queries),
+    "award_watch_queries_attempted": int(award_watch_queries_attempted),
+    "award_watch_queries_failed": int(len(award_watch_failures)),
     "award_watch_rows": int(len(award_watch_records)),
     "new_award_watch_alerts": int(new_award_watch_alerts),
     "active_award_watch_alerts": int(len(current_award_watch_rows(DAILY_AWARD_WATCH_STATE))),
-    "status": "OK" if award_watch_status == "OK" else "OK_BUY_FRAMEWORK_WATCH_FAILED",
+    "status": "OK" if award_watch_status == "OK" else "OK_BUY_FRAMEWORK_WATCH_PARTIAL",
 }
 
 DIAG_LATEST.write_text(json.dumps(diag, indent=2))
 
-pd.DataFrame([diag]).to_csv(
-    DAILY_DIAG,
-    mode="a",
-    header=not DAILY_DIAG.exists(),
-    index=False,
-)
+append_diag_row_schema_safe(DAILY_DIAG, diag)
 
 print(
     "DIAGNOSTIC FUNNEL: "
@@ -2383,7 +2466,7 @@ UNKNOWN_FILE.write_text(
 
 print()
 print("=" * 60)
-print("RECON LIVE BUY SCANNER V4.4 - MD14 + MD11 + SPLIT CONTRACT/IDV WATCH")
+print("RECON LIVE BUY SCANNER V4.5 - MD14 + MD11 + RESILIENT CONTRACT/IDV WATCH")
 print("=" * 60)
 
 if active_buys:
@@ -2412,5 +2495,6 @@ print(f"New BUY tickers : {len(new_buys)}")
 print(f"Active BUYs today: {len(active_buys)}")
 print(f"Award-watch alerts today: {len(current_award_watch_rows(DAILY_AWARD_WATCH_STATE))}")
 print(f"Award-watch status: {award_watch_status}")
+print(f"Award-watch queries: {award_watch_queries}/{award_watch_queries_attempted} succeeded")
 print(f"Output          : {BUY_FILE}")
 print("=" * 60)
