@@ -62,7 +62,7 @@ def download_daily_closes(symbol: str, end_date: date) -> dict[date, float]:
         interval="1d",
         auto_adjust=False,
         actions=False,
-        repair=True,
+        repair=False,
         timeout=30,
         raise_errors=True,
     )
