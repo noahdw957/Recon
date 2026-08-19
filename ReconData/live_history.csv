@@ -1,0 +1,41 @@
+ticker,company,award_id,award_date,transaction_amount,agency,subagency,award_type
+ACN,ACCENTURE FEDERAL SERVICES LLC,70T03026F7667N084,2026-08-17,799797.6,Department of Homeland Security,Transportation Security Administration,BPA CALL
+ACN,ACCENTURE FEDERAL SERVICES LLC,70B04C23F00000074,2026-08-17,-1739247.07,Department of Homeland Security,U.S. Customs and Border Protection,DELIVERY ORDER
+BA,THE BOEING COMPANY,NAS1510000,2026-08-17,1378971.52,National Aeronautics and Space Administration,National Aeronautics and Space Administration,DEFINITIVE CONTRACT
+BAH,THUNDERYARD LIBERTY JV LLC,36C10B23N10360003,2026-08-17,6070852.48,Department of Veterans Affairs,Department of Veterans Affairs,DELIVERY ORDER
+BAH,BOOZ ALLEN HAMILTON INC,140D0426F0095,2026-08-17,404433.37,Department of the Interior,Departmental Offices,DELIVERY ORDER
+BAH,BOOZ ALLEN HAMILTON INC,47QFDA22F0027,2026-08-17,0.0,General Services Administration,Federal Acquisition Service,DELIVERY ORDER
+BAH,BOOZ ALLEN HAMILTON INC,47QFPA22F0007,2026-08-17,0.0,General Services Administration,Federal Acquisition Service,DELIVERY ORDER
+BAH,BOOZ ALLEN HAMILTON INC,47QFMA21F0015,2026-08-17,-8.64,General Services Administration,Federal Acquisition Service,DELIVERY ORDER
+BAH,BOOZ ALLEN HAMILTON INC,47QFCA25F0029,2026-08-17,-4961783.23,General Services Administration,Federal Acquisition Service,DELIVERY ORDER
+CAT,CATERPILLAR INC,140FS326F0185,2026-08-17,195958.0,Department of the Interior,U.S. Fish and Wildlife Service,DELIVERY ORDER
+CAT,CATERPILLAR INC,140FS326F0184,2026-08-17,172342.0,Department of the Interior,U.S. Fish and Wildlife Service,DELIVERY ORDER
+CAT,CATERPILLAR INC,140FS126F0079,2026-08-17,116241.0,Department of the Interior,U.S. Fish and Wildlife Service,DELIVERY ORDER
+DE,"JOHN DEERE SHARED SERVICES, LLC",1232SA26F0473,2026-08-17,120495.4,Department of Agriculture,Agricultural Research Service,DELIVERY ORDER
+DE,DEERE & COMPANY,140F1G26F0063,2026-08-17,171013.48,Department of the Interior,U.S. Fish and Wildlife Service,DELIVERY ORDER
+GD,"GENERAL DYNAMICS INFORMATION TECHNOLOGY, INC.",70B01C24F00000727,2026-08-17,3455125.8,Department of Homeland Security,U.S. Customs and Border Protection,BPA CALL
+GD,"GENERAL DYNAMICS INFORMATION TECHNOLOGY, INC.",75FCMC24F0065,2026-08-17,2390923.04,Department of Health and Human Services,Centers for Medicare and Medicaid Services,DELIVERY ORDER
+GD,"GENERAL DYNAMICS INFORMATION TECHNOLOGY, INC.",693KA724F00018,2026-08-17,210000.0,Department of Transportation,Federal Aviation Administration,DELIVERY ORDER
+GD,"GENERAL DYNAMICS INFORMATION TECHNOLOGY, INC.",68HERD24F0087,2026-08-17,0.0,Environmental Protection Agency,Environmental Protection Agency,BPA CALL
+GE,GENERAL ELECTRIC COMPANY,70Z03826FA0000154,2026-08-17,53561.4,Department of Homeland Security,U.S. Coast Guard,DELIVERY ORDER
+IBM,INTERNATIONAL BUSINESS MACHINES CORPORATION,2032H524F00441,2026-08-17,0.0,Department of the Treasury,Internal Revenue Service,DELIVERY ORDER
+LDOS,"LEIDOS, INC.",70B03C26F00000621,2026-08-17,18816749.0,Department of Homeland Security,U.S. Customs and Border Protection,DELIVERY ORDER
+LDOS,"LEIDOS, INC.",89243318CFE000003,2026-08-17,17457166.0,Department of Energy,Department of Energy,DEFINITIVE CONTRACT
+LDOS,"LEIDOS, INC.",31310020F0052,2026-08-17,883000.0,Nuclear Regulatory Commission,Nuclear Regulatory Commission,BPA CALL
+LDOS,"LEIDOS, INC.",DTFA0101CA0065CALL0001,2026-08-17,600000.0,Department of Transportation,Federal Aviation Administration,DELIVERY ORDER
+LDOS,"LEIDOS, INC.",DTFA0101CA0065CALL0001,2026-08-17,70000.0,Department of Transportation,Federal Aviation Administration,DELIVERY ORDER
+LDOS,"LEIDOS, INC.",DTFA0101CA0065CALL0001,2026-08-17,-16671.88,Department of Transportation,Federal Aviation Administration,DELIVERY ORDER
+LDOS,LEIDOS DIGITAL SOLUTIONS INC,11316023F0051OAS,2026-08-17,-27838.88,Executive Office of the President,Executive Office of the President,DELIVERY ORDER
+LDOS,"LEIDOS, INC.",DTFA0101CA0065CALL0001,2026-08-17,-70000.0,Department of Transportation,Federal Aviation Administration,DELIVERY ORDER
+LDOS,"LEIDOS, INC.",47QFCA21C0002,2026-08-17,-41000000.0,General Services Administration,Federal Acquisition Service,DEFINITIVE CONTRACT
+LUNR,"INTUITIVE MACHINES, LLC",80JSC021F0004,2026-08-17,-3300.0,National Aeronautics and Space Administration,National Aeronautics and Space Administration,DELIVERY ORDER
+NOC,NORTHROP GRUMMAN SYSTEMS CORPORATION,70Z04423FC2PL0007,2026-08-17,-100982.7,Department of Homeland Security,U.S. Coast Guard,DELIVERY ORDER
+NOC,NORTHROP GRUMMAN SYSTEMS CORPORATION,70Z04421F21004700,2026-08-17,-138787.55,Department of Homeland Security,U.S. Coast Guard,DELIVERY ORDER
+PSN,"AMENTUM SERVICES, INC.",47QFCA23F0046,2026-08-17,16439350.0,General Services Administration,Federal Acquisition Service,DELIVERY ORDER
+PSN,IDAHO ENVIRONMENTAL COALITION LLC,89304223FEM400000,2026-08-17,6361697.0,Department of Energy,Department of Energy,DELIVERY ORDER
+PSN,PARSONS GOVERNMENT SERVICES INC.,47QFCA23F0024,2026-08-17,5223666.88,General Services Administration,Federal Acquisition Service,DELIVERY ORDER
+PSN,WILLIAMS ELECTRIC CO INC,15M10522FA47NPH03,2026-08-17,826982.56,Department of Justice,U.S. Marshals Service,BPA CALL
+PSN,"AMENTUM SERVICES, INC.",80MSFC26F7006,2026-08-17,6613.0,National Aeronautics and Space Administration,National Aeronautics and Space Administration,DELIVERY ORDER
+PSN,"AMENTUM SERVICES, INC.",80MSFC26F7004,2026-08-17,0.0,National Aeronautics and Space Administration,National Aeronautics and Space Administration,DELIVERY ORDER
+PSN,"AMENTUM SERVICES, INC.",80MSFC26F7005,2026-08-17,0.0,National Aeronautics and Space Administration,National Aeronautics and Space Administration,DELIVERY ORDER
+SATL,SATELLITE SERVICES INC,70CMSW19FR0000044,2026-08-17,1577110.2,Department of Homeland Security,U.S. Immigration and Customs Enforcement,DELIVERY ORDER

@@ -1,8 +1,8 @@
 {
-  "last_successful_scan_date": "2026-08-18",
-  "last_fetch_start": "2026-08-15",
-  "last_success_utc": "2026-08-18T15:03:18.647890+00:00",
+  "last_successful_scan_date": "2026-08-19",
+  "last_fetch_start": "2026-08-17",
+  "last_success_utc": "2026-08-19T15:10:35.627761+00:00",
   "watermark_source": "acquisition_state_or_live_history",
   "model_version": "RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
-  "scanner_version": "RECON_LIVE_V4.1_MD14_MD11_TABBED_LEDGER"
+  "scanner_version": "RECON_LIVE_V4.7_MD14_MD11_STRICT_AWARD_RECIPIENT_MATCH"
 }
