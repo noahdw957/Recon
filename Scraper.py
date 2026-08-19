@@ -9,7 +9,7 @@ import requests
 import yfinance as yf
 
 # ============================================================
-# RECON LIVE BUY SCANNER V4.2 - MD14 + MD11 + AWARD/IDV WATCH
+# RECON LIVE BUY SCANNER V4.3 - MD14 + MD11 + AWARD/IDV WATCH
 #
 # USER-FACING OUTPUT:
 #     buy_tickers.txt
@@ -70,6 +70,7 @@ PROCUREMENT_AWARD_TYPE_CODES = [
     "IDV_C", "IDV_D", "IDV_E",
 ]
 AWARD_WATCH_MIN_DISPLAY_VALUE = 50_000_000.0
+# V4.3: treat HTTP 422 validation failures like 400 and step down award-watch fields.
 
 YAHOO_SEARCH_API = (
     "https://query2.finance.yahoo.com/v1/finance/search"
@@ -276,7 +277,7 @@ model = json.loads(MODEL_FILE.read_text())
 model14 = json.loads(MD14_MODEL_FILE.read_text())
 
 MODEL_VERSION = "RECON_MD14_PRIMARY_MD11_SECONDARY_V1"
-SCANNER_VERSION = "RECON_LIVE_V4.2_MD14_MD11_AWARD_WATCH"
+SCANNER_VERSION = "RECON_LIVE_V4.3_MD14_MD11_AWARD_WATCH_422FIX"
 MD14_THRESHOLD = float(model14["threshold"])
 
 # Informational 90-trading-day peak projection.
@@ -988,13 +989,29 @@ def fetch_award_watch(ticker, alias, date_type):
                 # USAspending field support has changed over time.  If a rich
                 # optional field is rejected, retry the request with the small
                 # stable field set rather than losing the whole watch layer.
-                if response.status_code == 400 and field_mode < 2:
+                if response.status_code in (400, 422) and field_mode < 2:
+                    # USAspending currently uses 422 as well as 400 for
+                    # request-schema / unsupported-field validation failures.
+                    # Step down the field set before declaring the shadow watch dead.
+                    print(
+                        f"USAspending award-watch validation {response.status_code} for "
+                        f"{ticker} / {alias!r} / {date_type} / page {page}; "
+                        f"falling back from field mode {field_mode}. "
+                        f"Body: {response.text[:500]}"
+                    )
                     field_mode += 1
                     payload["fields"] = list(
                         AWARD_WATCH_FIELDS_CEILING if field_mode == 1
                         else AWARD_WATCH_FIELDS_MIN
                     )
                     continue
+
+                if response.status_code in (400, 422):
+                    raise RuntimeError(
+                        f"USAspending award-watch validation {response.status_code} after "
+                        f"minimal-field fallback for {ticker} / {alias!r} / "
+                        f"{date_type} / page {page}: {response.text[:1500]}"
+                    )
 
                 if response.status_code == 503:
                     if delayed_503_retries >= HTTP_503_DELAYED_RETRIES:
@@ -1162,7 +1179,7 @@ for row in award_watch_unique.values():
         "award_type": award_type,
         "agency": row.get("Awarding Agency"),
         "subagency": row.get("Awarding Sub Agency"),
-        "description": row.get("Description"),
+        "description": row.get("Description") or row.get("Contract Description"),
         "framework_like": int(framework_like),
         "consumer_alert": int(is_alert),
         "buy_scored": 0,
