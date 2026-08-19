@@ -1,3 +1,8 @@
 ## RECON BUY TICKERS 19AUG26
 
 NO BUYS
+
+## LARGE / FRAMEWORK AWARD WATCH - NOT BUY-SCORED
+Ticker	Award ID	Obligated	Potential/Ceiling	Type	Detected
+WWD	12569R26T7230	$0		INDEFINITE DELIVERY / DEFINITE QUANTITY	19AUG26
+NOTE: watch-only. MD14/MD11 remain transaction-trained and unchanged.

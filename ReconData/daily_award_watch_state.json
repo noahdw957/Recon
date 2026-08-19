@@ -1,0 +1,15 @@
+{
+  "date": "2026-08-19",
+  "events": {
+    "WWD|12569R26T7230": {
+      "award_amount": 0.0,
+      "award_id": "12569R26T7230",
+      "award_type": "INDEFINITE DELIVERY / DEFINITE QUANTITY",
+      "description": "WEST ZONE HEAVY EQUIPMENT WITH WATER FOR REGIONS 3, 5 AND 6",
+      "detected_date": "2026-08-19",
+      "fingerprint": "WWD|12569R26T7230|0.0|None|INDEFINITE DELIVERY / DEFINITE QUANTITY||2026-02-06|",
+      "potential_amount": null,
+      "ticker": "WWD"
+    }
+  }
+}
