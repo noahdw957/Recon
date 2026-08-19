@@ -1,7 +1,7 @@
 {
-  "scan_utc": "2026-08-18T21:12:55.145140+00:00",
+  "scan_utc": "2026-08-19T02:38:00.346009+00:00",
   "scan_start": "2026-08-17",
-  "scan_end": "2026-08-18",
+  "scan_end": "2026-08-19",
   "watermark_source": "acquisition_state_or_live_history",
   "downloaded_rows_total": 0,
   "downloaded_positive": 0,
@@ -17,5 +17,11 @@
   "new_buy_tickers": 0,
   "active_buy_tickers": 0,
   "market_cap_missing": 0,
+  "award_watch_status": "FAILED",
+  "award_watch_error": "USAspending award-watch failed after retries for ACN / 'ACCENTURE FEDERAL' / action_date / page 1: 422 Client Error: Unprocessable Entity for url: https://api.usaspending.gov/api/v2/search/spending_by_award/",
+  "award_watch_queries": 0,
+  "award_watch_rows": 0,
+  "new_award_watch_alerts": 0,
+  "active_award_watch_alerts": 0,
   "status": "NO_MATCHED_PUBLIC_COMPANY_TRANSACTIONS"
 }
