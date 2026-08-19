@@ -9,7 +9,7 @@ import requests
 import yfinance as yf
 
 # ============================================================
-# RECON LIVE BUY SCANNER V4.5 - MD14 + MD11 + RESILIENT CONTRACT/IDV WATCH
+# RECON LIVE BUY SCANNER V4.7 - MD14 + MD11 + STRICT CONTRACT/IDV WATCH
 #
 # USER-FACING OUTPUT:
 #     buy_tickers.txt
@@ -78,11 +78,15 @@ AWARD_WATCH_GROUPS = (
 AWARD_WATCH_MIN_DISPLAY_VALUE = 50_000_000.0
 # Supplemental award search is deliberately throttled. It must never
 # jeopardize the production BUY transaction scan.
-AWARD_WATCH_QUERY_DELAY_SECONDS = 1.0
+AWARD_WATCH_QUERY_DELAY_SECONDS = 0.25
 # V4.3: treat HTTP 422 validation failures like 400 and step down award-watch fields.
 # V4.4: split contract and IDV award-type groups.
 # V4.5: make the supplemental watch fail-soft per query, throttle calls, and
 #       keep its diagnostics separate so it cannot corrupt the legacy BUY CSV.
+# V4.6: reduce supplemental award-watch inter-query throttle from 1.00s to 0.25s.
+# V4.7: require strict recipient identity for award-watch alerts; do not let a
+#       broad one-word query alias (e.g. WOODWARD) assign an unrelated award
+#       recipient to the public ticker. Also fixes stale internal version label.
 
 YAHOO_SEARCH_API = (
     "https://query2.finance.yahoo.com/v1/finance/search"
@@ -312,7 +316,7 @@ model = json.loads(MODEL_FILE.read_text())
 model14 = json.loads(MD14_MODEL_FILE.read_text())
 
 MODEL_VERSION = "RECON_MD14_PRIMARY_MD11_SECONDARY_V1"
-SCANNER_VERSION = "RECON_LIVE_V4.4_MD14_MD11_SPLIT_CONTRACT_IDV_WATCH"
+SCANNER_VERSION = "RECON_LIVE_V4.7_MD14_MD11_STRICT_AWARD_RECIPIENT_MATCH"
 MD14_THRESHOLD = float(model14["threshold"])
 
 # Informational 90-trading-day peak projection.
@@ -566,6 +570,55 @@ master_history = master_history[
     & master_history["transaction_amount"].notna()
     & (master_history["transaction_amount"] != 0)
 ].copy()
+
+# ============================================================
+# STRICT RECIPIENT MAP FOR THE BROAD AWARD/IDV SHADOW WATCH
+# ============================================================
+#
+# The spending_by_award endpoint can return fuzzy recipient-name matches.
+# The production transaction scanner intentionally keeps its broader matching,
+# but the shadow watch must NOT assign an award merely because the query alias
+# was a common surname/word such as "WOODWARD".
+#
+# Accept only:
+#   1) an exact normalized recipient name previously seen in the validated
+#      historical master for that ticker, or
+#   2) an exact normalized curated alias string.
+#
+# No substring fallback is used by the award watch.
+AWARD_WATCH_STRICT_RECIPIENT_MAP = {}
+
+for _, _r in master_history[["company", "ticker"]].dropna().drop_duplicates().iterrows():
+    _n = normalize_name(_r["company"])
+    _t = str(_r["ticker"]).upper().strip()
+    if _n and _t:
+        # If an exact recipient name ever maps to conflicting tickers, remove
+        # it from strict use rather than guessing.
+        _old = AWARD_WATCH_STRICT_RECIPIENT_MAP.get(_n)
+        if _old is None:
+            AWARD_WATCH_STRICT_RECIPIENT_MAP[_n] = _t
+        elif _old != _t:
+            AWARD_WATCH_STRICT_RECIPIENT_MAP[_n] = None
+
+for _t, _aliases in MASTER.items():
+    for _alias in _aliases:
+        _n = normalize_name(_alias)
+        if _n and _n not in AWARD_WATCH_STRICT_RECIPIENT_MAP:
+            AWARD_WATCH_STRICT_RECIPIENT_MAP[_n] = str(_t).upper().strip()
+
+
+def strict_award_watch_lookup(name, query_ticker):
+    """Return ticker only for an exact trusted recipient identity."""
+    norm = normalize_name(name)
+    mapped = AWARD_WATCH_STRICT_RECIPIENT_MAP.get(norm)
+    query_ticker = str(query_ticker or "").upper().strip()
+
+    if not mapped or not query_ticker:
+        return None
+    if str(mapped).upper().strip() != query_ticker:
+        return None
+    return query_ticker
+
 
 # ============================================================
 # BOOTSTRAP RECIPIENT -> TICKER CACHE FROM SAVED MASTER
@@ -1227,10 +1280,12 @@ for row in award_watch_unique.values():
     if not name:
         continue
     query_ticker = str(row.get("_query_ticker") or "").upper().strip()
-    mapped_ticker = master_lookup(name)
-    if mapped_ticker and query_ticker and mapped_ticker != query_ticker:
-        continue
-    ticker = mapped_ticker or query_ticker
+
+    # Award/IDV search is broader/fuzzier than the production transaction
+    # search. Require exact trusted recipient identity here so a result such
+    # as "JAMES E WOODWARD INC" cannot be silently assigned to WWD merely
+    # because the query alias was "WOODWARD".
+    ticker = strict_award_watch_lookup(name, query_ticker)
     if not ticker or ticker == "LMT":
         continue
 
@@ -2466,7 +2521,7 @@ UNKNOWN_FILE.write_text(
 
 print()
 print("=" * 60)
-print("RECON LIVE BUY SCANNER V4.5 - MD14 + MD11 + RESILIENT CONTRACT/IDV WATCH")
+print("RECON LIVE BUY SCANNER V4.7 - MD14 + MD11 + STRICT CONTRACT/IDV WATCH")
 print("=" * 60)
 
 if active_buys:
