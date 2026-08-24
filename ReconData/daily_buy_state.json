@@ -1,40 +1,33 @@
 {
-  "date": "2026-08-21",
+  "date": "2026-08-24",
   "events": {
-    "BA|2026-08-19": {
-      "award_date": "2026-08-19",
-      "fingerprint": "BA|2026-08-19|0.00|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
-      "last_seen_utc": "2026-08-21T15:12:50.834107+00:00",
-      "projected_peak_pct_90d": 30.870593659704813,
-      "ticker": "BA"
+    "HII|2026-08-20": {
+      "award_date": "2026-08-20",
+      "fingerprint": "HII|2026-08-20|4000.00|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
+      "last_seen_utc": "2026-08-24T15:30:41.139506+00:00",
+      "projected_peak_pct_90d": 55.67804679505997,
+      "ticker": "HII"
     },
-    "HON|2026-08-19": {
-      "award_date": "2026-08-19",
-      "fingerprint": "HON|2026-08-19|0.00|2|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
-      "last_seen_utc": "2026-08-21T15:12:50.875132+00:00",
-      "projected_peak_pct_90d": 29.65850912830379,
-      "ticker": "HON"
+    "KTOS|2026-08-20": {
+      "award_date": "2026-08-20",
+      "fingerprint": "KTOS|2026-08-20|0.00|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
+      "last_seen_utc": "2026-08-24T15:30:41.166935+00:00",
+      "projected_peak_pct_90d": 56.6286086900885,
+      "ticker": "KTOS"
     },
-    "SATL|2026-08-19": {
-      "award_date": "2026-08-19",
-      "fingerprint": "SATL|2026-08-19|0.00|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
-      "last_seen_utc": "2026-08-21T15:12:50.915708+00:00",
-      "projected_peak_pct_90d": 83.84215011726293,
+    "SATL|2026-08-20": {
+      "award_date": "2026-08-20",
+      "fingerprint": "SATL|2026-08-20|203248.86|7|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
+      "last_seen_utc": "2026-08-24T15:30:41.146352+00:00",
+      "projected_peak_pct_90d": 81.71449817929171,
       "ticker": "SATL"
     },
-    "VSEC|2026-08-19": {
-      "award_date": "2026-08-19",
-      "fingerprint": "VSEC|2026-08-19|62502.20|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
-      "last_seen_utc": "2026-08-21T15:12:50.922096+00:00",
-      "projected_peak_pct_90d": 56.45226811971577,
-      "ticker": "VSEC"
-    },
-    "WWD|2026-08-19": {
-      "award_date": "2026-08-19",
-      "fingerprint": "WWD|2026-08-19|6000.00|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
-      "last_seen_utc": "2026-08-21T15:12:50.928885+00:00",
-      "projected_peak_pct_90d": 35.59587361144412,
-      "ticker": "WWD"
+    "SATL|2026-08-21": {
+      "award_date": "2026-08-21",
+      "fingerprint": "SATL|2026-08-21|20905.25|2|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
+      "last_seen_utc": "2026-08-24T15:30:41.296062+00:00",
+      "projected_peak_pct_90d": 84.6938632420202,
+      "ticker": "SATL"
     }
   }
 }
