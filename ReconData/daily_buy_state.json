@@ -1,4 +1,19 @@
 {
-  "date": "2026-08-25",
-  "events": {}
+  "date": "2026-08-26",
+  "events": {
+    "HII|2026-08-24": {
+      "award_date": "2026-08-24",
+      "fingerprint": "HII|2026-08-24|155875.34|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
+      "last_seen_utc": "2026-08-26T16:44:31.114196+00:00",
+      "projected_peak_pct_90d": 51.42701751133421,
+      "ticker": "HII"
+    },
+    "HON|2026-08-24": {
+      "award_date": "2026-08-24",
+      "fingerprint": "HON|2026-08-24|0.00|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
+      "last_seen_utc": "2026-08-26T16:44:31.107326+00:00",
+      "projected_peak_pct_90d": 26.39920383980426,
+      "ticker": "HON"
+    }
+  }
 }

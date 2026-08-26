@@ -1,4 +1,105 @@
 {
-  "date": "2026-08-25",
-  "events": {}
+  "date": "2026-08-26",
+  "events": {
+    "BAH|47QFCA20F0014": {
+      "award_amount": 1066387866.16,
+      "award_id": "47QFCA20F0014",
+      "award_type": "DELIVERY ORDER",
+      "description": "THE PURPOSE OF THIS EFFORT IS TO ACQUIRE CONTRACTOR SERVICES TO PROVIDE REAL-TIME, COMPREHENSIVE THREAT ANALYSIS AND ASSESSMENT, TRAINING DEVELOPMENT AND DELIVERY, READINESS AND MODERNIZATION SUPPORT, AND LOGISTICS AND EQUIPMENT SERVICES.",
+      "detected_date": "2026-08-26",
+      "fingerprint": "BAH|47QFCA20F0014|1066387866.16|None|DELIVERY ORDER||2020-06-26|2025-06-25",
+      "potential_amount": null,
+      "ticker": "BAH"
+    },
+    "CACI|47QFMA24F0014": {
+      "award_amount": 610500191.19,
+      "award_id": "47QFMA24F0014",
+      "award_type": "DELIVERY ORDER",
+      "description": "ENTERPRISE LEVEL IT EXPERTISE ELITE",
+      "detected_date": "2026-08-26",
+      "fingerprint": "CACI|47QFMA24F0014|610500191.19|None|DELIVERY ORDER||2024-03-01|2029-05-31",
+      "potential_amount": null,
+      "ticker": "CACI"
+    },
+    "CACI|47QFRA24F0005": {
+      "award_amount": 856190169.48,
+      "award_id": "47QFRA24F0005",
+      "award_type": "DELIVERY ORDER",
+      "description": "CDM DEFEND GROUP A  BRIDGE TASK ORDER",
+      "detected_date": "2026-08-26",
+      "fingerprint": "CACI|47QFRA24F0005|856190169.48|None|DELIVERY ORDER||2024-05-01|2027-04-30",
+      "potential_amount": null,
+      "ticker": "CACI"
+    },
+    "GD|47QFCA21F0051": {
+      "award_amount": 841789220.41,
+      "award_id": "47QFCA21F0051",
+      "award_type": "DELIVERY ORDER",
+      "description": "AWARD OF TASK ORDER 47QFCA210051-NAWCAD WOLF SHIP AND AIR C5ISR SYSTEMS SUPPORT",
+      "detected_date": "2026-08-26",
+      "fingerprint": "GD|47QFCA21F0051|841789220.41|None|DELIVERY ORDER||2021-07-01|2026-06-30",
+      "potential_amount": null,
+      "ticker": "GD"
+    },
+    "GD|70RDA124FR0000005": {
+      "award_amount": 307159419.42,
+      "award_id": "70RDA124FR0000005",
+      "award_type": "DELIVERY ORDER",
+      "description": "OPERATE AND MAINTAIN THE OBIM INFRASTRUCTURE COMPONENTS AND ASSOCIATED APPLICATIONS AND OTHER FUNCTIONALITY OF THE PRODUCTION AND NON-PRODUCTION ENVIRONMENTS AND ASSOCIATED BUSINESS SYSTEMS CURRENTLY DEPLOYED WITH THE DHS DATA CENTER 1, GOVERNMENT AN",
+      "detected_date": "2026-08-26",
+      "fingerprint": "GD|70RDA124FR0000005|307159419.42|None|DELIVERY ORDER||2023-12-31|2026-12-30",
+      "potential_amount": null,
+      "ticker": "GD"
+    },
+    "IBM|GS35F110DA": {
+      "award_amount": 0.0,
+      "award_id": "GS35F110DA",
+      "award_type": "FSS",
+      "description": "FEDERAL SUPPLY SCHEDULE CONTRACT",
+      "detected_date": "2026-08-26",
+      "fingerprint": "IBM|GS35F110DA|0.0|None|FSS||2015-12-21|",
+      "potential_amount": null,
+      "ticker": "IBM"
+    },
+    "LDOS|47QFCA22F0051": {
+      "award_amount": 937884234.92,
+      "award_id": "47QFCA22F0051",
+      "award_type": "DELIVERY ORDER",
+      "description": "THE PURPOSE OF THIS TO IS TO PROVIDE RESEARCH, DESIGN, DEVELOPMENT, INTEGRATION, T&E, INITIAL FIELDING AND OPERATION, LOGISTICS, MAINTENANCE, SUSTAINMENT, AND TRAINING FOR APPLICABLE C5ISR SYSTEMS.",
+      "detected_date": "2026-08-26",
+      "fingerprint": "LDOS|47QFCA22F0051|937884234.92|None|DELIVERY ORDER||2022-09-14|2027-09-13",
+      "potential_amount": null,
+      "ticker": "LDOS"
+    },
+    "NOC|70B02C20C00000024": {
+      "award_amount": 365237237.2,
+      "award_id": "70B02C20C00000024",
+      "award_type": "DEFINITIVE CONTRACT",
+      "description": "P-3 AIRCRAFT MAINTENANCE AND LOGISTIC SUPPORT SERVICES",
+      "detected_date": "2026-08-26",
+      "fingerprint": "NOC|70B02C20C00000024|365237237.2|None|DEFINITIVE CONTRACT||2020-09-01|2026-12-31",
+      "potential_amount": null,
+      "ticker": "NOC"
+    },
+    "NOC|80ARC024CA007": {
+      "award_amount": 90130768.05,
+      "award_id": "80ARC024CA007",
+      "award_type": "DEFINITIVE CONTRACT",
+      "description": "HELIOSWARM PROGRAM SUPPORT",
+      "detected_date": "2026-08-26",
+      "fingerprint": "NOC|80ARC024CA007|90130768.05|None|DEFINITIVE CONTRACT||2024-10-01|2026-10-31",
+      "potential_amount": null,
+      "ticker": "NOC"
+    },
+    "NOC|N0001920C0054": {
+      "award_amount": 91166756.56,
+      "award_id": "N0001920C0054",
+      "award_type": "DEFINITIVE CONTRACT",
+      "description": "APR-39 PRODUCTION, NRE-D(V)2 PROCESSOR LBA RE-DESIGN AND -0204 PROCESSOR QUALIFICATION, TRAVEL",
+      "detected_date": "2026-08-26",
+      "fingerprint": "NOC|N0001920C0054|91166756.56|None|DEFINITIVE CONTRACT||2020-09-28|2023-03-31",
+      "potential_amount": null,
+      "ticker": "NOC"
+    }
+  }
 }
