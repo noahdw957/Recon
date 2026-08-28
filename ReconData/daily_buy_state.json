@@ -1,19 +1,26 @@
 {
-  "date": "2026-08-26",
+  "date": "2026-08-28",
   "events": {
-    "HII|2026-08-24": {
-      "award_date": "2026-08-24",
-      "fingerprint": "HII|2026-08-24|155875.34|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
-      "last_seen_utc": "2026-08-26T16:44:31.114196+00:00",
-      "projected_peak_pct_90d": 51.42701751133421,
+    "HII|2026-08-25": {
+      "award_date": "2026-08-25",
+      "fingerprint": "HII|2026-08-25|1240132.65|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
+      "last_seen_utc": "2026-08-28T00:09:20.637630+00:00",
+      "projected_peak_pct_90d": 48.97881594361115,
       "ticker": "HII"
     },
-    "HON|2026-08-24": {
-      "award_date": "2026-08-24",
-      "fingerprint": "HON|2026-08-24|0.00|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
-      "last_seen_utc": "2026-08-26T16:44:31.107326+00:00",
-      "projected_peak_pct_90d": 26.39920383980426,
-      "ticker": "HON"
+    "KTOS|2026-08-25": {
+      "award_date": "2026-08-25",
+      "fingerprint": "KTOS|2026-08-25|52663.00|2|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
+      "last_seen_utc": "2026-08-28T00:09:20.649299+00:00",
+      "projected_peak_pct_90d": 53.28432743468634,
+      "ticker": "KTOS"
+    },
+    "SATL|2026-08-25": {
+      "award_date": "2026-08-25",
+      "fingerprint": "SATL|2026-08-25|1463480.89|2|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
+      "last_seen_utc": "2026-08-28T00:09:20.660884+00:00",
+      "projected_peak_pct_90d": 85.51015920063614,
+      "ticker": "SATL"
     }
   }
 }

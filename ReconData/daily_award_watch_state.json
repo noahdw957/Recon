@@ -1,105 +1,75 @@
 {
-  "date": "2026-08-26",
+  "date": "2026-08-28",
   "events": {
-    "BAH|47QFCA20F0014": {
-      "award_amount": 1066387866.16,
-      "award_id": "47QFCA20F0014",
-      "award_type": "DELIVERY ORDER",
-      "description": "THE PURPOSE OF THIS EFFORT IS TO ACQUIRE CONTRACTOR SERVICES TO PROVIDE REAL-TIME, COMPREHENSIVE THREAT ANALYSIS AND ASSESSMENT, TRAINING DEVELOPMENT AND DELIVERY, READINESS AND MODERNIZATION SUPPORT, AND LOGISTICS AND EQUIPMENT SERVICES.",
-      "detected_date": "2026-08-26",
-      "fingerprint": "BAH|47QFCA20F0014|1066387866.16|None|DELIVERY ORDER||2020-06-26|2025-06-25",
-      "potential_amount": null,
-      "ticker": "BAH"
-    },
-    "CACI|47QFMA24F0014": {
-      "award_amount": 610500191.19,
-      "award_id": "47QFMA24F0014",
-      "award_type": "DELIVERY ORDER",
-      "description": "ENTERPRISE LEVEL IT EXPERTISE ELITE",
-      "detected_date": "2026-08-26",
-      "fingerprint": "CACI|47QFMA24F0014|610500191.19|None|DELIVERY ORDER||2024-03-01|2029-05-31",
-      "potential_amount": null,
-      "ticker": "CACI"
-    },
-    "CACI|47QFRA24F0005": {
-      "award_amount": 856190169.48,
-      "award_id": "47QFRA24F0005",
-      "award_type": "DELIVERY ORDER",
-      "description": "CDM DEFEND GROUP A  BRIDGE TASK ORDER",
-      "detected_date": "2026-08-26",
-      "fingerprint": "CACI|47QFRA24F0005|856190169.48|None|DELIVERY ORDER||2024-05-01|2027-04-30",
-      "potential_amount": null,
-      "ticker": "CACI"
-    },
-    "GD|47QFCA21F0051": {
-      "award_amount": 841789220.41,
-      "award_id": "47QFCA21F0051",
-      "award_type": "DELIVERY ORDER",
-      "description": "AWARD OF TASK ORDER 47QFCA210051-NAWCAD WOLF SHIP AND AIR C5ISR SYSTEMS SUPPORT",
-      "detected_date": "2026-08-26",
-      "fingerprint": "GD|47QFCA21F0051|841789220.41|None|DELIVERY ORDER||2021-07-01|2026-06-30",
-      "potential_amount": null,
-      "ticker": "GD"
-    },
-    "GD|70RDA124FR0000005": {
-      "award_amount": 307159419.42,
-      "award_id": "70RDA124FR0000005",
-      "award_type": "DELIVERY ORDER",
-      "description": "OPERATE AND MAINTAIN THE OBIM INFRASTRUCTURE COMPONENTS AND ASSOCIATED APPLICATIONS AND OTHER FUNCTIONALITY OF THE PRODUCTION AND NON-PRODUCTION ENVIRONMENTS AND ASSOCIATED BUSINESS SYSTEMS CURRENTLY DEPLOYED WITH THE DHS DATA CENTER 1, GOVERNMENT AN",
-      "detected_date": "2026-08-26",
-      "fingerprint": "GD|70RDA124FR0000005|307159419.42|None|DELIVERY ORDER||2023-12-31|2026-12-30",
-      "potential_amount": null,
-      "ticker": "GD"
-    },
-    "IBM|GS35F110DA": {
+    "ACN|36C10X22D0013": {
       "award_amount": 0.0,
-      "award_id": "GS35F110DA",
-      "award_type": "FSS",
-      "description": "FEDERAL SUPPLY SCHEDULE CONTRACT",
-      "detected_date": "2026-08-26",
-      "fingerprint": "IBM|GS35F110DA|0.0|None|FSS||2015-12-21|",
+      "award_id": "36C10X22D0013",
+      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
+      "description": "ACCELERATING VA INNOVATION AND LEARNING SERVES AS A PIONEER IN MEDICAL INNOVATION AND AS A LEARNING ORGANIZATION BY OFFERING THE AVAILABILITY TO AUGMENT ITS ONGOING DESIGN, DEVELOPMENT, AND TESTING EFFORTS AROUND HEALTHCARE INNOVATION.",
+      "detected_date": "2026-08-28",
+      "fingerprint": "ACN|36C10X22D0013|0.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2022-09-30|",
       "potential_amount": null,
-      "ticker": "IBM"
+      "ticker": "ACN"
     },
-    "LDOS|47QFCA22F0051": {
-      "award_amount": 937884234.92,
-      "award_id": "47QFCA22F0051",
+    "ACN|70CTD021FR0000232": {
+      "award_amount": 63236191.56,
+      "award_id": "70CTD021FR0000232",
       "award_type": "DELIVERY ORDER",
-      "description": "THE PURPOSE OF THIS TO IS TO PROVIDE RESEARCH, DESIGN, DEVELOPMENT, INTEGRATION, T&E, INITIAL FIELDING AND OPERATION, LOGISTICS, MAINTENANCE, SUSTAINMENT, AND TRAINING FOR APPLICABLE C5ISR SYSTEMS.",
-      "detected_date": "2026-08-26",
-      "fingerprint": "LDOS|47QFCA22F0051|937884234.92|None|DELIVERY ORDER||2022-09-14|2027-09-13",
+      "description": "CYBER DEFENSE AND INTELLIGENCE SUPPORT (CDISS) TASK ORDER. 11 MONTH BASE PERIOD AND 4 OPTION YEARS.",
+      "detected_date": "2026-08-28",
+      "fingerprint": "ACN|70CTD021FR0000232|63236191.56|None|DELIVERY ORDER||2021-09-28|2027-02-27",
+      "potential_amount": null,
+      "ticker": "ACN"
+    },
+    "ACN|HSTS0116DHRM037": {
+      "award_amount": 0.0,
+      "award_id": "HSTS0116DHRM037",
+      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
+      "description": "IGF::OT::IGF IDIQ CONTRACT FOR THE RECRUITMENT AND HIRING (R&H) SERVICES FOR TSA.",
+      "detected_date": "2026-08-28",
+      "fingerprint": "ACN|HSTS0116DHRM037|0.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2016-08-31|",
+      "potential_amount": null,
+      "ticker": "ACN"
+    },
+    "ETN|36C24424D0091": {
+      "award_amount": 0.0,
+      "award_id": "36C24424D0091",
+      "award_type": "INDEFINITE DELIVERY / DEFINITE QUANTITY",
+      "description": "UNINTERRUPTABLE POWER SUPPLY (UPS)- MAINTENANCE, REPAIR AND BATTERY REPLACEMENT.",
+      "detected_date": "2026-08-28",
+      "fingerprint": "ETN|36C24424D0091|0.0|None|INDEFINITE DELIVERY / DEFINITE QUANTITY||2024-07-31|",
+      "potential_amount": null,
+      "ticker": "ETN"
+    },
+    "LDOS|693KA921D00008": {
+      "award_amount": 1741379733.94,
+      "award_id": "693KA921D00008",
+      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
+      "description": "CONTRACT TO PROVIDE ENGINEERING AND TECHNICAL SUPPORT SERVICES AS REQUIRED TO VARIOUS FAA ORGANIZATIONS.",
+      "detected_date": "2026-08-28",
+      "fingerprint": "LDOS|693KA921D00008|1741379733.94|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2020-12-08|",
       "potential_amount": null,
       "ticker": "LDOS"
     },
-    "NOC|70B02C20C00000024": {
-      "award_amount": 365237237.2,
-      "award_id": "70B02C20C00000024",
-      "award_type": "DEFINITIVE CONTRACT",
-      "description": "P-3 AIRCRAFT MAINTENANCE AND LOGISTIC SUPPORT SERVICES",
-      "detected_date": "2026-08-26",
-      "fingerprint": "NOC|70B02C20C00000024|365237237.2|None|DEFINITIVE CONTRACT||2020-09-01|2026-12-31",
-      "potential_amount": null,
-      "ticker": "NOC"
-    },
-    "NOC|80ARC024CA007": {
-      "award_amount": 90130768.05,
-      "award_id": "80ARC024CA007",
-      "award_type": "DEFINITIVE CONTRACT",
-      "description": "HELIOSWARM PROGRAM SUPPORT",
-      "detected_date": "2026-08-26",
-      "fingerprint": "NOC|80ARC024CA007|90130768.05|None|DEFINITIVE CONTRACT||2024-10-01|2026-10-31",
-      "potential_amount": null,
-      "ticker": "NOC"
-    },
     "NOC|N0001920C0054": {
-      "award_amount": 91166756.56,
+      "award_amount": 156085721.0,
       "award_id": "N0001920C0054",
       "award_type": "DEFINITIVE CONTRACT",
       "description": "APR-39 PRODUCTION, NRE-D(V)2 PROCESSOR LBA RE-DESIGN AND -0204 PROCESSOR QUALIFICATION, TRAVEL",
-      "detected_date": "2026-08-26",
-      "fingerprint": "NOC|N0001920C0054|91166756.56|None|DEFINITIVE CONTRACT||2020-09-28|2023-03-31",
+      "detected_date": "2026-08-28",
+      "fingerprint": "NOC|N0001920C0054|156085721.0|None|DEFINITIVE CONTRACT||2020-09-28|2024-09-30",
       "potential_amount": null,
       "ticker": "NOC"
+    },
+    "TXT|6973GH23D00122": {
+      "award_amount": 0.0,
+      "award_id": "6973GH23D00122",
+      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
+      "description": "AJF TO PROCURE UP TO 18 MODIFIED COMMERCIAL KING AIR 360ER AIRCRAFT PER PHASE II OF THE FLIGHT PROGRAM FLEET MODERNIZATION (FPFM).",
+      "detected_date": "2026-08-28",
+      "fingerprint": "TXT|6973GH23D00122|0.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2023-09-22|",
+      "potential_amount": null,
+      "ticker": "TXT"
     }
   }
 }
