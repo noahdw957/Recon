@@ -1,4 +1,19 @@
 {
   "date": "2026-09-02",
-  "events": {}
+  "events": {
+    "BA|2026-08-31": {
+      "award_date": "2026-08-31",
+      "fingerprint": "BA|2026-08-31|0.00|2|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
+      "last_seen_utc": "2026-09-02T13:35:03.429842+00:00",
+      "projected_peak_pct_90d": 26.98488004150847,
+      "ticker": "BA"
+    },
+    "SATL|2026-08-31": {
+      "award_date": "2026-08-31",
+      "fingerprint": "SATL|2026-08-31|33054.61|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
+      "last_seen_utc": "2026-09-02T13:35:03.504529+00:00",
+      "projected_peak_pct_90d": 86.21028238935828,
+      "ticker": "SATL"
+    }
+  }
 }
