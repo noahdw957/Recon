@@ -1,32 +1,39 @@
 {
-  "date": "2026-09-03",
+  "date": "2026-09-04",
   "events": {
-    "BA|2026-09-01": {
-      "award_date": "2026-09-01",
-      "fingerprint": "BA|2026-09-01|0.00|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
-      "last_seen_utc": "2026-09-03T13:35:04.649270+00:00",
-      "projected_peak_pct_90d": 26.758282915399104,
+    "BA|2026-09-02": {
+      "award_date": "2026-09-02",
+      "fingerprint": "BA|2026-09-02|0.00|2|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
+      "last_seen_utc": "2026-09-04T13:34:21.635645+00:00",
+      "projected_peak_pct_90d": 19.10006339978684,
       "ticker": "BA"
     },
-    "HON|2026-09-01": {
-      "award_date": "2026-09-01",
-      "fingerprint": "HON|2026-09-01|0.00|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
-      "last_seen_utc": "2026-09-03T13:35:04.689603+00:00",
-      "projected_peak_pct_90d": 26.524535043063835,
-      "ticker": "HON"
+    "DE|2026-09-02": {
+      "award_date": "2026-09-02",
+      "fingerprint": "DE|2026-09-02|74485.52|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
+      "last_seen_utc": "2026-09-04T13:34:21.650000+00:00",
+      "projected_peak_pct_90d": 23.52003913135731,
+      "ticker": "DE"
     },
-    "SATL|2026-09-01": {
-      "award_date": "2026-09-01",
-      "fingerprint": "SATL|2026-09-01|137930.06|2|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
-      "last_seen_utc": "2026-09-03T13:35:04.706786+00:00",
-      "projected_peak_pct_90d": 84.89299131747791,
+    "RDW|2026-09-02": {
+      "award_date": "2026-09-02",
+      "fingerprint": "RDW|2026-09-02|109157.60|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
+      "last_seen_utc": "2026-09-04T13:34:21.693123+00:00",
+      "projected_peak_pct_90d": 74.66333116786731,
+      "ticker": "RDW"
+    },
+    "SATL|2026-09-02": {
+      "award_date": "2026-09-02",
+      "fingerprint": "SATL|2026-09-02|0.00|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
+      "last_seen_utc": "2026-09-04T13:34:21.700148+00:00",
+      "projected_peak_pct_90d": 82.99010204109966,
       "ticker": "SATL"
     },
-    "TXT|2026-09-01": {
-      "award_date": "2026-09-01",
-      "fingerprint": "TXT|2026-09-01|42137.63|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
-      "last_seen_utc": "2026-09-03T13:35:04.712512+00:00",
-      "projected_peak_pct_90d": 31.891067879948416,
+    "TXT|2026-09-02": {
+      "award_date": "2026-09-02",
+      "fingerprint": "TXT|2026-09-02|215.00|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
+      "last_seen_utc": "2026-09-04T13:34:21.707187+00:00",
+      "projected_peak_pct_90d": 29.81973906887756,
       "ticker": "TXT"
     }
   }
