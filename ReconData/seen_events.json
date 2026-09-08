@@ -890,6 +890,15 @@
     "scanner_version": "RECON_LIVE_V4.7_MD14_MD11_STRICT_AWARD_RECIPIENT_MATCH",
     "signal": "PASS"
   },
+  "GE|2026-09-06|3199498.08|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1": {
+    "first_seen_utc": "2026-09-08T13:36:27.149671+00:00",
+    "last_md11_score": 1.2656001920729423,
+    "last_md14_score": 1.6784347585272725,
+    "last_projected_peak_pct_90d": 8.5043509544722,
+    "model_version": "RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
+    "scanner_version": "RECON_LIVE_V4.7_MD14_MD11_STRICT_AWARD_RECIPIENT_MATCH",
+    "signal": "PASS"
+  },
   "HII|2026-08-20|4000.00|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1": {
     "first_seen_utc": "2026-08-24T15:30:41.139511+00:00",
     "last_md11_score": 3.2443739055868255,
