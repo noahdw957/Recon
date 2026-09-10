@@ -1,15 +1,145 @@
 {
-  "date": "2026-09-09",
+  "date": "2026-09-10",
   "events": {
-    "GD|47QFCA20F0018": {
-      "award_amount": 272576643.03,
-      "award_id": "47QFCA20F0018",
+    "ACN|19AQMM25F7037": {
+      "award_amount": 125967801.96,
+      "award_id": "19AQMM25F7037",
+      "award_type": "BPA CALL",
+      "description": "ESTABLISH NEW CONSOLIDATION CALL ORDER UNDER ILMS ACCENTURE BPA 19AQMM23A0218 OF POOLS 1 THROUGH 8.",
+      "detected_date": "2026-09-10",
+      "fingerprint": "ACN|19AQMM25F7037|125967801.96|None|BPA CALL||2025-06-01|2027-05-31",
+      "potential_amount": null,
+      "ticker": "ACN"
+    },
+    "ACN|47QFCA21F0065": {
+      "award_amount": 163413589.0,
+      "award_id": "47QFCA21F0065",
       "award_type": "DELIVERY ORDER",
-      "description": "INITIAL TASK ORDER AWARD.  CONTRACTOR WILL PROVIDE THE USG PROGRAM OFFICE WITH A FULL RANGE OF SOF ENTERPRISE IT SERVICES, O&M AND SUPPORT SERVICES TO SITEC J MISSION CAPABILITIES TO INCLUDE SOF IT ENTERPRISE.",
-      "detected_date": "2026-09-09",
-      "fingerprint": "GD|47QFCA20F0018|272576643.03|None|DELIVERY ORDER||2020-08-05|2025-08-04",
+      "description": "AWARDED TASK ORDER 47QFCA21F0065 FOR THE USMS MISSION MODERNIZATION PROGRAM.",
+      "detected_date": "2026-09-10",
+      "fingerprint": "ACN|47QFCA21F0065|163413589.0|None|DELIVERY ORDER||2021-08-06|2027-08-05",
+      "potential_amount": null,
+      "ticker": "ACN"
+    },
+    "ACN|89233125FNA000176": {
+      "award_amount": 91454866.0,
+      "award_id": "89233125FNA000176",
+      "award_type": "BPA CALL",
+      "description": "THE NNSA OCIO IS IN NEED OF IT OPERATIONS TO INCLUDE: SERVICE OPERATIONS AND MANAGEMENT SERVICES, PATCH MANAGEMENT, HOSTING AND CLOUD SERVICES, CYBERSECURITY SUPPORT SERVICES, UNIFIED COMMUNICATIONS AND MESSAGING SERVICES (UCMS) AND SOFTWARE DEVELOPM",
+      "detected_date": "2026-09-10",
+      "fingerprint": "ACN|89233125FNA000176|91454866.0|None|BPA CALL||2025-01-23|2027-01-22",
+      "potential_amount": null,
+      "ticker": "ACN"
+    },
+    "ACN|HSBP1017C00137": {
+      "award_amount": 370125532.06,
+      "award_id": "HSBP1017C00137",
+      "award_type": "DEFINITIVE CONTRACT",
+      "description": "DATA CENTER SUPPORT SERVICES FOR THE OFFICE OF INFORMATION&TECHNOLOGY.  IGF::OT::IGF",
+      "detected_date": "2026-09-10",
+      "fingerprint": "ACN|HSBP1017C00137|370125532.06|None|DEFINITIVE CONTRACT||2017-09-30|2023-06-30",
+      "potential_amount": null,
+      "ticker": "ACN"
+    },
+    "BAH|47QFCA22F0047": {
+      "award_amount": 1271565944.54,
+      "award_id": "47QFCA22F0047",
+      "award_type": "DELIVERY ORDER",
+      "description": "TASK ORDER AWARD",
+      "detected_date": "2026-09-10",
+      "fingerprint": "BAH|47QFCA22F0047|1271565944.54|None|DELIVERY ORDER||2022-09-06|2027-09-05",
+      "potential_amount": null,
+      "ticker": "BAH"
+    },
+    "BAH|47QFCA23F0014": {
+      "award_amount": 525452955.51,
+      "award_id": "47QFCA23F0014",
+      "award_type": "DELIVERY ORDER",
+      "description": "ENGINEERING DEVELOPMENT INTEGRATION AND TECHNOLOGYBASED SOLUTIONS EDITS",
+      "detected_date": "2026-09-10",
+      "fingerprint": "BAH|47QFCA23F0014|525452955.51|None|DELIVERY ORDER||2023-02-20|2027-02-23",
+      "potential_amount": null,
+      "ticker": "BAH"
+    },
+    "BAH|N6600124F3514": {
+      "award_amount": 51434914.74,
+      "award_id": "N6600124F3514",
+      "award_type": "DELIVERY ORDER",
+      "description": "CYBERSECURITY TECHNICAL AUTHORITY (CSTA) ENGINEERING SERVICES",
+      "detected_date": "2026-09-10",
+      "fingerprint": "BAH|N6600124F3514|51434914.74|None|DELIVERY ORDER||2024-09-09|2026-10-08",
+      "potential_amount": null,
+      "ticker": "BAH"
+    },
+    "CACI|47QFCA19F0006": {
+      "award_amount": 975282370.96,
+      "award_id": "47QFCA19F0006",
+      "award_type": "DELIVERY ORDER",
+      "description": "IGF::OT::IGF",
+      "detected_date": "2026-09-10",
+      "fingerprint": "CACI|47QFCA19F0006|975282370.96|None|DELIVERY ORDER||2019-05-20|2026-11-19",
+      "potential_amount": null,
+      "ticker": "CACI"
+    },
+    "ETN|47QSMS25D0003": {
+      "award_amount": 0.0,
+      "award_id": "47QSMS25D0003",
+      "award_type": "FSS",
+      "description": "FEDERAL SUPPLY SCHEDULE CONTRACT",
+      "detected_date": "2026-09-10",
+      "fingerprint": "ETN|47QSMS25D0003|0.0|None|FSS||2024-10-04|",
+      "potential_amount": null,
+      "ticker": "ETN"
+    },
+    "GD|36C10B24F0413": {
+      "award_amount": 71245072.81,
+      "award_id": "36C10B24F0413",
+      "award_type": "DELIVERY ORDER",
+      "description": "ENTERPRISE SERVICE DESK (ESD) TIER ONE SUPPORT",
+      "detected_date": "2026-09-10",
+      "fingerprint": "GD|36C10B24F0413|71245072.81|None|DELIVERY ORDER||2024-09-30|2027-03-29",
       "potential_amount": null,
       "ticker": "GD"
+    },
+    "LDOS|47QFCA23F0039": {
+      "award_amount": 329326821.72,
+      "award_id": "47QFCA23F0039",
+      "award_type": "DELIVERY ORDER",
+      "description": "HOMELAND ENTERPRISE INFORMATION TECHNOLOGY SECURE SERVICES AND SUPPORT (HEITS) TASK ORDER (47QFCA23F0039) AWARD FROM TASK ORDER REQUEST (47QFCA23R0021) IN SUPPORT OF THE DHS.",
+      "detected_date": "2026-09-10",
+      "fingerprint": "LDOS|47QFCA23F0039|329326821.72|None|DELIVERY ORDER||2023-09-11|2030-12-31",
+      "potential_amount": null,
+      "ticker": "LDOS"
+    },
+    "LDOS|693KA921D00008": {
+      "award_amount": 1770444383.29,
+      "award_id": "693KA921D00008",
+      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
+      "description": "CONTRACT TO PROVIDE ENGINEERING AND TECHNICAL SUPPORT SERVICES AS REQUIRED TO VARIOUS FAA ORGANIZATIONS.",
+      "detected_date": "2026-09-10",
+      "fingerprint": "LDOS|693KA921D00008|1770444383.29|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2020-12-08|",
+      "potential_amount": null,
+      "ticker": "LDOS"
+    },
+    "LDOS|80TECH21DA002": {
+      "award_amount": 965231972.91,
+      "award_id": "80TECH21DA002",
+      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
+      "description": "ADVANCED ENTERPRISE GLOBAL INFORMATION TECHNOLOGY SOLUTIONS CONTRACT.  AS THE AGENCY WIDE COMMUNICATIONS SERVICES CONTRACT, AEGIS IS THE AGENCY SOLUTION FOR PROVING TELECOMMUNICATIONS SERVICES, CLOUD COMPUTING SERVICES AND DATA CENTER SERVICES.",
+      "detected_date": "2026-09-10",
+      "fingerprint": "LDOS|80TECH21DA002|965231972.91|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2022-05-01|",
+      "potential_amount": null,
+      "ticker": "LDOS"
+    },
+    "LDOS|89243318CFE000003": {
+      "award_amount": 1063606916.0,
+      "award_id": "89243318CFE000003",
+      "award_type": "DEFINITIVE CONTRACT",
+      "description": "RESEARCH SUPPORT SERVICES (RSS)",
+      "detected_date": "2026-09-10",
+      "fingerprint": "LDOS|89243318CFE000003|1063606916.0|None|DEFINITIVE CONTRACT||2018-12-31|2028-12-30",
+      "potential_amount": null,
+      "ticker": "LDOS"
     }
   }
 }
