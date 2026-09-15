@@ -1,53 +1,11 @@
 {
-  "date": "2026-09-14",
+  "date": "2026-09-15",
   "events": {
-    "DE|2026-09-10": {
-      "award_date": "2026-09-10",
-      "fingerprint": "DE|2026-09-10|21.37|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
-      "last_seen_utc": "2026-09-14T20:29:25.685735+00:00",
-      "projected_peak_pct_90d": 26.967732576769702,
-      "ticker": "DE"
-    },
-    "DE|2026-09-11": {
-      "award_date": "2026-09-11",
-      "fingerprint": "DE|2026-09-11|324629.69|4|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
-      "last_seen_utc": "2026-09-14T20:29:25.725926+00:00",
-      "projected_peak_pct_90d": 24.138183009391973,
-      "ticker": "DE"
-    },
-    "EMR|2026-09-10": {
-      "award_date": "2026-09-10",
-      "fingerprint": "EMR|2026-09-10|90114.00|2|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
-      "last_seen_utc": "2026-09-14T20:29:25.650667+00:00",
-      "projected_peak_pct_90d": 23.209828785216143,
-      "ticker": "EMR"
-    },
-    "SATL|2026-09-10": {
-      "award_date": "2026-09-10",
-      "fingerprint": "SATL|2026-09-10|160500.64|2|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
-      "last_seen_utc": "2026-09-14T20:29:25.598734+00:00",
-      "projected_peak_pct_90d": 81.11407218725004,
-      "ticker": "SATL"
-    },
-    "SATL|2026-09-11": {
-      "award_date": "2026-09-11",
-      "fingerprint": "SATL|2026-09-11|24948.99|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
-      "last_seen_utc": "2026-09-14T20:29:25.691465+00:00",
-      "projected_peak_pct_90d": 80.85028768518077,
-      "ticker": "SATL"
-    },
-    "SPIR|2026-09-10": {
-      "award_date": "2026-09-10",
-      "fingerprint": "SPIR|2026-09-10|525500.00|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
-      "last_seen_utc": "2026-09-14T20:29:25.639360+00:00",
-      "projected_peak_pct_90d": 62.74487911609971,
-      "ticker": "SPIR"
-    },
-    "WWD|2026-09-12": {
-      "award_date": "2026-09-12",
-      "fingerprint": "WWD|2026-09-12|3450.00|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
-      "last_seen_utc": "2026-09-14T20:29:25.784185+00:00",
-      "projected_peak_pct_90d": 32.15735240704525,
+    "WWD|2026-09-13": {
+      "award_date": "2026-09-13",
+      "fingerprint": "WWD|2026-09-13|6900.00|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
+      "last_seen_utc": "2026-09-15T18:19:57.346133+00:00",
+      "projected_peak_pct_90d": 30.68133064139913,
       "ticker": "WWD"
     }
   }
