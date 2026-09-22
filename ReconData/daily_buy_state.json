@@ -1,40 +1,4 @@
 {
-  "date": "2026-09-21",
-  "events": {
-    "DE|2026-09-17": {
-      "award_date": "2026-09-17",
-      "fingerprint": "DE|2026-09-17|155696.15|2|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
-      "last_seen_utc": "2026-09-21T18:55:33.179367+00:00",
-      "projected_peak_pct_90d": 24.405599411491004,
-      "ticker": "DE"
-    },
-    "DE|2026-09-18": {
-      "award_date": "2026-09-18",
-      "fingerprint": "DE|2026-09-18|18729.04|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
-      "last_seen_utc": "2026-09-21T18:55:33.255033+00:00",
-      "projected_peak_pct_90d": 25.433454143789433,
-      "ticker": "DE"
-    },
-    "HII|2026-09-17": {
-      "award_date": "2026-09-17",
-      "fingerprint": "HII|2026-09-17|0.00|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
-      "last_seen_utc": "2026-09-21T18:55:33.143986+00:00",
-      "projected_peak_pct_90d": 31.116615256064314,
-      "ticker": "HII"
-    },
-    "SATL|2026-09-17": {
-      "award_date": "2026-09-17",
-      "fingerprint": "SATL|2026-09-17|19754.42|3|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
-      "last_seen_utc": "2026-09-21T18:55:33.102757+00:00",
-      "projected_peak_pct_90d": 83.01110207402499,
-      "ticker": "SATL"
-    },
-    "WWD|2026-09-17": {
-      "award_date": "2026-09-17",
-      "fingerprint": "WWD|2026-09-17|20700.00|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
-      "last_seen_utc": "2026-09-21T18:55:33.161411+00:00",
-      "projected_peak_pct_90d": 30.37062772092719,
-      "ticker": "WWD"
-    }
-  }
+  "date": "2026-09-22",
+  "events": {}
 }
