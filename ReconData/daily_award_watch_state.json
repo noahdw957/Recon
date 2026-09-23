@@ -1,4 +1,135 @@
 {
-  "date": "2026-09-22",
-  "events": {}
+  "date": "2026-09-23",
+  "events": {
+    "ACN|1333BJ21F00280023": {
+      "award_amount": 61548906.11,
+      "award_id": "1333BJ21F00280023",
+      "award_type": "DELIVERY ORDER",
+      "description": "NWOW FOR ALL 6 TRADEMARK PRODUCT LINES CONTRACT#: 47QTCK18D0036 / TO#: 1333BJ21F00280023",
+      "detected_date": "2026-09-23",
+      "fingerprint": "ACN|1333BJ21F00280023|61548906.11|None|DELIVERY ORDER||2020-12-23|2027-06-30",
+      "potential_amount": null,
+      "ticker": "ACN"
+    },
+    "ACN|19AQMM25F7037": {
+      "award_amount": 126565103.79,
+      "award_id": "19AQMM25F7037",
+      "award_type": "BPA CALL",
+      "description": "ESTABLISH NEW CONSOLIDATION CALL ORDER UNDER ILMS ACCENTURE BPA 19AQMM23A0218 OF POOLS 1 THROUGH 8.",
+      "detected_date": "2026-09-23",
+      "fingerprint": "ACN|19AQMM25F7037|126565103.79|None|BPA CALL||2025-06-01|2027-05-31",
+      "potential_amount": null,
+      "ticker": "ACN"
+    },
+    "ACN|75R60224D00037": {
+      "award_amount": 2500.0,
+      "award_id": "75R60224D00037",
+      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
+      "description": "PROVIDE THE SERVICES NECESSARY TO ENSURE THE ORGAN PROCUREMENT AND TRANSPLANTATION NETWORK (OPTN) AND THE BOARD OF DIRECTORS (BOD) CAN EFFECTIVELY CARRY OUT ALL MANDATED FUNCTIONS, INCLUDING THE OPERATION AND ENHANCEMENT OF THE OPTN.",
+      "detected_date": "2026-09-23",
+      "fingerprint": "ACN|75R60224D00037|2500.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2024-09-25|",
+      "potential_amount": null,
+      "ticker": "ACN"
+    },
+    "ACN|89603024F0002": {
+      "award_amount": 141861624.56,
+      "award_id": "89603024F0002",
+      "award_type": "BPA CALL",
+      "description": "CORE IT SERVICES - CBOSS BPA",
+      "detected_date": "2026-09-23",
+      "fingerprint": "ACN|89603024F0002|141861624.56|None|BPA CALL||2024-01-01|2026-11-30",
+      "potential_amount": null,
+      "ticker": "ACN"
+    },
+    "BAH|47QFCA24F0003": {
+      "award_amount": 281759623.0,
+      "award_id": "47QFCA24F0003",
+      "award_type": "DELIVERY ORDER",
+      "description": "SPACE SYSTEMS COMMAND (SSC) GROUND SYSTEMS ENGINEERING AND INTEGRATION SUPPORT (GSIS) TASK ORDER AWARD.",
+      "detected_date": "2026-09-23",
+      "fingerprint": "BAH|47QFCA24F0003|281759623.0|None|DELIVERY ORDER||2023-11-07|2026-11-06",
+      "potential_amount": null,
+      "ticker": "BAH"
+    },
+    "BAH|47QFCA25F0033": {
+      "award_amount": 294938566.0,
+      "award_id": "47QFCA25F0033",
+      "award_type": "DELIVERY ORDER",
+      "description": "AFRL SHADOW RAPTOR",
+      "detected_date": "2026-09-23",
+      "fingerprint": "BAH|47QFCA25F0033|294938566.0|None|DELIVERY ORDER||2025-09-12|2027-09-11",
+      "potential_amount": null,
+      "ticker": "BAH"
+    },
+    "BAH|47QFMA24F0029": {
+      "award_amount": 58586977.78,
+      "award_id": "47QFMA24F0029",
+      "award_type": "DELIVERY ORDER",
+      "description": "DMDC ZERO TRUST ENTERPRISE DATA SERVICES ZTEDS",
+      "detected_date": "2026-09-23",
+      "fingerprint": "BAH|47QFMA24F0029|58586977.78|None|DELIVERY ORDER||2024-09-25|2026-09-24",
+      "potential_amount": null,
+      "ticker": "BAH"
+    },
+    "GD|47QFCA25F0018": {
+      "award_amount": 221167167.0,
+      "award_id": "47QFCA25F0018",
+      "award_type": "DELIVERY ORDER",
+      "description": "STRATEGIC COMMAND INFORMATION TECHNOLOGY LIFECYCLE SUPPORT (SCITLS) TASK ORDER AWARD",
+      "detected_date": "2026-09-23",
+      "fingerprint": "GD|47QFCA25F0018|221167167.0|None|DELIVERY ORDER||2025-06-30|2027-06-29",
+      "potential_amount": null,
+      "ticker": "GD"
+    },
+    "GD|75FCMC25FJ022": {
+      "award_amount": 566353431.0,
+      "award_id": "75FCMC25FJ022",
+      "award_type": "DELIVERY ORDER",
+      "description": "THE CLOUD PRODUCTS AND TOOLS (CPT) CONTRACT IS USED TO PROVIDE CLOUD-BASED INFRASTRUCTURE FROM COMMERCIAL CLOUD SERVICE PROVIDERS (CSP) SUCH AS MICROSOFT AZURE GOVERNMENT (MAG) AND AMAZON WEB SERVICES (AWS), AS WELL AS SOFTWARE, HARDWARE, TOOLS, PROF",
+      "detected_date": "2026-09-23",
+      "fingerprint": "GD|75FCMC25FJ022|566353431.0|None|DELIVERY ORDER||2025-02-20|2027-06-30",
+      "potential_amount": null,
+      "ticker": "GD"
+    },
+    "LDOS|89243318CFE000003": {
+      "award_amount": 1082206149.0,
+      "award_id": "89243318CFE000003",
+      "award_type": "DEFINITIVE CONTRACT",
+      "description": "RESEARCH SUPPORT SERVICES (RSS)",
+      "detected_date": "2026-09-23",
+      "fingerprint": "LDOS|89243318CFE000003|1082206149.0|None|DEFINITIVE CONTRACT||2018-12-31|2028-12-30",
+      "potential_amount": null,
+      "ticker": "LDOS"
+    },
+    "NOC|N0003016C0015": {
+      "award_amount": 212435587.62,
+      "award_id": "N0003016C0015",
+      "award_type": "DEFINITIVE CONTRACT",
+      "description": "IGF::OT::IGF UK SUCCESSOR SUPPORT",
+      "detected_date": "2026-09-23",
+      "fingerprint": "NOC|N0003016C0015|212435587.62|None|DEFINITIVE CONTRACT||2015-11-10|2025-12-30",
+      "potential_amount": null,
+      "ticker": "NOC"
+    },
+    "NOC|N0003022C1013": {
+      "award_amount": 485455367.77,
+      "award_id": "N0003022C1013",
+      "award_type": "DEFINITIVE CONTRACT",
+      "description": "FY22-FY26 PROGRAM SUPPORT (SCN/UK, CPFF, LOE) FY22-FY26 LAUNCHER PRODUCTION",
+      "detected_date": "2026-09-23",
+      "fingerprint": "NOC|N0003022C1013|485455367.77|None|DEFINITIVE CONTRACT||2022-06-17|2028-12-14",
+      "potential_amount": null,
+      "ticker": "NOC"
+    },
+    "PSN|47QFCA23F0024": {
+      "award_amount": 534607268.05,
+      "award_id": "47QFCA23F0024",
+      "award_type": "DELIVERY ORDER",
+      "description": "BOLD VENTURE",
+      "detected_date": "2026-09-23",
+      "fingerprint": "PSN|47QFCA23F0024|534607268.05|None|DELIVERY ORDER||2023-04-27|2027-04-26",
+      "potential_amount": null,
+      "ticker": "PSN"
+    }
+  }
 }
