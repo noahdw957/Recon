@@ -1,315 +1,825 @@
 {
-  "date": "2026-09-24",
+  "date": "2026-09-28",
   "events": {
-    "ACN|19AQMM23F3419": {
-      "award_amount": 59826851.41,
-      "award_id": "19AQMM23F3419",
-      "award_type": "BPA CALL",
-      "description": "INTEGRATED LOGISTICS MANAGEMENT SYSTEM (ILMS) SYSTEMS INTEGRATION SERVICES - POOL 05 - CRITICAL MODULE SUPPORT",
-      "detected_date": "2026-09-24",
-      "fingerprint": "ACN|19AQMM23F3419|59826851.41|None|BPA CALL||2023-09-30|2025-09-29",
+    "ACN|15F06720F0003307": {
+      "award_amount": 57447463.04,
+      "award_id": "15F06720F0003307",
+      "award_type": "DELIVERY ORDER",
+      "description": "STOR 226 EPAS DEVELOPMENT AND O&M SERVICES FOR RPO",
+      "detected_date": "2026-09-28",
+      "fingerprint": "ACN|15F06720F0003307|57447463.04|None|DELIVERY ORDER||2020-09-30|2025-09-29",
       "potential_amount": null,
       "ticker": "ACN"
     },
-    "ACN|19AQMM23F3430": {
-      "award_amount": 70362855.38,
-      "award_id": "19AQMM23F3430",
+    "ACN|15F06723F0001532": {
+      "award_amount": 85618647.2,
+      "award_id": "15F06723F0001532",
+      "award_type": "DELIVERY ORDER",
+      "description": "BSAS - HR SOURCE IT DEVELOPMENT SUPPORT SERVICES",
+      "detected_date": "2026-09-28",
+      "fingerprint": "ACN|15F06723F0001532|85618647.2|None|DELIVERY ORDER||2023-09-30|2027-09-29",
+      "potential_amount": null,
+      "ticker": "ACN"
+    },
+    "ACN|19AQMM25F7037": {
+      "award_amount": 126652557.59,
+      "award_id": "19AQMM25F7037",
       "award_type": "BPA CALL",
-      "description": "INTEGRATED LOGISTICS MANAGEMENT SYSTEM (ILMS) SYSTEMS INTEGRATION SERVICES - POOL 14 - DIPLOMATIC SECURITY (DS)",
-      "detected_date": "2026-09-24",
-      "fingerprint": "ACN|19AQMM23F3430|70362855.38|None|BPA CALL||2023-09-30|2026-03-31",
+      "description": "ESTABLISH NEW CONSOLIDATION CALL ORDER UNDER ILMS ACCENTURE BPA 19AQMM23A0218 OF POOLS 1 THROUGH 8.",
+      "detected_date": "2026-09-28",
+      "fingerprint": "ACN|19AQMM25F7037|126652557.59|None|BPA CALL||2025-06-01|2027-05-31",
       "potential_amount": null,
       "ticker": "ACN"
     },
     "ACN|205AE926F00106": {
-      "award_amount": 144829925.14,
+      "award_amount": 142686525.52,
       "award_id": "205AE926F00106",
       "award_type": "DELIVERY ORDER",
       "description": "INTEGRATED ENTERPRISE PORTALS (IEP) 1.5 BRIDGE",
-      "detected_date": "2026-09-24",
-      "fingerprint": "ACN|205AE926F00106|144829925.14|None|DELIVERY ORDER||2026-08-15|2027-08-14",
+      "detected_date": "2026-09-28",
+      "fingerprint": "ACN|205AE926F00106|142686525.52|None|DELIVERY ORDER||2026-08-15|2027-08-14",
       "potential_amount": null,
       "ticker": "ACN"
     },
-    "ACN|70T02020F3KOIA019": {
-      "award_amount": 138296675.36,
-      "award_id": "70T02020F3KOIA019",
-      "award_type": "DELIVERY ORDER",
-      "description": "THE PURPOSE OF THIS ORDER IS TO PROVIDE ADAPTIVE MAINTENANCE SERVICES LIMITED TIER 2 SUPPORT SERVICES AND TIER 3 SUPPORT SERVICES FOR TECHNOLOGY SOLUTIONS DIVISION'S CREDENTIALING SYSTEMS.",
-      "detected_date": "2026-09-24",
-      "fingerprint": "ACN|70T02020F3KOIA019|138296675.36|None|DELIVERY ORDER||2021-12-07|2026-12-06",
-      "potential_amount": null,
-      "ticker": "ACN"
-    },
-    "ACN|89303019FIM000021": {
-      "award_amount": 61952291.32,
-      "award_id": "89303019FIM000021",
+    "ACN|89603024F0002": {
+      "award_amount": 141917148.24,
+      "award_id": "89603024F0002",
       "award_type": "BPA CALL",
-      "description": "BPA TASK ORDER ISSUED UNDER MASTER BPA 89303019AIM000005 FOR IT ODC PURCHASES SUPPORT SERVICES AND MATERIAL DELIVERY AND TRANSPORT FOR THE  U.S. DEPARTMENT OF ENERGY (DOE) OFFICE OF CHIEF INFORMATION OFFICER (OCIO)",
-      "detected_date": "2026-09-24",
-      "fingerprint": "ACN|89303019FIM000021|61952291.32|None|BPA CALL||2019-04-05|2022-03-06",
+      "description": "CORE IT SERVICES - CBOSS BPA",
+      "detected_date": "2026-09-28",
+      "fingerprint": "ACN|89603024F0002|141917148.24|None|BPA CALL||2024-01-01|2026-11-30",
       "potential_amount": null,
       "ticker": "ACN"
     },
-    "ACN|89303020FIM000046": {
-      "award_amount": 401671375.8,
-      "award_id": "89303020FIM000046",
+    "BAH|15F06724F0001275": {
+      "award_amount": 137573048.55,
+      "award_id": "15F06724F0001275",
+      "award_type": "DELIVERY ORDER",
+      "description": "EDAS SERVICES - ITSSS-2 SCOR 1",
+      "detected_date": "2026-09-28",
+      "fingerprint": "BAH|15F06724F0001275|137573048.55|None|DELIVERY ORDER||2024-09-30|2027-09-29",
+      "potential_amount": null,
+      "ticker": "BAH"
+    },
+    "BAH|1605DC19F00268": {
+      "award_amount": 130887751.51,
+      "award_id": "1605DC19F00268",
+      "award_type": "DELIVERY ORDER",
+      "description": "OPERATIONS AND MAINTENANCE SERVICES FOR THE DEPARTMENT OF LABOR NEW CORE FINANCIAL MANAGEMENT SYSTEM.",
+      "detected_date": "2026-09-28",
+      "fingerprint": "BAH|1605DC19F00268|130887751.51|None|DELIVERY ORDER||2019-09-30|2027-02-28",
+      "potential_amount": null,
+      "ticker": "BAH"
+    },
+    "BAH|2032H521F00301": {
+      "award_amount": 54115215.15,
+      "award_id": "2032H521F00301",
+      "award_type": "DELIVERY ORDER",
+      "description": "EA CORE BRIDGE 3. CONTRACTORS PROPOSAL,4/9/2021 IBR COVID-19",
+      "detected_date": "2026-09-28",
+      "fingerprint": "BAH|2032H521F00301|54115215.15|None|DELIVERY ORDER||2021-03-27|2022-09-26",
+      "potential_amount": null,
+      "ticker": "BAH"
+    },
+    "BAH|36C10B21N10150057": {
+      "award_amount": 753054309.17,
+      "award_id": "36C10B21N10150057",
+      "award_type": "DELIVERY ORDER",
+      "description": "THE CONTRACTOR SHALL PROVIDE SHIPPABLE PRODUCTS, OPERATIONS SUPPORT, AND SECURITY COMPLIANCE FOR THE HEALTH SERVICES PORTFOLIO.",
+      "detected_date": "2026-09-28",
+      "fingerprint": "BAH|36C10B21N10150057|753054309.17|None|DELIVERY ORDER||2021-09-30|2027-09-23",
+      "potential_amount": null,
+      "ticker": "BAH"
+    },
+    "BAH|47QDCB22F0006": {
+      "award_amount": 173981844.8,
+      "award_id": "47QDCB22F0006",
       "award_type": "BPA CALL",
-      "description": "BPA TASK ORDER ISSUED UNDER MASTER BPA 89303019AIM000005 FOR IT ODC PURCHASES SUPPORT SERVICES AND MATERIAL DELIVERY AND TRANSPORT FOR THE U.S. DEPARTMENT OF ENERGY (DOE) OFFICE OF CHIEF INFORMATION",
-      "detected_date": "2026-09-24",
-      "fingerprint": "ACN|89303020FIM000046|401671375.8|None|BPA CALL||2020-05-01|2024-04-30",
-      "potential_amount": null,
-      "ticker": "ACN"
-    },
-    "ACN|89303026FIM000188": {
-      "award_amount": 89468823.17,
-      "award_id": "89303026FIM000188",
-      "award_type": "BPA CALL",
-      "description": "BLANKET PURCHASE AGREEMENT (BPA) ORDER FOR CHIEF INFORMATION OFFICER (CIO) BUSINESS OPERATIONS SUPPORT SERVICES (CBOSS) 2.0. ORDER LEVEL MATERIALS (OLM)",
-      "detected_date": "2026-09-24",
-      "fingerprint": "ACN|89303026FIM000188|89468823.17|None|BPA CALL||2025-12-18|2027-12-17",
-      "potential_amount": null,
-      "ticker": "ACN"
-    },
-    "BAH|1333BJ21F00280021": {
-      "award_amount": 110371285.18,
-      "award_id": "1333BJ21F00280021",
-      "award_type": "DELIVERY ORDER",
-      "description": "NWOW FOR ALL 6 TRADEMARK PRODUCT LINES",
-      "detected_date": "2026-09-24",
-      "fingerprint": "BAH|1333BJ21F00280021|110371285.18|None|DELIVERY ORDER||2020-12-23|2027-06-30",
+      "description": "FAS CLOUD SERVICES SUPPORT",
+      "detected_date": "2026-09-28",
+      "fingerprint": "BAH|47QDCB22F0006|173981844.8|None|BPA CALL||2022-04-01|2027-03-31",
       "potential_amount": null,
       "ticker": "BAH"
     },
-    "BAH|36C10B26F0121": {
-      "award_amount": 172408503.01,
-      "award_id": "36C10B26F0121",
+    "BAH|47QFCA24F0026": {
+      "award_amount": 225773537.0,
+      "award_id": "47QFCA24F0026",
       "award_type": "DELIVERY ORDER",
-      "description": "BENEFITS ENTERPRISE SERVICES",
-      "detected_date": "2026-09-24",
-      "fingerprint": "BAH|36C10B26F0121|172408503.01|None|DELIVERY ORDER||2026-04-17|2027-04-16",
+      "description": "EUROPEAN THEATER OPERATIONS AND PLANNING SERVICES ETOPS",
+      "detected_date": "2026-09-28",
+      "fingerprint": "BAH|47QFCA24F0026|225773537.0|None|DELIVERY ORDER||2024-06-01|2027-04-30",
       "potential_amount": null,
       "ticker": "BAH"
     },
-    "BAH|47HAA022F0006": {
-      "award_amount": 52784587.88,
-      "award_id": "47HAA022F0006",
+    "BAH|47QFRA24F0006": {
+      "award_amount": 710477775.54,
+      "award_id": "47QFRA24F0006",
       "award_type": "DELIVERY ORDER",
-      "description": "CAPITAL PLANNING AND INVESTMENT CONTROL (CPIC) PROJECT MANAGEMENT OFFICE (PMO) SUPPORT SERVICES",
-      "detected_date": "2026-09-24",
-      "fingerprint": "BAH|47HAA022F0006|52784587.88|None|DELIVERY ORDER||2021-11-09|2026-07-08",
+      "description": "CDM DEFEND GROUP BD  BRIDGE TASK ORDER",
+      "detected_date": "2026-09-28",
+      "fingerprint": "BAH|47QFRA24F0006|710477775.54|None|DELIVERY ORDER||2024-05-01|2027-04-30",
       "potential_amount": null,
       "ticker": "BAH"
     },
-    "BAH|47QFCA22F0047": {
-      "award_amount": 1288575063.78,
-      "award_id": "47QFCA22F0047",
+    "BAH|47QFWA21F0026": {
+      "award_amount": 64540028.67,
+      "award_id": "47QFWA21F0026",
       "award_type": "DELIVERY ORDER",
-      "description": "TASK ORDER AWARD",
-      "detected_date": "2026-09-24",
-      "fingerprint": "BAH|47QFCA22F0047|1288575063.78|None|DELIVERY ORDER||2022-09-06|2027-09-05",
+      "description": "UNITED STATES AIR FORCE LIFE CYCLE MANAGEMENT CENTER AFLCMC SPECIAL ACCESS PROGRAMS SAP INFORMATION ASSURANCE  MISSION ASSURANCE IAMA SERVICES",
+      "detected_date": "2026-09-28",
+      "fingerprint": "BAH|47QFWA21F0026|64540028.67|None|DELIVERY ORDER||2021-08-03|2027-02-02",
       "potential_amount": null,
       "ticker": "BAH"
     },
-    "BAH|49100424F0001": {
-      "award_amount": 154938140.8,
-      "award_id": "49100424F0001",
-      "award_type": "DELIVERY ORDER",
-      "description": "INFORMATION TECHNOLOGY MISSION APPLICATION SUPPORT",
-      "detected_date": "2026-09-24",
-      "fingerprint": "BAH|49100424F0001|154938140.8|None|DELIVERY ORDER||2024-01-01|2026-12-31",
+    "BAH|47QRCA25DU052": {
+      "award_amount": 2500.0,
+      "award_id": "47QRCA25DU052",
+      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
+      "description": "ONE ACQUISITION SOLUTION FOR INTEGRATED SERVICES PLUS (OASIS+) UNRESTRICTED MULTIPLE AGENCY CONTRACT (MAC)",
+      "detected_date": "2026-09-28",
+      "fingerprint": "BAH|47QRCA25DU052|2500.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2024-12-17|",
       "potential_amount": null,
       "ticker": "BAH"
     },
-    "BA|GS10F0157Y": {
+    "BAH|75N91026D00002": {
       "award_amount": 0.0,
-      "award_id": "GS10F0157Y",
+      "award_id": "75N91026D00002",
+      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
+      "description": "THE PURPOSE OF THIS MULTIPLE-AWARD, COST-REIMBURSEMENT, IDIQ CONTRACT IS TO ACQUIRE BIOMEDICAL COMPUTING RESEARCH AND DEVELOPMENT SERVICES ASSISTING THE DIVISION OF CANCER EPIDEMIOLOGY AND GENETICS (DCEG) AND NCI BY PROVIDING BIOMEDICAL DATA MODELING",
+      "detected_date": "2026-09-28",
+      "fingerprint": "BAH|75N91026D00002|0.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2026-09-29|",
+      "potential_amount": null,
+      "ticker": "BAH"
+    },
+    "BAH|75N98122F00001": {
+      "award_amount": 217763822.95,
+      "award_id": "75N98122F00001",
+      "award_type": "DELIVERY ORDER",
+      "description": "BASE AWARD - FDA CDRH DIGITAL TRANSFORMATION 2.0 - BOOZ ALLEN HAMILTON",
+      "detected_date": "2026-09-28",
+      "fingerprint": "BAH|75N98122F00001|217763822.95|None|DELIVERY ORDER||2022-09-30|2027-09-29",
+      "potential_amount": null,
+      "ticker": "BAH"
+    },
+    "BAH|80TECH22DA002": {
+      "award_amount": 264108198.93,
+      "award_id": "80TECH22DA002",
+      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
+      "description": "THE PURPOSE OF THIS CONTRACT IS TO ACQUIRE CYBERSECURITY AND PRIVACY ENTERPRISE SOLUTIONS AND SERVICES AND RELATED SERVICES FOR THE OFFICE OF CHIEF INFORMATION OFFICER.",
+      "detected_date": "2026-09-28",
+      "fingerprint": "BAH|80TECH22DA002|264108198.93|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2022-05-31|",
+      "potential_amount": null,
+      "ticker": "BAH"
+    },
+    "BAH|89703024DAR000002": {
+      "award_amount": 0.0,
+      "award_id": "89703024DAR000002",
+      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
+      "description": "THE ADVANCED RESEARCH PROJECTS AGENCY-ENERGY (ARPA-E) HAS A REQUIREMENT FOR TECHNICAL, PROFESSIONAL, AND ADMINISTRATIVE SUPPORT SERVICES.",
+      "detected_date": "2026-09-28",
+      "fingerprint": "BAH|89703024DAR000002|0.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2024-03-01|",
+      "potential_amount": null,
+      "ticker": "BAH"
+    },
+    "BAH|GS07F0056V": {
+      "award_amount": 0.0,
+      "award_id": "GS07F0056V",
       "award_type": "FSS",
       "description": "FEDERAL SUPPLY SCHEDULE CONTRACT.",
-      "detected_date": "2026-09-24",
-      "fingerprint": "BA|GS10F0157Y|0.0|None|FSS||2012-01-18|",
+      "detected_date": "2026-09-28",
+      "fingerprint": "BAH|GS07F0056V|0.0|None|FSS||2008-11-01|",
+      "potential_amount": null,
+      "ticker": "BAH"
+    },
+    "BA|NNG08DA00C": {
+      "award_amount": 1139377845.71,
+      "award_id": "NNG08DA00C",
+      "award_type": "DEFINITIVE CONTRACT",
+      "description": "THIS CONTRACT IS TO DESIGN, DEVELOP, FABRICATE, INTEGRATE, TEST, SHIP, PROVIDE LAUNCH SUPPORT, CONDUCT ON-ORBIT CHECKOUT OPERATIONS AND PROVIDE SUSTAINING ENGINEERING SUPPORT FOR TWO TRACKING DATA RELAY SATELLITE (TDRS) SPACECRAFT. THE CONTRACT REQUIREMENTS ALSO INCLUDE THE DESIGN, ASSEMBLE, TEST, INSTALL AND VERIFICATION OF MODIFICATIONS TO THE WHITE SANDS COMPLEX NECESSARY TO MAKE THE GROUND TERMINALS FULLY COMPATIBLE WITH THE TDRS K PROGRAM SPACECRAFT DESIGN. THE CONTRACT ALSO INCLUDES OPTIONS FOR TWO ADDITIONAL SPACECRAFT.",
+      "detected_date": "2026-09-28",
+      "fingerprint": "BA|NNG08DA00C|1139377845.71|None|DEFINITIVE CONTRACT||2007-12-28|2026-02-05",
       "potential_amount": null,
       "ticker": "BA"
     },
-    "CACI|47QFCA25F0014": {
-      "award_amount": 66681178.0,
-      "award_id": "47QFCA25F0014",
+    "CACI|47QFRA24F0005": {
+      "award_amount": 977668179.13,
+      "award_id": "47QFRA24F0005",
       "award_type": "DELIVERY ORDER",
-      "description": "UNITED STATES AFRICA COMMAND USAFRICOM OPERATIONS PLANNING AND TRAINING SUPPORT 2 AOPTS 2 INITIAL AWARD.",
-      "detected_date": "2026-09-24",
-      "fingerprint": "CACI|47QFCA25F0014|66681178.0|None|DELIVERY ORDER||2025-05-01|2027-09-30",
+      "description": "CDM DEFEND GROUP A  BRIDGE TASK ORDER",
+      "detected_date": "2026-09-28",
+      "fingerprint": "CACI|47QFRA24F0005|977668179.13|None|DELIVERY ORDER||2024-05-01|2027-04-30",
       "potential_amount": null,
       "ticker": "CACI"
     },
-    "CACI|80JSC023DA010": {
-      "award_amount": 144579124.22,
-      "award_id": "80JSC023DA010",
-      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
-      "description": "SIMULATION AND SOFTWARE TECHNOLOGY SUPPORT AND RELATED SERVICES PRIMARILY FOR NASA JOHNSON SPACE CENTER (JSC) ENGINEERING DIRECTORATE'S SOFTWARE, ROBOTICS, AND SIMULATION DIVISION (ER),",
-      "detected_date": "2026-09-24",
-      "fingerprint": "CACI|80JSC023DA010|144579124.22|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2023-03-01|",
+    "CACI|70B04C24F00001129": {
+      "award_amount": 491195302.54,
+      "award_id": "70B04C24F00001129",
+      "award_type": "DELIVERY ORDER",
+      "description": "BORDER ENFORCEMENT APPLICATIONS FOR GOVERNMENT LEADING-EDGE INFORMATION TECHNOLOGY",
+      "detected_date": "2026-09-28",
+      "fingerprint": "CACI|70B04C24F00001129|491195302.54|None|DELIVERY ORDER||2024-09-30|2026-09-29",
       "potential_amount": null,
       "ticker": "CACI"
     },
-    "GD|140D0422F0528": {
-      "award_amount": 96168374.86,
-      "award_id": "140D0422F0528",
-      "award_type": "DELIVERY ORDER",
-      "description": "IHS SOFTWARE ENGINEERING SUPPORT SERVICES",
-      "detected_date": "2026-09-24",
-      "fingerprint": "GD|140D0422F0528|96168374.86|None|DELIVERY ORDER||2022-07-07|2027-07-06",
+    "CACI|70B06C26F00000087": {
+      "award_amount": 52932156.02,
+      "award_id": "70B06C26F00000087",
+      "award_type": "BPA CALL",
+      "description": "BACKGROUND INVESTIGATIVE SERVICES",
+      "detected_date": "2026-09-28",
+      "fingerprint": "CACI|70B06C26F00000087|52932156.02|None|BPA CALL||2026-02-01|2027-01-31",
       "potential_amount": null,
-      "ticker": "GD"
+      "ticker": "CACI"
     },
-    "GD|140D0424D0001": {
-      "award_amount": 1000000.0,
-      "award_id": "140D0424D0001",
-      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
-      "description": "IDIQ FOR IHS EHR MODERNIZATION",
-      "detected_date": "2026-09-24",
-      "fingerprint": "GD|140D0424D0001|1000000.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2023-11-08|",
+    "CACI|80TECH24CA002": {
+      "award_amount": 274965825.05,
+      "award_id": "80TECH24CA002",
+      "award_type": "DEFINITIVE CONTRACT",
+      "description": "NASA CONSOLIDATED APPLICATION AND PLATFORM SERVICES (NCAPS)",
+      "detected_date": "2026-09-28",
+      "fingerprint": "CACI|80TECH24CA002|274965825.05|None|DEFINITIVE CONTRACT||2024-07-03|2027-06-30",
       "potential_amount": null,
-      "ticker": "GD"
+      "ticker": "CACI"
     },
-    "GD|36C10D22N0007": {
-      "award_amount": 87781977.62,
-      "award_id": "36C10D22N0007",
-      "award_type": "DELIVERY ORDER",
-      "description": "TO FROM MULTIPLE AWARD IDIQ CONTRACT FOR THE VETERANS INTAKE, CONVERSION, AND COMMUNICATION SERVICES (VICCS) PROGRAM.  INCORPORATE DCMA APPROVED NOVATION AGREEMENT.",
-      "detected_date": "2026-09-24",
-      "fingerprint": "GD|36C10D22N0007|87781977.62|None|DELIVERY ORDER||2022-09-23|2027-09-22",
-      "potential_amount": null,
-      "ticker": "GD"
-    },
-    "GD|693KA718D00001": {
+    "CACI|GS00F268CA": {
       "award_amount": 0.0,
-      "award_id": "693KA718D00001",
-      "award_type": "INDEFINITE DELIVERY / REQUIREMENTS",
-      "description": "IGF::OT::IGF THIS CONTRACT PROVIDES SUPPORT FOR DAILY OPERATIONS AND SUSTAINMENT OF THE TRAFFIC FLOW MANAGEMENT SYSTEM (TFMS), AS WELL AS DEVELOPMENT, AND IMPLEMENTATIONS OF TFMS ENHANCEMENTS AND NEW CAPABILITIES.",
-      "detected_date": "2026-09-24",
-      "fingerprint": "GD|693KA718D00001|0.0|None|INDEFINITE DELIVERY / REQUIREMENTS||2017-10-13|",
-      "potential_amount": null,
-      "ticker": "GD"
-    },
-    "GD|GS35F393CA": {
-      "award_amount": 0.0,
-      "award_id": "GS35F393CA",
+      "award_id": "GS00F268CA",
       "award_type": "FSS",
       "description": "FEDERAL SUPPLY SCHEDULE CONTRACT",
-      "detected_date": "2026-09-24",
-      "fingerprint": "GD|GS35F393CA|0.0|None|FSS||2015-06-26|",
+      "detected_date": "2026-09-28",
+      "fingerprint": "CACI|GS00F268CA|0.0|None|FSS||2015-08-18|",
       "potential_amount": null,
-      "ticker": "GD"
+      "ticker": "CACI"
     },
-    "GD|GSQ0016AJ0009": {
-      "award_amount": 217877641.95,
-      "award_id": "GSQ0016AJ0009",
-      "award_type": "DELIVERY ORDER",
-      "description": "IGF::CT::IGF TASK ORDER (TO) GSQ0016AJ0009 IS HEREBY AWARDED TO SRA INTERNATIONAL, INC. TO PROVIDE THE ARMY NATIONAL GUARD (ARNG) WITH A WIDE RANGE OF IT AND INFRASTRUCTURE SUPPORT, AND PROGRAM MANAGEMENT SERVICES FOR ENTERPRISE OPERATIONS AND SECURITY SERVICES. THE PERIOD OF PERFORMANCE FOR THIS TO WILL BE FEBRUARY 1, 2016 THROUGH JANUARY 31, 2021. THE TOTAL VALUE OF THE TO WILL BE $247,355,568 AND THE TO WILL BE FUNDED IN THE AMOUNT OF $16,490,000 AT AWARD.",
-      "detected_date": "2026-09-24",
-      "fingerprint": "GD|GSQ0016AJ0009|217877641.95|None|DELIVERY ORDER||2015-11-20|2021-07-31",
-      "potential_amount": null,
-      "ticker": "GD"
-    },
-    "GD|HHSN316201200023W": {
+    "DE|GS30F0007T": {
       "award_amount": 0.0,
-      "award_id": "HHSN316201200023W",
-      "award_type": "GWAC",
-      "description": "IGF::OT::IGF  IT AND TELECOM - OTHER IT AND TELECOMMUNICATIONS",
-      "detected_date": "2026-09-24",
-      "fingerprint": "GD|HHSN316201200023W|0.0|None|GWAC||2012-05-24|",
+      "award_id": "GS30F0007T",
+      "award_type": "FSS",
+      "description": "FEDERAL SUPPLY SCHEDULE CONTRACT",
+      "detected_date": "2026-09-28",
+      "fingerprint": "DE|GS30F0007T|0.0|None|FSS||2006-11-29|",
+      "potential_amount": null,
+      "ticker": "DE"
+    },
+    "DE|GS30F0013U": {
+      "award_amount": 0.0,
+      "award_id": "GS30F0013U",
+      "award_type": "FSS",
+      "description": "FEDERAL SUPPLY SCHEDULE CONTRACT.",
+      "detected_date": "2026-09-28",
+      "fingerprint": "DE|GS30F0013U|0.0|None|FSS||2008-03-20|",
+      "potential_amount": null,
+      "ticker": "DE"
+    },
+    "GD|1305M424F0170": {
+      "award_amount": 99350257.88,
+      "award_id": "1305M424F0170",
+      "award_type": "DELIVERY ORDER",
+      "description": "TO-40: RDHPCS - NESCC COMPUTE AND FILE SYSTEMS UPDATE",
+      "detected_date": "2026-09-28",
+      "fingerprint": "GD|1305M424F0170|99350257.88|None|DELIVERY ORDER||2025-02-26|2031-09-30",
       "potential_amount": null,
       "ticker": "GD"
     },
-    "IBM|70T03020F3JCIO005": {
-      "award_amount": 52109963.66,
-      "award_id": "70T03020F3JCIO005",
+    "GD|19AQMM18C0185": {
+      "award_amount": 1795059878.25,
+      "award_id": "19AQMM18C0185",
+      "award_type": "DEFINITIVE CONTRACT",
+      "description": "GLOBAL SECURITY ENGINEERING&SUPPLY CHAIN SERVICES.",
+      "detected_date": "2026-09-28",
+      "fingerprint": "GD|19AQMM18C0185|1795059878.25|None|DEFINITIVE CONTRACT||2019-06-19|2029-08-07",
+      "potential_amount": null,
+      "ticker": "GD"
+    },
+    "GD|47QFCA23F0040": {
+      "award_amount": 200649550.71,
+      "award_id": "47QFCA23F0040",
       "award_type": "DELIVERY ORDER",
-      "description": "FLEXIBLE AGILE SCALABLE TEAM-SECURITY OPERATIONS PORTFOLIO",
-      "detected_date": "2026-09-24",
-      "fingerprint": "IBM|70T03020F3JCIO005|52109963.66|None|DELIVERY ORDER||2020-05-08|2024-05-07",
+      "description": "ST ELIZABETHS TECHNOLOGY SERVICES II  SETS II",
+      "detected_date": "2026-09-28",
+      "fingerprint": "GD|47QFCA23F0040|200649550.71|None|DELIVERY ORDER||2023-09-27|2028-09-30",
+      "potential_amount": null,
+      "ticker": "GD"
+    },
+    "GD|47QFCA25F0018": {
+      "award_amount": 238812143.0,
+      "award_id": "47QFCA25F0018",
+      "award_type": "DELIVERY ORDER",
+      "description": "STRATEGIC COMMAND INFORMATION TECHNOLOGY LIFECYCLE SUPPORT (SCITLS) TASK ORDER AWARD",
+      "detected_date": "2026-09-28",
+      "fingerprint": "GD|47QFCA25F0018|238812143.0|None|DELIVERY ORDER||2025-06-30|2027-06-29",
+      "potential_amount": null,
+      "ticker": "GD"
+    },
+    "GD|47QFMA25F0016": {
+      "award_amount": 114423092.1,
+      "award_id": "47QFMA25F0016",
+      "award_type": "DELIVERY ORDER",
+      "description": "ENTERPRISE MISSION INFORMATION TECHNOLOGY SERVICES 2 EMITS 2",
+      "detected_date": "2026-09-28",
+      "fingerprint": "GD|47QFMA25F0016|114423092.1|None|DELIVERY ORDER||2025-09-24|2027-01-31",
+      "potential_amount": null,
+      "ticker": "GD"
+    },
+    "GD|75ACF121F80034": {
+      "award_amount": 126379206.81,
+      "award_id": "75ACF121F80034",
+      "award_type": "DELIVERY ORDER",
+      "description": "MISSION SUPPORT SERVICES FOR OFFICE OF REFUGEE RESETTLEMENT (ORR) AND THE OFFICE ON TRAFFICKING IN PERSONS (OTIP)",
+      "detected_date": "2026-09-28",
+      "fingerprint": "GD|75ACF121F80034|126379206.81|None|DELIVERY ORDER||2021-09-22|2025-09-21",
+      "potential_amount": null,
+      "ticker": "GD"
+    },
+    "GD|75FCMC19F0113": {
+      "award_amount": 116828113.0,
+      "award_id": "75FCMC19F0113",
+      "award_type": "DELIVERY ORDER",
+      "description": "PROGRAM INTEGRITY MODELING AND ANALYTIC SUPPORT CONTRACT",
+      "detected_date": "2026-09-28",
+      "fingerprint": "GD|75FCMC19F0113|116828113.0|None|DELIVERY ORDER||2019-09-25|2027-09-23",
+      "potential_amount": null,
+      "ticker": "GD"
+    },
+    "GD|91003122C0003": {
+      "award_amount": 203881353.05,
+      "award_id": "91003122C0003",
+      "award_type": "DEFINITIVE CONTRACT",
+      "description": "DEVELOP THE AWARD ELIGIBILITY DETERMINATION (AED) SYSTEM - A MODERN, FLEXIBLE, AND EFFICIENT SYSTEM TO CALCULATE AID ELIGIBILITY FOR STUDENTS, PARENTS, AND POSTSECONDARY INSTITUTIONS.  THIS REPLACES THE CENTRAL PROCESSING SYSTEM.",
+      "detected_date": "2026-09-28",
+      "fingerprint": "GD|91003122C0003|203881353.05|None|DEFINITIVE CONTRACT||2022-03-31|2027-09-29",
+      "potential_amount": null,
+      "ticker": "GD"
+    },
+    "GD|DTFAWA10D00003CALL0002": {
+      "award_amount": 58479150.77,
+      "award_id": "DTFAWA10D00003CALL0002",
+      "award_type": "DELIVERY ORDER",
+      "description": "EACH DELIVERY AND/OR TASK ORDER WILL OBLIGATE FUNDING FOR SERVICES ORDERED UNDER THIS CONTRACT.  TAS::69 1301::TAS",
+      "detected_date": "2026-09-28",
+      "fingerprint": "GD|DTFAWA10D00003CALL0002|58479150.77|None|DELIVERY ORDER||2009-11-25|2026-10-31",
+      "potential_amount": null,
+      "ticker": "GD"
+    },
+    "GD|DTFAWA10D00003CALL0005": {
+      "award_amount": 125606486.51,
+      "award_id": "DTFAWA10D00003CALL0005",
+      "award_type": "DELIVERY ORDER",
+      "description": "FAA ADMINISTRATIVE VOICE ENTERPRISE SERVICES (FAVES)",
+      "detected_date": "2026-09-28",
+      "fingerprint": "GD|DTFAWA10D00003CALL0005|125606486.51|None|DELIVERY ORDER||2010-05-28|2026-10-31",
+      "potential_amount": null,
+      "ticker": "GD"
+    },
+    "GD|FA852022D0003": {
+      "award_amount": 0.0,
+      "award_id": "FA852022D0003",
+      "award_type": "INDEFINITE DELIVERY / REQUIREMENTS",
+      "description": "M61A1 VULCAN CANNON 20MM",
+      "detected_date": "2026-09-28",
+      "fingerprint": "GD|FA852022D0003|0.0|None|INDEFINITE DELIVERY / REQUIREMENTS||2021-12-15|",
+      "potential_amount": null,
+      "ticker": "GD"
+    },
+    "GD|GS00F057CA": {
+      "award_amount": 0.0,
+      "award_id": "GS00F057CA",
+      "award_type": "FSS",
+      "description": "FEDERAL SUPPLY SCHEDULE CONTRACT",
+      "detected_date": "2026-09-28",
+      "fingerprint": "GD|GS00F057CA|0.0|None|FSS||2015-03-03|",
+      "potential_amount": null,
+      "ticker": "GD"
+    },
+    "GD|GS00F313CA": {
+      "award_amount": 0.0,
+      "award_id": "GS00F313CA",
+      "award_type": "FSS",
+      "description": "FEDERAL SUPPLY SCHEDULE CONTRACT",
+      "detected_date": "2026-09-28",
+      "fingerprint": "GD|GS00F313CA|0.0|None|FSS||2015-09-15|",
+      "potential_amount": null,
+      "ticker": "GD"
+    },
+    "GD|GS35F080CA": {
+      "award_amount": 0.0,
+      "award_id": "GS35F080CA",
+      "award_type": "FSS",
+      "description": "FEDERAL SUPPLY SCHEDULE CONTRACT",
+      "detected_date": "2026-09-28",
+      "fingerprint": "GD|GS35F080CA|0.0|None|FSS||2014-11-21|",
+      "potential_amount": null,
+      "ticker": "GD"
+    },
+    "GD|GST0011AJ0021": {
+      "award_amount": 264476264.69,
+      "award_id": "GST0011AJ0021",
+      "award_type": "DELIVERY ORDER",
+      "description": "THE SCOPE OF DHS TIP IS TO CREATE A PHYSICALLY AND LOGICALLY DIVERSE AND REDUNDANT CAMPUS INFRASTRUCTURE THAT WILL SUPPORT EVERYTHING ON AND WITHIN THE PERIMETER FENCE.   OPEN SYSTEM INTERCONNECTION REFERENCE MODEL (OSI REFERENCE MODEL OR OSI MODEL) LAYER 1 - PHYSICAL LAYER AND LAYER 2 - DATA-LINK LAYER ARE INCLUDED IN THEIR ENTIRETY FOR THE CAMPUS.  ASPECTS OF LAYER 3 - NETWORK LAYER ARE PARTIALLY INCLUDED, AS ARE HIGHER LAYERS FOR ON-SITE SPECIALIZED SYSTEMS (E.G., SECURITY, SMART BUILDINGS APPLICATIONS, AND FIRE SAFETY SYSTEMS.)",
+      "detected_date": "2026-09-28",
+      "fingerprint": "GD|GST0011AJ0021|264476264.69|None|DELIVERY ORDER||2011-06-06|2018-06-05",
+      "potential_amount": null,
+      "ticker": "GD"
+    },
+    "GD|N0003024C1005": {
+      "award_amount": 517636406.08,
+      "award_id": "N0003024C1005",
+      "award_type": "DEFINITIVE CONTRACT",
+      "description": "CONSOLIDATION AND FOLLOW-ON TO 22C1003 AND 22C1005. FY24 FIRE CONTROL OMNIBUS. GFE TRANSPORTATION (SCN).",
+      "detected_date": "2026-09-28",
+      "fingerprint": "GD|N0003024C1005|517636406.08|None|DEFINITIVE CONTRACT||2023-10-01|2030-10-01",
+      "potential_amount": null,
+      "ticker": "GD"
+    },
+    "GE|80AFRC22DA001": {
+      "award_amount": 0.0,
+      "award_id": "80AFRC22DA001",
+      "award_type": "INDEFINITE DELIVERY / REQUIREMENTS",
+      "description": "NASA AFRC HAS A REQUIREMENT FOR ALL RESOURCES NECESSARY TO DELIVER AND/OR PERFORM THE GE F414-100 ENGINE PROPULSION SUSTAINMENT SUPPORT (PSS) ASSOCIATED WITH MAINTAINING FLIGHTWORTHINESS.",
+      "detected_date": "2026-09-28",
+      "fingerprint": "GE|80AFRC22DA001|0.0|None|INDEFINITE DELIVERY / REQUIREMENTS||2022-10-01|",
+      "potential_amount": null,
+      "ticker": "GE"
+    },
+    "HON|GS07F0097W": {
+      "award_amount": 0.0,
+      "award_id": "GS07F0097W",
+      "award_type": "FSS",
+      "description": "FEDERAL SUPPLY SCHEDULE CONTRACT.",
+      "detected_date": "2026-09-28",
+      "fingerprint": "HON|GS07F0097W|0.0|None|FSS||2009-11-18|",
+      "potential_amount": null,
+      "ticker": "HON"
+    },
+    "HON|GS21F0134W": {
+      "award_amount": 0.0,
+      "award_id": "GS21F0134W",
+      "award_type": "FSS",
+      "description": "FEDERAL SUPPLY SCHEDULE CONTRACT.",
+      "detected_date": "2026-09-28",
+      "fingerprint": "HON|GS21F0134W|0.0|None|FSS||2010-03-23|",
+      "potential_amount": null,
+      "ticker": "HON"
+    },
+    "IBM|28321325FDS030162": {
+      "award_amount": 77398572.0,
+      "award_id": "28321325FDS030162",
+      "award_type": "DELIVERY ORDER",
+      "description": "ORDER FOR Z17 CLINS OFF THE IBM CONTRACT",
+      "detected_date": "2026-09-28",
+      "fingerprint": "IBM|28321325FDS030162|77398572.0|None|DELIVERY ORDER||2025-09-26|2026-12-31",
       "potential_amount": null,
       "ticker": "IBM"
     },
-    "KTOS|47QFCA20C0019": {
-      "award_amount": 371264442.6,
-      "award_id": "47QFCA20C0019",
-      "award_type": "DEFINITIVE CONTRACT",
-      "description": "COSMIC AES SBIR III CONTRACT 47QFCA20C0019. THIS CONTRACT IS FOR OTHER FUNCTIONS.",
-      "detected_date": "2026-09-24",
-      "fingerprint": "KTOS|47QFCA20C0019|371264442.6|None|DEFINITIVE CONTRACT||2020-06-11|2027-06-10",
-      "potential_amount": null,
-      "ticker": "KTOS"
-    },
-    "LDOS|29FTC121F0002": {
-      "award_amount": 94595376.01,
-      "award_id": "29FTC121F0002",
-      "award_type": "BPA CALL",
-      "description": "SENTINEL NETWORK SERVICES",
-      "detected_date": "2026-09-24",
-      "fingerprint": "LDOS|29FTC121F0002|94595376.01|None|BPA CALL||2020-11-30|2026-11-30",
-      "potential_amount": null,
-      "ticker": "LDOS"
-    },
-    "LDOS|693KA721C00014": {
-      "award_amount": 922108549.66,
-      "award_id": "693KA721C00014",
-      "award_type": "DEFINITIVE CONTRACT",
-      "description": "THE PURPOSE OF THIS CONTRACT IS TO ENHANCE AND MAINTAIN THE EN ROUTE AUTOMATION AND MODERNIZATION (ERAM), INCLUDING THE EN ROUTE INFORMATION DISPLAY SYSTEM (ERIDS), AND TO PRODUCE, IMPLEMENT, AND PROVIDE SUPPORT FOR A LIMITED NUMBER OF ERAM/ERIDS SYS",
-      "detected_date": "2026-09-24",
-      "fingerprint": "LDOS|693KA721C00014|922108549.66|None|DEFINITIVE CONTRACT||2021-06-15|2041-05-24",
-      "potential_amount": null,
-      "ticker": "LDOS"
-    },
-    "LDOS|70T04025C7672N001": {
-      "award_amount": 457768635.89,
-      "award_id": "70T04025C7672N001",
-      "award_type": "DEFINITIVE CONTRACT",
-      "description": "CHECKPOINT MAINTENANCE",
-      "detected_date": "2026-09-24",
-      "fingerprint": "LDOS|70T04025C7672N001|457768635.89|None|DEFINITIVE CONTRACT||2025-01-01|2027-03-31",
-      "potential_amount": null,
-      "ticker": "LDOS"
-    },
-    "LDOS|75N91021F00013": {
-      "award_amount": 98565258.55,
-      "award_id": "75N91021F00013",
-      "award_type": "DELIVERY ORDER",
-      "description": "ENABLING NCI CLINICAL & RESEARCH DATA SHARING",
-      "detected_date": "2026-09-24",
-      "fingerprint": "LDOS|75N91021F00013|98565258.55|None|DELIVERY ORDER||2021-08-31|2028-02-28",
-      "potential_amount": null,
-      "ticker": "LDOS"
-    },
-    "NOC|6973GH26D00051": {
+    "IBM|28321326D00060004": {
       "award_amount": 0.0,
-      "award_id": "6973GH26D00051",
+      "award_id": "28321326D00060004",
       "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
-      "description": "ETVS-STVS CONTRACTOR REPAIR SERVICE CONTRACT",
-      "detected_date": "2026-09-24",
-      "fingerprint": "NOC|6973GH26D00051|0.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2026-09-22|",
+      "description": "INDEFINITE DELIVERY-INDEFINITE QUANTITY CONTRACT WITH TERMS FOR ISSUING FIRM-FIXED PRICE TASK AND DELIVERY ORDERS FOR THE SOCIAL SECURITY ADMINISTRATION'S IBM UNIFIED MAINFRAME ARCHITECTURE.",
+      "detected_date": "2026-09-28",
+      "fingerprint": "IBM|28321326D00060004|0.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2026-09-25|",
       "potential_amount": null,
-      "ticker": "NOC"
+      "ticker": "IBM"
     },
-    "NOC|FA875023F0501": {
-      "award_amount": 359073982.0,
-      "award_id": "FA875023F0501",
+    "IBM|36C10D21N0013": {
+      "award_amount": 79418886.25,
+      "award_id": "36C10D21N0013",
       "award_type": "DELIVERY ORDER",
-      "description": "INTELLIGENCE SYSTEMS INFRASTRUCTURE, TOOLS, AND ENHANCEMENTS (INSITE)",
-      "detected_date": "2026-09-24",
-      "fingerprint": "NOC|FA875023F0501|359073982.0|None|DELIVERY ORDER||2022-12-05|2027-12-03",
+      "description": "LOGICAL FOLLOW-ON TASK ORDER FOR ADDITIONAL PRESUMPTIVE .",
+      "detected_date": "2026-09-28",
+      "fingerprint": "IBM|36C10D21N0013|79418886.25|None|DELIVERY ORDER||2021-09-30|2023-09-29",
+      "potential_amount": null,
+      "ticker": "IBM"
+    },
+    "IBM|36C10E20N0028": {
+      "award_amount": 68364914.12,
+      "award_id": "36C10E20N0028",
+      "award_type": "DELIVERY ORDER",
+      "description": "TASK ORDER #2 AGAINST THE VICCS IDIQ CONTRACT, FOR MAIL AUTOMATION SERVICES (MAS), IN SUPPORT OF THE VBA OFFICE OF BUSINESS AND PROCESS INTEGRATION (OBPI)",
+      "detected_date": "2026-09-28",
+      "fingerprint": "IBM|36C10E20N0028|68364914.12|None|DELIVERY ORDER||2019-12-13|2023-09-30",
+      "potential_amount": null,
+      "ticker": "IBM"
+    },
+    "IBM|47QRCA25DU622": {
+      "award_amount": 2500.0,
+      "award_id": "47QRCA25DU622",
+      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
+      "description": "ONE ACQUISITION SOLUTION FOR INTEGRATED SERVICES PLUS (OASIS+) UNRESTRICTED MULTIPLE AGENCY CONTRACT (MAC)",
+      "detected_date": "2026-09-28",
+      "fingerprint": "IBM|47QRCA25DU622|2500.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2025-04-15|",
+      "potential_amount": null,
+      "ticker": "IBM"
+    },
+    "IBM|GS02F0036U": {
+      "award_amount": 0.0,
+      "award_id": "GS02F0036U",
+      "award_type": "FSS",
+      "description": "FEDERAL SUPPLY SCHEDULE CONTRACT.",
+      "detected_date": "2026-09-28",
+      "fingerprint": "IBM|GS02F0036U|0.0|None|FSS||2008-01-07|",
+      "potential_amount": null,
+      "ticker": "IBM"
+    },
+    "LDOS|47QFCA21C0002": {
+      "award_amount": 1151643464.2,
+      "award_id": "47QFCA21C0002",
+      "award_type": "DEFINITIVE CONTRACT",
+      "description": "MILITARY AND FAMILY LIFE COUNSELING. REQUIREMENT FOR WORLDWIDE NON MEDICAL CONFIDENTIAL COUNSELING SERVICES.",
+      "detected_date": "2026-09-28",
+      "fingerprint": "LDOS|47QFCA21C0002|1151643464.2|None|DEFINITIVE CONTRACT||2021-02-01|2027-01-31",
+      "potential_amount": null,
+      "ticker": "LDOS"
+    },
+    "LDOS|47QFCA26C0001": {
+      "award_amount": 82317217.0,
+      "award_id": "47QFCA26C0001",
+      "award_type": "DEFINITIVE CONTRACT",
+      "description": "THIS CONTRACT IS FOR SERVICES IN SUPPORT OF THE MILITARY ONESOURCE PROGRAM FOR MILITARY MEMBERS AND THEIR FAMILIES, SIMILAR TO A COMMERCIAL EMPLOYEE ASSISTANCE PROGRAM (EAP).",
+      "detected_date": "2026-09-28",
+      "fingerprint": "LDOS|47QFCA26C0001|82317217.0|None|DEFINITIVE CONTRACT||2026-04-17|2027-06-30",
+      "potential_amount": null,
+      "ticker": "LDOS"
+    },
+    "LDOS|47QFMA23F0023": {
+      "award_amount": 86757125.6,
+      "award_id": "47QFMA23F0023",
+      "award_type": "DELIVERY ORDER",
+      "description": "DCPDS SOFTWARE SUSTAINMENT SUPPORT SERVICES",
+      "detected_date": "2026-09-28",
+      "fingerprint": "LDOS|47QFMA23F0023|86757125.6|None|DELIVERY ORDER||2023-09-28|2026-09-27",
+      "potential_amount": null,
+      "ticker": "LDOS"
+    },
+    "LDOS|47QRCA25DU210": {
+      "award_amount": 2500.0,
+      "award_id": "47QRCA25DU210",
+      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
+      "description": "ONE ACQUISITION SOLUTION FOR INTEGRATED SERVICES PLUS (OASIS+) UNRESTRICTED MULTIPLE AGENCY CONTRACT (MAC)",
+      "detected_date": "2026-09-28",
+      "fingerprint": "LDOS|47QRCA25DU210|2500.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2024-12-17|",
+      "potential_amount": null,
+      "ticker": "LDOS"
+    },
+    "LDOS|47QTCA20D00E6": {
+      "award_amount": 0.0,
+      "award_id": "47QTCA20D00E6",
+      "award_type": "FSS",
+      "description": "FEDERAL SUPPLY SCHEDULE CONTRACT",
+      "detected_date": "2026-09-28",
+      "fingerprint": "LDOS|47QTCA20D00E6|0.0|None|FSS||2020-08-27|",
+      "potential_amount": null,
+      "ticker": "LDOS"
+    },
+    "LDOS|693KA921D00008": {
+      "award_amount": 1791153115.59,
+      "award_id": "693KA921D00008",
+      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
+      "description": "CONTRACT TO PROVIDE ENGINEERING AND TECHNICAL SUPPORT SERVICES AS REQUIRED TO VARIOUS FAA ORGANIZATIONS.",
+      "detected_date": "2026-09-28",
+      "fingerprint": "LDOS|693KA921D00008|1791153115.59|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2020-12-08|",
+      "potential_amount": null,
+      "ticker": "LDOS"
+    },
+    "LDOS|70FA2022F00000016": {
+      "award_amount": 73973761.34,
+      "award_id": "70FA2022F00000016",
+      "award_type": "DELIVERY ORDER",
+      "description": "CDP TRAINING DELIVERY SERVICES",
+      "detected_date": "2026-09-28",
+      "fingerprint": "LDOS|70FA2022F00000016|73973761.34|None|DELIVERY ORDER||2022-03-14|2027-04-15",
+      "potential_amount": null,
+      "ticker": "LDOS"
+    },
+    "LDOS|75FCMC23F0076": {
+      "award_amount": 204271007.25,
+      "award_id": "75FCMC23F0076",
+      "award_type": "DELIVERY ORDER",
+      "description": "END - USER CENTRIC IT SUPPORT 2.0 (ECIS 2.0)",
+      "detected_date": "2026-09-28",
+      "fingerprint": "LDOS|75FCMC23F0076|204271007.25|None|DELIVERY ORDER||2023-06-15|2027-08-31",
+      "potential_amount": null,
+      "ticker": "LDOS"
+    },
+    "LDOS|75N91025F00012": {
+      "award_amount": 137656019.0,
+      "award_id": "75N91025F00012",
+      "award_type": "DELIVERY ORDER",
+      "description": "NIAID DCR FY26-27 OPERATIONAL TASK ORDER",
+      "detected_date": "2026-09-28",
+      "fingerprint": "LDOS|75N91025F00012|137656019.0|None|DELIVERY ORDER||2025-08-31|2026-08-30",
+      "potential_amount": null,
+      "ticker": "LDOS"
+    },
+    "LDOS|75N91025F00016": {
+      "award_amount": 483791548.05,
+      "award_id": "75N91025F00016",
+      "award_type": "DELIVERY ORDER",
+      "description": "NCI OPERATIONAL TASK ORDER, FY26-FY27",
+      "detected_date": "2026-09-28",
+      "fingerprint": "LDOS|75N91025F00016|483791548.05|None|DELIVERY ORDER||2025-08-31|2027-08-30",
+      "potential_amount": null,
+      "ticker": "LDOS"
+    },
+    "LDOS|80NSSC19D0001": {
+      "award_amount": 802581353.89,
+      "award_id": "80NSSC19D0001",
+      "award_type": "INDEFINITE DELIVERY / DEFINITE QUANTITY",
+      "description": "IT AND TELECOM - END USER AS A SERVICE: CONFERENCING, AV, HELPDESK, DESKSIDE SUPPORT, WORKSPACE, PRI. NASA END-USER SERVICES & TECHNOLOGIES (NEST)",
+      "detected_date": "2026-09-28",
+      "fingerprint": "LDOS|80NSSC19D0001|802581353.89|None|INDEFINITE DELIVERY / DEFINITE QUANTITY||2019-03-01|",
+      "potential_amount": null,
+      "ticker": "LDOS"
+    },
+    "LDOS|80TECH21DA002": {
+      "award_amount": 984202944.6,
+      "award_id": "80TECH21DA002",
+      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
+      "description": "ADVANCED ENTERPRISE GLOBAL INFORMATION TECHNOLOGY SOLUTIONS CONTRACT.  AS THE AGENCY WIDE COMMUNICATIONS SERVICES CONTRACT, AEGIS IS THE AGENCY SOLUTION FOR PROVING TELECOMMUNICATIONS SERVICES, CLOUD COMPUTING SERVICES AND DATA CENTER SERVICES.",
+      "detected_date": "2026-09-28",
+      "fingerprint": "LDOS|80TECH21DA002|984202944.6|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2022-05-01|",
+      "potential_amount": null,
+      "ticker": "LDOS"
+    },
+    "LDOS|89243318CFE000003": {
+      "award_amount": 1083287885.0,
+      "award_id": "89243318CFE000003",
+      "award_type": "DEFINITIVE CONTRACT",
+      "description": "RESEARCH SUPPORT SERVICES (RSS)",
+      "detected_date": "2026-09-28",
+      "fingerprint": "LDOS|89243318CFE000003|1083287885.0|None|DEFINITIVE CONTRACT||2018-12-31|2028-12-30",
+      "potential_amount": null,
+      "ticker": "LDOS"
+    },
+    "LDOS|GS00F022CA": {
+      "award_amount": 0.0,
+      "award_id": "GS00F022CA",
+      "award_type": "FSS",
+      "description": "FEDERAL SUPPLY SCHEDULE CONTRACT",
+      "detected_date": "2026-09-28",
+      "fingerprint": "LDOS|GS00F022CA|0.0|None|FSS||2015-01-15|",
+      "potential_amount": null,
+      "ticker": "LDOS"
+    },
+    "LDOS|GS00V08PDD0065": {
+      "award_amount": 0.0,
+      "award_id": "GS00V08PDD0065",
+      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
+      "description": "MULTI-CHANNEL CONTACT CENTER SERVICES",
+      "detected_date": "2026-09-28",
+      "fingerprint": "LDOS|GS00V08PDD0065|0.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2008-03-11|",
+      "potential_amount": null,
+      "ticker": "LDOS"
+    },
+    "LDOS|GS35F116AA": {
+      "award_amount": 0.0,
+      "award_id": "GS35F116AA",
+      "award_type": "FSS",
+      "description": "FEDERAL SUPPLY SCHEDULE CONTRACT.",
+      "detected_date": "2026-09-28",
+      "fingerprint": "LDOS|GS35F116AA|0.0|None|FSS||2012-12-13|",
+      "potential_amount": null,
+      "ticker": "LDOS"
+    },
+    "LDOS|HHSP23337001": {
+      "award_amount": 76599883.82,
+      "award_id": "HHSP23337001",
+      "award_type": "BPA CALL",
+      "description": "NEXT GENERATION IT SERVICES (NGITS) ENGINEERING TASK ORDER SERVICES",
+      "detected_date": "2026-09-28",
+      "fingerprint": "LDOS|HHSP23337001|76599883.82|None|BPA CALL||2018-01-31|2026-12-31",
+      "potential_amount": null,
+      "ticker": "LDOS"
+    },
+    "LDOS|HSTS0409DST2234": {
+      "award_amount": 0.0,
+      "award_id": "HSTS0409DST2234",
+      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
+      "description": "SYSTEMS INTEGRATION AWARD FOR LOCKHEED MARTIN SERVICES",
+      "detected_date": "2026-09-28",
+      "fingerprint": "LDOS|HSTS0409DST2234|0.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2009-08-20|",
+      "potential_amount": null,
+      "ticker": "LDOS"
+    },
+    "LDOS|N0003920D0054": {
+      "award_amount": 0.0,
+      "award_id": "N0003920D0054",
+      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
+      "description": "SERVICE MANAGEMENT, INTEGRATION, AND TRANSPORT (SMIT)",
+      "detected_date": "2026-09-28",
+      "fingerprint": "LDOS|N0003920D0054|0.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2020-02-01|",
+      "potential_amount": null,
+      "ticker": "LDOS"
+    },
+    "LDOS|NSFDACS1219442": {
+      "award_amount": 3278904845.58,
+      "award_id": "NSFDACS1219442",
+      "award_type": "DEFINITIVE CONTRACT",
+      "description": "SCIENCE OPERATION AND MAINTENANCE SUPPORT FOR THE UNITED STATES ANTARCTIC PROGRAM",
+      "detected_date": "2026-09-28",
+      "fingerprint": "LDOS|NSFDACS1219442|3278904845.58|None|DEFINITIVE CONTRACT||2011-12-23|2027-09-30",
+      "potential_amount": null,
+      "ticker": "LDOS"
+    },
+    "NOC|80AFRC21F0031": {
+      "award_amount": 105893031.01,
+      "award_id": "80AFRC21F0031",
+      "award_type": "DELIVERY ORDER",
+      "description": "PROVIDE AIRCRAFT AND GROUND CONTROL STATION (GCS) SPARE PARTS AND PROVIDE ENGINEERING, MAINTENANCE TECHNICIAN, LOGISTICS TECHNICIAN AND PILOT SUPPORT.",
+      "detected_date": "2026-09-28",
+      "fingerprint": "NOC|80AFRC21F0031|105893031.01|None|DELIVERY ORDER||2021-01-16|2026-10-29",
       "potential_amount": null,
       "ticker": "NOC"
     },
-    "NOC|NNG11XA04C": {
-      "award_amount": 586604908.78,
-      "award_id": "NNG11XA04C",
+    "NOC|N0003022C1013": {
+      "award_amount": 488033115.77,
+      "award_id": "N0003022C1013",
       "award_type": "DEFINITIVE CONTRACT",
-      "description": "THE CONTRACTOR SHALL PROVIDE ALL PERSONNEL, FACILITIES, EQUIPMENT, MATERIAL, AND SERVICES NECESSARY TO DESIGN, DEVELOP, MANUFACTURE, INTEGRATE, TEST, AND DELIVER THE HARDWARE, DOCUMENTATION, AND SERVICES SPECIFIED HEREIN. THE CONTRACTOR SHALL ALSO PROVIDE SUPPORT, AS REQUIRED, FOR PRE-DELIVERY MISSION INTEGRATION ACTIVITIES, SUCH AS NPP MISSION OPERATIONS REVIEW AND JPSS DELTA-PDR. DOCUMENTATION AND OTHER TASKS SHOULD BE IN ACCORDANCE WITH THE REQUIREMENTS OF THIS SOW AND THE APPLICABLE DOCUMENTATION REFERENCED IN SECTION 2.3 HEREIN. COMPLIANCE WITH THE REQUIREMENTS STATED HEREIN, SHALL BE THE RESPONSIBILITY OF THE CONTRACTOR.",
-      "detected_date": "2026-09-24",
-      "fingerprint": "NOC|NNG11XA04C|586604908.78|None|DEFINITIVE CONTRACT||2011-09-13|2029-03-01",
+      "description": "FY22-FY26 PROGRAM SUPPORT (SCN/UK, CPFF, LOE) FY22-FY26 LAUNCHER PRODUCTION",
+      "detected_date": "2026-09-28",
+      "fingerprint": "NOC|N0003022C1013|488033115.77|None|DEFINITIVE CONTRACT||2022-06-17|2028-12-14",
       "potential_amount": null,
       "ticker": "NOC"
+    },
+    "NOC|N0003025C1010": {
+      "award_amount": 197188331.49,
+      "award_id": "N0003025C1010",
+      "award_type": "DEFINITIVE CONTRACT",
+      "description": "FY25 UK DEPLOYED SYSTEMS SUPPORT",
+      "detected_date": "2026-09-28",
+      "fingerprint": "NOC|N0003025C1010|197188331.49|None|DEFINITIVE CONTRACT||2024-10-01|2026-09-30",
+      "potential_amount": null,
+      "ticker": "NOC"
+    },
+    "NOC|N0003026C1013": {
+      "award_amount": 133114946.47,
+      "award_id": "N0003026C1013",
+      "award_type": "DEFINITIVE CONTRACT",
+      "description": "LAUNCHER LONG LEAD MATERIAL PROCUREMENT",
+      "detected_date": "2026-09-28",
+      "fingerprint": "NOC|N0003026C1013|133114946.47|None|DEFINITIVE CONTRACT||2025-12-17|2028-05-18",
+      "potential_amount": null,
+      "ticker": "NOC"
+    },
+    "NOC|NNH15CN76C": {
+      "award_amount": 1780030031.31,
+      "award_id": "NNH15CN76C",
+      "award_type": "DEFINITIVE CONTRACT",
+      "description": "IGF::OT::IGF NEXTSTEP NRA AWARD.  THIS NEXTSTEP CONTRACT BUILDS UPON THE SUCCESS OF COMMERCIAL ORBITAL TRANSPORTATION SERVICES SPACE ACT AGREEMENT DEVELOPMENT PROGRAM AND AN EXISTING INTERNATIONAL SPACE STATION (ISS) COMMERCIAL RESUPPLY SERVICES (CRS) CONTRACT. ORBITAL HAS SUCCESSFULLY TRANSITIONED FROM COTS TO THE CRS PROGRAM, FLYING THREE VERY SUCCESSFUL PRESSURIZED CARGO RESUPPLY MISSIONS TO THE ISS, USING THE CYGNUS SPACECRAFT. ORBITAL ALSO SUCCESSFULLY DEVELOPED SPACECRAFT FOR SOLAR SYSTEM EXPLORATION TO INCLUDE THE CURRENTLY OPERATIONAL DAWN MISSION. THIS MISSION WAS LAUNCHED IN SEPTEMBER 2007, COMPLETED ITS RENDEZVOUS MISSION AT VESTA IN JULY 2012 AND IS EN ROUTE TO CERES IN EARLY 2015.  WITH SPACE AGENCY BUDGETS CONTINUING TO BE TIGHT, EXPLORATION PLANS NEED TO EMPHASIZE EVOLUTION OF EXISTING SYSTEMS, WHERE COST AND SCHEDULE IS BETTER CONTROLLED, AND DEVELOPMENT RISK REDUCED. SPECIFICALLY, ELEMENTS OF THE CURRENT ISS, INCLUDING CYGNUS, CAN BE EVOLVED TO SUPPORT MORE DISTANT SPACE DESTINATIONS. TO SUPPORT THESE ENDEAVORS, ORBITAL CONTRIBUTES TO THE DEVELOPMENT AND PRODUCT IMPROVEMENT OF CYGNUS AND TO NEXTSTEP ACTIVITIES AND HAVE INVESTED IN THE COTS CRS PUBLIC-PRIVATE PARTNERSHIP ENDEAVOR.  ORBITAL'S EXPLORATION AUGMENTATION MODULE (BAM) ARCHITECTURE USES A MODULAR, BUILDING BLOCK APPROACH THAT LEVERAGES THE CYGNUS SPACECRAFT TO EXPAND CISLUNAR AND LONG DURATION DEEP SPACE TRANSIT HABITATION CAPABILITIES AND TECHNOLOGIES CRITICAL TO NASAS LONG-TERM EXPLORATION GOALS.  ORBITALS ARCHITECTURE CONCEPT BLENDS IN-PRODUCTION HARDWARE WITH ADAPTATION, EVOLUTION, PLANNING, AND FORWARD THINKING. CYGNUS WILL SERVE AS A MODULAR HABITAT AND TEST PLATFORM FOR QUALIFYING TECHNOLOGIES IN A DISTANT RETROGRADE ORBIT (DRO) OR IN A LOW EARTH ORBIT (LEO), EITHER WHILE ATTACHED TO THE ISS OR AS A FREE-FLYER. USING THE EXISTING, OPERATIONAL CYGNUS TO PERFORM THESE MISSIONS HAS THE ADVANTAGE OF DECREASING OVERALL DEVELOPMENT TIME AND COSTS, AND FREEING UP RESOURCES THAT WOULD BE SPENT ON DEVELOPING A SPACECRAFT TO FOCUS ON CULTIVATING MISSION ENABLING TECHNOLOGIES.  THE GOAL IS TO HAVE A CYGNUS DERIVED EAM DEPLOYED IN CISLUNAR SPACE BEFORE 2020. THIS SPACECRAFT WILL BE THE FIRST BUILDING BLOCK IN SUPPORTING BOTH COMMERCIAL MARKETS AND GOVERNMENT OBJECTIVES. THE PROPOSED EFFORT FOR THIS NEXTSTEP BAA PHASE I, INVOLVES DEFINING AN EAM ARCHITECTURE AND CONCEPT OF OPERATIONS (CONOPS) THAT ADDRESSES COMMERCIAL MARKETS AND NASA EXPLORATION OBJECTIVES, TECHNOLOGY MATURATION PLANNING AND INFRASTRUCTURE DEVELOPMENT, AND TO IDENTIFY TECHNOLOGIES THAT CAN BE IMPLEMENTED AND DEMONSTRATED IN THE ISSILEO ENVIRONMENT WITHIN THE NEXT THREE YEARS.  TO MATURE HABITATION TECHNOLOGIES, THE CONTRACTOR WILL IDENTIFY STATE OF THE ART (SOA) TECHNOLOGIES ACROSS NASA TECHNOLOGY AREAS (TAS) DEFINED IN THE NASA TECHNOLOGY ROADMAP.  FOCUS WILL BE ON MATURATION OF THE FOLLOWING TECHNOLOGIES    ENVIRONMENTAL CONTROL AND LIFE SUPPORT SYSTEMS    ENVIRONMENTAL MONITORING    SAFETY AND EMERGENCY RESPONSE AND HABITATION    THERMAL CONTROL SYSTEMS    AUTONOMOUS HABITATION SYSTEMS    NAVIGATION    SYSTEMS MANAGEMENT    DOCKING AND CAPTURE    MECHANISMS AND DEPLOYABLE HABITATION ELEMENTS",
+      "detected_date": "2026-09-28",
+      "fingerprint": "NOC|NNH15CN76C|1780030031.31|None|DEFINITIVE CONTRACT||2015-09-03|2029-05-31",
+      "potential_amount": null,
+      "ticker": "NOC"
+    },
+    "PSN|47QFCA20F0044": {
+      "award_amount": 612083623.53,
+      "award_id": "47QFCA20F0044",
+      "award_type": "DELIVERY ORDER",
+      "description": "THE PURPOSE OF THIS ACTION IS TO EXECUTE AN ADMINISTRATIVE CONTINUANCE OF THE TASK ORDER, AND TRANSFERS THE ADMINISTRATION FROM REGION 1 TO FEDSIM.",
+      "detected_date": "2026-09-28",
+      "fingerprint": "PSN|47QFCA20F0044|612083623.53|None|DELIVERY ORDER||2020-09-22|2025-03-27",
+      "potential_amount": null,
+      "ticker": "PSN"
+    },
+    "PSN|47QFCA21F0003": {
+      "award_amount": 94881148.13,
+      "award_id": "47QFCA21F0003",
+      "award_type": "DELIVERY ORDER",
+      "description": "THE SMC/SPG REQUIRES A RANGE OF CONTRACTOR-PROVIDED INFORMATION TECHNOLOGY (IT) SERVICES AND SOLUTIONS TO PROVIDE PROGRAM SUBJECT MATTER EXPERTISE AND SYSTEM LIFE-CYCLE SUPPORT TO THE INTEGRATED SOLUTIONS FOR SITUATIONAL AWARENESS (ISSA) SYSTEM.",
+      "detected_date": "2026-09-28",
+      "fingerprint": "PSN|47QFCA21F0003|94881148.13|None|DELIVERY ORDER||2021-05-06|2026-11-09",
+      "potential_amount": null,
+      "ticker": "PSN"
+    },
+    "PSN|47QFCA22D0006": {
+      "award_amount": 3500.0,
+      "award_id": "47QFCA22D0006",
+      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
+      "description": "E014042 - PLATFORM RELATED SERVICES",
+      "detected_date": "2026-09-28",
+      "fingerprint": "PSN|47QFCA22D0006|3500.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2021-11-15|",
+      "potential_amount": null,
+      "ticker": "PSN"
+    },
+    "SPIR|GS35F0517U": {
+      "award_amount": 0.0,
+      "award_id": "GS35F0517U",
+      "award_type": "FSS",
+      "description": "FEDERAL SUPPLY SCHEDULE CONTRACT",
+      "detected_date": "2026-09-28",
+      "fingerprint": "SPIR|GS35F0517U|0.0|None|FSS||2008-07-30|",
+      "potential_amount": null,
+      "ticker": "SPIR"
+    },
+    "SPIR|W15P7T19D0104": {
+      "award_amount": 0.0,
+      "award_id": "W15P7T19D0104",
+      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
+      "description": "THIS CONTRACT WILL PROVIDE ACC-APG CUSTOMERS, OTHER PROGRAM EXECUTIVE OFFICES (PEOS), OTHER DEPARTMENT OF DEFENSE (DOD) AGENCIES, AND OTHER FEDERAL AGENCIES WITH KNOWLEDGE BASED SUPPORT SERVICES FOR REQUIREMENTS WITH COMMAND, CONTROL, COMMUNICATIONS, COMPUTERS, INTELLIGENCE, SURVEILLANCE, AND RECONNAISSANCE (C4ISR) RELATED NEEDS.",
+      "detected_date": "2026-09-28",
+      "fingerprint": "SPIR|W15P7T19D0104|0.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2018-10-18|",
+      "potential_amount": null,
+      "ticker": "SPIR"
     }
   }
 }
