@@ -1,4 +1,12 @@
 {
-  "date": "2026-09-29",
-  "events": {}
+  "date": "2026-09-30",
+  "events": {
+    "DE|2026-09-28": {
+      "award_date": "2026-09-28",
+      "fingerprint": "DE|2026-09-28|226721.82|2|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
+      "last_seen_utc": "2026-09-30T18:46:23.196343+00:00",
+      "projected_peak_pct_90d": 20.875831883974616,
+      "ticker": "DE"
+    }
+  }
 }

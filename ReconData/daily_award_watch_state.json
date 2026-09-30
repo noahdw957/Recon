@@ -1,25 +1,165 @@
 {
-  "date": "2026-09-29",
+  "date": "2026-09-30",
   "events": {
-    "CACI|47QFCA24F0011": {
-      "award_amount": 309576853.0,
-      "award_id": "47QFCA24F0011",
+    "ACN|19AQMM18S1116": {
+      "award_amount": 60431482.29,
+      "award_id": "19AQMM18S1116",
+      "award_type": "BPA CALL",
+      "description": "THIS ACTION IS FOR TASK ORDER 54 ON THE ACCENTURE CONTRACT SAQMMA09A0173 REPLACING - SAQMMA16L1296.",
+      "detected_date": "2026-09-30",
+      "fingerprint": "ACN|19AQMM18S1116|60431482.29|None|BPA CALL||2018-09-25|2023-09-30",
+      "potential_amount": null,
+      "ticker": "ACN"
+    },
+    "BAH|47QFCA23F0014": {
+      "award_amount": 547087271.4,
+      "award_id": "47QFCA23F0014",
       "award_type": "DELIVERY ORDER",
-      "description": "DISTRIBUTED COMMON GROUND SYSTEM DCGS ENTERPRISE PRODUCT SUPPORT EPS  TO 1",
-      "detected_date": "2026-09-29",
-      "fingerprint": "CACI|47QFCA24F0011|309576853.0|None|DELIVERY ORDER||2024-04-02|2027-04-01",
+      "description": "ENGINEERING DEVELOPMENT INTEGRATION AND TECHNOLOGYBASED SOLUTIONS EDITS",
+      "detected_date": "2026-09-30",
+      "fingerprint": "BAH|47QFCA23F0014|547087271.4|None|DELIVERY ORDER||2023-02-20|2027-02-23",
+      "potential_amount": null,
+      "ticker": "BAH"
+    },
+    "BAH|47QFCA24F0026": {
+      "award_amount": 236547081.0,
+      "award_id": "47QFCA24F0026",
+      "award_type": "DELIVERY ORDER",
+      "description": "EUROPEAN THEATER OPERATIONS AND PLANNING SERVICES ETOPS",
+      "detected_date": "2026-09-30",
+      "fingerprint": "BAH|47QFCA24F0026|236547081.0|None|DELIVERY ORDER||2024-06-01|2027-04-30",
+      "potential_amount": null,
+      "ticker": "BAH"
+    },
+    "BAH|47QFCA25F0033": {
+      "award_amount": 306517876.0,
+      "award_id": "47QFCA25F0033",
+      "award_type": "DELIVERY ORDER",
+      "description": "AFRL SHADOW RAPTOR",
+      "detected_date": "2026-09-30",
+      "fingerprint": "BAH|47QFCA25F0033|306517876.0|None|DELIVERY ORDER||2025-09-12|2027-09-11",
+      "potential_amount": null,
+      "ticker": "BAH"
+    },
+    "BAH|47QFWA21F0026": {
+      "award_amount": 64240028.67,
+      "award_id": "47QFWA21F0026",
+      "award_type": "DELIVERY ORDER",
+      "description": "UNITED STATES AIR FORCE LIFE CYCLE MANAGEMENT CENTER AFLCMC SPECIAL ACCESS PROGRAMS SAP INFORMATION ASSURANCE  MISSION ASSURANCE IAMA SERVICES",
+      "detected_date": "2026-09-30",
+      "fingerprint": "BAH|47QFWA21F0026|64240028.67|None|DELIVERY ORDER||2021-08-03|2027-02-02",
+      "potential_amount": null,
+      "ticker": "BAH"
+    },
+    "CACI|47QFMA24F0014": {
+      "award_amount": 638168581.76,
+      "award_id": "47QFMA24F0014",
+      "award_type": "DELIVERY ORDER",
+      "description": "ENTERPRISE LEVEL IT EXPERTISE ELITE",
+      "detected_date": "2026-09-30",
+      "fingerprint": "CACI|47QFMA24F0014|638168581.76|None|DELIVERY ORDER||2024-03-01|2029-05-31",
       "potential_amount": null,
       "ticker": "CACI"
     },
-    "LDOS|N0016721D0006": {
-      "award_amount": 0.0,
-      "award_id": "N0016721D0006",
-      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
-      "description": "PLANNING, DESIGN, SPECIFICATION, DEVELOPMENT, INSTALLATION, INTEGRATION, AND SUPPORT OF THE BRITISH UNDERWATER TEST AND EVALUATION CENTER HIGH GAIN MEASUREMENT SYSTEM ARRAYS FOR THE UNITED KINGDOM MINISTRY OF DEFENCE.",
-      "detected_date": "2026-09-29",
-      "fingerprint": "LDOS|N0016721D0006|0.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2021-05-28|",
+    "GD|47QFCA26F0024": {
+      "award_amount": 71791519.0,
+      "award_id": "47QFCA26F0024",
+      "award_type": "DELIVERY ORDER",
+      "description": "ENTERPRISE NETWORK OPERATIONS AND CYBERSECURITY SUPPORT ENOCS",
+      "detected_date": "2026-09-30",
+      "fingerprint": "GD|47QFCA26F0024|71791519.0|None|DELIVERY ORDER||2026-06-29|2027-06-30",
+      "potential_amount": null,
+      "ticker": "GD"
+    },
+    "GD|70B02C26F00000257": {
+      "award_amount": 114978918.37,
+      "award_id": "70B02C26F00000257",
+      "award_type": "DELIVERY ORDER",
+      "description": "CONSOLIDATED TOWERS AND SURVEILLANCE EQUIPMENT",
+      "detected_date": "2026-09-30",
+      "fingerprint": "GD|70B02C26F00000257|114978918.37|None|DELIVERY ORDER||2026-05-27|2029-05-31",
+      "potential_amount": null,
+      "ticker": "GD"
+    },
+    "IBM|28321326FDS030164": {
+      "award_amount": 130434205.69,
+      "award_id": "28321326FDS030164",
+      "award_type": "DELIVERY ORDER",
+      "description": "THIS REQUISITION IS TO ESTABLISH THE IBM MAINFRAME HARDWARE AND STORAGE CONTRACT THAT WILL REPLACE, BPA SS00-16-60010, WHICH ENDS ON 09/30/2026.",
+      "detected_date": "2026-09-30",
+      "fingerprint": "IBM|28321326FDS030164|130434205.69|None|DELIVERY ORDER||2026-09-28|2034-03-24",
+      "potential_amount": null,
+      "ticker": "IBM"
+    },
+    "IBM|GSQ0017AJ0007": {
+      "award_amount": 116526851.37,
+      "award_id": "GSQ0017AJ0007",
+      "award_type": "DELIVERY ORDER",
+      "description": "IGF::OT::IGF - AWARD OF TASK ORDER TO SUPPORT GSA OFFICE OF HUMAN RESOURCE MANAGEMENT.",
+      "detected_date": "2026-09-30",
+      "fingerprint": "IBM|GSQ0017AJ0007|116526851.37|None|DELIVERY ORDER||2016-11-18|2026-11-17",
+      "potential_amount": null,
+      "ticker": "IBM"
+    },
+    "LDOS|15A00020FAQA00189": {
+      "award_amount": 639941171.5,
+      "award_id": "15A00020FAQA00189",
+      "award_type": "DELIVERY ORDER",
+      "description": "ESA V MANAGED SERVICES (ATF AND FCS)",
+      "detected_date": "2026-09-30",
+      "fingerprint": "LDOS|15A00020FAQA00189|639941171.5|None|DELIVERY ORDER||2020-05-01|2027-04-30",
       "potential_amount": null,
       "ticker": "LDOS"
+    },
+    "LDOS|70B03C21F00001130": {
+      "award_amount": 128444256.12,
+      "award_id": "70B03C21F00001130",
+      "award_type": "DELIVERY ORDER",
+      "description": "THIS DELIVERY ORDER IS FOR MULTI- ENERGY PORTALS.",
+      "detected_date": "2026-09-30",
+      "fingerprint": "LDOS|70B03C21F00001130|128444256.12|None|DELIVERY ORDER||2021-09-28|2027-05-10",
+      "potential_amount": null,
+      "ticker": "LDOS"
+    },
+    "LDOS|70T04026D7672N001": {
+      "award_amount": 0.0,
+      "award_id": "70T04026D7672N001",
+      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
+      "description": "CHECKPOINT SCREENING EQUIPMENT DEPLOYMENT SERVICES II (SEDS II)",
+      "detected_date": "2026-09-30",
+      "fingerprint": "LDOS|70T04026D7672N001|0.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2026-09-29|",
+      "potential_amount": null,
+      "ticker": "LDOS"
+    },
+    "LDOS|80TECH21DA002": {
+      "award_amount": 985074855.08,
+      "award_id": "80TECH21DA002",
+      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
+      "description": "ADVANCED ENTERPRISE GLOBAL INFORMATION TECHNOLOGY SOLUTIONS CONTRACT.  AS THE AGENCY WIDE COMMUNICATIONS SERVICES CONTRACT, AEGIS IS THE AGENCY SOLUTION FOR PROVING TELECOMMUNICATIONS SERVICES, CLOUD COMPUTING SERVICES AND DATA CENTER SERVICES.",
+      "detected_date": "2026-09-30",
+      "fingerprint": "LDOS|80TECH21DA002|985074855.08|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2022-05-01|",
+      "potential_amount": null,
+      "ticker": "LDOS"
+    },
+    "PSN|47QFCA23F0024": {
+      "award_amount": 534798354.05,
+      "award_id": "47QFCA23F0024",
+      "award_type": "DELIVERY ORDER",
+      "description": "BOLD VENTURE",
+      "detected_date": "2026-09-30",
+      "fingerprint": "PSN|47QFCA23F0024|534798354.05|None|DELIVERY ORDER||2023-04-27|2027-04-26",
+      "potential_amount": null,
+      "ticker": "PSN"
+    },
+    "TXT|N0001925F0088": {
+      "award_amount": 54170497.53,
+      "award_id": "N0001925F0088",
+      "award_type": "DELIVERY ORDER",
+      "description": "H-1 SIEPU TIME CRITICAL PARTS: RSCUS, AC GENERATORS, GCUS, TUBE ASSEMBLIES. REPAIR AND UPGRADE OF 9 AH-1W WHISKEY C-BOXES AND 2 UH-1Y/AH-1Z RETROGRADE CONDITION C-BOXES TO AH-1Z SIEPU C-BOXES.",
+      "detected_date": "2026-09-30",
+      "fingerprint": "TXT|N0001925F0088|54170497.53|None|DELIVERY ORDER||2025-09-27|2028-12-31",
+      "potential_amount": null,
+      "ticker": "TXT"
     }
   }
 }
