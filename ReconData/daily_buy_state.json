@@ -1,12 +1,4 @@
 {
-  "date": "2026-10-01",
-  "events": {
-    "SATL|2026-09-29": {
-      "award_date": "2026-09-29",
-      "fingerprint": "SATL|2026-09-29|0.00|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
-      "last_seen_utc": "2026-10-01T19:23:19.007016+00:00",
-      "projected_peak_pct_90d": 84.61273156265325,
-      "ticker": "SATL"
-    }
-  }
+  "date": "2026-10-02",
+  "events": {}
 }
