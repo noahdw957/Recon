@@ -1,4 +1,40 @@
 {
-  "date": "2026-10-02",
-  "events": {}
+  "date": "2026-10-06",
+  "events": {
+    "DE|2026-09-30": {
+      "award_date": "2026-09-30",
+      "fingerprint": "DE|2026-09-30|45867.60|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
+      "last_seen_utc": "2026-10-06T19:03:56.897025+00:00",
+      "projected_peak_pct_90d": 20.328635631271045,
+      "ticker": "DE"
+    },
+    "HII|2026-10-02": {
+      "award_date": "2026-10-02",
+      "fingerprint": "HII|2026-10-02|0.00|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
+      "last_seen_utc": "2026-10-06T19:03:56.977105+00:00",
+      "projected_peak_pct_90d": 32.60238734793497,
+      "ticker": "HII"
+    },
+    "KTOS|2026-09-30": {
+      "award_date": "2026-09-30",
+      "fingerprint": "KTOS|2026-09-30|0.00|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
+      "last_seen_utc": "2026-10-06T19:03:56.866981+00:00",
+      "projected_peak_pct_90d": 39.56818424761089,
+      "ticker": "KTOS"
+    },
+    "LUNR|2026-10-01": {
+      "award_date": "2026-10-01",
+      "fingerprint": "LUNR|2026-10-01|0.00|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
+      "last_seen_utc": "2026-10-06T19:03:56.936155+00:00",
+      "projected_peak_pct_90d": 65.81107239408186,
+      "ticker": "LUNR"
+    },
+    "SATL|2026-09-30": {
+      "award_date": "2026-09-30",
+      "fingerprint": "SATL|2026-09-30|11380.88|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
+      "last_seen_utc": "2026-10-06T19:03:56.891555+00:00",
+      "projected_peak_pct_90d": 84.72499808177164,
+      "ticker": "SATL"
+    }
+  }
 }
