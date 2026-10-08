@@ -1,4 +1,19 @@
 {
-  "date": "2026-10-07",
-  "events": {}
+  "date": "2026-10-08",
+  "events": {
+    "ETN|2026-10-06": {
+      "award_date": "2026-10-06",
+      "fingerprint": "ETN|2026-10-06|0.00|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
+      "last_seen_utc": "2026-10-08T19:24:27.175097+00:00",
+      "projected_peak_pct_90d": 27.922221751783646,
+      "ticker": "ETN"
+    },
+    "HON|2026-10-06": {
+      "award_date": "2026-10-06",
+      "fingerprint": "HON|2026-10-06|0.00|2|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
+      "last_seen_utc": "2026-10-08T19:24:27.179626+00:00",
+      "projected_peak_pct_90d": 19.65475406700921,
+      "ticker": "HON"
+    }
+  }
 }

@@ -1,4 +1,135 @@
 {
-  "date": "2026-10-07",
-  "events": {}
+  "date": "2026-10-08",
+  "events": {
+    "ACN|19AQMM26D0070": {
+      "award_amount": 0.0,
+      "award_id": "19AQMM26D0070",
+      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
+      "description": "APPLICATION DEVELOPMENT SERVICES",
+      "detected_date": "2026-10-08",
+      "fingerprint": "ACN|19AQMM26D0070|0.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2025-05-27|",
+      "potential_amount": null,
+      "ticker": "ACN"
+    },
+    "BAH|19AQMM26D0071": {
+      "award_amount": 0.0,
+      "award_id": "19AQMM26D0071",
+      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
+      "description": "APPLICATION DEVELOPMENT SERVICES",
+      "detected_date": "2026-10-08",
+      "fingerprint": "BAH|19AQMM26D0071|0.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2025-05-27|",
+      "potential_amount": null,
+      "ticker": "BAH"
+    },
+    "BAH|47QFNA21F0001": {
+      "award_amount": 651669390.93,
+      "award_id": "47QFNA21F0001",
+      "award_type": "DELIVERY ORDER",
+      "description": "THIS REPRESENTS AN ADMINISTRATIVE CONTINUANCE OF GSA FEDSIM TASK ORDER 47QFCA20F0009.  THIS EFFORT WILL BE ADMINISTERED BY GSA FAS REGION 1 UNDER TO NUMBER 47QFNA21F0001 BEGINNING ON THE EFFECTIVE AWARD DATE OF 1 NOVEMBER 2020.",
+      "detected_date": "2026-10-08",
+      "fingerprint": "BAH|47QFNA21F0001|651669390.93|None|DELIVERY ORDER||2020-11-01|2025-12-02",
+      "potential_amount": null,
+      "ticker": "BAH"
+    },
+    "BA|FA852626FB003": {
+      "award_amount": 354396609.84,
+      "award_id": "FA852626FB003",
+      "award_type": "DELIVERY ORDER",
+      "description": "FY26 C-17 GLOBEMASTER III DEPOT MAINTENANCE",
+      "detected_date": "2026-10-08",
+      "fingerprint": "BA|FA852626FB003|354396609.84|None|DELIVERY ORDER||2025-11-01|2026-10-31",
+      "potential_amount": null,
+      "ticker": "BA"
+    },
+    "CACI|19AQMM21F1762": {
+      "award_amount": 111913170.55,
+      "award_id": "19AQMM21F1762",
+      "award_type": "DELIVERY ORDER",
+      "description": "ITERATIVE SOFTWARE DEVELOPMENT PROJECT MANAGEMENT",
+      "detected_date": "2026-10-08",
+      "fingerprint": "CACI|19AQMM21F1762|111913170.55|None|DELIVERY ORDER||2021-06-08|2027-02-07",
+      "potential_amount": null,
+      "ticker": "CACI"
+    },
+    "CACI|19AQMM25D0301": {
+      "award_amount": 0.0,
+      "award_id": "19AQMM25D0301",
+      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
+      "description": "NETWORK AND TELECOMMUNICATION SERVICES",
+      "detected_date": "2026-10-08",
+      "fingerprint": "CACI|19AQMM25D0301|0.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2025-05-12|",
+      "potential_amount": null,
+      "ticker": "CACI"
+    },
+    "CACI|19AQMM26D0068": {
+      "award_amount": 0.0,
+      "award_id": "19AQMM26D0068",
+      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
+      "description": "APPLICATION DEVELOPMENT SERVICES",
+      "detected_date": "2026-10-08",
+      "fingerprint": "CACI|19AQMM26D0068|0.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2025-05-27|",
+      "potential_amount": null,
+      "ticker": "CACI"
+    },
+    "CACI|47QFCA18F0058": {
+      "award_amount": 76590592.12,
+      "award_id": "47QFCA18F0058",
+      "award_type": "DELIVERY ORDER",
+      "description": "IGF::OT::IGF",
+      "detected_date": "2026-10-08",
+      "fingerprint": "CACI|47QFCA18F0058|76590592.12|None|DELIVERY ORDER||2018-06-15|2023-12-14",
+      "potential_amount": null,
+      "ticker": "CACI"
+    },
+    "GD|19AQMM25F0678": {
+      "award_amount": 87943873.04,
+      "award_id": "19AQMM25F0678",
+      "award_type": "DELIVERY ORDER",
+      "description": "2025 GDIT ENDPOINT",
+      "detected_date": "2026-10-08",
+      "fingerprint": "GD|19AQMM25F0678|87943873.04|None|DELIVERY ORDER||2025-05-01|2027-01-31",
+      "potential_amount": null,
+      "ticker": "GD"
+    },
+    "HON|47QSWA18D0057": {
+      "award_amount": 0.0,
+      "award_id": "47QSWA18D0057",
+      "award_type": "FSS",
+      "description": "FEDERAL SUPPLY SCHEDULE CONTRACT",
+      "detected_date": "2026-10-08",
+      "fingerprint": "HON|47QSWA18D0057|0.0|None|FSS||2018-05-29|",
+      "potential_amount": null,
+      "ticker": "HON"
+    },
+    "LDOS|19AQMM26D0066": {
+      "award_amount": 0.0,
+      "award_id": "19AQMM26D0066",
+      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
+      "description": "APPLICATION DEVELOPMENT SERVICES",
+      "detected_date": "2026-10-08",
+      "fingerprint": "LDOS|19AQMM26D0066|0.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2025-05-27|",
+      "potential_amount": null,
+      "ticker": "LDOS"
+    },
+    "LDOS|80NSSC19D0001": {
+      "award_amount": 803543538.29,
+      "award_id": "80NSSC19D0001",
+      "award_type": "INDEFINITE DELIVERY / DEFINITE QUANTITY",
+      "description": "IT AND TELECOM - END USER AS A SERVICE: CONFERENCING, AV, HELPDESK, DESKSIDE SUPPORT, WORKSPACE, PRI. NASA END-USER SERVICES & TECHNOLOGIES (NEST)",
+      "detected_date": "2026-10-08",
+      "fingerprint": "LDOS|80NSSC19D0001|803543538.29|None|INDEFINITE DELIVERY / DEFINITE QUANTITY||2019-03-01|",
+      "potential_amount": null,
+      "ticker": "LDOS"
+    },
+    "NOC|FA862123DB036": {
+      "award_amount": 0.0,
+      "award_id": "FA862123DB036",
+      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
+      "description": "TRAINING SYSTEMS ACQUISITION (TSA) IV IS A MULTIPLE AWARD ID/IQ TO SMALL AND LARGE BUSINESSES TO STREAMLINE AND STANDARDIZE TRAINING SYSTEM ACQUISITION AND SUPPORT PROCUREMENT PROCESSES FOR AFLCMC/WNS AND OTHER AF TRAINING SYSTEM PROGRAMS.",
+      "detected_date": "2026-10-08",
+      "fingerprint": "NOC|FA862123DB036|0.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2023-06-01|",
+      "potential_amount": null,
+      "ticker": "NOC"
+    }
+  }
 }
