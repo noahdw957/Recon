@@ -647,6 +647,15 @@
     "scanner_version": "RECON_LIVE_V4.7_MD14_MD11_STRICT_AWARD_RECIPIENT_MATCH",
     "signal": "PASS"
   },
+  "BAH|2026-10-08|2514840.24|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1": {
+    "first_seen_utc": "2026-10-12T21:51:26.576781+00:00",
+    "last_md11_score": 0.8705896435037085,
+    "last_md14_score": 1.723446655044688,
+    "last_projected_peak_pct_90d": 25.557912448489176,
+    "model_version": "RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
+    "scanner_version": "RECON_LIVE_V4.7_MD14_MD11_STRICT_AWARD_RECIPIENT_MATCH",
+    "signal": "PASS"
+  },
   "BA|2026-08-17|1378971.52|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1": {
     "first_seen_utc": "2026-08-19T15:10:35.542686+00:00",
     "last_md11_score": 2.314308082665976,
@@ -877,6 +886,15 @@
     "last_md11_score": 2.5130359561939786,
     "last_md14_score": 1.6419521408282627,
     "last_projected_peak_pct_90d": 25.372466230593403,
+    "model_version": "RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
+    "scanner_version": "RECON_LIVE_V4.7_MD14_MD11_STRICT_AWARD_RECIPIENT_MATCH",
+    "signal": "PASS"
+  },
+  "BA|2026-10-08|117410.00|2|RECON_MD14_PRIMARY_MD11_SECONDARY_V1": {
+    "first_seen_utc": "2026-10-12T21:51:26.569619+00:00",
+    "last_md11_score": 1.6623987994968032,
+    "last_md14_score": 1.7507117788240678,
+    "last_projected_peak_pct_90d": 18.446552701865983,
     "model_version": "RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
     "scanner_version": "RECON_LIVE_V4.7_MD14_MD11_STRICT_AWARD_RECIPIENT_MATCH",
     "signal": "PASS"
@@ -1318,6 +1336,15 @@
     "last_md11_score": 2.508423706513494,
     "last_md14_score": 1.6314195204891566,
     "last_projected_peak_pct_90d": 16.492870402336102,
+    "model_version": "RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
+    "scanner_version": "RECON_LIVE_V4.7_MD14_MD11_STRICT_AWARD_RECIPIENT_MATCH",
+    "signal": "PASS"
+  },
+  "CAT|2026-10-09|79156.00|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1": {
+    "first_seen_utc": "2026-10-12T21:51:26.598167+00:00",
+    "last_md11_score": 1.742777850775313,
+    "last_md14_score": 1.5951488617044922,
+    "last_projected_peak_pct_90d": 13.80658588094359,
     "model_version": "RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
     "scanner_version": "RECON_LIVE_V4.7_MD14_MD11_STRICT_AWARD_RECIPIENT_MATCH",
     "signal": "PASS"
@@ -2096,6 +2123,24 @@
     "scanner_version": "RECON_LIVE_V4.7_MD14_MD11_STRICT_AWARD_RECIPIENT_MATCH",
     "signal": "PASS"
   },
+  "GD|2026-10-08|0.00|3|RECON_MD14_PRIMARY_MD11_SECONDARY_V1": {
+    "first_seen_utc": "2026-10-12T21:51:26.584033+00:00",
+    "last_md11_score": 2.1489380878415907,
+    "last_md14_score": 1.5415160878026393,
+    "last_projected_peak_pct_90d": 15.64973402068617,
+    "model_version": "RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
+    "scanner_version": "RECON_LIVE_V4.7_MD14_MD11_STRICT_AWARD_RECIPIENT_MATCH",
+    "signal": "PASS"
+  },
+  "GD|2026-10-09|1412.55|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1": {
+    "first_seen_utc": "2026-10-12T21:51:26.605191+00:00",
+    "last_md11_score": 1.368522807757901,
+    "last_md14_score": 1.5448684792682075,
+    "last_projected_peak_pct_90d": 8.968778966962173,
+    "model_version": "RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
+    "scanner_version": "RECON_LIVE_V4.7_MD14_MD11_STRICT_AWARD_RECIPIENT_MATCH",
+    "signal": "PASS"
+  },
   "GE|2026-08-17|53561.40|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1": {
     "first_seen_utc": "2026-08-19T15:10:35.577499+00:00",
     "last_md11_score": 2.2220052116958575,
@@ -2290,6 +2335,15 @@
     "last_md11_score": 1.3729830105953842,
     "last_md14_score": 1.6243760117559412,
     "last_projected_peak_pct_90d": 6.733752044400958,
+    "model_version": "RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
+    "scanner_version": "RECON_LIVE_V4.7_MD14_MD11_STRICT_AWARD_RECIPIENT_MATCH",
+    "signal": "PASS"
+  },
+  "GE|2026-10-09|1845.44|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1": {
+    "first_seen_utc": "2026-10-12T21:51:26.612473+00:00",
+    "last_md11_score": 1.4965857910938505,
+    "last_md14_score": 1.5795091858892005,
+    "last_projected_peak_pct_90d": 7.512266790502498,
     "model_version": "RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
     "scanner_version": "RECON_LIVE_V4.7_MD14_MD11_STRICT_AWARD_RECIPIENT_MATCH",
     "signal": "PASS"
@@ -2875,6 +2929,15 @@
     "last_md11_score": 1.2577318538624558,
     "last_md14_score": 1.527551262949295,
     "last_projected_peak_pct_90d": 11.992713135202235,
+    "model_version": "RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
+    "scanner_version": "RECON_LIVE_V4.7_MD14_MD11_STRICT_AWARD_RECIPIENT_MATCH",
+    "signal": "PASS"
+  },
+  "IBM|2026-10-09|2294402.67|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1": {
+    "first_seen_utc": "2026-10-12T21:51:26.619515+00:00",
+    "last_md11_score": 1.0640167998656196,
+    "last_md14_score": 1.4128344350557236,
+    "last_projected_peak_pct_90d": 9.830473166864488,
     "model_version": "RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
     "scanner_version": "RECON_LIVE_V4.7_MD14_MD11_STRICT_AWARD_RECIPIENT_MATCH",
     "signal": "PASS"
@@ -4108,6 +4171,15 @@
     "last_md11_score": 3.012536271622046,
     "last_md14_score": 2.3742991182747146,
     "last_projected_peak_pct_90d": 84.72499808177164,
+    "model_version": "RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
+    "scanner_version": "RECON_LIVE_V4.7_MD14_MD11_STRICT_AWARD_RECIPIENT_MATCH",
+    "signal": "BUY"
+  },
+  "SATL|2026-10-08|0.00|2|RECON_MD14_PRIMARY_MD11_SECONDARY_V1": {
+    "first_seen_utc": "2026-10-12T21:51:26.591062+00:00",
+    "last_md11_score": 3.4519290222605945,
+    "last_md14_score": 2.402337006187204,
+    "last_projected_peak_pct_90d": 83.73484785338545,
     "model_version": "RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
     "scanner_version": "RECON_LIVE_V4.7_MD14_MD11_STRICT_AWARD_RECIPIENT_MATCH",
     "signal": "BUY"

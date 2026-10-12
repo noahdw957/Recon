@@ -1,85 +1,25 @@
 {
-  "date": "2026-10-09",
+  "date": "2026-10-12",
   "events": {
-    "ACN|12314418F0020": {
-      "award_amount": 368220401.2,
-      "award_id": "12314418F0020",
+    "BAH|47QFPA22F0007": {
+      "award_amount": 223411757.42,
+      "award_id": "47QFPA22F0007",
       "award_type": "DELIVERY ORDER",
-      "description": "USDA ENTERPRISE-SCALE FEDRAMP CERTIFIED CLOUD HOSTING SERVICES.  IGF::OT::IGF",
-      "detected_date": "2026-10-09",
-      "fingerprint": "ACN|12314418F0020|368220401.2|None|DELIVERY ORDER||2017-09-19|2027-05-31",
-      "potential_amount": null,
-      "ticker": "ACN"
-    },
-    "BAH|36C10B24D0024": {
-      "award_amount": 0.0,
-      "award_id": "36C10B24D0024",
-      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
-      "description": "TRANSFORMATION TWENTY-ONE TOTAL TECHNOLOGY NEXT GENERATION TWO (T4NG2) BASIC CONTRACT",
-      "detected_date": "2026-10-09",
-      "fingerprint": "BAH|36C10B24D0024|0.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2023-10-31|",
+      "description": "REMOTE SENSING SE&I",
+      "detected_date": "2026-10-12",
+      "fingerprint": "BAH|47QFPA22F0007|223411757.42|None|DELIVERY ORDER||2022-01-11|2027-06-18",
       "potential_amount": null,
       "ticker": "BAH"
     },
-    "BAH|GSQ0017AJ0003": {
-      "award_amount": 115829830.24,
-      "award_id": "GSQ0017AJ0003",
-      "award_type": "DELIVERY ORDER",
-      "description": "IGF::OT::IGF  THE PURPOSE OF THIS DOCUMENT IS TO MAKE THE TASK ORDER AWARD.",
-      "detected_date": "2026-10-09",
-      "fingerprint": "BAH|GSQ0017AJ0003|115829830.24|None|DELIVERY ORDER||2017-06-20|2022-12-19",
-      "potential_amount": null,
-      "ticker": "BAH"
-    },
-    "BA|47QTCA19D00G3": {
+    "BA|SPE4AX25D9407": {
       "award_amount": 0.0,
-      "award_id": "47QTCA19D00G3",
-      "award_type": "FSS",
-      "description": "FEDERAL SUPPLY SCHEDULE CONTRACT",
-      "detected_date": "2026-10-09",
-      "fingerprint": "BA|47QTCA19D00G3|0.0|None|FSS||2019-07-25|",
+      "award_id": "SPE4AX25D9407",
+      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
+      "description": "4610120614!COVER,ACCESS",
+      "detected_date": "2026-10-12",
+      "fingerprint": "BA|SPE4AX25D9407|0.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2025-04-18|",
       "potential_amount": null,
       "ticker": "BA"
-    },
-    "BA|N0001918C1012": {
-      "award_amount": 1843827977.96,
-      "award_id": "N0001918C1012",
-      "award_type": "DEFINITIVE CONTRACT",
-      "description": "MQ-25 EMD",
-      "detected_date": "2026-10-09",
-      "fingerprint": "BA|N0001918C1012|1843827977.96|None|DEFINITIVE CONTRACT||2018-08-30|2028-12-30",
-      "potential_amount": null,
-      "ticker": "BA"
-    },
-    "NOC|47QRCA25DU237": {
-      "award_amount": 2500.0,
-      "award_id": "47QRCA25DU237",
-      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
-      "description": "ONE ACQUISITION SOLUTION FOR INTEGRATED SERVICES PLUS (OASIS+) UNRESTRICTED MULTIPLE AGENCY CONTRACT (MAC)",
-      "detected_date": "2026-10-09",
-      "fingerprint": "NOC|47QRCA25DU237|2500.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2024-12-17|",
-      "potential_amount": null,
-      "ticker": "NOC"
-    },
-    "PSN|47QRAA19D000A": {
-      "award_amount": 0.0,
-      "award_id": "47QRAA19D000A",
-      "award_type": "FSS",
-      "description": "FEDERAL SUPPLY SCHEDULE CONTRACT",
-      "detected_date": "2026-10-09",
-      "fingerprint": "PSN|47QRAA19D000A|0.0|None|FSS||2018-10-18|",
-      "potential_amount": null,
-      "ticker": "PSN"
-    },
-    "PSN|47QRCA25DU249": {
-      "award_amount": 2500.0,
-      "award_id": "47QRCA25DU249",
-      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
-      "description": "ONE ACQUISITION SOLUTION FOR INTEGRATED SERVICES PLUS (OASIS+) UNRESTRICTED MULTIPLE AGENCY CONTRACT (MAC)",
-      "detected_date": "2026-10-09",
-      "fingerprint": "PSN|47QRCA25DU249|2500.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2024-12-17|",
-      "potential_amount": null,
-      "ticker": "PSN"
     }
   }
 }
