@@ -1,25 +1,45 @@
 {
-  "date": "2026-10-12",
+  "date": "2026-10-13",
   "events": {
-    "BAH|47QFPA22F0007": {
-      "award_amount": 223411757.42,
-      "award_id": "47QFPA22F0007",
-      "award_type": "DELIVERY ORDER",
-      "description": "REMOTE SENSING SE&I",
-      "detected_date": "2026-10-12",
-      "fingerprint": "BAH|47QFPA22F0007|223411757.42|None|DELIVERY ORDER||2022-01-11|2027-06-18",
-      "potential_amount": null,
-      "ticker": "BAH"
-    },
-    "BA|SPE4AX25D9407": {
+    "BKSY|47QTCA18D006R": {
       "award_amount": 0.0,
-      "award_id": "SPE4AX25D9407",
-      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
-      "description": "4610120614!COVER,ACCESS",
-      "detected_date": "2026-10-12",
-      "fingerprint": "BA|SPE4AX25D9407|0.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2025-04-18|",
+      "award_id": "47QTCA18D006R",
+      "award_type": "FSS",
+      "description": "FEDERAL SUPPLY SCHEDULE CONTRACT",
+      "detected_date": "2026-10-13",
+      "fingerprint": "BKSY|47QTCA18D006R|0.0|None|FSS||2018-02-06|",
       "potential_amount": null,
-      "ticker": "BA"
+      "ticker": "BKSY"
+    },
+    "HON|47QTCA23D008W": {
+      "award_amount": 0.0,
+      "award_id": "47QTCA23D008W",
+      "award_type": "FSS",
+      "description": "FEDERAL SUPPLY SCHEDULE CONTRACT",
+      "detected_date": "2026-10-13",
+      "fingerprint": "HON|47QTCA23D008W|0.0|None|FSS||2023-05-23|",
+      "potential_amount": null,
+      "ticker": "HON"
+    },
+    "SATL|47QSMS24D005J": {
+      "award_amount": 0.0,
+      "award_id": "47QSMS24D005J",
+      "award_type": "FSS",
+      "description": "FEDERAL SUPPLY SCHEDULE CONTRACT",
+      "detected_date": "2026-10-13",
+      "fingerprint": "SATL|47QSMS24D005J|0.0|None|FSS||2024-03-28|",
+      "potential_amount": null,
+      "ticker": "SATL"
+    },
+    "SATL|GS21F015CA": {
+      "award_amount": 0.0,
+      "award_id": "GS21F015CA",
+      "award_type": "FSS",
+      "description": "FEDERAL SUPPLY SCHEDULE CONTRACT",
+      "detected_date": "2026-10-13",
+      "fingerprint": "SATL|GS21F015CA|0.0|None|FSS||2014-11-21|",
+      "potential_amount": null,
+      "ticker": "SATL"
     }
   }
 }
