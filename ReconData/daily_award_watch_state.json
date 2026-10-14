@@ -1,45 +1,15 @@
 {
-  "date": "2026-10-13",
+  "date": "2026-10-14",
   "events": {
-    "BKSY|47QTCA18D006R": {
+    "ACN|GS35F540GA": {
       "award_amount": 0.0,
-      "award_id": "47QTCA18D006R",
+      "award_id": "GS35F540GA",
       "award_type": "FSS",
       "description": "FEDERAL SUPPLY SCHEDULE CONTRACT",
-      "detected_date": "2026-10-13",
-      "fingerprint": "BKSY|47QTCA18D006R|0.0|None|FSS||2018-02-06|",
+      "detected_date": "2026-10-14",
+      "fingerprint": "ACN|GS35F540GA|0.0|None|FSS||2017-07-12|",
       "potential_amount": null,
-      "ticker": "BKSY"
-    },
-    "HON|47QTCA23D008W": {
-      "award_amount": 0.0,
-      "award_id": "47QTCA23D008W",
-      "award_type": "FSS",
-      "description": "FEDERAL SUPPLY SCHEDULE CONTRACT",
-      "detected_date": "2026-10-13",
-      "fingerprint": "HON|47QTCA23D008W|0.0|None|FSS||2023-05-23|",
-      "potential_amount": null,
-      "ticker": "HON"
-    },
-    "SATL|47QSMS24D005J": {
-      "award_amount": 0.0,
-      "award_id": "47QSMS24D005J",
-      "award_type": "FSS",
-      "description": "FEDERAL SUPPLY SCHEDULE CONTRACT",
-      "detected_date": "2026-10-13",
-      "fingerprint": "SATL|47QSMS24D005J|0.0|None|FSS||2024-03-28|",
-      "potential_amount": null,
-      "ticker": "SATL"
-    },
-    "SATL|GS21F015CA": {
-      "award_amount": 0.0,
-      "award_id": "GS21F015CA",
-      "award_type": "FSS",
-      "description": "FEDERAL SUPPLY SCHEDULE CONTRACT",
-      "detected_date": "2026-10-13",
-      "fingerprint": "SATL|GS21F015CA|0.0|None|FSS||2014-11-21|",
-      "potential_amount": null,
-      "ticker": "SATL"
+      "ticker": "ACN"
     }
   }
 }

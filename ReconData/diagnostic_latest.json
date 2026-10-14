@@ -1,7 +1,7 @@
 {
-  "scan_utc": "2026-10-13T19:58:42.147997+00:00",
+  "scan_utc": "2026-10-14T18:08:03.847624+00:00",
   "scan_start": "2026-10-11",
-  "scan_end": "2026-10-13",
+  "scan_end": "2026-10-14",
   "watermark_source": "acquisition_state_or_live_history",
   "downloaded_rows_total": 0,
   "downloaded_positive": 0,
@@ -22,8 +22,8 @@
   "award_watch_queries": 179,
   "award_watch_queries_attempted": 184,
   "award_watch_queries_failed": 5,
-  "award_watch_rows": 35,
-  "new_award_watch_alerts": 4,
-  "active_award_watch_alerts": 4,
+  "award_watch_rows": 39,
+  "new_award_watch_alerts": 1,
+  "active_award_watch_alerts": 1,
   "status": "NO_MATCHED_PUBLIC_COMPANY_TRANSACTIONS"
 }
