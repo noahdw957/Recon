@@ -1,15 +1,45 @@
 {
-  "date": "2026-10-14",
+  "date": "2026-10-15",
   "events": {
-    "ACN|GS35F540GA": {
-      "award_amount": 0.0,
-      "award_id": "GS35F540GA",
-      "award_type": "FSS",
-      "description": "FEDERAL SUPPLY SCHEDULE CONTRACT",
-      "detected_date": "2026-10-14",
-      "fingerprint": "ACN|GS35F540GA|0.0|None|FSS||2017-07-12|",
+    "ACN|12314418F0020": {
+      "award_amount": 369005149.99,
+      "award_id": "12314418F0020",
+      "award_type": "DELIVERY ORDER",
+      "description": "USDA ENTERPRISE-SCALE FEDRAMP CERTIFIED CLOUD HOSTING SERVICES.  IGF::OT::IGF",
+      "detected_date": "2026-10-15",
+      "fingerprint": "ACN|12314418F0020|369005149.99|None|DELIVERY ORDER||2017-09-19|2027-05-31",
       "potential_amount": null,
       "ticker": "ACN"
+    },
+    "ACN|SP470924F0083": {
+      "award_amount": 53417292.61,
+      "award_id": "SP470924F0083",
+      "award_type": "DELIVERY ORDER",
+      "description": "8510785908!TASK 5 - JETS  SYSTEM SUST/MA",
+      "detected_date": "2026-10-15",
+      "fingerprint": "ACN|SP470924F0083|53417292.61|None|DELIVERY ORDER||2024-08-01|2026-02-28",
+      "potential_amount": null,
+      "ticker": "ACN"
+    },
+    "BAH|47QFCA23F0058": {
+      "award_amount": 561184437.17,
+      "award_id": "47QFCA23F0058",
+      "award_type": "DELIVERY ORDER",
+      "description": "AWARD OF TASK ORDER 47QFCA23F0058 FOR DATA MODERNIZATION ACCELERATOR FOR CDC (DMAC).",
+      "detected_date": "2026-10-15",
+      "fingerprint": "BAH|47QFCA23F0058|561184437.17|None|DELIVERY ORDER||2023-10-23|2027-04-22",
+      "potential_amount": null,
+      "ticker": "BAH"
+    },
+    "GD|47QFMA25F0016": {
+      "award_amount": 120247097.4,
+      "award_id": "47QFMA25F0016",
+      "award_type": "DELIVERY ORDER",
+      "description": "ENTERPRISE MISSION INFORMATION TECHNOLOGY SERVICES 2 EMITS 2",
+      "detected_date": "2026-10-15",
+      "fingerprint": "GD|47QFMA25F0016|120247097.4|None|DELIVERY ORDER||2025-09-24|2027-01-31",
+      "potential_amount": null,
+      "ticker": "GD"
     }
   }
 }

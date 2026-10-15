@@ -1,4 +1,19 @@
 {
-  "date": "2026-10-14",
-  "events": {}
+  "date": "2026-10-15",
+  "events": {
+    "HON|2026-10-13": {
+      "award_date": "2026-10-13",
+      "fingerprint": "HON|2026-10-13|0.00|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
+      "last_seen_utc": "2026-10-15T17:53:15.950319+00:00",
+      "projected_peak_pct_90d": 20.376163199938674,
+      "ticker": "HON"
+    },
+    "SATL|2026-10-13": {
+      "award_date": "2026-10-13",
+      "fingerprint": "SATL|2026-10-13|0.00|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
+      "last_seen_utc": "2026-10-15T17:53:15.967789+00:00",
+      "projected_peak_pct_90d": 85.94215887451092,
+      "ticker": "SATL"
+    }
+  }
 }
