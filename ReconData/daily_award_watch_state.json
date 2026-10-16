@@ -1,45 +1,145 @@
 {
-  "date": "2026-10-15",
+  "date": "2026-10-16",
   "events": {
-    "ACN|12314418F0020": {
-      "award_amount": 369005149.99,
-      "award_id": "12314418F0020",
-      "award_type": "DELIVERY ORDER",
-      "description": "USDA ENTERPRISE-SCALE FEDRAMP CERTIFIED CLOUD HOSTING SERVICES.  IGF::OT::IGF",
-      "detected_date": "2026-10-15",
-      "fingerprint": "ACN|12314418F0020|369005149.99|None|DELIVERY ORDER||2017-09-19|2027-05-31",
+    "ACN|75P00119D00040": {
+      "award_amount": 1000.0,
+      "award_id": "75P00119D00040",
+      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
+      "description": "INDEFINITE DELIVERY INDEFINITE QUANTITY (IDIQ) FOR INTELLIGENT AUTOMATION/ARTIFICIAL INTELLIGENCE (IAAI) SOLUTIONS, SERVICES AND PRODUCTS",
+      "detected_date": "2026-10-16",
+      "fingerprint": "ACN|75P00119D00040|1000.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2019-05-20|",
       "potential_amount": null,
       "ticker": "ACN"
     },
-    "ACN|SP470924F0083": {
-      "award_amount": 53417292.61,
-      "award_id": "SP470924F0083",
-      "award_type": "DELIVERY ORDER",
-      "description": "8510785908!TASK 5 - JETS  SYSTEM SUST/MA",
-      "detected_date": "2026-10-15",
-      "fingerprint": "ACN|SP470924F0083|53417292.61|None|DELIVERY ORDER||2024-08-01|2026-02-28",
-      "potential_amount": null,
-      "ticker": "ACN"
-    },
-    "BAH|47QFCA23F0058": {
-      "award_amount": 561184437.17,
-      "award_id": "47QFCA23F0058",
-      "award_type": "DELIVERY ORDER",
-      "description": "AWARD OF TASK ORDER 47QFCA23F0058 FOR DATA MODERNIZATION ACCELERATOR FOR CDC (DMAC).",
-      "detected_date": "2026-10-15",
-      "fingerprint": "BAH|47QFCA23F0058|561184437.17|None|DELIVERY ORDER||2023-10-23|2027-04-22",
+    "BAH|47QFHA24D0005": {
+      "award_amount": 2500.0,
+      "award_id": "47QFHA24D0005",
+      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
+      "description": "PRISM PR POOL  BOOZ ALLEN HAMILTON INC",
+      "detected_date": "2026-10-16",
+      "fingerprint": "BAH|47QFHA24D0005|2500.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2024-07-15|",
       "potential_amount": null,
       "ticker": "BAH"
     },
-    "GD|47QFMA25F0016": {
-      "award_amount": 120247097.4,
-      "award_id": "47QFMA25F0016",
-      "award_type": "DELIVERY ORDER",
-      "description": "ENTERPRISE MISSION INFORMATION TECHNOLOGY SERVICES 2 EMITS 2",
-      "detected_date": "2026-10-15",
-      "fingerprint": "GD|47QFMA25F0016|120247097.4|None|DELIVERY ORDER||2025-09-24|2027-01-31",
+    "BAH|75P00119D00044": {
+      "award_amount": 1000.0,
+      "award_id": "75P00119D00044",
+      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
+      "description": "INDEFINITE DELIVERY INDEFINITE QUANTITY (IDIQ) FOR INTELLIGENT AUTOMATION/ARTIFICIAL INTELLIGENCE (IAAI) SOLUTIONS, SERVICES AND PRODUCTS",
+      "detected_date": "2026-10-16",
+      "fingerprint": "BAH|75P00119D00044|1000.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2019-05-20|",
+      "potential_amount": null,
+      "ticker": "BAH"
+    },
+    "GD|47QFSA21F0023": {
+      "award_amount": 94826375.51,
+      "award_id": "47QFSA21F0023",
+      "award_type": "BPA CALL",
+      "description": "DEFENSE ENTERPRISE OFFICE SOLUTIONS (DEOS)",
+      "detected_date": "2026-10-16",
+      "fingerprint": "GD|47QFSA21F0023|94826375.51|None|BPA CALL||2021-03-05|2026-09-04",
       "potential_amount": null,
       "ticker": "GD"
+    },
+    "GD|75P00119D00060": {
+      "award_amount": 1000.0,
+      "award_id": "75P00119D00060",
+      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
+      "description": "INDEFINITE DELIVERY INDEFINITE QUANTITY (IDIQ) FOR INTELLIGENT AUTOMATION/ARTIFICIAL INTELLIGENCE (IAAI) SOLUTIONS, SERVICES AND PRODUCTS",
+      "detected_date": "2026-10-16",
+      "fingerprint": "GD|75P00119D00060|1000.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2019-05-20|",
+      "potential_amount": null,
+      "ticker": "GD"
+    },
+    "GD|FA872625FB025": {
+      "award_amount": 445976931.05,
+      "award_id": "FA872625FB025",
+      "award_type": "BPA CALL",
+      "description": "UNDEFINITIZED CONTRACT ACTION FOR NEXT GENERATION GATEWAY PHASE II",
+      "detected_date": "2026-10-16",
+      "fingerprint": "GD|FA872625FB025|445976931.05|None|BPA CALL||2025-03-14|2026-11-30",
+      "potential_amount": null,
+      "ticker": "GD"
+    },
+    "IBM|36C10D22N0008": {
+      "award_amount": 75621056.29,
+      "award_id": "36C10D22N0008",
+      "award_type": "DELIVERY ORDER",
+      "description": "PENSION OPTIMIZATION INITIATIVE TASK ORDER",
+      "detected_date": "2026-10-16",
+      "fingerprint": "IBM|36C10D22N0008|75621056.29|None|DELIVERY ORDER||2022-09-12|2027-08-31",
+      "potential_amount": null,
+      "ticker": "IBM"
+    },
+    "IBM|75P00119D00065": {
+      "award_amount": 1000.0,
+      "award_id": "75P00119D00065",
+      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
+      "description": "INDEFINITE DELIVERY INDEFINITE QUANTITY (IDIQ) FOR INTELLIGENT AUTOMATION/ARTIFICIAL INTELLIGENCE (IAAI) SOLUTIONS, SERVICES AND PRODUCTS",
+      "detected_date": "2026-10-16",
+      "fingerprint": "IBM|75P00119D00065|1000.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2019-05-20|",
+      "potential_amount": null,
+      "ticker": "IBM"
+    },
+    "IBM|HSBP1010J00212": {
+      "award_amount": 80424111.38,
+      "award_id": "HSBP1010J00212",
+      "award_type": "DELIVERY ORDER",
+      "description": "MODERNIZATION TASK ORDER EDME (ENTERPRISE DATA MANAGEMENT AND ENGINEERING)",
+      "detected_date": "2026-10-16",
+      "fingerprint": "IBM|HSBP1010J00212|80424111.38|None|DELIVERY ORDER||2007-08-21|2011-05-28",
+      "potential_amount": null,
+      "ticker": "IBM"
+    },
+    "LDOS|75P00119D00068": {
+      "award_amount": 1000.0,
+      "award_id": "75P00119D00068",
+      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
+      "description": "INDEFINITE DELIVERY INDEFINITE QUANTITY (IDIQ) FOR INTELLIGENT AUTOMATION/ARTIFICIAL INTELLIGENCE (IAAI) SOLUTIONS, SERVICES AND PRODUCTS",
+      "detected_date": "2026-10-16",
+      "fingerprint": "LDOS|75P00119D00068|1000.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2019-05-20|",
+      "potential_amount": null,
+      "ticker": "LDOS"
+    },
+    "LDOS|NNA05BE28C": {
+      "award_amount": 81803408.58,
+      "award_id": "NNA05BE28C",
+      "award_type": "DEFINITIVE CONTRACT",
+      "description": "TECHNICAL SERVICES FOR AEROSPACE SYSTMES MODELING AND SIMULATION",
+      "detected_date": "2026-10-16",
+      "fingerprint": "LDOS|NNA05BE28C|81803408.58|None|DEFINITIVE CONTRACT||2005-06-24|2012-11-30",
+      "potential_amount": null,
+      "ticker": "LDOS"
+    },
+    "NOC|75P00119D00073": {
+      "award_amount": 1000.0,
+      "award_id": "75P00119D00073",
+      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
+      "description": "INDEFINITE DELIVERY INDEFINITE QUANTITY (IDIQ) FOR INTELLIGENT AUTOMATION/ARTIFICIAL INTELLIGENCE (IAAI) SOLUTIONS, SERVICES AND PRODUCTS",
+      "detected_date": "2026-10-16",
+      "fingerprint": "NOC|75P00119D00073|1000.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2019-05-20|",
+      "potential_amount": null,
+      "ticker": "NOC"
+    },
+    "PLTR|75P00119D00076": {
+      "award_amount": 1000.0,
+      "award_id": "75P00119D00076",
+      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
+      "description": "INDEFINITE DELIVERY INDEFINITE QUANTITY (IDIQ) FOR INTELLIGENT AUTOMATION/ARTIFICIAL INTELLIGENCE (IAAI) SOLUTIONS, SERVICES AND PRODUCTS",
+      "detected_date": "2026-10-16",
+      "fingerprint": "PLTR|75P00119D00076|1000.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2019-05-20|",
+      "potential_amount": null,
+      "ticker": "PLTR"
+    },
+    "PSN|75P00119D00077": {
+      "award_amount": 1000.0,
+      "award_id": "75P00119D00077",
+      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
+      "description": "INDEFINITE DELIVERY INDEFINITE QUANTITY (IDIQ) FOR INTELLIGENT AUTOMATION/ARTIFICIAL INTELLIGENCE (IAAI) SOLUTIONS, SERVICES AND PRODUCTS",
+      "detected_date": "2026-10-16",
+      "fingerprint": "PSN|75P00119D00077|1000.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2019-05-20|",
+      "potential_amount": null,
+      "ticker": "PSN"
     }
   }
 }
