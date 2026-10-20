@@ -1,115 +1,15 @@
 {
-  "date": "2026-10-19",
+  "date": "2026-10-20",
   "events": {
-    "ACN|140D0424D0097": {
-      "award_amount": 0.0,
-      "award_id": "140D0424D0097",
-      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
-      "description": "MISSION SERVICES PLATFORM - DEVELOPMENT AND OPERATIONS AND MAINTENANCE (O&M) SUPPORT SERVICES",
-      "detected_date": "2026-10-19",
-      "fingerprint": "ACN|140D0424D0097|0.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2024-06-05|",
-      "potential_amount": null,
-      "ticker": "ACN"
-    },
-    "ACN|47QRCA25DU502": {
+    "LUNR|47QRCA25DS434": {
       "award_amount": 2500.0,
-      "award_id": "47QRCA25DU502",
+      "award_id": "47QRCA25DS434",
       "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
-      "description": "ONE ACQUISITION SOLUTION FOR INTEGRATED SERVICES PLUS (OASIS+) UNRESTRICTED MULTIPLE AGENCY CONTRACT (MAC)",
-      "detected_date": "2026-10-19",
-      "fingerprint": "ACN|47QRCA25DU502|2500.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2024-12-17|",
-      "potential_amount": null,
-      "ticker": "ACN"
-    },
-    "BAH|47QFCA23F0047": {
-      "award_amount": 251207902.17,
-      "award_id": "47QFCA23F0047",
-      "award_type": "DELIVERY ORDER",
-      "description": "AWARD OF DSCU ICB TO SUPPORT THE MISSION SETS AND PROGRAMS.",
-      "detected_date": "2026-10-19",
-      "fingerprint": "BAH|47QFCA23F0047|251207902.17|None|DELIVERY ORDER||2023-09-08|2028-09-30",
-      "potential_amount": null,
-      "ticker": "BAH"
-    },
-    "BA|SPRPA123D9000": {
-      "award_amount": 0.0,
-      "award_id": "SPRPA123D9000",
-      "award_type": "INDEFINITE DELIVERY / REQUIREMENTS",
-      "description": "4610099786!MODIFICATION KIT,AI",
-      "detected_date": "2026-10-19",
-      "fingerprint": "BA|SPRPA123D9000|0.0|None|INDEFINITE DELIVERY / REQUIREMENTS||2023-03-15|",
-      "potential_amount": null,
-      "ticker": "BA"
-    },
-    "CACI|47QRCA25DU060": {
-      "award_amount": 2500.0,
-      "award_id": "47QRCA25DU060",
-      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
-      "description": "ONE ACQUISITION SOLUTION FOR INTEGRATED SERVICES PLUS (OASIS+) UNRESTRICTED MULTIPLE AGENCY CONTRACT (MAC)",
-      "detected_date": "2026-10-19",
-      "fingerprint": "CACI|47QRCA25DU060|2500.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2024-12-17|",
-      "potential_amount": null,
-      "ticker": "CACI"
-    },
-    "CACI|80TECH24CA002": {
-      "award_amount": 276567932.36,
-      "award_id": "80TECH24CA002",
-      "award_type": "DEFINITIVE CONTRACT",
-      "description": "NASA CONSOLIDATED APPLICATION AND PLATFORM SERVICES (NCAPS)",
-      "detected_date": "2026-10-19",
-      "fingerprint": "CACI|80TECH24CA002|276567932.36|None|DEFINITIVE CONTRACT||2024-07-03|2027-06-30",
-      "potential_amount": null,
-      "ticker": "CACI"
-    },
-    "KTOS|47QFCA20C0019": {
-      "award_amount": 371699225.6,
-      "award_id": "47QFCA20C0019",
-      "award_type": "DEFINITIVE CONTRACT",
-      "description": "COSMIC AES SBIR III CONTRACT 47QFCA20C0019. THIS CONTRACT IS FOR OTHER FUNCTIONS.",
-      "detected_date": "2026-10-19",
-      "fingerprint": "KTOS|47QFCA20C0019|371699225.6|None|DEFINITIVE CONTRACT||2020-06-11|2027-06-10",
-      "potential_amount": null,
-      "ticker": "KTOS"
-    },
-    "LDOS|70B03C20D00000012": {
-      "award_amount": 0.0,
-      "award_id": "70B03C20D00000012",
-      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
-      "description": "HIGH ENERGY RAIL INSPECTION SYSTEMS, INCLUDING INSTALLATION, MAINTENANCE, AND TRAINING FOR THE NON-INTRUSIVE INSPECTION PROGRAM",
-      "detected_date": "2026-10-19",
-      "fingerprint": "LDOS|70B03C20D00000012|0.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2020-07-01|",
-      "potential_amount": null,
-      "ticker": "LDOS"
-    },
-    "LUNR|47QRCA25DU617": {
-      "award_amount": 2500.0,
-      "award_id": "47QRCA25DU617",
-      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
-      "description": "ONE ACQUISITION SOLUTION FOR INTEGRATED SERVICES PLUS (OASIS+) UNRESTRICTED MULTIPLE AGENCY CONTRACT (MAC)",
-      "detected_date": "2026-10-19",
-      "fingerprint": "LUNR|47QRCA25DU617|2500.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2024-12-17|",
+      "description": "ONE ACQUISITION SOLUTION FOR INTEGRATED SERVICES PLUS (OASIS+) SMALL BUSINESS MULTIPLE AGENCY CONTRACT (MAC)",
+      "detected_date": "2026-10-20",
+      "fingerprint": "LUNR|47QRCA25DS434|2500.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2024-12-19|",
       "potential_amount": null,
       "ticker": "LUNR"
-    },
-    "PLTR|47QTCA24D004L": {
-      "award_amount": 0.0,
-      "award_id": "47QTCA24D004L",
-      "award_type": "FSS",
-      "description": "FEDERAL SUPPLY SCHEDULE CONTRACT",
-      "detected_date": "2026-10-19",
-      "fingerprint": "PLTR|47QTCA24D004L|0.0|None|FSS||2024-02-06|",
-      "potential_amount": null,
-      "ticker": "PLTR"
-    },
-    "PSN|47QFCA23F0024": {
-      "award_amount": 536914131.16,
-      "award_id": "47QFCA23F0024",
-      "award_type": "DELIVERY ORDER",
-      "description": "BOLD VENTURE",
-      "detected_date": "2026-10-19",
-      "fingerprint": "PSN|47QFCA23F0024|536914131.16|None|DELIVERY ORDER||2023-04-27|2027-04-26",
-      "potential_amount": null,
-      "ticker": "PSN"
     }
   }
 }
