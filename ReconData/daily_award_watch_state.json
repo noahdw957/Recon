@@ -1,15 +1,85 @@
 {
-  "date": "2026-10-20",
+  "date": "2026-10-21",
   "events": {
-    "LUNR|47QRCA25DS434": {
-      "award_amount": 2500.0,
-      "award_id": "47QRCA25DS434",
+    "BAH|HDTRA114D0016": {
+      "award_amount": 0.0,
+      "award_id": "HDTRA114D0016",
       "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
-      "description": "ONE ACQUISITION SOLUTION FOR INTEGRATED SERVICES PLUS (OASIS+) SMALL BUSINESS MULTIPLE AGENCY CONTRACT (MAC)",
-      "detected_date": "2026-10-20",
-      "fingerprint": "LUNR|47QRCA25DS434|2500.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2024-12-19|",
+      "description": "IGF::CT::IGF COUNTERING WEAPONS OF MASS DESTRUCTION SITUATIONAL AWARENESS, INTELLIGENCE, OPERATIONS, AND DATA VISUALIZATION SUPPORT",
+      "detected_date": "2026-10-21",
+      "fingerprint": "BAH|HDTRA114D0016|0.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2014-09-08|",
       "potential_amount": null,
-      "ticker": "LUNR"
+      "ticker": "BAH"
+    },
+    "BA|FA821324DB002": {
+      "award_amount": 0.0,
+      "award_id": "FA821324DB002",
+      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
+      "description": "JOINT DIRECT ATTACK MUNITION TAIL KITS",
+      "detected_date": "2026-10-21",
+      "fingerprint": "BA|FA821324DB002|0.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2024-05-29|",
+      "potential_amount": null,
+      "ticker": "BA"
+    },
+    "BA|FA862117C6398": {
+      "award_amount": 144264886.0,
+      "award_id": "FA862117C6398",
+      "award_type": "DEFINITIVE CONTRACT",
+      "description": "F-15 SA ATD",
+      "detected_date": "2026-10-21",
+      "fingerprint": "BA|FA862117C6398|144264886.0|None|DEFINITIVE CONTRACT||2016-12-13|2029-05-31",
+      "potential_amount": null,
+      "ticker": "BA"
+    },
+    "CACI|FA890321D0035": {
+      "award_amount": 0.0,
+      "award_id": "FA890321D0035",
+      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
+      "description": "INDEFINITE DELIVERY, INDEFINITE QUANTITY MULTIPLE AWARD TASK ORDER CONTRACT FOR ARCHITECT-ENGINEER SERVICES FOR TRADITIONAL TITLE I, TITLE II, AND OTHER ARCHITECT ENGINEER SERVICES AE NEXT 2020 POOL 3- GENERAL INFRASTRUCTURE",
+      "detected_date": "2026-10-21",
+      "fingerprint": "CACI|FA890321D0035|0.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2021-08-30|",
+      "potential_amount": null,
+      "ticker": "CACI"
+    },
+    "GD|W56HZV24D0031": {
+      "award_amount": 0.0,
+      "award_id": "W56HZV24D0031",
+      "award_type": "INDEFINITE DELIVERY / REQUIREMENTS",
+      "description": "STYRKER WHOLESALE SUPPLY PBL CONTRACT FOR THE PURCHASE, WAREHOUSING, REPAIR, ISSUE, SHIPMENT, DISPOSAL, OBSOLESCENCE MANAGEMENT, AND CONFIGURATION MANAGEMENT OF PARTS TO SUPPORT THE STRYKER FOV.",
+      "detected_date": "2026-10-21",
+      "fingerprint": "GD|W56HZV24D0031|0.0|None|INDEFINITE DELIVERY / REQUIREMENTS||2024-03-01|",
+      "potential_amount": null,
+      "ticker": "GD"
+    },
+    "GD|W56JSR21F0043": {
+      "award_amount": 268877000.81,
+      "award_id": "W56JSR21F0043",
+      "award_type": "DELIVERY ORDER",
+      "description": "THIS EFFORT IS TO SUPPORT THE U.S. ARMY COMMUNICATIONS-ELECTRONICS COMMAND (CECOM), SOFTWARE ENGINEERING CENTER (SEC), AND TOBYHANNA ARMY DEPOT (TYAD) REQUIREMENT TO PROVIDE WORLDWIDE FIELD SUPPORT",
+      "detected_date": "2026-10-21",
+      "fingerprint": "GD|W56JSR21F0043|268877000.81|None|DELIVERY ORDER||2021-12-06|2025-12-05",
+      "potential_amount": null,
+      "ticker": "GD"
+    },
+    "LDOS|N0002418C6209": {
+      "award_amount": 87529997.3,
+      "award_id": "N0002418C6209",
+      "award_type": "DEFINITIVE CONTRACT",
+      "description": "NRE FOR EDM-1",
+      "detected_date": "2026-10-21",
+      "fingerprint": "LDOS|N0002418C6209|87529997.3|None|DEFINITIVE CONTRACT||2018-08-13|2026-09-30",
+      "potential_amount": null,
+      "ticker": "LDOS"
+    },
+    "VSEC|70Z03826DL0000004": {
+      "award_amount": 0.0,
+      "award_id": "70Z03826DL0000004",
+      "award_type": "INDEFINITE DELIVERY / REQUIREMENTS",
+      "description": "PROCUREMENT OF MAIN LANDING GEAR AND NOSE LANDING GEAR TIRES IN SUPPORT OF THE HC-27J AIRCRAFT.",
+      "detected_date": "2026-10-21",
+      "fingerprint": "VSEC|70Z03826DL0000004|0.0|None|INDEFINITE DELIVERY / REQUIREMENTS||2025-11-19|",
+      "potential_amount": null,
+      "ticker": "VSEC"
     }
   }
 }
