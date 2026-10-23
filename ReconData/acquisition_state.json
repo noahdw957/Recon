@@ -1,7 +1,7 @@
 {
-  "last_successful_scan_date": "2026-10-22",
-  "last_fetch_start": "2026-10-20",
-  "last_success_utc": "2026-10-22T18:06:21.519321+00:00",
+  "last_successful_scan_date": "2026-10-23",
+  "last_fetch_start": "2026-10-21",
+  "last_success_utc": "2026-10-23T17:59:56.056054+00:00",
   "watermark_source": "acquisition_state_or_live_history",
   "model_version": "RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
   "scanner_version": "RECON_LIVE_V4.7_MD14_MD11_STRICT_AWARD_RECIPIENT_MATCH"

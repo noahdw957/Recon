@@ -1,26 +1,4 @@
 {
-  "date": "2026-10-22",
-  "events": {
-    "DE|2026-10-20": {
-      "award_date": "2026-10-20",
-      "fingerprint": "DE|2026-10-20|4121.64|3|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
-      "last_seen_utc": "2026-10-22T18:06:21.448893+00:00",
-      "projected_peak_pct_90d": 23.789302101645514,
-      "ticker": "DE"
-    },
-    "LUNR|2026-10-20": {
-      "award_date": "2026-10-20",
-      "fingerprint": "LUNR|2026-10-20|3863593.85|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
-      "last_seen_utc": "2026-10-22T18:06:21.474462+00:00",
-      "projected_peak_pct_90d": 59.55614289476879,
-      "ticker": "LUNR"
-    },
-    "PSN|2026-10-20": {
-      "award_date": "2026-10-20",
-      "fingerprint": "PSN|2026-10-20|0.00|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
-      "last_seen_utc": "2026-10-22T18:06:21.487628+00:00",
-      "projected_peak_pct_90d": 39.28777059416475,
-      "ticker": "PSN"
-    }
-  }
+  "date": "2026-10-23",
+  "events": {}
 }

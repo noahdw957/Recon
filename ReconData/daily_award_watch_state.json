@@ -1,75 +1,95 @@
 {
-  "date": "2026-10-22",
+  "date": "2026-10-23",
   "events": {
-    "BAH|47QFCA23F0014": {
-      "award_amount": 547729109.4,
-      "award_id": "47QFCA23F0014",
+    "ACN|89303026FIM000188": {
+      "award_amount": 89942183.21,
+      "award_id": "89303026FIM000188",
+      "award_type": "BPA CALL",
+      "description": "BLANKET PURCHASE AGREEMENT (BPA) ORDER FOR CHIEF INFORMATION OFFICER (CIO) BUSINESS OPERATIONS SUPPORT SERVICES (CBOSS) 2.0. ORDER LEVEL MATERIALS (OLM)",
+      "detected_date": "2026-10-23",
+      "fingerprint": "ACN|89303026FIM000188|89942183.21|None|BPA CALL||2025-12-18|2027-12-17",
+      "potential_amount": null,
+      "ticker": "ACN"
+    },
+    "BAH|36C10B21N10150056": {
+      "award_amount": 1138891386.64,
+      "award_id": "36C10B21N10150056",
       "award_type": "DELIVERY ORDER",
-      "description": "ENGINEERING DEVELOPMENT INTEGRATION AND TECHNOLOGYBASED SOLUTIONS EDITS",
-      "detected_date": "2026-10-22",
-      "fingerprint": "BAH|47QFCA23F0014|547729109.4|None|DELIVERY ORDER||2023-02-20|2027-02-23",
+      "description": "PRODUCT AND TECHNOLOGY ECOSYSTEM MANAGEMENT SERVICES (PTEMS)WHICH INCLUDES PRODUCT DELIVERY AND LIFECYCLE MANAGEMENT TO TRANSFORM VA BY TAPPING INTO EMERGING TECHNOLOGIES, CONNECTING DEVELOPERS WITH VA DATA, AND MAKING HUMAN CENTERED DESIGN (HCD).",
+      "detected_date": "2026-10-23",
+      "fingerprint": "BAH|36C10B21N10150056|1138891386.64|None|DELIVERY ORDER||2021-01-08|2025-04-15",
       "potential_amount": null,
       "ticker": "BAH"
     },
-    "BAH|47QFRA24F0006": {
-      "award_amount": 710558512.24,
-      "award_id": "47QFRA24F0006",
-      "award_type": "DELIVERY ORDER",
-      "description": "CDM DEFEND GROUP BD  BRIDGE TASK ORDER",
-      "detected_date": "2026-10-22",
-      "fingerprint": "BAH|47QFRA24F0006|710558512.24|None|DELIVERY ORDER||2024-05-01|2027-04-30",
+    "BAH|80TECH22DA002": {
+      "award_amount": 268955776.14,
+      "award_id": "80TECH22DA002",
+      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
+      "description": "THE PURPOSE OF THIS CONTRACT IS TO ACQUIRE CYBERSECURITY AND PRIVACY ENTERPRISE SOLUTIONS AND SERVICES AND RELATED SERVICES FOR THE OFFICE OF CHIEF INFORMATION OFFICER.",
+      "detected_date": "2026-10-23",
+      "fingerprint": "BAH|80TECH22DA002|268955776.14|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2022-05-31|",
       "potential_amount": null,
       "ticker": "BAH"
     },
-    "CACI|47QFRA24F0005": {
-      "award_amount": 977906126.78,
-      "award_id": "47QFRA24F0005",
-      "award_type": "DELIVERY ORDER",
-      "description": "CDM DEFEND GROUP A  BRIDGE TASK ORDER",
-      "detected_date": "2026-10-22",
-      "fingerprint": "CACI|47QFRA24F0005|977906126.78|None|DELIVERY ORDER||2024-05-01|2027-04-30",
-      "potential_amount": null,
-      "ticker": "CACI"
-    },
-    "GD|FA205725CB002": {
-      "award_amount": 59964087.52,
-      "award_id": "FA205725CB002",
+    "GD|19AQMM18C0185": {
+      "award_amount": 1842639352.42,
+      "award_id": "19AQMM18C0185",
       "award_type": "DEFINITIVE CONTRACT",
-      "description": "THE NGSS SUITE IS COMPRISED OF THREE (3) SENSOR OPEN SYSTEM ARCHITECTURE (SOSA)-ALIGNED, 3U OPENVPX FORM FACTOR PLUG-IN CARDS (PICS), ONE EACH FOR TCDS, MLSW, AND SACDS.",
-      "detected_date": "2026-10-22",
-      "fingerprint": "GD|FA205725CB002|59964087.52|None|DEFINITIVE CONTRACT||2024-12-13|2026-06-30",
+      "description": "GLOBAL SECURITY ENGINEERING&SUPPLY CHAIN SERVICES.",
+      "detected_date": "2026-10-23",
+      "fingerprint": "GD|19AQMM18C0185|1842639352.42|None|DEFINITIVE CONTRACT||2019-06-19|2029-08-07",
       "potential_amount": null,
       "ticker": "GD"
     },
-    "GE|70Z03822DJ0000003": {
+    "LDOS|19AQMM25D0433": {
       "award_amount": 0.0,
-      "award_id": "70Z03822DJ0000003",
-      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
-      "description": "OVERHAUL OF T700-401C ENGINE COMPONENTS AND MODULES FOR UTILIZATION ON MH-60T AIRCRAFTS.",
-      "detected_date": "2026-10-22",
-      "fingerprint": "GE|70Z03822DJ0000003|0.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2022-08-31|",
+      "award_id": "19AQMM25D0433",
+      "award_type": "INDEFINITE DELIVERY / DEFINITE QUANTITY",
+      "description": "CUSTOMER AND END USER SUPPORT SERVICES",
+      "detected_date": "2026-10-23",
+      "fingerprint": "LDOS|19AQMM25D0433|0.0|None|INDEFINITE DELIVERY / DEFINITE QUANTITY||2025-05-12|",
       "potential_amount": null,
-      "ticker": "GE"
+      "ticker": "LDOS"
     },
-    "NOC|80AFRC21D0002": {
-      "award_amount": 0.0,
-      "award_id": "80AFRC21D0002",
-      "award_type": "INDEFINITE DELIVERY / REQUIREMENTS",
-      "description": "ENGINEERING, MANUFACTURING, AND TECHNICAL SUPPORT SERVICES IN SUPPORT OF THE OPERATION AND MAINTENANCE AND REQUIRED MODIFICATIONS TO THE GLOBAL HAWK SKYRANGE PROJECT.",
-      "detected_date": "2026-10-22",
-      "fingerprint": "NOC|80AFRC21D0002|0.0|None|INDEFINITE DELIVERY / REQUIREMENTS||2020-12-17|",
+    "LDOS|29FTC121F0002": {
+      "award_amount": 95539376.01,
+      "award_id": "29FTC121F0002",
+      "award_type": "BPA CALL",
+      "description": "SENTINEL NETWORK SERVICES",
+      "detected_date": "2026-10-23",
+      "fingerprint": "LDOS|29FTC121F0002|95539376.01|None|BPA CALL||2020-11-30|2026-11-30",
       "potential_amount": null,
-      "ticker": "NOC"
+      "ticker": "LDOS"
     },
-    "NOC|FA821321D0002": {
-      "award_amount": 0.0,
-      "award_id": "FA821321D0002",
+    "LDOS|693KA921D00008": {
+      "award_amount": 1797667260.05,
+      "award_id": "693KA921D00008",
       "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
-      "description": "NSNS: 1377-01-658-5870 AND 1377-01-645-7400",
-      "detected_date": "2026-10-22",
-      "fingerprint": "NOC|FA821321D0002|0.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2021-07-07|",
+      "description": "CONTRACT TO PROVIDE ENGINEERING AND TECHNICAL SUPPORT SERVICES AS REQUIRED TO VARIOUS FAA ORGANIZATIONS.",
+      "detected_date": "2026-10-23",
+      "fingerprint": "LDOS|693KA921D00008|1797667260.05|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2020-12-08|",
       "potential_amount": null,
-      "ticker": "NOC"
+      "ticker": "LDOS"
+    },
+    "LDOS|N0003926D9502": {
+      "award_amount": 0.0,
+      "award_id": "N0003926D9502",
+      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
+      "description": "AUTOMATED DIGITAL NETWORK SYSTEM (ADNS) MAC",
+      "detected_date": "2026-10-23",
+      "fingerprint": "LDOS|N0003926D9502|0.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2026-05-21|",
+      "potential_amount": null,
+      "ticker": "LDOS"
+    },
+    "SPIR|80LARC22DA009": {
+      "award_amount": 0.0,
+      "award_id": "80LARC22DA009",
+      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
+      "description": "INFLATABLE AERODYNAMIC DECELERATOR (IAD) TRACK C - GAS GENERATOR INFLATION SYSTEM DESIGN, MANUFACTURING AND TESTING",
+      "detected_date": "2026-10-23",
+      "fingerprint": "SPIR|80LARC22DA009|0.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2022-10-01|",
+      "potential_amount": null,
+      "ticker": "SPIR"
     }
   }
 }
