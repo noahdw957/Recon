@@ -1,26 +1,4 @@
 {
-  "date": "2026-10-26",
-  "events": {
-    "HON|2026-10-22": {
-      "award_date": "2026-10-22",
-      "fingerprint": "HON|2026-10-22|0.00|2|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
-      "last_seen_utc": "2026-10-26T19:27:07.599270+00:00",
-      "projected_peak_pct_90d": 19.307592588926912,
-      "ticker": "HON"
-    },
-    "MRCY|2026-10-22": {
-      "award_date": "2026-10-22",
-      "fingerprint": "MRCY|2026-10-22|287100.00|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
-      "last_seen_utc": "2026-10-26T19:27:07.579949+00:00",
-      "projected_peak_pct_90d": 41.007599171586776,
-      "ticker": "MRCY"
-    },
-    "ONDS|2026-10-22": {
-      "award_date": "2026-10-22",
-      "fingerprint": "ONDS|2026-10-22|129257.49|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
-      "last_seen_utc": "2026-10-26T19:27:07.573942+00:00",
-      "projected_peak_pct_90d": 56.17708735857995,
-      "ticker": "ONDS"
-    }
-  }
+  "date": "2026-10-27",
+  "events": {}
 }
