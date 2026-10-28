@@ -1,7 +1,7 @@
 {
-  "scan_utc": "2026-10-27T18:48:28.658763+00:00",
+  "scan_utc": "2026-10-28T18:58:36.552713+00:00",
   "scan_start": "2026-10-25",
-  "scan_end": "2026-10-27",
+  "scan_end": "2026-10-28",
   "watermark_source": "acquisition_state_or_live_history",
   "downloaded_rows_total": 0,
   "downloaded_positive": 0,
