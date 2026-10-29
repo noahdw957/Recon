@@ -1,4 +1,215 @@
 {
-  "date": "2026-10-28",
-  "events": {}
+  "date": "2026-10-29",
+  "events": {
+    "ACN|15JPSS23F00000125": {
+      "award_amount": 63753690.95,
+      "award_id": "15JPSS23F00000125",
+      "award_type": "DELIVERY ORDER",
+      "description": "CONSOLIDATED DEBT COLLECTION SYSTEM (CDCS) SUPPORT",
+      "detected_date": "2026-10-29",
+      "fingerprint": "ACN|15JPSS23F00000125|63753690.95|None|DELIVERY ORDER||2023-04-01|2026-09-30",
+      "potential_amount": null,
+      "ticker": "ACN"
+    },
+    "ACN|75FCMC21F0002": {
+      "award_amount": 796233862.71,
+      "award_id": "75FCMC21F0002",
+      "award_type": "DELIVERY ORDER",
+      "description": "FEDERALLY FACILITATED EXCHANGE (FFE)",
+      "detected_date": "2026-10-29",
+      "fingerprint": "ACN|75FCMC21F0002|796233862.71|None|DELIVERY ORDER||2021-07-11|2027-01-10",
+      "potential_amount": null,
+      "ticker": "ACN"
+    },
+    "ACN|89303024FIM000144": {
+      "award_amount": 92257091.25,
+      "award_id": "89303024FIM000144",
+      "award_type": "BPA CALL",
+      "description": "CBOSS BPA TASK ORDER FOR IM-30 CYBERSECURITY STRATEGY, POLICY, OPERATIONS, ENGINEERING, AND PROGRAM MANAGEMENT FOR THE U.S. DEPARTMENT OF ENERGY (DOE) OFFICE OF CHIEF INFORMATION OFFICER (OCIO/IM-30)",
+      "detected_date": "2026-10-29",
+      "fingerprint": "ACN|89303024FIM000144|92257091.25|None|BPA CALL||2024-03-29|2026-12-28",
+      "potential_amount": null,
+      "ticker": "ACN"
+    },
+    "BAH|47QFCA24F0003": {
+      "award_amount": 290286141.0,
+      "award_id": "47QFCA24F0003",
+      "award_type": "DELIVERY ORDER",
+      "description": "SPACE SYSTEMS COMMAND (SSC) GROUND SYSTEMS ENGINEERING AND INTEGRATION SUPPORT (GSIS) TASK ORDER AWARD.",
+      "detected_date": "2026-10-29",
+      "fingerprint": "BAH|47QFCA24F0003|290286141.0|None|DELIVERY ORDER||2023-11-07|2026-11-06",
+      "potential_amount": null,
+      "ticker": "BAH"
+    },
+    "BAH|47QFPA22F0007": {
+      "award_amount": 228508008.42,
+      "award_id": "47QFPA22F0007",
+      "award_type": "DELIVERY ORDER",
+      "description": "REMOTE SENSING SE&I",
+      "detected_date": "2026-10-29",
+      "fingerprint": "BAH|47QFPA22F0007|228508008.42|None|DELIVERY ORDER||2022-01-11|2027-06-18",
+      "potential_amount": null,
+      "ticker": "BAH"
+    },
+    "BAH|80ARC024DA001": {
+      "award_amount": 19223833.12,
+      "award_id": "80ARC024DA001",
+      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
+      "description": "AVIATION SAFETY REPORTING SYSTEM (ASRS) AND RELATED SYSTEMS  THE CONTRACTOR SHALL OPERATE AND MAINTAIN ASRS AND THE RELATED C3RS.",
+      "detected_date": "2026-10-29",
+      "fingerprint": "BAH|80ARC024DA001|19223833.12|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2024-02-09|",
+      "potential_amount": null,
+      "ticker": "BAH"
+    },
+    "BA|FA867810C0100": {
+      "award_amount": 329846037.78,
+      "award_id": "FA867810C0100",
+      "award_type": "DEFINITIVE CONTRACT",
+      "description": "QF-16 FULL SCALE AERIAL TARGET (FSAT)",
+      "detected_date": "2026-10-29",
+      "fingerprint": "BA|FA867810C0100|329846037.78|None|DEFINITIVE CONTRACT||2010-03-08|2026-12-31",
+      "potential_amount": null,
+      "ticker": "BA"
+    },
+    "BA|FA873018C0001": {
+      "award_amount": 244046781.04,
+      "award_id": "FA873018C0001",
+      "award_type": "DEFINITIVE CONTRACT",
+      "description": "JAPAN AWACS MISSION COMPUTING UPGRADE (MCU) INSTALLATION&CHECKOUT (I&CO)",
+      "detected_date": "2026-10-29",
+      "fingerprint": "BA|FA873018C0001|244046781.04|None|DEFINITIVE CONTRACT||2018-02-12|2029-10-31",
+      "potential_amount": null,
+      "ticker": "BA"
+    },
+    "BA|FA873023C0025": {
+      "award_amount": 2733813697.47,
+      "award_id": "FA873023C0025",
+      "award_type": "DEFINITIVE CONTRACT",
+      "description": "E-7A RAPID PROTOTYPING",
+      "detected_date": "2026-10-29",
+      "fingerprint": "BA|FA873023C0025|2733813697.47|None|DEFINITIVE CONTRACT||2023-02-28|2031-08-31",
+      "potential_amount": null,
+      "ticker": "BA"
+    },
+    "BA|SPE4AX24D9404": {
+      "award_amount": 0.0,
+      "award_id": "SPE4AX24D9404",
+      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
+      "description": "4610107380!",
+      "detected_date": "2026-10-29",
+      "fingerprint": "BA|SPE4AX24D9404|0.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2023-12-01|",
+      "potential_amount": null,
+      "ticker": "BA"
+    },
+    "CACI|15JPSS22D00000013": {
+      "award_amount": 0.0,
+      "award_id": "15JPSS22D00000013",
+      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
+      "description": "EOIR LEGAL ACCESS, ORIENTATION, AND REPRESENTATION SERVICES.",
+      "detected_date": "2026-10-29",
+      "fingerprint": "CACI|15JPSS22D00000013|0.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2022-09-01|",
+      "potential_amount": null,
+      "ticker": "CACI"
+    },
+    "CACI|47QFCA19F0006": {
+      "award_amount": 979385697.35,
+      "award_id": "47QFCA19F0006",
+      "award_type": "DELIVERY ORDER",
+      "description": "IGF::OT::IGF",
+      "detected_date": "2026-10-29",
+      "fingerprint": "CACI|47QFCA19F0006|979385697.35|None|DELIVERY ORDER||2019-05-20|2026-11-19",
+      "potential_amount": null,
+      "ticker": "CACI"
+    },
+    "CACI|80TECH24CA002": {
+      "award_amount": 281159356.63,
+      "award_id": "80TECH24CA002",
+      "award_type": "DEFINITIVE CONTRACT",
+      "description": "NASA CONSOLIDATED APPLICATION AND PLATFORM SERVICES (NCAPS)",
+      "detected_date": "2026-10-29",
+      "fingerprint": "CACI|80TECH24CA002|281159356.63|None|DEFINITIVE CONTRACT||2024-07-03|2027-06-30",
+      "potential_amount": null,
+      "ticker": "CACI"
+    },
+    "ETN|6973GH24D00055": {
+      "award_amount": 0.0,
+      "award_id": "6973GH24D00055",
+      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
+      "description": "CONTRACTOR DEPOT LOGISTICS SUPPORT (CDLS) TO PROVIDE DEPOT LEVEL REPAIR, SPARING, FULL MAINTENANCE AND ENGINEERING SUPPORT.",
+      "detected_date": "2026-10-29",
+      "fingerprint": "ETN|6973GH24D00055|0.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2024-04-10|",
+      "potential_amount": null,
+      "ticker": "ETN"
+    },
+    "GD|1305M326D0004": {
+      "award_amount": 0.0,
+      "award_id": "1305M326D0004",
+      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
+      "description": "ADVANCED TECHNOLOGY DEMONSTRATOR (ATD) RADAR BACK END IMPROVEMENTS AND ENGINEERING TEST SUPPORT FOR NSSL.",
+      "detected_date": "2026-10-29",
+      "fingerprint": "GD|1305M326D0004|0.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2026-07-27|",
+      "potential_amount": null,
+      "ticker": "GD"
+    },
+    "GD|692M1522D00005": {
+      "award_amount": 0.0,
+      "award_id": "692M1522D00005",
+      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
+      "description": "UAS SUPPORT SERVICES",
+      "detected_date": "2026-10-29",
+      "fingerprint": "GD|692M1522D00005|0.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2022-04-27|",
+      "potential_amount": null,
+      "ticker": "GD"
+    },
+    "GD|HHSD200201037222I": {
+      "award_amount": 0.0,
+      "award_id": "HHSD200201037222I",
+      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
+      "description": "CDC INFORMATION MANAGEMENT SERVICES",
+      "detected_date": "2026-10-29",
+      "fingerprint": "GD|HHSD200201037222I|0.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2010-09-30|",
+      "potential_amount": null,
+      "ticker": "GD"
+    },
+    "IBM|36C10B23F0039": {
+      "award_amount": 311839978.55,
+      "award_id": "36C10B23F0039",
+      "award_type": "DELIVERY ORDER",
+      "description": "SUSTAINMENT, ENHANCEMENT AND TRANSITION SUPPORT OF VAS ENTERPRISE CORE HR SOLUTION - HRSMART.  THE CONTRACTOR WILL ENSURE ALIGNMENT WITH THE FEDERAL HUMAN CAPITAL BUSINESS REFERENCE MODEL AND FUNCTIONALITY SUPPORTED IAW VA OIT GUIDANCE AND POLICY.",
+      "detected_date": "2026-10-29",
+      "fingerprint": "IBM|36C10B23F0039|311839978.55|None|DELIVERY ORDER||2023-01-01|2027-05-10",
+      "potential_amount": null,
+      "ticker": "IBM"
+    },
+    "NOC|80AFRC21F0031": {
+      "award_amount": 107193031.01,
+      "award_id": "80AFRC21F0031",
+      "award_type": "DELIVERY ORDER",
+      "description": "PROVIDE AIRCRAFT AND GROUND CONTROL STATION (GCS) SPARE PARTS AND PROVIDE ENGINEERING, MAINTENANCE TECHNICIAN, LOGISTICS TECHNICIAN AND PILOT SUPPORT.",
+      "detected_date": "2026-10-29",
+      "fingerprint": "NOC|80AFRC21F0031|107193031.01|None|DELIVERY ORDER||2021-01-16|2027-07-31",
+      "potential_amount": null,
+      "ticker": "NOC"
+    },
+    "NOC|FA872318F0002": {
+      "award_amount": 138386870.32,
+      "award_id": "FA872318F0002",
+      "award_type": "DELIVERY ORDER",
+      "description": "IGF: :OT: :IGF SUSTAINMENT SERVICES FOR BMEWS/PAVE PAWS RADARS",
+      "detected_date": "2026-10-29",
+      "fingerprint": "NOC|FA872318F0002|138386870.32|None|DELIVERY ORDER||2018-06-01|2023-09-30",
+      "potential_amount": null,
+      "ticker": "NOC"
+    },
+    "NOC|NNG11XA04C": {
+      "award_amount": 588220889.39,
+      "award_id": "NNG11XA04C",
+      "award_type": "DEFINITIVE CONTRACT",
+      "description": "THE CONTRACTOR SHALL PROVIDE ALL PERSONNEL, FACILITIES, EQUIPMENT, MATERIAL, AND SERVICES NECESSARY TO DESIGN, DEVELOP, MANUFACTURE, INTEGRATE, TEST, AND DELIVER THE HARDWARE, DOCUMENTATION, AND SERVICES SPECIFIED HEREIN. THE CONTRACTOR SHALL ALSO PROVIDE SUPPORT, AS REQUIRED, FOR PRE-DELIVERY MISSION INTEGRATION ACTIVITIES, SUCH AS NPP MISSION OPERATIONS REVIEW AND JPSS DELTA-PDR. DOCUMENTATION AND OTHER TASKS SHOULD BE IN ACCORDANCE WITH THE REQUIREMENTS OF THIS SOW AND THE APPLICABLE DOCUMENTATION REFERENCED IN SECTION 2.3 HEREIN. COMPLIANCE WITH THE REQUIREMENTS STATED HEREIN, SHALL BE THE RESPONSIBILITY OF THE CONTRACTOR.",
+      "detected_date": "2026-10-29",
+      "fingerprint": "NOC|NNG11XA04C|588220889.39|None|DEFINITIVE CONTRACT||2011-09-13|2029-03-01",
+      "potential_amount": null,
+      "ticker": "NOC"
+    }
+  }
 }
