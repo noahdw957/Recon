@@ -1,47 +1,4 @@
 {
-  "date": "2026-11-02",
-  "events": {
-    "DE|2026-10-29": {
-      "award_date": "2026-10-29",
-      "fingerprint": "DE|2026-10-29|0.00|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
-      "last_seen_utc": "2026-11-02T22:26:42.149347+00:00",
-      "projected_peak_pct_90d": 28.719227848909235,
-      "ticker": "DE"
-    },
-    "DE|2026-10-30": {
-      "award_date": "2026-10-30",
-      "fingerprint": "DE|2026-10-30|4251.56|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
-      "last_seen_utc": "2026-11-02T22:26:42.205717+00:00",
-      "projected_peak_pct_90d": 25.350294102310468,
-      "ticker": "DE"
-    },
-    "HON|2026-10-29": {
-      "award_date": "2026-10-29",
-      "fingerprint": "HON|2026-10-29|0.00|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
-      "last_seen_utc": "2026-11-02T22:26:42.127635+00:00",
-      "projected_peak_pct_90d": 19.29777987494924,
-      "ticker": "HON"
-    },
-    "ONDS|2026-10-29": {
-      "award_date": "2026-10-29",
-      "fingerprint": "ONDS|2026-10-29|2338.41|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
-      "last_seen_utc": "2026-11-02T22:26:42.114428+00:00",
-      "projected_peak_pct_90d": 57.90654768348289,
-      "ticker": "ONDS"
-    },
-    "PSN|2026-10-29": {
-      "award_date": "2026-10-29",
-      "fingerprint": "PSN|2026-10-29|0.00|2|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
-      "last_seen_utc": "2026-11-02T22:26:42.109951+00:00",
-      "projected_peak_pct_90d": 38.271385863688536,
-      "ticker": "PSN"
-    },
-    "SATL|2026-10-29": {
-      "award_date": "2026-10-29",
-      "fingerprint": "SATL|2026-10-29|0.00|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
-      "last_seen_utc": "2026-11-02T22:26:42.145060+00:00",
-      "projected_peak_pct_90d": 77.05338985438851,
-      "ticker": "SATL"
-    }
-  }
+  "date": "2026-11-03",
+  "events": {}
 }
