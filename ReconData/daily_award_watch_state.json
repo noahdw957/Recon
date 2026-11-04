@@ -1,15 +1,575 @@
 {
-  "date": "2026-11-03",
+  "date": "2026-11-04",
   "events": {
-    "BA|80MSFC20C0052": {
-      "award_amount": 2844683081.0,
-      "award_id": "80MSFC20C0052",
+    "ACN|28321321C00060001": {
+      "award_amount": 76807140.98,
+      "award_id": "28321321C00060001",
       "award_type": "DEFINITIVE CONTRACT",
-      "description": "SPACE LAUNCH SYSTEM (SLS) STAGES PRODUCTION AND EVOLUTION CONTRACT (SPEC)",
-      "detected_date": "2026-11-03",
-      "fingerprint": "BA|80MSFC20C0052|2844683081.0|None|DEFINITIVE CONTRACT||2019-10-16|2029-02-28",
+      "description": "TICKET TO WORK PROGRAM MANAGER  - THE CONTRACTOR SHALL CONDUCT OUTREACH ACTIVITIES TO BENEFICIARIES, FACILITATE BENEFICIARY ACCESS TO EMPLOYMENT NETWORKS (ENS), ENSURE TIMELY AND ACCURATE COMMUNICATION BETWEEN ALL PARTIES INVOLVED IN THE TICKET-TO-WO",
+      "detected_date": "2026-11-04",
+      "fingerprint": "ACN|28321321C00060001|76807140.98|None|DEFINITIVE CONTRACT||2021-01-01|2026-11-01",
+      "potential_amount": null,
+      "ticker": "ACN"
+    },
+    "ACN|W519TC24F0049": {
+      "award_amount": 101113273.76,
+      "award_id": "W519TC24F0049",
+      "award_type": "DELIVERY ORDER",
+      "description": "THE EAMM REQUIREMENT WILL INCLUDE PERFORMING DEEP APPLICATION ASSESSMENTS FOR APPLICATION OWNERS AND, MODERNIZE AND MIGRATE APPLICATIONS INTO DOD AUTHORIZED IMPACT LEVEL 2,4,5 AND 6 COMMERCIAL CLOUD ENVIRONMENTS.",
+      "detected_date": "2026-11-04",
+      "fingerprint": "ACN|W519TC24F0049|101113273.76|None|DELIVERY ORDER||2024-01-09|2027-01-08",
+      "potential_amount": null,
+      "ticker": "ACN"
+    },
+    "ACN|W52P1J20C0005": {
+      "award_amount": 1816224958.27,
+      "award_id": "W52P1J20C0005",
+      "award_type": "DEFINITIVE CONTRACT",
+      "description": "AWARD FOR UNIFIED ENTERPRISE RESOURCE PLANNING CAPABILITY SUPPORT SERVICES",
+      "detected_date": "2026-11-04",
+      "fingerprint": "ACN|W52P1J20C0005|1816224958.27|None|DEFINITIVE CONTRACT||2019-12-10|2027-04-30",
+      "potential_amount": null,
+      "ticker": "ACN"
+    },
+    "ACN|W52P1J21C0025": {
+      "award_amount": 387462475.2,
+      "award_id": "W52P1J21C0025",
+      "award_type": "DEFINITIVE CONTRACT",
+      "description": "ENTERPRISE TASK MANAGEMENT SOFTWARE SOLUTIONS (ETMS2) SOFTWARE-AS-A-SERVICE. EO 14042 INCLUDED IN THE CONTRACT.",
+      "detected_date": "2026-11-04",
+      "fingerprint": "ACN|W52P1J21C0025|387462475.2|None|DEFINITIVE CONTRACT||2021-06-25|2026-08-14",
+      "potential_amount": null,
+      "ticker": "ACN"
+    },
+    "BAH|W15P7T24F0004": {
+      "award_amount": 148015439.7,
+      "award_id": "W15P7T24F0004",
+      "award_type": "DELIVERY ORDER",
+      "description": "AWARD OF RS3-21-0033 PLANS AND POLICY STAFF SUPPORT IN SUPPORT OF THE UNITED STATES CYBER COMMAND.",
+      "detected_date": "2026-11-04",
+      "fingerprint": "BAH|W15P7T24F0004|148015439.7|None|DELIVERY ORDER||2023-12-22|2026-12-21",
+      "potential_amount": null,
+      "ticker": "BAH"
+    },
+    "BAH|W15P7T24F0013": {
+      "award_amount": 59197523.04,
+      "award_id": "W15P7T24F0013",
+      "award_type": "DELIVERY ORDER",
+      "description": "TASK ORDER AWARD IN SUPPORT OF RS3-22-0025, UNITED STATES CYBER COMMAND, J0 - SPECIAL STAFF, J1 - PERSONNEL AND MANPOWER, AND J9 - ACQUISITION & TECHNOLOGY DIRECTORATES.",
+      "detected_date": "2026-11-04",
+      "fingerprint": "BAH|W15P7T24F0013|59197523.04|None|DELIVERY ORDER||2023-12-22|2026-12-21",
+      "potential_amount": null,
+      "ticker": "BAH"
+    },
+    "BA|W58RGZ22F0496": {
+      "award_amount": 178707801.7,
+      "award_id": "W58RGZ22F0496",
+      "award_type": "DELIVERY ORDER",
+      "description": "PROCUREMENT OF 2 CLOCK 2 CH-47F AIRCRAFT",
+      "detected_date": "2026-11-04",
+      "fingerprint": "BA|W58RGZ22F0496|178707801.7|None|DELIVERY ORDER||2022-09-30|2026-09-30",
       "potential_amount": null,
       "ticker": "BA"
+    },
+    "BA|W58RGZ23F0272": {
+      "award_amount": 296150000.0,
+      "award_id": "W58RGZ23F0272",
+      "award_type": "DELIVERY ORDER",
+      "description": "CONGRESSIONAL MANDATE OF LONG LEAD ITEMS FOR CH-47 LOT 4",
+      "detected_date": "2026-11-04",
+      "fingerprint": "BA|W58RGZ23F0272|296150000.0|None|DELIVERY ORDER||2023-07-06|2028-03-31",
+      "potential_amount": null,
+      "ticker": "BA"
+    },
+    "BA|W58RGZ24C0028": {
+      "award_amount": 1012269477.9,
+      "award_id": "W58RGZ24C0028",
+      "award_type": "DEFINITIVE CONTRACT",
+      "description": "APACHE PERFORMANCE BASED LOGISTICS (PBL) V SERVICES OF AIRFRAME COMPONENTS FOR THE UNITED STATES GOVERNMENT'S AH-64 APACHE FLEET.",
+      "detected_date": "2026-11-04",
+      "fingerprint": "BA|W58RGZ24C0028|1012269477.9|None|DEFINITIVE CONTRACT||2024-04-01|2027-04-30",
+      "potential_amount": null,
+      "ticker": "BA"
+    },
+    "BA|W58RGZ24C0036": {
+      "award_amount": 61360656.16,
+      "award_id": "W58RGZ24C0036",
+      "award_type": "DEFINITIVE CONTRACT",
+      "description": "1-YEAR NTE BASE AWARD OF A UCA TO PROVIDE MAINTENANCE AUGMENTATION TEAM (MAT) SERVICES FOR THE QATAR ARMED FORCES (QAF) CONSISTING OF 24 AH-64E APACHE AIRCRAFT. THIS IS A FOLLOW-ON EFFORT TO CONTRACT W58RGZ-19-C-0008.",
+      "detected_date": "2026-11-04",
+      "fingerprint": "BA|W58RGZ24C0036|61360656.16|None|DEFINITIVE CONTRACT||2024-08-01|2027-07-31",
+      "potential_amount": null,
+      "ticker": "BA"
+    },
+    "BA|W58RGZ26C0003": {
+      "award_amount": 1990540014.0,
+      "award_id": "W58RGZ26C0003",
+      "award_type": "DEFINITIVE CONTRACT",
+      "description": "CH-47F BLOCK II AIRCRAFT WITH AIR TO AIR REFUELING INCLUSIVE OF ALL SERVICE, MATERIAL, PRODUCTION, AND MANUFACTURING FOR GERMANY, GY-B-XBT",
+      "detected_date": "2026-11-04",
+      "fingerprint": "BA|W58RGZ26C0003|1990540014.0|None|DEFINITIVE CONTRACT||2025-10-27|2035-09-30",
+      "potential_amount": null,
+      "ticker": "BA"
+    },
+    "CACI|W56KGU20F0012": {
+      "award_amount": 397378629.65,
+      "award_id": "W56KGU20F0012",
+      "award_type": "DELIVERY ORDER",
+      "description": "THE PURPOSE OF THIS ACTION IS TO AWARD A NEW FIVE (5) YEAR TASK ORDER UNDER THE RS3 CONTRACT FOR MODELING AND SIMULATION, ANALYSIS, ENGINEERING, NETWORKING, AND EXPERIMENTATION SUPPORT",
+      "detected_date": "2026-11-04",
+      "fingerprint": "CACI|W56KGU20F0012|397378629.65|None|DELIVERY ORDER||2020-04-13|2026-07-31",
+      "potential_amount": null,
+      "ticker": "CACI"
+    },
+    "CACI|W56KGU22F0015": {
+      "award_amount": 130501913.74,
+      "award_id": "W56KGU22F0015",
+      "award_type": "DELIVERY ORDER",
+      "description": "RS3 TASK ORDER ENTITLED CATS2 IS TO PROVIDE ENGINEERING AND TECHNICAL SUPPORT, SYSTEMS ENGINEERING, TECHNOLOGY INSERTION AND INTEGRATION FOR RTI.",
+      "detected_date": "2026-11-04",
+      "fingerprint": "CACI|W56KGU22F0015|130501913.74|None|DELIVERY ORDER||2022-06-01|2027-05-31",
+      "potential_amount": null,
+      "ticker": "CACI"
+    },
+    "CACI|W56KGU23F0009": {
+      "award_amount": 475283053.41,
+      "award_id": "W56KGU23F0009",
+      "award_type": "DELIVERY ORDER",
+      "description": "REPLICATION, EXPLOITATION, AND ANALYSIS OF COMMERCIAL THREATS PROGRAM (REACT) RS3-21-0034",
+      "detected_date": "2026-11-04",
+      "fingerprint": "CACI|W56KGU23F0009|475283053.41|None|DELIVERY ORDER||2024-01-17|2027-01-16",
+      "potential_amount": null,
+      "ticker": "CACI"
+    },
+    "CACI|W56KGU25F0022": {
+      "award_amount": 125673479.72,
+      "award_id": "W56KGU25F0022",
+      "award_type": "DELIVERY ORDER",
+      "description": "SERVICES TO SUPPORT ARMY FIELD EXPERIMENTATION, LAB-BASED RISK REDUCTION, AIR-BASED INTEGRATION AND RISK REDUCTION, TACTICAL MISSION COMMAND APPLICATION INTEGRATION, STRATEGIC INITIATIVES AND RELATED ACTIVITIES",
+      "detected_date": "2026-11-04",
+      "fingerprint": "CACI|W56KGU25F0022|125673479.72|None|DELIVERY ORDER||2025-09-22|2026-09-21",
+      "potential_amount": null,
+      "ticker": "CACI"
+    },
+    "CACI|W58RGZ19F0237": {
+      "award_amount": 64433743.09,
+      "award_id": "W58RGZ19F0237",
+      "award_type": "DELIVERY ORDER",
+      "description": "TASK ORDER FOR FIXED WING PILOT SERVICES UNDER BASIC IDIQ CONTRACT AWARDED UNDER ACC-APG RS3 MULTIPLE AWARD IDIQ SUITE.  RESPONSIVE STRATEGIC SOURCING FOR SERVICES (RS3) REFERENCE RS3-18-0035.",
+      "detected_date": "2026-11-04",
+      "fingerprint": "CACI|W58RGZ19F0237|64433743.09|None|DELIVERY ORDER||2019-06-01|2022-07-31",
+      "potential_amount": null,
+      "ticker": "CACI"
+    },
+    "CACI|W909MY23F0055": {
+      "award_amount": 126328164.28,
+      "award_id": "W909MY23F0055",
+      "award_type": "DELIVERY ORDER",
+      "description": "TASK ORDER FOR EFFORT TITLED \"DEVELOPMENT, TESTING, PROTOTYPING, AND SUPPORT SERVICES FOR ACTIVE AND PASSIVE ELECTRO-OPTIC TECHNOLOGY",
+      "detected_date": "2026-11-04",
+      "fingerprint": "CACI|W909MY23F0055|126328164.28|None|DELIVERY ORDER||2023-06-22|2027-02-17",
+      "potential_amount": null,
+      "ticker": "CACI"
+    },
+    "CACI|W909MY24F0002": {
+      "award_amount": 63987266.58,
+      "award_id": "W909MY24F0002",
+      "award_type": "DELIVERY ORDER",
+      "description": "ENGINEERING, TRAINING AND EXPERIMENTATION SUPPORT FOR MODELING AND SIMULATION SENSOR APPLICATIONS.",
+      "detected_date": "2026-11-04",
+      "fingerprint": "CACI|W909MY24F0002|63987266.58|None|DELIVERY ORDER||2024-02-08|2027-02-07",
+      "potential_amount": null,
+      "ticker": "CACI"
+    },
+    "CAT|140F0S24D0006": {
+      "award_amount": 0.0,
+      "award_id": "140F0S24D0006",
+      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
+      "description": "HEAVY EQUIPMENT IDIQ",
+      "detected_date": "2026-11-04",
+      "fingerprint": "CAT|140F0S24D0006|0.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2024-11-01|",
+      "potential_amount": null,
+      "ticker": "CAT"
+    },
+    "ETN|SPE7MX25D0033": {
+      "award_amount": 0.0,
+      "award_id": "SPE7MX25D0033",
+      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
+      "description": "4610121558!VALVE ASSEMBLY",
+      "detected_date": "2026-11-04",
+      "fingerprint": "ETN|SPE7MX25D0033|0.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2025-06-02|",
+      "potential_amount": null,
+      "ticker": "ETN"
+    },
+    "GD|70T01021D7670N001": {
+      "award_amount": 0.0,
+      "award_id": "70T01021D7670N001",
+      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
+      "description": "THE PURPOSE OF THIS INDEFINITE DELIVERY INDEFINITE QUANTITY (IDIQ) CONTRACT IS TO ESTABLISH A CONTRACT VEHICLE FOR TASK ORDER TO BE ISSUED AGAINST TO PROCURE SPECIALIZED SECURITY TRAINING (SST) 4.0.",
+      "detected_date": "2026-11-04",
+      "fingerprint": "GD|70T01021D7670N001|0.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2021-10-18|",
+      "potential_amount": null,
+      "ticker": "GD"
+    },
+    "GD|SPRDL122F0242": {
+      "award_amount": 76043273.44,
+      "award_id": "SPRDL122F0242",
+      "award_type": "DELIVERY ORDER",
+      "description": "CLIN 0365, NOUN: SWITCHBOARD, FIRE CO, NSN: 1290-01-577-5948, P/N: 57K6464, QTY: 36 EACH CLIN 0366, NOUN: DISPLAY,OPTOELECTRO, NSN: 5980-01-620-7296, P/N: 57K6571, QTY: 101 EACH",
+      "detected_date": "2026-11-04",
+      "fingerprint": "GD|SPRDL122F0242|76043273.44|None|DELIVERY ORDER||2022-09-20|2028-01-31",
+      "potential_amount": null,
+      "ticker": "GD"
+    },
+    "GD|W15P7T21F0186": {
+      "award_amount": 68919207.1,
+      "award_id": "W15P7T21F0186",
+      "award_type": "DELIVERY ORDER",
+      "description": "NGLD-M",
+      "detected_date": "2026-11-04",
+      "fingerprint": "GD|W15P7T21F0186|68919207.1|None|DELIVERY ORDER||2021-08-10|2027-01-30",
+      "potential_amount": null,
+      "ticker": "GD"
+    },
+    "GD|W15P7T22F0052": {
+      "award_amount": 52975512.18,
+      "award_id": "W15P7T22F0052",
+      "award_type": "DELIVERY ORDER",
+      "description": "AWARD OF RS3-20-0033 ELECTRONIC WARFARE INTEGRATED LABORATORIES (EWIL) DIVISION ENGINEERING SERVICES IN SUPPORT OF NAVAL AIR WARFARE CENTER, WEAPONS DIVISION (NAWCWD)                                 SYSTEMS ENGINEERING DEPARTMENT & EWIL DIVISION",
+      "detected_date": "2026-11-04",
+      "fingerprint": "GD|W15P7T22F0052|52975512.18|None|DELIVERY ORDER||2022-03-04|2027-03-03",
+      "potential_amount": null,
+      "ticker": "GD"
+    },
+    "GD|W15P7T25F0038": {
+      "award_amount": 61718771.29,
+      "award_id": "W15P7T25F0038",
+      "award_type": "DELIVERY ORDER",
+      "description": "AWARD OF RS3-23-0048: BASE PERIOD FUNDING IN SUPPORT OF JEACO",
+      "detected_date": "2026-11-04",
+      "fingerprint": "GD|W15P7T25F0038|61718771.29|None|DELIVERY ORDER||2025-01-27|2027-01-26",
+      "potential_amount": null,
+      "ticker": "GD"
+    },
+    "GD|W31P4Q24F0183": {
+      "award_amount": 550376682.4,
+      "award_id": "W31P4Q24F0183",
+      "award_type": "DELIVERY ORDER",
+      "description": "MANEUVER - SHORT RANGE AIR DEFENSE SYSTEM",
+      "detected_date": "2026-11-04",
+      "fingerprint": "GD|W31P4Q24F0183|550376682.4|None|DELIVERY ORDER||2024-05-31|2027-09-30",
+      "potential_amount": null,
+      "ticker": "GD"
+    },
+    "GD|W519TC24F0161": {
+      "award_amount": 561101476.0,
+      "award_id": "W519TC24F0161",
+      "award_type": "DELIVERY ORDER",
+      "description": "25 MILLIMETER (MM) M919 ARMOR PIERCING FIN STABILIZED DISCARDING SABOT WITH TRACER (APFSDS-T) CARTRIDGE",
+      "detected_date": "2026-11-04",
+      "fingerprint": "GD|W519TC24F0161|561101476.0|None|DELIVERY ORDER||2024-04-29|2029-03-31",
+      "potential_amount": null,
+      "ticker": "GD"
+    },
+    "GD|W52P1J19F0547": {
+      "award_amount": 67343437.28,
+      "award_id": "W52P1J19F0547",
+      "award_type": "DELIVERY ORDER",
+      "description": "THIS DO IS FOR THE PROCUREMENT OF 30MM PGU-13 D/B LINKED CARTRIDGES (AMMUNITION). NSN: 1305-01-633-0903.",
+      "detected_date": "2026-11-04",
+      "fingerprint": "GD|W52P1J19F0547|67343437.28|None|DELIVERY ORDER||2019-08-28|2027-04-30",
+      "potential_amount": null,
+      "ticker": "GD"
+    },
+    "GD|W56HZV19F0221": {
+      "award_amount": 275901876.0,
+      "award_id": "W56HZV19F0221",
+      "award_type": "DELIVERY ORDER",
+      "description": "STRYKER LOGISTICS ENGINEERING SUPPORT",
+      "detected_date": "2026-11-04",
+      "fingerprint": "GD|W56HZV19F0221|275901876.0|None|DELIVERY ORDER||2019-02-14|2027-01-31",
+      "potential_amount": null,
+      "ticker": "GD"
+    },
+    "GD|W56HZV23F0007": {
+      "award_amount": 87156254.06,
+      "award_id": "W56HZV23F0007",
+      "award_type": "DELIVERY ORDER",
+      "description": "FIVE-YEAR INDEFINITE DELIVERY/INDEFINITE QUANTITY (IDIQ) PRODUCTION CONTRACT FOR SMALL MULTIPURPOSE EQUIPMENT TRANSPORT (SMET) SYSTEMS). ORDER FOR 135 FULL RATE PRODUCTION SYSTEMS AND ANCILLARY KITS.",
+      "detected_date": "2026-11-04",
+      "fingerprint": "GD|W56HZV23F0007|87156254.06|None|DELIVERY ORDER||2022-12-21|2026-09-14",
+      "potential_amount": null,
+      "ticker": "GD"
+    },
+    "GD|W56HZV24F0030": {
+      "award_amount": 876770702.0,
+      "award_id": "W56HZV24F0030",
+      "award_type": "DELIVERY ORDER",
+      "description": "ABRAMS REQUIREMENTS CONTRACT - FOURTH DOMESTIC DELIVERY ORDER UTILIZING YEAR THREE ORDERING PERIOD, (34) VEHICLES.",
+      "detected_date": "2026-11-04",
+      "fingerprint": "GD|W56HZV24F0030|876770702.0|None|DELIVERY ORDER||2023-12-08|2027-04-30",
+      "potential_amount": null,
+      "ticker": "GD"
+    },
+    "GD|W900KK26FA054": {
+      "award_amount": 80788238.2,
+      "award_id": "W900KK26FA054",
+      "award_type": "DELIVERY ORDER",
+      "description": "CONTRACTOR PROVIDED SIMULATION SERVICES SOLUTION TO PROVIDE SIMULATION CAPABILITIES IN SUPPORT OF THE AVIATION CENTER OF EXCELLENCE FLIGHT TRAINING MISSION, UNDER THE FLIGHT SCHOOL TRAINING SUPPORT SERVICES PROGRAM.",
+      "detected_date": "2026-11-04",
+      "fingerprint": "GD|W900KK26FA054|80788238.2|None|DELIVERY ORDER||2026-04-01|2027-03-31",
+      "potential_amount": null,
+      "ticker": "GD"
+    },
+    "GD|W912CH24F0010": {
+      "award_amount": 157297175.0,
+      "award_id": "W912CH24F0010",
+      "award_type": "DELIVERY ORDER",
+      "description": "SES/C5ISR/CM TASK ORDER UNDER THE SYSTEMS TECHNICAL SUPPORT (STS) SERVICES CONTRACT FOR THE STRYKER FAMILY OF VEHICLES (PM STRYKER).",
+      "detected_date": "2026-11-04",
+      "fingerprint": "GD|W912CH24F0010|157297175.0|None|DELIVERY ORDER||2024-04-11|2029-04-30",
+      "potential_amount": null,
+      "ticker": "GD"
+    },
+    "GD|W912CH24F0069": {
+      "award_amount": 125754785.68,
+      "award_id": "W912CH24F0069",
+      "award_type": "DELIVERY ORDER",
+      "description": "ORDERING PERIOD 4 CALL UP FOR 150 STRYKER DVH A1 ECP VEHICLES.",
+      "detected_date": "2026-11-04",
+      "fingerprint": "GD|W912CH24F0069|125754785.68|None|DELIVERY ORDER||2024-06-07|2026-12-31",
+      "potential_amount": null,
+      "ticker": "GD"
+    },
+    "GD|W912CH24F0304": {
+      "award_amount": 173745522.74,
+      "award_id": "W912CH24F0304",
+      "award_type": "DELIVERY ORDER",
+      "description": "YEAR 4 DELIVERY ORDER TO CONTRACT W56HZV-21-D-0085",
+      "detected_date": "2026-11-04",
+      "fingerprint": "GD|W912CH24F0304|173745522.74|None|DELIVERY ORDER||2024-09-28|2028-09-09",
+      "potential_amount": null,
+      "ticker": "GD"
+    },
+    "GD|W912CH25F0351": {
+      "award_amount": 74903487.02,
+      "award_id": "W912CH25F0351",
+      "award_type": "DELIVERY ORDER",
+      "description": "YEAR 5 DELIVERY ORDER TO CONTRACT W56HZV-21-D-0085",
+      "detected_date": "2026-11-04",
+      "fingerprint": "GD|W912CH25F0351|74903487.02|None|DELIVERY ORDER||2025-09-28|2028-03-01",
+      "potential_amount": null,
+      "ticker": "GD"
+    },
+    "GD|W912CH26F0088": {
+      "award_amount": 380980267.0,
+      "award_id": "W912CH26F0088",
+      "award_type": "DELIVERY ORDER",
+      "description": "STRYKER WHOLESALE SUPPLY IS A PERFORMANCE-BASED LOGISTICS CONTRACT THAT ALLOWS THE CONTRACTOR TO WAREHOUSE, INVENTORY, AND PURCHASE MATERIAL BASED ON A STRYKER VEHICLE DENSITY.",
+      "detected_date": "2026-11-04",
+      "fingerprint": "GD|W912CH26F0088|380980267.0|None|DELIVERY ORDER||2026-03-01|2027-02-28",
+      "potential_amount": null,
+      "ticker": "GD"
+    },
+    "HON|FA820624F0009": {
+      "award_amount": 103886697.84,
+      "award_id": "FA820624F0009",
+      "award_type": "DELIVERY ORDER",
+      "description": "ENTERPRISE PERFORMANCE BASED LOGISTICS CONTRACT FOR SECONDARY POWER SUPPORT FOR B-1, B-2, E-3, F-15, C-130, F-16, A-10, AND GROUND CARTS. PERFORMANCE AT HILL AFB IN SUPPORT OF 419 SCMS",
+      "detected_date": "2026-11-04",
+      "fingerprint": "HON|FA820624F0009|103886697.84|None|DELIVERY ORDER||2024-01-01|2024-12-31",
+      "potential_amount": null,
+      "ticker": "HON"
+    },
+    "HON|FA825123F0013": {
+      "award_amount": 101748777.66,
+      "award_id": "FA825123F0013",
+      "award_type": "DELIVERY ORDER",
+      "description": "ENTERPRISE PERFORMANCE BASED LOGISTICS CONTRACT FOR SECONDARY POWER SUPPORT FOR B-1, B-2, E-3, F-15, C-130, F-16, A-10, AND GROUND CARTS. PERFORMANCE AT HILL AFB IN SUPPORT OF 419 SUPPLY CHAIN MANAGEMENT SQUADRON.",
+      "detected_date": "2026-11-04",
+      "fingerprint": "HON|FA825123F0013|101748777.66|None|DELIVERY ORDER||2023-01-01|2023-12-31",
+      "potential_amount": null,
+      "ticker": "HON"
+    },
+    "HON|W56HZV12C0344": {
+      "award_amount": 2310760603.62,
+      "award_id": "W56HZV12C0344",
+      "award_type": "DEFINITIVE CONTRACT",
+      "description": "TIGER II SERVICES AND HARDWARE UCA",
+      "detected_date": "2026-11-04",
+      "fingerprint": "HON|W56HZV12C0344|2310760603.62|None|DEFINITIVE CONTRACT||2012-07-30|2023-02-28",
+      "potential_amount": null,
+      "ticker": "HON"
+    },
+    "HON|W56HZV23F0338": {
+      "award_amount": 187488795.54,
+      "award_id": "W56HZV23F0338",
+      "award_type": "DELIVERY ORDER",
+      "description": "TIGER III CONTRACT, YEAR THREE ORDERING PERIOD, HARDWARE DELIVERY ORDER 9",
+      "detected_date": "2026-11-04",
+      "fingerprint": "HON|W56HZV23F0338|187488795.54|None|DELIVERY ORDER||2023-06-28|2025-09-30",
+      "potential_amount": null,
+      "ticker": "HON"
+    },
+    "HON|W912CH26F0082": {
+      "award_amount": 90799375.84,
+      "award_id": "W912CH26F0082",
+      "award_type": "DELIVERY ORDER",
+      "description": "TIGER III PY7 STS EWD-039, EWD-042, EWD-044, RES-045, RES-046",
+      "detected_date": "2026-11-04",
+      "fingerprint": "HON|W912CH26F0082|90799375.84|None|DELIVERY ORDER||2026-03-23|2029-10-23",
+      "potential_amount": null,
+      "ticker": "HON"
+    },
+    "IBM|W52P1J17C0008": {
+      "award_amount": 630714799.62,
+      "award_id": "W52P1J17C0008",
+      "award_type": "DEFINITIVE CONTRACT",
+      "description": "IGF::OT::IGF GENERAL FUND ENTERPRISE SYSTEM (GFEBS) SUSTAINMENT AWARD",
+      "detected_date": "2026-11-04",
+      "fingerprint": "IBM|W52P1J17C0008|630714799.62|None|DEFINITIVE CONTRACT||2016-12-22|2022-01-31",
+      "potential_amount": null,
+      "ticker": "IBM"
+    },
+    "LDOS|47QTCA25D00CN": {
+      "award_amount": 0.0,
+      "award_id": "47QTCA25D00CN",
+      "award_type": "FSS",
+      "description": "FEDERAL SUPPLY SCHEDULE CONTRACT",
+      "detected_date": "2026-11-04",
+      "fingerprint": "LDOS|47QTCA25D00CN|0.0|None|FSS||2025-07-15|",
+      "potential_amount": null,
+      "ticker": "LDOS"
+    },
+    "LDOS|NSFDACS1219442": {
+      "award_amount": 3279484506.76,
+      "award_id": "NSFDACS1219442",
+      "award_type": "DEFINITIVE CONTRACT",
+      "description": "SCIENCE OPERATION AND MAINTENANCE SUPPORT FOR THE UNITED STATES ANTARCTIC PROGRAM",
+      "detected_date": "2026-11-04",
+      "fingerprint": "LDOS|NSFDACS1219442|3279484506.76|None|DEFINITIVE CONTRACT||2011-12-23|2027-09-30",
+      "potential_amount": null,
+      "ticker": "LDOS"
+    },
+    "LDOS|W15P7T26F0089": {
+      "award_amount": 256964904.0,
+      "award_id": "W15P7T26F0089",
+      "award_type": "DELIVERY ORDER",
+      "description": "PROCURE TACTICAL EDGE COMPUTER KITS",
+      "detected_date": "2026-11-04",
+      "fingerprint": "LDOS|W15P7T26F0089|256964904.0|None|DELIVERY ORDER||2026-04-10|2027-07-07",
+      "potential_amount": null,
+      "ticker": "LDOS"
+    },
+    "LDOS|W52P1J18C0047": {
+      "award_amount": 306771022.63,
+      "award_id": "W52P1J18C0047",
+      "award_type": "DEFINITIVE CONTRACT",
+      "description": "BASIC CONTRACT FOR SYSTEMIZATION, OPERATIONS, AND CLOSURE SUPPORT (SOCS)",
+      "detected_date": "2026-11-04",
+      "fingerprint": "LDOS|W52P1J18C0047|306771022.63|None|DEFINITIVE CONTRACT||2018-09-06|2028-09-23",
+      "potential_amount": null,
+      "ticker": "LDOS"
+    },
+    "LDOS|W56KGY25F0109": {
+      "award_amount": 60787746.42,
+      "award_id": "W56KGY25F0109",
+      "award_type": "DELIVERY ORDER",
+      "description": "THE PURPOSE OF THIS TASK ORDER IS TO PROVIDE LIFE-CYCLE SUPPORT TO SENSING CAPABILITY FAMILIES ALIGNED WITHIN THE PD SAI PORTFOLIO.",
+      "detected_date": "2026-11-04",
+      "fingerprint": "LDOS|W56KGY25F0109|60787746.42|None|DELIVERY ORDER||2025-09-15|2027-09-14",
+      "potential_amount": null,
+      "ticker": "LDOS"
+    },
+    "LDOS|W909MY22F0056": {
+      "award_amount": 156045787.47,
+      "award_id": "W909MY22F0056",
+      "award_type": "DELIVERY ORDER",
+      "description": "BEC 1 TO AWARD - BASE PERIOD",
+      "detected_date": "2026-11-04",
+      "fingerprint": "LDOS|W909MY22F0056|156045787.47|None|DELIVERY ORDER||2022-06-28|2027-06-28",
+      "potential_amount": null,
+      "ticker": "LDOS"
+    },
+    "NOC|F4262001D0076": {
+      "award_amount": 0.0,
+      "award_id": "F4262001D0076",
+      "award_type": "INDEFINITE DELIVERY CONTRACT",
+      "description": null,
+      "detected_date": "2026-11-04",
+      "fingerprint": "NOC|F4262001D0076|0.0|None|INDEFINITE DELIVERY CONTRACT||2002-02-28|",
+      "potential_amount": null,
+      "ticker": "NOC"
+    },
+    "NOC|W31P4Q25C0005": {
+      "award_amount": 139990088.04,
+      "award_id": "W31P4Q25C0005",
+      "award_type": "DEFINITIVE CONTRACT",
+      "description": "THIS REQUIREMENT (WISLA - POLAND) COUNTRY CASE CODE PL-B-UEU SUPPORTING CONTRACTOR LOGISTICS SUPPORT (CLS) SERVICES FOR THE SUSTAINMENT OF MATERIALS & MAINTENANCE, AND AIR DEFENSE ARTILLERY RECONFIGURABLE (ART) TRAINING.",
+      "detected_date": "2026-11-04",
+      "fingerprint": "NOC|W31P4Q25C0005|139990088.04|None|DEFINITIVE CONTRACT||2025-03-28|2029-12-31",
+      "potential_amount": null,
+      "ticker": "NOC"
+    },
+    "NOC|W58RGZ20F0273": {
+      "award_amount": 65857885.88,
+      "award_id": "W58RGZ20F0273",
+      "award_type": "DELIVERY ORDER",
+      "description": "5 YEAR IDIQ FOR COMMON INFRARED COUNTERMEASURE (CIRCM) HARDWARE AND SERVICES TASK ORDER FOR ENGINEERING SERVICES",
+      "detected_date": "2026-11-04",
+      "fingerprint": "NOC|W58RGZ20F0273|65857885.88|None|DELIVERY ORDER||2020-08-10|2025-04-30",
+      "potential_amount": null,
+      "ticker": "NOC"
+    },
+    "NOC|W58RGZ25F0060": {
+      "award_amount": 128528539.22,
+      "award_id": "W58RGZ25F0060",
+      "award_type": "DELIVERY ORDER",
+      "description": "AN/APR-39 RADAR SIGNAL DETECTING SET (RSDS) PRODUCTION",
+      "detected_date": "2026-11-04",
+      "fingerprint": "NOC|W58RGZ25F0060|128528539.22|None|DELIVERY ORDER||2024-10-31|2028-03-31",
+      "potential_amount": null,
+      "ticker": "NOC"
+    },
+    "PLTR|W519TC25F0331": {
+      "award_amount": 249366739.85,
+      "award_id": "W519TC25F0331",
+      "award_type": "DELIVERY ORDER",
+      "description": "FORSCOM TASK ORDER 1",
+      "detected_date": "2026-11-04",
+      "fingerprint": "PLTR|W519TC25F0331|249366739.85|None|DELIVERY ORDER||2025-08-20|2026-09-30",
+      "potential_amount": null,
+      "ticker": "PLTR"
+    },
+    "PSN|47QFCA21F0042": {
+      "award_amount": 636369000.74,
+      "award_id": "47QFCA21F0042",
+      "award_type": "DELIVERY ORDER",
+      "description": "THE PURPOSE OF THIS AWARD IS FOR THE C5ISR, EXERCISES, OPERATIONS, AND INFORMATION SERVICES (CEOIS) TASK ORDER IS TO PROVIDE NEAR REAL-TIME SITUATIONAL AWARENESS AND DECISION SUPPORT TO THE DOD COMBATANT COMMANDS (CCMDS)",
+      "detected_date": "2026-11-04",
+      "fingerprint": "PSN|47QFCA21F0042|636369000.74|None|DELIVERY ORDER||2021-04-21|2027-06-15",
+      "potential_amount": null,
+      "ticker": "PSN"
+    },
+    "PSN|W52P1J19F0404": {
+      "award_amount": 191614439.56,
+      "award_id": "W52P1J19F0404",
+      "award_type": "DELIVERY ORDER",
+      "description": "LOGISTIC CIVIL AUGMENTATION PROGRAM (LOGCAP) V AWARD FOR SOUTHCOM-SOTO CANO.",
+      "detected_date": "2026-11-04",
+      "fingerprint": "PSN|W52P1J19F0404|191614439.56|None|DELIVERY ORDER||2019-04-12|2026-11-20",
+      "potential_amount": null,
+      "ticker": "PSN"
+    },
+    "TXT|W58RGZ23C0001": {
+      "award_amount": 8079318296.58,
+      "award_id": "W58RGZ23C0001",
+      "award_type": "DEFINITIVE CONTRACT",
+      "description": "THE FUTURE VERTICAL LIFT (FVL) FLRAA CAPABILITY SET THREE IS A PRE-MAJOR DEFENSE ACQUISITION PROGRAM (ACAT 1C) COMMISSIONED TO DEVELOP AND FIELD THE NEXT GENERATION OF AFFORDABLE VERTICAL LIFT TACTICAL ASSAULT / UTILITY AIRCRAFT FOR THE ARMY.",
+      "detected_date": "2026-11-04",
+      "fingerprint": "TXT|W58RGZ23C0001|8079318296.58|None|DEFINITIVE CONTRACT||2022-12-05|2031-04-05",
+      "potential_amount": null,
+      "ticker": "TXT"
     }
   }
 }
