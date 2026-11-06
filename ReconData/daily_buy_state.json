@@ -1,4 +1,19 @@
 {
-  "date": "2026-11-05",
-  "events": {}
+  "date": "2026-11-06",
+  "events": {
+    "KTOS|2026-11-03": {
+      "award_date": "2026-11-03",
+      "fingerprint": "KTOS|2026-11-03|45864.00|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
+      "last_seen_utc": "2026-11-06T20:04:22.363991+00:00",
+      "projected_peak_pct_90d": 43.34150790497688,
+      "ticker": "KTOS"
+    },
+    "WWD|2026-11-03": {
+      "award_date": "2026-11-03",
+      "fingerprint": "WWD|2026-11-03|20452.20|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
+      "last_seen_utc": "2026-11-06T20:04:22.382604+00:00",
+      "projected_peak_pct_90d": 42.13703410147969,
+      "ticker": "WWD"
+    }
+  }
 }
