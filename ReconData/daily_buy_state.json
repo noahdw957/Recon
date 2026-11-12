@@ -1,26 +1,4 @@
 {
-  "date": "2026-11-11",
-  "events": {
-    "DE|2026-11-06": {
-      "award_date": "2026-11-06",
-      "fingerprint": "DE|2026-11-06|0.00|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
-      "last_seen_utc": "2026-11-11T20:22:18.181167+00:00",
-      "projected_peak_pct_90d": 28.541542185293864,
-      "ticker": "DE"
-    },
-    "ETN|2026-11-06": {
-      "award_date": "2026-11-06",
-      "fingerprint": "ETN|2026-11-06|1968516.00|2|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
-      "last_seen_utc": "2026-11-11T20:22:18.206470+00:00",
-      "projected_peak_pct_90d": 36.90289618323428,
-      "ticker": "ETN"
-    },
-    "SATL|2026-11-05": {
-      "award_date": "2026-11-05",
-      "fingerprint": "SATL|2026-11-05|14081.80|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
-      "last_seen_utc": "2026-11-11T20:22:18.149313+00:00",
-      "projected_peak_pct_90d": 78.56286429059436,
-      "ticker": "SATL"
-    }
-  }
+  "date": "2026-11-12",
+  "events": {}
 }
