@@ -1,35 +1,4 @@
 {
-  "date": "2026-11-12",
-  "events": {
-    "GD|N0038320DVZ01": {
-      "award_amount": 0.0,
-      "award_id": "N0038320DVZ01",
-      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
-      "description": "AYK-14 COMPUTER MODULES",
-      "detected_date": "2026-11-12",
-      "fingerprint": "GD|N0038320DVZ01|0.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2019-10-04|",
-      "potential_amount": null,
-      "ticker": "GD"
-    },
-    "GE|70Z03823DJ0000003": {
-      "award_amount": 0.0,
-      "award_id": "70Z03823DJ0000003",
-      "award_type": "INDEFINITE DELIVERY / REQUIREMENTS",
-      "description": "OVERHAUL OF T700-401C ENGINE COMPONENTS AND MODULES FOR UTILIZATION ON MH-60T AIRCRAFTS.",
-      "detected_date": "2026-11-12",
-      "fingerprint": "GE|70Z03823DJ0000003|0.0|None|INDEFINITE DELIVERY / REQUIREMENTS||2022-12-16|",
-      "potential_amount": null,
-      "ticker": "GE"
-    },
-    "IBM|GS11Q17BJP0005": {
-      "award_amount": 99051037.64,
-      "award_id": "GS11Q17BJP0005",
-      "award_type": "DELIVERY ORDER",
-      "description": "IGF::OT::IGF GINNIE MAE IT INFRASTRUCTURE CONSOLIDATION",
-      "detected_date": "2026-11-12",
-      "fingerprint": "IBM|GS11Q17BJP0005|99051037.64|None|DELIVERY ORDER||2017-05-15|2027-05-14",
-      "potential_amount": null,
-      "ticker": "IBM"
-    }
-  }
+  "date": "2026-11-13",
+  "events": {}
 }
