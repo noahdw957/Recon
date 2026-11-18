@@ -1,4 +1,12 @@
 {
-  "date": "2026-11-17",
-  "events": {}
+  "date": "2026-11-18",
+  "events": {
+    "KTOS|2026-11-16": {
+      "award_date": "2026-11-16",
+      "fingerprint": "KTOS|2026-11-16|174719.57|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
+      "last_seen_utc": "2026-11-18T21:33:05.906156+00:00",
+      "projected_peak_pct_90d": 56.35999496872876,
+      "ticker": "KTOS"
+    }
+  }
 }
