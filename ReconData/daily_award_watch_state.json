@@ -1,115 +1,115 @@
 {
-  "date": "2026-11-18",
+  "date": "2026-11-19",
   "events": {
-    "ACN|1331L520C13OS0005": {
-      "award_amount": 247167898.06,
-      "award_id": "1331L520C13OS0005",
-      "award_type": "DEFINITIVE CONTRACT",
-      "description": "BUSINESS APPLICATIONS SOLUTION (BAS)",
-      "detected_date": "2026-11-18",
-      "fingerprint": "ACN|1331L520C13OS0005|247167898.06|None|DEFINITIVE CONTRACT||2020-04-24|2027-04-23",
-      "potential_amount": null,
-      "ticker": "ACN"
-    },
-    "ACN|205AE926F00106": {
-      "award_amount": 142660787.74,
-      "award_id": "205AE926F00106",
+    "BAH|36C10B21N10070021": {
+      "award_amount": 1364336312.22,
+      "award_id": "36C10B21N10070021",
       "award_type": "DELIVERY ORDER",
-      "description": "INTEGRATED ENTERPRISE PORTALS (IEP) 1.5 BRIDGE",
-      "detected_date": "2026-11-18",
-      "fingerprint": "ACN|205AE926F00106|142660787.74|None|DELIVERY ORDER||2026-08-15|2027-08-14",
-      "potential_amount": null,
-      "ticker": "ACN"
-    },
-    "ACN|89603024F0002": {
-      "award_amount": 141885670.88,
-      "award_id": "89603024F0002",
-      "award_type": "BPA CALL",
-      "description": "CORE IT SERVICES - CBOSS BPA",
-      "detected_date": "2026-11-18",
-      "fingerprint": "ACN|89603024F0002|141885670.88|None|BPA CALL||2024-01-01|2026-11-29",
-      "potential_amount": null,
-      "ticker": "ACN"
-    },
-    "BAH|36C10B21N10150057": {
-      "award_amount": 757010092.85,
-      "award_id": "36C10B21N10150057",
-      "award_type": "DELIVERY ORDER",
-      "description": "THE CONTRACTOR SHALL PROVIDE SHIPPABLE PRODUCTS, OPERATIONS SUPPORT, AND SECURITY COMPLIANCE FOR THE HEALTH SERVICES PORTFOLIO.",
-      "detected_date": "2026-11-18",
-      "fingerprint": "BAH|36C10B21N10150057|757010092.85|None|DELIVERY ORDER||2021-09-30|2027-09-23",
+      "description": "TRANSFORMATION TWENTY-ONE TOTAL TECHNOLOGY NEXT GENERATION (T4NG) TASK ORDER - BENEFITS INTEGRATED DELIVERY",
+      "detected_date": "2026-11-19",
+      "fingerprint": "BAH|36C10B21N10070021|1364336312.22|None|DELIVERY ORDER||2021-05-17|2026-08-07",
       "potential_amount": null,
       "ticker": "BAH"
     },
-    "BAH|GS00Q17AJC0032": {
-      "award_amount": 93685180.83,
-      "award_id": "GS00Q17AJC0032",
-      "award_type": "DEFINITIVE CONTRACT",
-      "description": "AWARD OF CONTRACT GS00Q17AJC0032 IGF::CL::IGF",
-      "detected_date": "2026-11-18",
-      "fingerprint": "BAH|GS00Q17AJC0032|93685180.83|None|DEFINITIVE CONTRACT||2017-09-22|2019-04-22",
+    "BAH|47QFCA23F0047": {
+      "award_amount": 255599581.05,
+      "award_id": "47QFCA23F0047",
+      "award_type": "DELIVERY ORDER",
+      "description": "AWARD OF DSCU ICB TO SUPPORT THE MISSION SETS AND PROGRAMS.",
+      "detected_date": "2026-11-19",
+      "fingerprint": "BAH|47QFCA23F0047|255599581.05|None|DELIVERY ORDER||2023-09-08|2028-09-30",
       "potential_amount": null,
       "ticker": "BAH"
     },
-    "HII|N5523625F9922": {
-      "award_amount": 59332316.0,
-      "award_id": "N5523625F9922",
-      "award_type": "DELIVERY ORDER",
-      "description": "CODE 460C-USS CARL VINSON (CVN-70) FY25 PIA HISM-CVN70-25-CN01",
-      "detected_date": "2026-11-18",
-      "fingerprint": "HII|N5523625F9922|59332316.0|None|DELIVERY ORDER||2025-08-15|2026-06-30",
-      "potential_amount": null,
-      "ticker": "HII"
-    },
-    "HON|FA810916D0016": {
+    "BA|FA872622D0002": {
       "award_amount": 0.0,
-      "award_id": "FA810916D0016",
+      "award_id": "FA872622D0002",
       "award_type": "INDEFINITE DELIVERY / REQUIREMENTS",
-      "description": "IGF::CT::IGF OVERHAUL AND REPAIR CONTRACT TO SUPPORT AIRCRAFT ACCESSORIES AND AIRCRAFT INSTRUMENT ITEMS TO ENSURE AERVICEABLE ASSETS ARE AVAILABLE TO SUPPORT THE A-10, B-52, C-130, C-135, C-5, E-3, F-15 AND F-16 WEAPON SYSTEMS.",
-      "detected_date": "2026-11-18",
-      "fingerprint": "HON|FA810916D0016|0.0|None|INDEFINITE DELIVERY / REQUIREMENTS||2016-02-23|",
+      "description": "JOINT INTEGRATED AIR AND MISSILE DEFENSE ORGANIZATION (JIAMDO)",
+      "detected_date": "2026-11-19",
+      "fingerprint": "BA|FA872622D0002|0.0|None|INDEFINITE DELIVERY / REQUIREMENTS||2022-04-13|",
       "potential_amount": null,
-      "ticker": "HON"
+      "ticker": "BA"
     },
-    "HON|FA853919D0002": {
+    "BA|NAS1510000": {
+      "award_amount": 22674726734.37,
+      "award_id": "NAS1510000",
+      "award_type": "DEFINITIVE CONTRACT",
+      "description": "INTERNATIONAL SPACE STATION",
+      "detected_date": "2026-11-19",
+      "fingerprint": "BA|NAS1510000|22674726734.37|None|DEFINITIVE CONTRACT||1993-11-15|2031-09-30",
+      "potential_amount": null,
+      "ticker": "BA"
+    },
+    "BA|W58RGZ25D0022": {
       "award_amount": 0.0,
-      "award_id": "FA853919D0002",
-      "award_type": "INDEFINITE DELIVERY / REQUIREMENTS",
-      "description": "REPAIR SERVICES FOR COMPONENETS OF THE AN/APN-224",
-      "detected_date": "2026-11-18",
-      "fingerprint": "HON|FA853919D0002|0.0|None|INDEFINITE DELIVERY / REQUIREMENTS||2018-12-21|",
+      "award_id": "W58RGZ25D0022",
+      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
+      "description": "CH-47 - AIRCRAFT ENGINEERING AND LOGISTICS SUPPORT SERVICES (ELSS)",
+      "detected_date": "2026-11-19",
+      "fingerprint": "BA|W58RGZ25D0022|0.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2025-08-01|",
       "potential_amount": null,
-      "ticker": "HON"
+      "ticker": "BA"
     },
-    "IBM|N0003921F3007": {
-      "award_amount": 844472424.07,
-      "award_id": "N0003921F3007",
+    "CACI|47QFRA24F0005": {
+      "award_amount": 977850305.02,
+      "award_id": "47QFRA24F0005",
       "award_type": "DELIVERY ORDER",
-      "description": "NAVY ENTERPRISE RESOURCE PLANNING (ERP) TECHNICAL SUPPORT SERVICES (NETSS).",
-      "detected_date": "2026-11-18",
-      "fingerprint": "IBM|N0003921F3007|844472424.07|None|DELIVERY ORDER||2021-04-23|2026-04-22",
+      "description": "CDM DEFEND GROUP A  BRIDGE TASK ORDER",
+      "detected_date": "2026-11-19",
+      "fingerprint": "CACI|47QFRA24F0005|977850305.02|None|DELIVERY ORDER||2024-05-01|2027-04-30",
       "potential_amount": null,
-      "ticker": "IBM"
+      "ticker": "CACI"
     },
-    "LDOS|28321322FDS030130": {
-      "award_amount": 1306189376.7,
-      "award_id": "28321322FDS030130",
-      "award_type": "DELIVERY ORDER",
-      "description": "ITSSC TASK ORDER FOR SYSTEMS",
-      "detected_date": "2026-11-18",
-      "fingerprint": "LDOS|28321322FDS030130|1306189376.7|None|DELIVERY ORDER||2022-06-30|2027-09-28",
+    "CACI|W91CRB25C5007": {
+      "award_amount": 95813604.26,
+      "award_id": "W91CRB25C5007",
+      "award_type": "DEFINITIVE CONTRACT",
+      "description": "INTEGRATED PERSONNEL AND PAY SYSTEM-ARMY TOTAL SOLUTION TO SUSTAIN SYSTEM BASELINE/PERFORM ENVIRONMENT MANAGEMENT, SYSTEMS ENGINEERING/BUILD SUPPORT, SOLUTION INTEGRATION/RELEASE MANAGEMENT, PLATFORM/SOFTWARE MIGRATION, AND TRANSITION FUNCTIONALITY.",
+      "detected_date": "2026-11-19",
+      "fingerprint": "CACI|W91CRB25C5007|95813604.26|None|DEFINITIVE CONTRACT||2024-12-20|2026-10-08",
+      "potential_amount": null,
+      "ticker": "CACI"
+    },
+    "GD|19AQMM21D0012": {
+      "award_amount": 0.0,
+      "award_id": "19AQMM21D0012",
+      "award_type": "GWAC",
+      "description": "THE PURPOSE OF THIS CONTRACT IS TO PROVIDE NON-INHERENTLY GOVERNMENTAL CONSULAR SUPPORT SERVICES WORLDWIDE AS PART OF THE BUREAU OF CONSULAR AFFAIRS' GLOBAL SUPPORT STRATEGY PROGRAM.",
+      "detected_date": "2026-11-19",
+      "fingerprint": "GD|19AQMM21D0012|0.0|None|GWAC||2020-12-15|",
+      "potential_amount": null,
+      "ticker": "GD"
+    },
+    "GD|19AQMM25D0302": {
+      "award_amount": 0.0,
+      "award_id": "19AQMM25D0302",
+      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
+      "description": "NETWORK AND TELECOMMUNICATION SERVICES",
+      "detected_date": "2026-11-19",
+      "fingerprint": "GD|19AQMM25D0302|0.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2025-05-12|",
+      "potential_amount": null,
+      "ticker": "GD"
+    },
+    "GD|SPRDL122D0050": {
+      "award_amount": 0.0,
+      "award_id": "SPRDL122D0050",
+      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
+      "description": "NSN: 1240-01-532-3942 COMMODITY NAME: SIGHT UNIT WITH CONTAINER",
+      "detected_date": "2026-11-19",
+      "fingerprint": "GD|SPRDL122D0050|0.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2022-08-09|",
+      "potential_amount": null,
+      "ticker": "GD"
+    },
+    "LDOS|80JSC024CA005": {
+      "award_amount": 121717061.0,
+      "award_id": "80JSC024CA005",
+      "award_type": "DEFINITIVE CONTRACT",
+      "description": "CARGO MISSION CONTRACT 4 (CMC4)",
+      "detected_date": "2026-11-19",
+      "fingerprint": "LDOS|80JSC024CA005|121717061.0|None|DEFINITIVE CONTRACT||2024-10-01|2028-09-30",
       "potential_amount": null,
       "ticker": "LDOS"
-    },
-    "NOC|FA822025DB002": {
-      "award_amount": 0.0,
-      "award_id": "FA822025DB002",
-      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
-      "description": "THIS REQUIREMENT WILL ESTABLISH A SINGLE AWARD INDEFINITE DELIVERY INDEFINITE QUANTITY (IDIQ) CONTRACT WITH A FIVE YEAR ORDERING PERIOD INCLUDING AN OPTIONAL 5-YEAR ORDERING PERIOD, IF EXERCISED (IAW FAR 52.217-9).",
-      "detected_date": "2026-11-18",
-      "fingerprint": "NOC|FA822025DB002|0.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2025-09-30|",
-      "potential_amount": null,
-      "ticker": "NOC"
     }
   }
 }

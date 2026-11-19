@@ -1,12 +1,26 @@
 {
-  "date": "2026-11-18",
+  "date": "2026-11-19",
   "events": {
-    "KTOS|2026-11-16": {
-      "award_date": "2026-11-16",
-      "fingerprint": "KTOS|2026-11-16|174719.57|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
-      "last_seen_utc": "2026-11-18T21:33:05.906156+00:00",
-      "projected_peak_pct_90d": 56.35999496872876,
-      "ticker": "KTOS"
+    "DE|2026-11-17": {
+      "award_date": "2026-11-17",
+      "fingerprint": "DE|2026-11-17|70466.46|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
+      "last_seen_utc": "2026-11-19T21:40:54.195471+00:00",
+      "projected_peak_pct_90d": 22.5733259396641,
+      "ticker": "DE"
+    },
+    "LUNR|2026-11-17": {
+      "award_date": "2026-11-17",
+      "fingerprint": "LUNR|2026-11-17|9017925.92|2|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
+      "last_seen_utc": "2026-11-19T21:40:54.224317+00:00",
+      "projected_peak_pct_90d": 93.47590014198221,
+      "ticker": "LUNR"
+    },
+    "ONDS|2026-11-17": {
+      "award_date": "2026-11-17",
+      "fingerprint": "ONDS|2026-11-17|1371761.63|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
+      "last_seen_utc": "2026-11-19T21:40:54.228457+00:00",
+      "projected_peak_pct_90d": 92.33831630024966,
+      "ticker": "ONDS"
     }
   }
 }
