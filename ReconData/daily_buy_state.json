@@ -1,26 +1,19 @@
 {
-  "date": "2026-11-19",
+  "date": "2026-11-20",
   "events": {
-    "DE|2026-11-17": {
-      "award_date": "2026-11-17",
-      "fingerprint": "DE|2026-11-17|70466.46|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
-      "last_seen_utc": "2026-11-19T21:40:54.195471+00:00",
-      "projected_peak_pct_90d": 22.5733259396641,
+    "DE|2026-11-18": {
+      "award_date": "2026-11-18",
+      "fingerprint": "DE|2026-11-18|0.00|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
+      "last_seen_utc": "2026-11-20T21:12:06.636860+00:00",
+      "projected_peak_pct_90d": 26.819665927846764,
       "ticker": "DE"
     },
-    "LUNR|2026-11-17": {
-      "award_date": "2026-11-17",
-      "fingerprint": "LUNR|2026-11-17|9017925.92|2|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
-      "last_seen_utc": "2026-11-19T21:40:54.224317+00:00",
-      "projected_peak_pct_90d": 93.47590014198221,
+    "LUNR|2026-11-18": {
+      "award_date": "2026-11-18",
+      "fingerprint": "LUNR|2026-11-18|1727430.67|2|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
+      "last_seen_utc": "2026-11-20T21:12:06.650894+00:00",
+      "projected_peak_pct_90d": 94.34364488582767,
       "ticker": "LUNR"
-    },
-    "ONDS|2026-11-17": {
-      "award_date": "2026-11-17",
-      "fingerprint": "ONDS|2026-11-17|1371761.63|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
-      "last_seen_utc": "2026-11-19T21:40:54.228457+00:00",
-      "projected_peak_pct_90d": 92.33831630024966,
-      "ticker": "ONDS"
     }
   }
 }

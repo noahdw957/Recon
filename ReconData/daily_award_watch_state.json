@@ -1,115 +1,105 @@
 {
-  "date": "2026-11-19",
+  "date": "2026-11-20",
   "events": {
-    "BAH|36C10B21N10070021": {
-      "award_amount": 1364336312.22,
-      "award_id": "36C10B21N10070021",
+    "BAH|47QFCA22F0047": {
+      "award_amount": 1304406546.32,
+      "award_id": "47QFCA22F0047",
       "award_type": "DELIVERY ORDER",
-      "description": "TRANSFORMATION TWENTY-ONE TOTAL TECHNOLOGY NEXT GENERATION (T4NG) TASK ORDER - BENEFITS INTEGRATED DELIVERY",
-      "detected_date": "2026-11-19",
-      "fingerprint": "BAH|36C10B21N10070021|1364336312.22|None|DELIVERY ORDER||2021-05-17|2026-08-07",
+      "description": "TASK ORDER AWARD",
+      "detected_date": "2026-11-20",
+      "fingerprint": "BAH|47QFCA22F0047|1304406546.32|None|DELIVERY ORDER||2022-09-06|2027-09-05",
       "potential_amount": null,
       "ticker": "BAH"
     },
-    "BAH|47QFCA23F0047": {
-      "award_amount": 255599581.05,
-      "award_id": "47QFCA23F0047",
+    "BA|FA861718F8001": {
+      "award_amount": 930504643.62,
+      "award_id": "FA861718F8001",
       "award_type": "DELIVERY ORDER",
-      "description": "AWARD OF DSCU ICB TO SUPPORT THE MISSION SETS AND PROGRAMS.",
-      "detected_date": "2026-11-19",
-      "fingerprint": "BAH|47QFCA23F0047|255599581.05|None|DELIVERY ORDER||2023-09-08|2028-09-30",
+      "description": "ADVANCED PILOT TRAINING",
+      "detected_date": "2026-11-20",
+      "fingerprint": "BA|FA861718F8001|930504643.62|None|DELIVERY ORDER||2018-09-27|2030-04-30",
       "potential_amount": null,
-      "ticker": "BAH"
+      "ticker": "BA"
     },
-    "BA|FA872622D0002": {
+    "GD|47QFMA25F0016": {
+      "award_amount": 123791341.25,
+      "award_id": "47QFMA25F0016",
+      "award_type": "DELIVERY ORDER",
+      "description": "ENTERPRISE MISSION INFORMATION TECHNOLOGY SERVICES 2 EMITS 2",
+      "detected_date": "2026-11-20",
+      "fingerprint": "GD|47QFMA25F0016|123791341.25|None|DELIVERY ORDER||2025-09-24|2027-01-31",
+      "potential_amount": null,
+      "ticker": "GD"
+    },
+    "GE|70Z03823DL0000001": {
       "award_amount": 0.0,
-      "award_id": "FA872622D0002",
+      "award_id": "70Z03823DL0000001",
       "award_type": "INDEFINITE DELIVERY / REQUIREMENTS",
-      "description": "JOINT INTEGRATED AIR AND MISSILE DEFENSE ORGANIZATION (JIAMDO)",
-      "detected_date": "2026-11-19",
-      "fingerprint": "BA|FA872622D0002|0.0|None|INDEFINITE DELIVERY / REQUIREMENTS||2022-04-13|",
+      "description": "OVERHAUL AND REPAIR OF THE CT7 ENGINE, MODULE AND COMPONENTS TO BE USED ON THE HC27J AIRCRAFT.",
+      "detected_date": "2026-11-20",
+      "fingerprint": "GE|70Z03823DL0000001|0.0|None|INDEFINITE DELIVERY / REQUIREMENTS||2022-12-13|",
       "potential_amount": null,
-      "ticker": "BA"
+      "ticker": "GE"
     },
-    "BA|NAS1510000": {
-      "award_amount": 22674726734.37,
-      "award_id": "NAS1510000",
-      "award_type": "DEFINITIVE CONTRACT",
-      "description": "INTERNATIONAL SPACE STATION",
-      "detected_date": "2026-11-19",
-      "fingerprint": "BA|NAS1510000|22674726734.37|None|DEFINITIVE CONTRACT||1993-11-15|2031-09-30",
-      "potential_amount": null,
-      "ticker": "BA"
-    },
-    "BA|W58RGZ25D0022": {
-      "award_amount": 0.0,
-      "award_id": "W58RGZ25D0022",
-      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
-      "description": "CH-47 - AIRCRAFT ENGINEERING AND LOGISTICS SUPPORT SERVICES (ELSS)",
-      "detected_date": "2026-11-19",
-      "fingerprint": "BA|W58RGZ25D0022|0.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2025-08-01|",
-      "potential_amount": null,
-      "ticker": "BA"
-    },
-    "CACI|47QFRA24F0005": {
-      "award_amount": 977850305.02,
-      "award_id": "47QFRA24F0005",
+    "IBM|GSQ0017AJ0007": {
+      "award_amount": 122024280.46,
+      "award_id": "GSQ0017AJ0007",
       "award_type": "DELIVERY ORDER",
-      "description": "CDM DEFEND GROUP A  BRIDGE TASK ORDER",
-      "detected_date": "2026-11-19",
-      "fingerprint": "CACI|47QFRA24F0005|977850305.02|None|DELIVERY ORDER||2024-05-01|2027-04-30",
+      "description": "IGF::OT::IGF - AWARD OF TASK ORDER TO SUPPORT GSA OFFICE OF HUMAN RESOURCE MANAGEMENT.",
+      "detected_date": "2026-11-20",
+      "fingerprint": "IBM|GSQ0017AJ0007|122024280.46|None|DELIVERY ORDER||2016-11-18|2027-05-17",
       "potential_amount": null,
-      "ticker": "CACI"
+      "ticker": "IBM"
     },
-    "CACI|W91CRB25C5007": {
-      "award_amount": 95813604.26,
-      "award_id": "W91CRB25C5007",
-      "award_type": "DEFINITIVE CONTRACT",
-      "description": "INTEGRATED PERSONNEL AND PAY SYSTEM-ARMY TOTAL SOLUTION TO SUSTAIN SYSTEM BASELINE/PERFORM ENVIRONMENT MANAGEMENT, SYSTEMS ENGINEERING/BUILD SUPPORT, SOLUTION INTEGRATION/RELEASE MANAGEMENT, PLATFORM/SOFTWARE MIGRATION, AND TRANSITION FUNCTIONALITY.",
-      "detected_date": "2026-11-19",
-      "fingerprint": "CACI|W91CRB25C5007|95813604.26|None|DEFINITIVE CONTRACT||2024-12-20|2026-10-08",
-      "potential_amount": null,
-      "ticker": "CACI"
-    },
-    "GD|19AQMM21D0012": {
-      "award_amount": 0.0,
-      "award_id": "19AQMM21D0012",
-      "award_type": "GWAC",
-      "description": "THE PURPOSE OF THIS CONTRACT IS TO PROVIDE NON-INHERENTLY GOVERNMENTAL CONSULAR SUPPORT SERVICES WORLDWIDE AS PART OF THE BUREAU OF CONSULAR AFFAIRS' GLOBAL SUPPORT STRATEGY PROGRAM.",
-      "detected_date": "2026-11-19",
-      "fingerprint": "GD|19AQMM21D0012|0.0|None|GWAC||2020-12-15|",
-      "potential_amount": null,
-      "ticker": "GD"
-    },
-    "GD|19AQMM25D0302": {
-      "award_amount": 0.0,
-      "award_id": "19AQMM25D0302",
-      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
-      "description": "NETWORK AND TELECOMMUNICATION SERVICES",
-      "detected_date": "2026-11-19",
-      "fingerprint": "GD|19AQMM25D0302|0.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2025-05-12|",
-      "potential_amount": null,
-      "ticker": "GD"
-    },
-    "GD|SPRDL122D0050": {
-      "award_amount": 0.0,
-      "award_id": "SPRDL122D0050",
-      "award_type": "INDEFINITE DELIVERY / INDEFINITE QUANTITY",
-      "description": "NSN: 1240-01-532-3942 COMMODITY NAME: SIGHT UNIT WITH CONTAINER",
-      "detected_date": "2026-11-19",
-      "fingerprint": "GD|SPRDL122D0050|0.0|None|INDEFINITE DELIVERY / INDEFINITE QUANTITY||2022-08-09|",
-      "potential_amount": null,
-      "ticker": "GD"
-    },
-    "LDOS|80JSC024CA005": {
-      "award_amount": 121717061.0,
-      "award_id": "80JSC024CA005",
-      "award_type": "DEFINITIVE CONTRACT",
-      "description": "CARGO MISSION CONTRACT 4 (CMC4)",
-      "detected_date": "2026-11-19",
-      "fingerprint": "LDOS|80JSC024CA005|121717061.0|None|DEFINITIVE CONTRACT||2024-10-01|2028-09-30",
+    "LDOS|75FCMC23F0076": {
+      "award_amount": 204295303.25,
+      "award_id": "75FCMC23F0076",
+      "award_type": "DELIVERY ORDER",
+      "description": "END - USER CENTRIC IT SUPPORT 2.0 (ECIS 2.0)",
+      "detected_date": "2026-11-20",
+      "fingerprint": "LDOS|75FCMC23F0076|204295303.25|None|DELIVERY ORDER||2023-06-15|2027-08-31",
       "potential_amount": null,
       "ticker": "LDOS"
+    },
+    "LDOS|80NSSC19D0001": {
+      "award_amount": 811944644.95,
+      "award_id": "80NSSC19D0001",
+      "award_type": "INDEFINITE DELIVERY / DEFINITE QUANTITY",
+      "description": "IT AND TELECOM - END USER AS A SERVICE: CONFERENCING, AV, HELPDESK, DESKSIDE SUPPORT, WORKSPACE, PRI. NASA END-USER SERVICES & TECHNOLOGIES (NEST)",
+      "detected_date": "2026-11-20",
+      "fingerprint": "LDOS|80NSSC19D0001|811944644.95|None|INDEFINITE DELIVERY / DEFINITE QUANTITY||2019-03-01|",
+      "potential_amount": null,
+      "ticker": "LDOS"
+    },
+    "LDOS|W52P1J18C0047": {
+      "award_amount": 153385402.22,
+      "award_id": "W52P1J18C0047",
+      "award_type": "DEFINITIVE CONTRACT",
+      "description": "BASIC CONTRACT FOR SYSTEMIZATION, OPERATIONS, AND CLOSURE SUPPORT (SOCS)",
+      "detected_date": "2026-11-20",
+      "fingerprint": "LDOS|W52P1J18C0047|153385402.22|None|DEFINITIVE CONTRACT||2018-09-06|2028-09-23",
+      "potential_amount": null,
+      "ticker": "LDOS"
+    },
+    "NOC|N0003019C0015": {
+      "award_amount": 448863535.66,
+      "award_id": "N0003019C0015",
+      "award_type": "DEFINITIVE CONTRACT",
+      "description": "UK09 DREADNOUGHT HARDWARE PRODUCTION",
+      "detected_date": "2026-11-20",
+      "fingerprint": "NOC|N0003019C0015|448863535.66|None|DEFINITIVE CONTRACT||2019-03-12|2026-09-30",
+      "potential_amount": null,
+      "ticker": "NOC"
+    },
+    "PSN|W52P1J19F0404": {
+      "award_amount": 95305381.94,
+      "award_id": "W52P1J19F0404",
+      "award_type": "DELIVERY ORDER",
+      "description": "LOGISTIC CIVIL AUGMENTATION PROGRAM (LOGCAP) V AWARD FOR SOUTHCOM-SOTO CANO.",
+      "detected_date": "2026-11-20",
+      "fingerprint": "PSN|W52P1J19F0404|95305381.94|None|DELIVERY ORDER||2019-04-12|2026-11-20",
+      "potential_amount": null,
+      "ticker": "PSN"
     }
   }
 }
