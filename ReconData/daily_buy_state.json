@@ -1,33 +1,4 @@
 {
-  "date": "2026-11-24",
-  "events": {
-    "ETN|2026-11-19": {
-      "award_date": "2026-11-19",
-      "fingerprint": "ETN|2026-11-19|63180.00|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
-      "last_seen_utc": "2026-11-24T00:58:08.146305+00:00",
-      "projected_peak_pct_90d": 38.73112831120082,
-      "ticker": "ETN"
-    },
-    "ETN|2026-11-20": {
-      "award_date": "2026-11-20",
-      "fingerprint": "ETN|2026-11-20|141879.23|2|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
-      "last_seen_utc": "2026-11-24T00:58:08.204925+00:00",
-      "projected_peak_pct_90d": 38.06959844555348,
-      "ticker": "ETN"
-    },
-    "ONDS|2026-11-19": {
-      "award_date": "2026-11-19",
-      "fingerprint": "ONDS|2026-11-19|1061070.14|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
-      "last_seen_utc": "2026-11-24T00:58:08.157045+00:00",
-      "projected_peak_pct_90d": 93.17316072749628,
-      "ticker": "ONDS"
-    },
-    "TXT|2026-11-20": {
-      "award_date": "2026-11-20",
-      "fingerprint": "TXT|2026-11-20|0.00|1|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
-      "last_seen_utc": "2026-11-24T00:58:08.236660+00:00",
-      "projected_peak_pct_90d": 40.96643786070472,
-      "ticker": "TXT"
-    }
-  }
+  "date": "2026-11-25",
+  "events": {}
 }
