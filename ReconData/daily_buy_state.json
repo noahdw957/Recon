@@ -1,4 +1,12 @@
 {
-  "date": "2026-11-25",
-  "events": {}
+  "date": "2026-11-26",
+  "events": {
+    "ETN|2026-11-24": {
+      "award_date": "2026-11-24",
+      "fingerprint": "ETN|2026-11-24|362495.63|5|RECON_MD14_PRIMARY_MD11_SECONDARY_V1",
+      "last_seen_utc": "2026-11-26T22:27:42.368618+00:00",
+      "projected_peak_pct_90d": 42.23433240150857,
+      "ticker": "ETN"
+    }
+  }
 }
